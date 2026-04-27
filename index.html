@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haein Yun | Architectural & Urban Systems Engineering</title>
+    <meta name="description" content="윤해인 - 이화여자대학교 건축도시시스템공학과 석사과정. LLM 기반 계약 리스크 분석 및 건설 자동화 연구.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css?v=3">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">HY<span class="dot">.</span></a>
+            <ul class="nav-links">
+                <li><a href="#about" data-text="About">About</a></li>
+                <li><a href="#education" data-text="Education">Education</a></li>
+                <li><a href="#research" data-text="Research">Research</a></li>
+                <li><a href="#milestones" data-text="Goals">Goals</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <canvas id="gridCanvas"></canvas>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                Construction Management Lab
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">
+                    <span class="title-word" style="--delay: 0">Haein</span>
+                    <span class="title-word" style="--delay: 1">Yun</span>
+                </span>
+                <span class="title-line title-korean">
+                    <span class="title-word" style="--delay: 2">윤해인</span>
+                </span>
+            </h1>
+            <p class="hero-subtitle">
+                M.S. Student in Architectural & Urban Systems Engineering
+            </p>
+            <div class="hero-rotating">
+                <span class="hero-rotating-static">I research&nbsp;</span>
+                <span class="hero-rotating-wrapper" id="rotatingText">
+                    <span class="hero-rotating-word active">Contract Risk Analysis</span>
+                    <span class="hero-rotating-word">LLM Automation</span>
+                    <span class="hero-rotating-word">Construction Tech</span>
+                    <span class="hero-rotating-word">Data-driven Management</span>
+                    <span class="hero-rotating-word">FIDIC Contracts</span>
+                </span>
+            </div>
+            <p class="hero-desc">
+                이화여자대학교 건설관리연구실(CML)에서<br>
+                <strong>LLM 기반 계약 리스크 분석</strong>과 <strong>건설 자동화</strong>를 연구합니다.
+            </p>
+            <div class="hero-tags">
+                <span class="hero-tag">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                    Ewha Womans University
+                </span>
+                <span class="hero-tag">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                    </svg>
+                    Research Assistant
+                </span>
+                <span class="hero-tag">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                    </svg>
+                    Construction Management
+                </span>
+            </div>
+            <a href="#about" class="scroll-indicator" aria-label="Scroll down">
+                <div class="scroll-mouse">
+                    <div class="scroll-wheel"></div>
+                </div>
+                <span>Scroll to explore</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2 class="section-title">About Me</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-grid">
+                <div class="about-text reveal-up">
+                    <p class="about-lead">
+                        데이터 기반의 효율적인 프로젝트 관리 체계를 구축하는 것에 가치를 둡니다.
+                    </p>
+                    <p>
+                        건설관리연구실(CML)에서 이준성 교수님의 지도 아래, 
+                        거대언어모델(LLM)을 활용한 계약 리스크 분석 및 건설 업무 자동화를 연구하고 있습니다.
+                        기술과 건설 산업의 교차점에서 새로운 가능성을 탐구합니다.
+                    </p>
+                </div>
+                <div class="about-stats reveal-up" style="--delay: 0.2s">
+                    <div class="stat-card">
+                        <span class="stat-icon">🏛️</span>
+                        <div class="stat-info">
+                            <span class="stat-label">University</span>
+                            <span class="stat-value">이화여자대학교</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon">🔬</span>
+                        <div class="stat-info">
+                            <span class="stat-label">Lab</span>
+                            <span class="stat-value">건설관리연구실 (CML)</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon">👩‍🏫</span>
+                        <div class="stat-info">
+                            <span class="stat-label">Advisor</span>
+                            <span class="stat-value">이준성 교수님</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon">🤖</span>
+                        <div class="stat-info">
+                            <span class="stat-label">Focus</span>
+                            <span class="stat-value">LLM & Construction</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section section-alt" id="education">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2 class="section-title">Education</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="timeline reveal-up">
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="timeline-dot active-dot"></div>
+                        <div class="timeline-line"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-badge">재학중</div>
+                        <h3>이화여자대학교 대학원</h3>
+                        <p class="timeline-dept">건축도시시스템공학과 석사과정</p>
+                        <p class="timeline-date">2026.03 — 현재</p>
+                        <div class="timeline-details">
+                            <p class="timeline-detail-title">주요 수강 과목</p>
+                            <div class="course-tags">
+                                <span class="course-tag">계량연구방법론</span>
+                                <span class="course-tag">건설제도 및 계약관리</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section class="section" id="research">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2 class="section-title">Research & Projects</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="research-grid">
+                <article class="research-card reveal-up" style="--delay: 0s">
+                    <div class="research-card-inner">
+                        <div class="research-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                                <polyline points="10 9 9 9 8 9"/>
+                            </svg>
+                        </div>
+                        <span class="research-tag tag-contract">Contract Risk</span>
+                        <h3>FIDIC Silver Book Study</h3>
+                        <p>국제 표준 계약(FIDIC) Clause 3 분석 및 발주자 대리인의 리스크 저감 역할 연구</p>
+                        <div class="research-meta">
+                            <span class="meta-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                                진행중
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="research-card reveal-up" style="--delay: 0.15s">
+                    <div class="research-card-inner">
+                        <div class="research-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <span class="research-tag tag-ai">AI Research</span>
+                        <h3>LLM & RPA Automation</h3>
+                        <p>거대언어모델을 활용한 건설 문서 리스크 자동 분석 및 업무 프로세스 자동화 설계</p>
+                        <div class="research-meta">
+                            <span class="meta-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                                진행중
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="research-card reveal-up" style="--delay: 0.3s">
+                    <div class="research-card-inner">
+                        <div class="research-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="3" y1="9" x2="21" y2="9"/>
+                                <line x1="9" y1="21" x2="9" y2="9"/>
+                            </svg>
+                        </div>
+                        <span class="research-tag tag-dev">Development</span>
+                        <h3>Routine Master</h3>
+                        <p>개인 연구 및 학습 효율 극대화를 위한 HTML/JS 기반 맞춤형 스케줄 관리 시스템 개발</p>
+                        <div class="research-meta">
+                            <span class="meta-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                완료
+                            </span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Milestones Section -->
+    <section class="section section-alt" id="milestones">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2 class="section-title">Upcoming Milestones</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="milestones-grid reveal-up">
+                <div class="milestone-card">
+                    <div class="milestone-icon-wrapper">
+                        <span class="milestone-icon">🎯</span>
+                    </div>
+                    <div class="milestone-info">
+                        <h4>I3CE 2026</h4>
+                        <p>Poster Presentation</p>
+                    </div>
+                    <div class="milestone-status status-upcoming">Upcoming</div>
+                </div>
+                <div class="milestone-card">
+                    <div class="milestone-icon-wrapper">
+                        <span class="milestone-icon">📜</span>
+                    </div>
+                    <div class="milestone-info">
+                        <h4>건축기사</h4>
+                        <p>자격증 취득 예정</p>
+                    </div>
+                    <div class="milestone-status status-planned">Planned</div>
+                </div>
+                <div class="milestone-card">
+                    <div class="milestone-icon-wrapper">
+                        <span class="milestone-icon">📜</span>
+                    </div>
+                    <div class="milestone-info">
+                        <h4>건설안전기사</h4>
+                        <p>자격증 취득 예정</p>
+                    </div>
+                    <div class="milestone-status status-planned">Planned</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <span class="footer-logo">HY<span class="dot">.</span></span>
+                    <p>Building the future of construction<br>with data and intelligence.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="#education">Education</a>
+                    <a href="#research">Research</a>
+                    <a href="#milestones">Goals</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Haein Yun. Built with Passion for Construction & Tech.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js?v=3"></script>
+</body>
+</html>

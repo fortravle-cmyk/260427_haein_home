@@ -1,0 +1,19 @@
+# Raw data (논문 PDF 등 민감 자료)
+.raw.data/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node modules (if used later)
+node_modules/
+
+# Gemini / AI agent data
+.gemini/
