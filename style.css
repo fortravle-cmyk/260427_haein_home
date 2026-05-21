@@ -1,357 +1,613 @@
-/* ===== Reset & Base ===== */
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+# 🏗️ Implementation & Modification Process
 
+> **프로젝트**: Haein Yun 개인 홈페이지
+> **작업 기준**: ESCO 소속 연구원 포트폴리오형 홈페이지
+> **기술스택**: HTML5, CSS3, Vanilla JavaScript, Google Fonts
+> **구성 방식**: `index.html` 단일 파일 기반 구조
+> **디자인 방향**: 밝은 색상 기반의 전문적·연구자형 포트폴리오 UI
+
+---
+
+## 📋 목차
+
+1. [Phase 1: 기존 홈페이지 구조 검토](#phase-1-기존-홈페이지-구조-검토)
+2. [Phase 2: 개인 정보 및 연구자 정체성 재정의](#phase-2-개인-정보-및-연구자-정체성-재정의)
+3. [Phase 3: 밝은 톤 디자인 시스템 재구성](#phase-3-밝은-톤-디자인-시스템-재구성)
+4. [Phase 4: 주요 섹션 재설계](#phase-4-주요-섹션-재설계)
+5. [Phase 5: 인터랙션 및 기능 추가](#phase-5-인터랙션-및-기능-추가)
+6. [최종 파일 구조](#최종-파일-구조)
+7. [디자인 시스템](#디자인-시스템)
+8. [상세 코드 설명](#상세-코드-설명)
+9. [변경 이력 요약](#변경-이력-요약)
+
+---
+
+## Phase 1: 기존 홈페이지 구조 검토
+
+### 1.1 기존 코드의 특징
+
+기존 홈페이지는 개인 연구자 포트폴리오 형태로 구성되어 있었으며, 다음과 같은 기본 구조를 가지고 있었다.
+
+* Fixed Navigation
+* Hero Section
+* About Me
+* Education
+* Research & Projects
+* Upcoming Milestones
+* Footer
+
+기존 코드는 이화여자대학교 건축도시시스템공학과 석사과정, 건설관리연구실, LLM 기반 계약 리스크 분석, 건설 자동화 등을 중심으로 구성되어 있었다.
+
+### 1.2 수정 필요사항
+
+사용자의 최신 요청에 따라 기존 홈페이지는 다음 방향으로 수정할 필요가 있었다.
+
+| 구분      | 기존 구성                  | 수정 방향                        |
+| ------- | ---------------------- | ---------------------------- |
+| 소속 표현   | 건설관리연구실(CML) 중심        | ESCO 소속 연구원 중심               |
+| 연구자 정체성 | LLM 기반 계약 리스크 분석 중심    | AI 활용 역량과 건설관리 연구를 함께 강조     |
+| 디자인 톤   | 어두운 톤 또는 웜톤 기반         | 밝은 색상 기반의 전문적 포트폴리오          |
+| 수상 이력   | 별도 강조 부족               | 2025·2026 대한건축학회 수상 이력 명시    |
+| 자격증     | Upcoming Milestones 중심 | 취득 예정 자격증 섹션으로 분리            |
+| 기능      | 기본 애니메이션 중심            | 탭, 필터, 카운터, 다크모드 등 다양한 기능 추가 |
+
+---
+
+## Phase 2: 개인 정보 및 연구자 정체성 재정의
+
+### 2.1 반영된 개인 정보
+
+최신 홈페이지에는 다음 정보가 반영되었다.
+
+* 이름: 윤해인 / Haein Yun
+* 소속: ESCO 소속 연구원
+* 전공: 건축도시시스템공학
+* 연구 방향: 건설관리, BIM, AI, RAG, NLP, 자동화, 데이터 기반 의사결정
+* 역량: 다양한 AI 도구 활용 가능
+* 주요 수상:
+
+  * 2025년 대한건축학회 추계학술발표대회 우수논문상
+  * 2026년 대한건축학회 우수졸업논문전 장려상
+* 자격증:
+
+  * 건축기사 취득 예정
+  * 건설안전기사 취득 예정
+
+### 2.2 핵심 브랜딩 문구
+
+홈페이지의 전체적인 정체성은 다음 문구를 중심으로 구성되었다.
+
+> **AI와 건설관리를 연결하는 연구자**
+
+Hero Section에서는 다음과 같은 연구자 이미지를 강조하였다.
+
+> ESCO 소속 연구원으로서 건설관리, BIM, RAG, NLP, 자동화, 데이터 기반 의사결정을 연결하는 연구를 수행합니다.
+
+### 2.3 과장 방지를 위한 표현 방식
+
+자격증은 아직 취득 전이므로 “보유”가 아니라 “취득 예정” 또는 “Planned”로 표기하였다.
+AI 역량 또한 절대적 숙련도를 의미하기보다, 연구 과정에서 활용 가능한 주요 기술 영역을 보여주는 방식으로 구성하였다.
+
+---
+
+## Phase 3: 밝은 톤 디자인 시스템 재구성
+
+### 3.1 디자인 방향
+
+사용자가 “화면은 밝은 색이었으면 좋겠다”고 요청했기 때문에 전체 디자인은 다음 방향으로 재구성하였다.
+
+* 흰색과 연한 블루 계열을 중심으로 한 밝은 배경
+* 연구자 포트폴리오에 적합한 차분한 네이비 텍스트
+* AI·기술 이미지를 표현할 수 있는 블루, 스카이, 퍼플 포인트 컬러
+* 카드형 레이아웃과 부드러운 그림자를 활용한 현대적 UI
+* 필요 시 다크모드로 전환 가능한 선택 기능 제공
+
+### 3.2 주요 CSS 변수
+
+```css
 :root {
-    --bg-primary: #1a1410;
-    --bg-secondary: #1f1914;
-    --bg-card: rgba(31, 25, 20, 0.7);
-    --bg-card-hover: rgba(45, 36, 28, 0.8);
-    --surface: rgba(255, 245, 235, 0.04);
-    --border: rgba(255, 220, 180, 0.08);
-    --border-hover: rgba(255, 200, 150, 0.16);
-    --text-primary: #faf3eb;
-    --text-secondary: #b8a898;
-    --text-muted: #8a7968;
-    --accent: #e8a855;
-    --accent-glow: rgba(232, 168, 85, 0.15);
-    --accent-2: #d4836a;
-    --accent-3: #c4a35a;
-    --gold: #e8a855;
-    --navy: #5f3e1e;
-    --font-main: 'Inter', 'Noto Sans KR', sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
-    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --bg: #f8fbff;
+  --bg-soft: #eef6ff;
+  --card: rgba(255, 255, 255, 0.82);
+  --card-solid: #ffffff;
+  --text: #1f2937;
+  --muted: #64748b;
+  --line: #dbeafe;
+  --navy: #1e3a8a;
+  --blue: #2563eb;
+  --sky: #38bdf8;
+  --teal: #0f766e;
+  --purple: #7c3aed;
+  --amber: #d97706;
+  --rose: #e11d48;
+  --green: #16a34a;
+}
+```
+
+### 3.3 컬러 시스템 의미
+
+| 색상        | 용도         | 의미                   |
+| --------- | ---------- | -------------------- |
+| `#f8fbff` | 전체 배경      | 밝고 깨끗한 연구자 포트폴리오 이미지 |
+| `#1e3a8a` | 제목, 핵심 텍스트 | 전문성, 신뢰성, 학술성        |
+| `#2563eb` | 주요 버튼, 강조선 | AI·데이터 기반 기술 이미지     |
+| `#38bdf8` | 보조 포인트     | 밝고 동적인 디지털 감각        |
+| `#7c3aed` | AI/기술 강조   | 지능형 기술과 실험적 연구 이미지   |
+| `#d97706` | 수상/자격증 강조  | 성과, 계획, 마일스톤         |
+
+### 3.4 다크모드 대응
+
+기본 화면은 밝은 색상이지만, 사용자가 직접 다크모드로 전환할 수 있도록 `body.dark` 클래스를 추가하였다.
+
+```css
+body.dark {
+  --bg: #0f172a;
+  --bg-soft: #111827;
+  --card: rgba(15, 23, 42, 0.76);
+  --text: #e5e7eb;
+  --muted: #aab7cc;
+  --line: rgba(148, 163, 184, 0.22);
+  --navy: #bfdbfe;
+}
+```
+
+---
+
+## Phase 4: 주요 섹션 재설계
+
+### 4.1 Navigation
+
+고정형 상단 네비게이션을 유지하되, 새로운 섹션 구성에 맞게 메뉴를 수정하였다.
+
+```html
+<ul class="nav-links" id="navLinks">
+  <li><a href="#about">About</a></li>
+  <li><a href="#skills">AI Skills</a></li>
+  <li><a href="#research">Research</a></li>
+  <li><a href="#awards">Awards</a></li>
+  <li><a href="#certificates">Certificates</a></li>
+  <li><a href="#contact">Contact</a></li>
+</ul>
+```
+
+### 4.2 Hero Section
+
+Hero Section은 홈페이지의 첫인상을 결정하는 영역으로, ESCO 연구원 정체성과 AI 활용 역량을 동시에 보여주도록 구성하였다.
+
+**주요 구성 요소**:
+
+* `HY.ESCO` 로고
+* ESCO Researcher 배지
+* 이름: Haein Yun / 윤해인
+* 타이핑 애니메이션
+* 연구 정체성 설명 문장
+* Research, Awards 섹션으로 이동하는 버튼
+* 소속·역량 태그
+* 프로필 카드 및 카운터 애니메이션
+
+### 4.3 About Section
+
+About Section은 단순 자기소개가 아니라 연구자 정체성을 구체적으로 설명하는 영역으로 재구성하였다.
+
+**반영 내용**:
+
+* ESCO 소속 연구원
+* 건설관리와 AI 융합 연구
+* BIM, RAG, NLP, 자동화, 데이터 기반 의사결정
+* 다양한 AI 도구를 연구 생산성 향상에 활용
+* 실무 적용 가능성이 높은 디지털 건설관리 연구 지향
+
+### 4.4 AI Skills Section
+
+기존 홈페이지에는 없던 신규 기능 중심 섹션이다.
+사용자가 “다양한 AI를 다룰 줄 안다”고 밝힌 내용을 시각적으로 보여주기 위해 추가하였다.
+
+**구성 요소**:
+
+1. 기술 숙련도 바
+2. AI 활용 영역별 탭
+3. 탭 선택 시 설명과 키워드 변경
+
+**탭 구성**:
+
+| 탭             | 설명                              |
+| ------------- | ------------------------------- |
+| Research      | 문헌 검토, 연구 질문 구조화, 결과 해석         |
+| Writing       | 논문, 연구계획서, 리뷰 대응, 번역            |
+| Visualization | 도식화, 인포그래픽, UI Mockup           |
+| Automation    | RPA 로직, 데이터 정리, 코드 보조, 워크플로우 설계 |
+
+### 4.5 Research Section
+
+Research Section은 카드형 포트폴리오로 구성하였다.
+각 프로젝트는 필터 기능을 통해 AI, BIM, Safety, Automation 영역으로 구분된다.
+
+**프로젝트 카드 목록**:
+
+1. BIM-context-aware RAG for Construction Safety
+2. Risk-chain Structuring from Accident Narratives
+3. Construction Safety Documentation Automation
+4. BIM-based Design and Construction Automation
+5. AI-assisted Research Writing & Review
+6. Interactive Web Documentation
+
+### 4.6 Awards Section
+
+수상 이력은 별도 섹션으로 분리하여 학술적 성과를 강조하였다.
+
+| 연도   | 수상                    | 설명                                |
+| ---- | --------------------- | --------------------------------- |
+| 2025 | 대한건축학회 추계학술발표대회 우수논문상 | 건설관리 및 디지털 기술 기반 연구성과의 학술적 가능성 인정 |
+| 2026 | 대한건축학회 우수졸업논문전 장려상    | 학부 연구에서 확장된 연구 역량과 주제 발전 가능성 확인   |
+
+### 4.7 Education Section
+
+기존 Education Section은 유지하되, 석사과정 및 ESCO 소속 연구원이라는 현재 상태가 잘 드러나도록 간결한 타임라인으로 재구성하였다.
+
+**타임라인 항목**:
+
+* Current: 이화여자대학교 대학원, 건축도시시스템공학과 석사과정, ESCO 소속 연구원
+* Research: Construction Management & AI Integration
+* Future: Applied Digital Construction Research
+
+### 4.8 Certificates Section
+
+자격증은 아직 취득 전이므로 “Certificates in Progress” 섹션으로 구성하였다.
+
+**카드 구성**:
+
+* 건축기사 — Planned
+* 건설안전기사 — Planned
+* AI & Digital Tools — Developing
+
+이를 통해 자격증을 과장하지 않으면서도 전문성 확장 계획을 보여줄 수 있도록 하였다.
+
+### 4.9 Contact Section
+
+Contact Section은 실제 이메일이나 링크가 확정되지 않은 상태를 고려해, 수정 가능한 placeholder 형태로 구성하였다.
+
+```html
+<div class="contact-item">✉️ your-email@example.com</div>
+```
+
+추후 실제 이메일, GitHub, LinkedIn, Google Scholar, 연구실 홈페이지 링크 등으로 교체 가능하다.
+
+---
+
+## Phase 5: 인터랙션 및 기능 추가
+
+### 5.1 스크롤 진행 바
+
+페이지 최상단에 현재 스크롤 위치를 보여주는 진행 바를 추가하였다.
+
+```javascript
+const scrollTop = window.scrollY;
+const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+progressBar.style.width = `${progress}%`;
+```
+
+### 5.2 Navbar Scroll Effect
+
+스크롤이 일정 수준 이상 내려가면 네비게이션에 그림자와 더 선명한 배경을 부여하였다.
+
+```javascript
+navbar.classList.toggle('scrolled', scrollTop > 18);
+```
+
+### 5.3 Mobile Navigation
+
+모바일 화면에서는 메뉴가 햄버거 버튼으로 접히도록 구성하였다.
+
+```javascript
+navToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+});
+```
+
+### 5.4 다크모드 토글
+
+밝은 화면을 기본으로 하되, 사용자가 버튼을 눌러 다크모드로 전환할 수 있도록 하였다.
+
+```javascript
+modeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+  modeToggle.textContent = document.body.classList.contains('dark') ? '🌙' : '☀️';
+});
+```
+
+### 5.5 Active Navigation Highlight
+
+현재 화면에 보이는 섹션에 따라 네비게이션 메뉴가 자동으로 활성화되도록 하였다.
+
+```javascript
+const linkObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.getAttribute('id');
+      menuLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+      });
+    }
+  });
+}, { threshold: 0.48 });
+```
+
+### 5.6 Scroll Reveal Animation
+
+카드와 섹션이 화면에 진입할 때 부드럽게 나타나는 애니메이션을 추가하였다.
+
+```javascript
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.16 });
+```
+
+### 5.7 Hero Typing Animation
+
+Hero Section에서 AI 활용 영역이 순환되며 타이핑되는 효과를 추가하였다.
+
+**순환 키워드**:
+
+* Generative AI
+* LLM-based Research
+* BIM Data Workflows
+* RAG Systems
+* NLP for Safety Narratives
+* Research Automation
+
+```javascript
+const typeWords = [
+  'Generative AI',
+  'LLM-based Research',
+  'BIM Data Workflows',
+  'RAG Systems',
+  'NLP for Safety Narratives',
+  'Research Automation'
+];
+```
+
+### 5.8 Counter Animation
+
+Hero 우측 프로필 카드에는 주요 성과를 숫자로 보여주는 카운터 애니메이션을 추가하였다.
+
+**표시 항목**:
+
+* Major Awards: 2
+* AI/Tech Fields: 6
+* KIA Award: 2025
+* Thesis Award: 2026
+
+### 5.9 Skill Bar Animation
+
+AI 및 기술 활용 역량을 막대 그래프로 시각화하였다.
+
+```html
+<div class="tool-row" data-score="92">
+  <b>AI Writing</b>
+  <div class="bar"><span></span></div>
+  <small>92%</small>
+</div>
+```
+
+IntersectionObserver를 사용하여 해당 영역이 화면에 들어왔을 때 막대가 채워지도록 구현하였다.
+
+### 5.10 AI Skills Tab
+
+AI 활용 영역을 탭으로 구분하여, 사용자가 클릭하면 설명과 키워드가 바뀌도록 구성하였다.
+
+```javascript
+const tabData = {
+  'research-ai': {
+    title: 'Research AI Workflow',
+    desc: '문헌 검토, 연구 질문 구조화, 데이터 라벨링 기준 정리, 실험 결과 해석 등 연구 전 과정에서 AI를 활용합니다.',
+    chips: ['🔎 Literature Review', '🧩 Research Framing', '📊 Result Interpretation', '🧾 Evidence Structuring']
+  }
+};
+```
+
+### 5.11 Project Filter
+
+Research Section의 프로젝트 카드를 카테고리별로 필터링할 수 있도록 구현하였다.
+
+```javascript
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('.project-card').forEach(card => {
+      const show = filter === 'all' || card.dataset.category.includes(filter);
+      card.style.display = show ? 'block' : 'none';
+    });
+  });
+});
+```
+
+### 5.12 Hero Canvas Particle Background
+
+Hero Section에는 파티클과 라인이 연결되는 가벼운 배경 애니메이션을 추가하였다.
+
+**동작 원리**:
+
+1. 화면 크기에 따라 파티클 배열 생성
+2. 각 파티클은 작은 속도로 이동
+3. 가까운 파티클끼리는 선으로 연결
+4. 다크모드 여부에 따라 선과 점의 색상 변경
+5. `requestAnimationFrame`으로 반복 렌더링
+
+---
+
+## 최종 파일 구조
+
+단일 HTML 파일로 구성할 경우 다음 구조를 사용한다.
+
+```text
+haein_homepage/
+└── index.html
+```
+
+CSS와 JavaScript를 분리하고 싶을 경우 다음 구조로 확장할 수 있다.
+
+```text
+haein_homepage/
+├── index.html
+├── style.css
+└── script.js
+```
+
+현재 제공된 코드는 복사와 실행 편의성을 위해 `index.html` 하나에 HTML, CSS, JavaScript가 모두 포함된 구조이다.
+
+---
+
+## 디자인 시스템
+
+### 최종 컬러 팔레트
+
+```text
+Background
+  #ffffff   Main White
+  #f8fbff   Soft Page Background
+  #eef6ff   Light Blue Section Background
+
+Primary
+  #1e3a8a   Navy Title
+  #2563eb   Blue Accent
+  #38bdf8   Sky Accent
+
+Secondary
+  #0f766e   Teal
+  #7c3aed   Purple
+  #d97706   Amber
+
+Text
+  #1f2937   Main Text
+  #64748b   Muted Text
+  #dbeafe   Border Line
+```
+
+### 타이포그래피
+
+| 용도    | 폰트             |
+| ----- | -------------- |
+| 영문/UI | Inter          |
+| 한글 본문 | Noto Sans KR   |
+| 코드/숫자 | JetBrains Mono |
+
+### UI 구성 원칙
+
+| 원칙           | 적용 방식                              |
+| ------------ | ---------------------------------- |
+| 밝고 전문적인 이미지  | 화이트·라이트블루 배경 사용                    |
+| 연구자 포트폴리오 느낌 | 카드형 섹션, 타임라인, 수상 섹션 구성             |
+| AI 활용 역량 강조  | AI Skills 탭과 기술 바 추가               |
+| 과장 방지        | 자격증은 Planned, AI 역량은 활용 영역 중심으로 표현 |
+| 사용성 강화       | 스크롤바, 필터, 탭, 다크모드, Top 버튼 추가       |
+
+---
+
+## 상세 코드 설명
+
+### 1. 단일 파일 구조
+
+이번 버전은 별도의 `style.css`, `script.js` 없이 하나의 `index.html`만으로 실행 가능하도록 구성하였다.
+
+```html
+<style>
+  /* CSS 전체 포함 */
+</style>
+
+<script>
+  /* JavaScript 전체 포함 */
+</script>
+```
+
+이 방식은 개인 홈페이지를 빠르게 테스트하거나 GitHub Pages에 간단히 배포할 때 유리하다.
+
+### 2. Glass Card UI
+
+각 섹션의 카드에는 반투명 배경, 경계선, 그림자, blur 효과를 적용하였다.
+
+```css
+.glass-card {
+  border: 1px solid rgba(219, 234, 254, 0.9);
+  border-radius: var(--radius-xl);
+  background: var(--card);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(18px);
+}
+```
+
+### 3. 반응형 디자인
+
+`980px`, `760px` 기준으로 레이아웃을 조정하였다.
+
+```css
+@media (max-width: 980px) {
+  .hero-wrap,
+  .about-grid,
+  .skill-dashboard,
+  .contact-card {
+    grid-template-columns: 1fr;
+  }
 }
 
-html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+@media (max-width: 760px) {
+  .nav-links {
+    position: fixed;
+    top: 72px;
+    display: none;
+    flex-direction: column;
+  }
+}
+```
 
-body {
-    font-family: var(--font-main);
-    background: var(--bg-primary);
-    color: var(--text-secondary);
-    line-height: 1.7;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-}
+### 4. 필터형 연구 카드
 
-a { color: inherit; text-decoration: none; }
+각 연구 카드에는 `data-category` 속성을 부여하였다.
 
-/* ===== Navbar ===== */
-.navbar {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-    padding: 16px 0;
-    transition: all 0.4s var(--ease-out);
-    background: transparent;
-}
-.navbar.scrolled {
-    background: rgba(26, 20, 16, 0.9);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
-    padding: 10px 0;
-}
-.nav-container {
-    max-width: 1100px; margin: 0 auto; padding: 0 32px;
-    display: flex; align-items: center; justify-content: space-between;
-}
-.nav-logo {
-    font-size: 1.5rem; font-weight: 800; color: var(--text-primary);
-    letter-spacing: -1px;
-}
-.dot { color: var(--accent); }
-.nav-links { list-style: none; display: flex; gap: 8px; }
-.nav-links a {
-    padding: 8px 16px; border-radius: 8px; font-size: 0.9rem;
-    font-weight: 500; color: var(--text-muted); transition: all 0.3s;
-    position: relative;
-}
-.nav-links a:hover, .nav-links a.active { color: var(--text-primary); background: var(--surface); }
+```html
+<article class="project-card glass-card reveal" data-category="ai bim safety">
+```
 
-.nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
-.nav-toggle span {
-    display: block; width: 24px; height: 2px; background: var(--text-primary);
-    margin: 5px 0; transition: all 0.3s;
-}
+사용자가 필터 버튼을 클릭하면 해당 카테고리를 포함하는 카드만 표시된다.
 
-/* ===== Hero ===== */
-.hero {
-    min-height: 100vh; display: flex; align-items: center; justify-content: center;
-    position: relative; padding: 120px 32px 80px;
-}
-#gridCanvas {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    opacity: 0.4; pointer-events: none;
-}
-.hero-content { position: relative; z-index: 2; max-width: 800px; width: 100%; }
+### 5. 탭형 AI 역량 설명
 
-.hero-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--accent-glow); border: 1px solid rgba(232, 168, 85, 0.25);
-    padding: 6px 16px; border-radius: 24px; font-size: 0.85rem;
-    color: var(--accent); font-weight: 500; margin-bottom: 28px;
-    animation: fadeInUp 0.8s var(--ease-out) both;
-}
-.badge-dot {
-    width: 8px; height: 8px; background: var(--accent-3); border-radius: 50%;
-    animation: pulse 2s infinite;
-}
+탭 데이터는 JavaScript 객체로 관리하였다.
+추후 탭을 추가하고 싶으면 `tabData` 객체에 항목을 추가하면 된다.
 
-.hero-title { margin-bottom: 16px; }
-.title-line { display: block; overflow: hidden; }
-.title-word {
-    display: inline-block; font-size: clamp(3rem, 8vw, 5rem);
-    font-weight: 800; color: var(--text-primary); letter-spacing: -2px;
-    line-height: 1.1; margin-right: 16px;
-    animation: slideUp 0.8s var(--ease-out) both;
-    animation-delay: calc(var(--delay) * 0.15s + 0.3s);
-}
-.title-korean .title-word {
-    font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 500;
-    color: var(--text-muted); letter-spacing: 2px;
-}
+---
 
-.hero-subtitle {
-    font-size: 1.15rem; color: var(--text-muted); margin-bottom: 12px;
-    font-weight: 400; animation: fadeInUp 0.8s var(--ease-out) 0.7s both;
-}
+## 변경 이력 요약
 
-/* Rotating Text */
-.hero-rotating {
-    display: flex; align-items: center; justify-content: flex-start;
-    font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700;
-    margin-bottom: 24px; height: 2.8em;
-    animation: fadeInUp 0.8s var(--ease-out) 0.78s both;
-}
-.hero-rotating-static { color: var(--text-secondary); }
-.hero-rotating-wrapper {
-    position: relative; display: inline-block;
-    height: 1.3em; overflow: hidden;
-    min-width: 280px;
-}
-.hero-rotating-word {
-    position: absolute; left: 0; top: 0; width: 100%;
-    color: var(--accent); display: block;
-    opacity: 0; transform: translateY(80px);
-    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-.hero-rotating-word.active {
-    opacity: 1; transform: translateY(0);
-}
-.hero-rotating-word.exit-up {
-    opacity: 0; transform: translateY(-80px);
-    transition: all 0.5s cubic-bezier(0.55, 0, 1, 0.45);
-}
+| Phase   | 작업 내용         | 반영 결과                                                                   |
+| ------- | ------------- | ----------------------------------------------------------------------- |
+| Phase 1 | 기존 홈페이지 구조 검토 | 기존 다크/웜톤 중심 설명을 최신 구조에 맞게 재정리                                           |
+| Phase 2 | 개인 정보 업데이트    | ESCO, AI 역량, 수상 이력, 자격증 예정 반영                                           |
+| Phase 3 | 디자인 시스템 재구성   | 밝은 배경, 블루 계열 포인트, 카드형 UI 적용                                             |
+| Phase 4 | 섹션 재설계        | About, AI Skills, Research, Awards, Education, Certificates, Contact 구성 |
+| Phase 5 | 기능 추가         | 다크모드, 탭, 필터, 카운터, 타이핑, 파티클, 스크롤 애니메이션 구현                                |
 
-.hero-desc {
-    font-size: 1.05rem; line-height: 1.8; margin-bottom: 32px;
-    animation: fadeInUp 0.8s var(--ease-out) 0.85s both;
-}
-.hero-desc strong { color: var(--accent); font-weight: 600; }
+---
 
-.hero-tags {
-    display: flex; flex-wrap: wrap; gap: 10px;
-    animation: fadeInUp 0.8s var(--ease-out) 1s both;
-}
-.hero-tag {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 8px 16px; border-radius: 8px;
-    background: var(--surface); border: 1px solid var(--border);
-    font-size: 0.85rem; color: var(--text-secondary);
-    transition: all 0.3s;
-}
-.hero-tag:hover { border-color: var(--border-hover); background: var(--bg-card); }
-.hero-tag svg { opacity: 0.6; }
+## 추후 수정 가능 항목
 
-.scroll-indicator {
-    display: flex; flex-direction: column; align-items: center; gap: 12px;
-    position: absolute; bottom: -40px; left: 50%; transform: translateX(-50%);
-    color: var(--text-muted); font-size: 0.75rem; letter-spacing: 1px;
-    animation: fadeInUp 0.8s var(--ease-out) 1.2s both;
-}
-.scroll-mouse {
-    width: 24px; height: 38px; border: 2px solid var(--text-muted);
-    border-radius: 12px; position: relative;
-}
-.scroll-wheel {
-    width: 3px; height: 8px; background: var(--accent);
-    border-radius: 2px; position: absolute; top: 6px; left: 50%;
-    transform: translateX(-50%); animation: scrollAnim 2s infinite;
-}
+다음 항목은 실제 정보가 확정되면 쉽게 교체할 수 있다.
 
-/* ===== Sections ===== */
-.section { padding: 120px 32px; }
-.section-alt { background: var(--bg-secondary); }
-.section-container { max-width: 1000px; margin: 0 auto; }
+1. 이메일 주소
+2. GitHub 링크
+3. Google Scholar 링크
+4. LinkedIn 링크
+5. 연구실 홈페이지 링크
+6. 실제 프로필 사진
+7. 자격증 취득 후 상태 변경: `Planned` → `Certified`
+8. 수상 논문 제목 추가
+9. 대표 논문 또는 학회 발표 리스트 추가
+10. 프로젝트별 상세 페이지 연결
 
-.section-header { margin-bottom: 56px; }
-.section-number {
-    font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent);
-    font-weight: 500; display: block; margin-bottom: 8px;
-}
-.section-title {
-    font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700;
-    color: var(--text-primary); letter-spacing: -1px; margin-bottom: 12px;
-}
-.section-line { width: 48px; height: 3px; background: var(--accent); border-radius: 2px; }
+---
 
-/* ===== About ===== */
-.about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: start; }
-.about-lead {
-    font-size: 1.25rem; color: var(--text-primary); font-weight: 500;
-    line-height: 1.7; margin-bottom: 16px;
-    border-left: 3px solid var(--accent); padding-left: 20px;
-}
-.about-text p { margin-bottom: 12px; }
-
-.about-stats { display: grid; gap: 12px; }
-.stat-card {
-    display: flex; align-items: center; gap: 16px;
-    padding: 20px; border-radius: 12px;
-    background: var(--surface); border: 1px solid var(--border);
-    transition: all 0.3s var(--ease-out);
-}
-.stat-card:hover { border-color: var(--border-hover); transform: translateX(4px); }
-.stat-icon { font-size: 1.4rem; }
-.stat-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; display: block; }
-.stat-value { font-size: 0.95rem; color: var(--text-primary); font-weight: 500; }
-
-/* ===== Timeline ===== */
-.timeline { position: relative; padding-left: 40px; }
-.timeline-item { display: flex; gap: 24px; position: relative; }
-.timeline-marker { display: flex; flex-direction: column; align-items: center; padding-top: 6px; position: absolute; left: -40px; }
-.timeline-dot {
-    width: 14px; height: 14px; border-radius: 50%;
-    border: 3px solid var(--accent); background: var(--bg-primary);
-    position: relative; z-index: 1;
-}
-.active-dot::after {
-    content: ''; position: absolute; top: -4px; left: -4px; right: -4px; bottom: -4px;
-    border-radius: 50%; border: 2px solid var(--accent); opacity: 0.3;
-    animation: pulse 2s infinite;
-}
-.timeline-line { width: 2px; flex: 1; background: var(--border); margin-top: 8px; }
-
-.timeline-content {
-    padding: 24px; border-radius: 16px;
-    background: var(--surface); border: 1px solid var(--border);
-    flex: 1;
-}
-.timeline-badge {
-    display: inline-block; padding: 3px 12px; border-radius: 6px;
-    background: rgba(196, 163, 90, 0.15); color: var(--accent-3);
-    font-size: 0.8rem; font-weight: 600; margin-bottom: 12px;
-}
-.timeline-content h3 { color: var(--text-primary); font-size: 1.2rem; font-weight: 600; margin-bottom: 4px; }
-.timeline-dept { color: var(--text-secondary); margin-bottom: 4px; }
-.timeline-date { color: var(--text-muted); font-size: 0.9rem; font-family: var(--font-mono); }
-.timeline-details { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); }
-.timeline-detail-title { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px; }
-.course-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-.course-tag {
-    padding: 4px 12px; border-radius: 6px; font-size: 0.85rem;
-    background: rgba(232, 168, 85, 0.12); color: var(--accent); font-weight: 500;
-}
-
-/* ===== Research Cards ===== */
-.research-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-.research-card {
-    border-radius: 16px; overflow: hidden;
-    transition: all 0.4s var(--ease-out);
-}
-.research-card:hover { transform: translateY(-6px); }
-.research-card-inner {
-    padding: 28px; background: var(--surface);
-    border: 1px solid var(--border); border-radius: 16px;
-    height: 100%; transition: all 0.4s var(--ease-out);
-    position: relative; overflow: hidden;
-}
-.research-card:hover .research-card-inner { border-color: var(--border-hover); }
-.research-card-inner::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-    background: linear-gradient(90deg, var(--accent), var(--accent-2));
-    opacity: 0; transition: opacity 0.3s;
-}
-.research-card:hover .research-card-inner::before { opacity: 1; }
-
-.research-icon {
-    width: 52px; height: 52px; border-radius: 12px;
-    background: var(--accent-glow); display: flex; align-items: center;
-    justify-content: center; color: var(--accent); margin-bottom: 20px;
-}
-.research-tag {
-    display: inline-block; padding: 4px 12px; border-radius: 6px;
-    font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
-    letter-spacing: 0.5px; margin-bottom: 12px;
-}
-.tag-contract { background: rgba(232, 168, 85, 0.12); color: var(--gold); }
-.tag-ai { background: rgba(212, 131, 106, 0.15); color: var(--accent-2); }
-.tag-dev { background: rgba(196, 163, 90, 0.15); color: var(--accent-3); }
-
-.research-card h3 { color: var(--text-primary); font-size: 1.15rem; font-weight: 600; margin-bottom: 10px; }
-.research-card p { font-size: 0.95rem; line-height: 1.6; }
-
-.research-meta { display: flex; gap: 16px; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border); }
-.meta-item {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-size: 0.8rem; color: var(--text-muted);
-}
-
-/* ===== Milestones ===== */
-.milestones-grid { display: grid; gap: 12px; }
-.milestone-card {
-    display: flex; align-items: center; gap: 20px;
-    padding: 20px 24px; border-radius: 12px;
-    background: var(--surface); border: 1px solid var(--border);
-    transition: all 0.3s var(--ease-out);
-}
-.milestone-card:hover { border-color: var(--border-hover); transform: translateX(4px); }
-.milestone-icon-wrapper {
-    width: 48px; height: 48px; border-radius: 12px;
-    background: rgba(232, 168, 85, 0.08); display: flex;
-    align-items: center; justify-content: center; flex-shrink: 0;
-}
-.milestone-icon { font-size: 1.3rem; }
-.milestone-info { flex: 1; }
-.milestone-info h4 { color: var(--text-primary); font-size: 1rem; font-weight: 600; margin-bottom: 2px; }
-.milestone-info p { font-size: 0.85rem; color: var(--text-muted); }
-.milestone-status {
-    padding: 4px 12px; border-radius: 6px; font-size: 0.75rem;
-    font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;
-    flex-shrink: 0;
-}
-.status-upcoming { background: rgba(232, 168, 85, 0.12); color: var(--accent); }
-.status-planned { background: rgba(212, 131, 106, 0.15); color: var(--accent-2); }
-
-/* ===== Footer ===== */
-.footer { padding: 60px 32px 32px; border-top: 1px solid var(--border); }
-.footer-container { max-width: 1000px; margin: 0 auto; }
-.footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 40px; }
-.footer-logo { font-size: 1.3rem; font-weight: 800; color: var(--text-primary); display: block; margin-bottom: 8px; }
-.footer-brand p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
-.footer-links { display: flex; gap: 24px; }
-.footer-links a { font-size: 0.9rem; color: var(--text-muted); transition: color 0.3s; }
-.footer-links a:hover { color: var(--accent); }
-.footer-bottom { padding-top: 24px; border-top: 1px solid var(--border); }
-.footer-bottom p { font-size: 0.8rem; color: var(--text-muted); text-align: center; }
-
-/* ===== Animations ===== */
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes slideUp { from { opacity: 0; transform: translateY(100%); } to { opacity: 1; transform: translateY(0); } }
-@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-@keyframes scrollAnim { 0% { opacity: 1; transform: translateX(-50%) translateY(0); } 100% { opacity: 0; transform: translateX(-50%) translateY(12px); } }
-
-.reveal-up { opacity: 0; transform: translateY(32px); transition: all 0.8s var(--ease-out); transition-delay: var(--delay, 0s); }
-.reveal-up.revealed { opacity: 1; transform: translateY(0); }
-
-/* ===== Responsive ===== */
-@media (max-width: 768px) {
-    .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: rgba(26,20,16,0.95); backdrop-filter: blur(20px); padding: 16px; flex-direction: column; border-bottom: 1px solid var(--border); }
-    .nav-links.open { display: flex; }
-    .nav-toggle { display: block; }
-    .hero { padding: 100px 20px 60px; }
-    .about-grid { grid-template-columns: 1fr; gap: 32px; }
-    .research-grid { grid-template-columns: 1fr; }
-    .hero-tags { flex-direction: column; }
-    .footer-top { flex-direction: column; gap: 24px; }
-    .milestone-card { flex-wrap: wrap; }
-    .section { padding: 80px 20px; }
-}
+*이 문서는 ESCO 소속 연구원 포트폴리오형 개인 홈페이지의 구현 및 수정 과정을 기록한 최신 버전이다.*
