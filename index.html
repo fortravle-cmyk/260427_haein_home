@@ -1127,8 +1127,8 @@
     }
 
     .directions-no {
-      width: 88px;
-      height: 88px;
+      width: 78px;
+      height: 78px;
       display: grid;
       place-items: center;
       border: 3px solid var(--black);
@@ -1136,23 +1136,34 @@
       color: var(--white);
       box-shadow: 7px 7px 0 var(--black);
       font-family: "JetBrains Mono", monospace;
-      font-size: 2rem;
+      font-size: 1.72rem;
       font-weight: 900;
       margin-bottom: 22px;
     }
 
     .directions-main h3 {
-      font-size: clamp(1.7rem, 3vw, 2.55rem);
-      line-height: 1.08;
-      letter-spacing: -.07em;
+      max-width: 100%;
+      font-size: clamp(1.34rem, 2.05vw, 1.95rem);
+      line-height: 1.18;
+      letter-spacing: -.045em;
       margin-bottom: 12px;
+      word-break: keep-all;
+      overflow-wrap: normal;
+    }
+
+    @media (min-width: 761px) {
+      .directions-main h3 {
+        white-space: nowrap;
+      }
     }
 
     .directions-main p {
       color: var(--gray);
+      font-size: .94rem;
       font-weight: 700;
-      line-height: 1.7;
-      margin-bottom: 24px;
+      line-height: 1.65;
+      margin-bottom: 22px;
+      word-break: keep-all;
     }
 
     .directions-actions {
@@ -1166,7 +1177,8 @@
       border: 3px solid var(--black);
       background: var(--white);
       box-shadow: 5px 5px 0 var(--black);
-      padding: 11px 14px;
+      padding: 10px 13px;
+      font-size: .9rem;
       font-weight: 900;
       transition: .18s ease;
     }
@@ -1224,7 +1236,9 @@
       background: var(--white);
       box-shadow: 5px 5px 0 var(--black);
       font-family: "JetBrains Mono", monospace;
+      font-size: .82rem;
       font-weight: 900;
+      text-align: center;
     }
 
     .active-room {
@@ -1238,7 +1252,9 @@
       grid-column: 1 / -1;
       background: var(--royal);
       color: var(--white);
-      letter-spacing: -.03em;
+      font-size: .78rem;
+      letter-spacing: -.02em;
+      padding: 0 10px;
     }
 
     @media (max-width: 1040px) {
