@@ -818,12 +818,290 @@
       background: var(--crimson);
     }
 
+    .feature-layout {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .feature-card,
+    .feature-visual,
+    .keyword-map,
+    .activity-card {
+      border: 3px solid var(--black);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .feature-card {
+      position: relative;
+      min-height: 360px;
+      padding: 32px;
+      overflow: hidden;
+    }
+
+    .feature-card::after {
+      content: "";
+      position: absolute;
+      right: -58px;
+      bottom: -58px;
+      width: 210px;
+      height: 210px;
+      border-radius: 50%;
+      background: repeating-radial-gradient(circle, rgba(0,0,0,.15) 0 2px, transparent 2px 13px);
+      opacity: .22;
+    }
+
+    .feature-number {
+      width: 68px;
+      height: 68px;
+      display: grid;
+      place-items: center;
+      border: 3px solid var(--black);
+      background: var(--crimson);
+      color: var(--white);
+      box-shadow: 6px 6px 0 var(--black);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 1.4rem;
+      font-weight: 900;
+      margin-bottom: 24px;
+    }
+
+    .feature-card h3 {
+      max-width: 760px;
+      font-size: clamp(1.7rem, 3vw, 2.55rem);
+      line-height: 1.02;
+      letter-spacing: -.07em;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .feature-card p {
+      max-width: 760px;
+      color: var(--gray);
+      line-height: 1.85;
+      font-weight: 650;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .feature-pipeline {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      font-family: "JetBrains Mono", monospace;
+      font-size: .78rem;
+      font-weight: 900;
+    }
+
+    .feature-pipeline span {
+      border: 2px solid var(--black);
+      background: var(--blue-soft);
+      padding: 8px 10px;
+      box-shadow: 4px 4px 0 var(--black);
+    }
+
+    .feature-pipeline i {
+      color: var(--crimson);
+      font-style: normal;
+      font-size: 1.1rem;
+    }
+
+    .feature-visual {
+      position: relative;
+      min-height: 360px;
+      overflow: hidden;
+      background:
+        linear-gradient(45deg, transparent 48%, rgba(0,0,0,.11) 49%, rgba(0,0,0,.11) 51%, transparent 52%),
+        var(--white);
+      background-size: 34px 34px;
+    }
+
+    .feature-axis {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      background: var(--black);
+      transform-origin: center;
+      z-index: 1;
+    }
+
+    .axis-x { width: 78%; height: 3px; transform: translate(-50%, -50%); }
+    .axis-y { width: 3px; height: 78%; transform: translate(-50%, -50%); }
+
+    .feature-core {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 112px;
+      height: 112px;
+      border: 3px solid var(--black);
+      border-radius: 50%;
+      background: var(--white);
+      box-shadow: 7px 7px 0 var(--royal);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 900;
+      line-height: 1.15;
+      z-index: 3;
+    }
+
+    .feature-node {
+      position: absolute;
+      z-index: 2;
+      width: 88px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border: 3px solid var(--black);
+      background: var(--white);
+      box-shadow: 5px 5px 0 var(--black);
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 900;
+    }
+
+    .f-ai { left: 50%; top: 34px; transform: translateX(-50%); background: var(--royal); color: var(--white); }
+    .f-bim { left: 34px; top: 50%; transform: translateY(-50%); }
+    .f-rag { right: 34px; top: 50%; transform: translateY(-50%); }
+    .f-dfs { left: 50%; bottom: 34px; transform: translateX(-50%); }
+
+    .keyword-map {
+      position: relative;
+      min-height: 420px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at center, rgba(65,105,225,.12), transparent 16rem),
+        var(--white);
+    }
+
+    .keyword-lines {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .keyword-lines line {
+      stroke: var(--black);
+      stroke-width: 3;
+      vector-effect: non-scaling-stroke;
+      opacity: .45;
+    }
+
+    .keyword-core,
+    .keyword {
+      position: absolute;
+      z-index: 2;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      border: 3px solid var(--black);
+      background: var(--white);
+      box-shadow: 6px 6px 0 var(--black);
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 900;
+    }
+
+    .keyword-core {
+      left: 50%; top: 50%; transform: translate(-50%, -50%);
+      width: 140px; height: 92px;
+      background: var(--royal);
+      color: var(--white);
+      line-height: 1.18;
+    }
+
+    .keyword { width: 112px; height: 54px; }
+    .k1 { left: 15%; top: 12%; }
+    .k2 { left: 50%; top: 7%; transform: translateX(-50%); }
+    .k3 { right: 15%; top: 12%; }
+    .k4 { right: 9%; top: 50%; transform: translateY(-50%); }
+    .k5 { right: 20%; bottom: 12%; }
+    .k6 { left: 50%; bottom: 7%; transform: translateX(-50%); }
+    .k7 { left: 20%; bottom: 12%; }
+    .k8 { left: 9%; top: 50%; transform: translateY(-50%); }
+
+    .activity-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .activity-card {
+      min-height: 190px;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+      transition: .22s ease;
+    }
+
+    .activity-card:hover {
+      transform: translate(-5px, -5px);
+      box-shadow: 14px 14px 0 var(--royal);
+    }
+
+    .activity-card span {
+      display: inline-flex;
+      border: 3px solid var(--black);
+      background: var(--blue-soft);
+      box-shadow: 5px 5px 0 var(--black);
+      padding: 7px 10px;
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+
+    .activity-card h3 {
+      font-size: 1.2rem;
+      letter-spacing: -.035em;
+      margin-bottom: 9px;
+      line-height: 1.35;
+    }
+
+    .activity-card p {
+      color: var(--gray);
+      font-weight: 700;
+      line-height: 1.65;
+    }
+
+    .contact-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .contact-buttons a {
+      display: inline-flex;
+      border: 3px solid var(--black);
+      background: var(--white);
+      box-shadow: 5px 5px 0 var(--black);
+      padding: 10px 13px;
+      font-weight: 900;
+      transition: .18s ease;
+    }
+
+    .contact-buttons a:hover {
+      background: var(--royal);
+      color: var(--white);
+      transform: translate(-3px, -3px);
+    }
+
     @media (max-width: 1040px) {
-      .hero-grid, .about-layout, .skills-layout, .section-head, .contact-card { grid-template-columns: 1fr; }
+      .hero-grid, .about-layout, .skills-layout, .section-head, .contact-card, .feature-layout { grid-template-columns: 1fr; }
       .poster { transform: none; min-height: 560px; }
       .flow { grid-template-columns: 1fr; }
       .flow-step:not(:last-child)::after { content: "↓"; right: 50%; top: auto; bottom: -23px; transform: translateX(50%); }
-      .projects, .certs { grid-template-columns: repeat(2,1fr); }
+      .projects, .certs, .activity-grid { grid-template-columns: repeat(2,1fr); }
     }
 
     @media (max-width: 760px) {
@@ -839,7 +1117,7 @@
       .outline-ko { -webkit-text-stroke: 1.25px var(--black); text-shadow: 4px 4px 0 var(--royal); }
       .typing span:last-child { min-width: unset; }
       section { padding: 76px 0; }
-      .info-grid, .chip-grid, .projects, .awards, .certs { grid-template-columns: 1fr; }
+      .info-grid, .chip-grid, .projects, .awards, .certs, .activity-grid { grid-template-columns: 1fr; }
       .award-card, .time-row { grid-template-columns: 1fr; }
       .time-label { min-height: 70px; }
       .bar-row { grid-template-columns: 1fr; gap: 8px; }
@@ -859,11 +1137,10 @@
     <a href="#hero" class="brand"><span class="brand-mark">HY</span><span>Haein Yun</span></a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
+      <li><a href="#featured">Featured</a></li>
       <li><a href="#skills">AI Skills</a></li>
       <li><a href="#research">Research</a></li>
-      <li><a href="#awards">Awards</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#certificates">Certificates</a></li>
+      <li><a href="#publications">Activities</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <button class="menu-btn" id="menuBtn">Menu</button>
@@ -882,8 +1159,9 @@
           다양한 AI 도구를 연구·분석·문서화·시각화 과정에 활용하며, 복잡한 건설 문제를 논리적인 구조로 정리하는 것을 지향합니다.
         </p>
         <div class="actions">
-          <a class="btn primary" href="#research">Explore Research</a>
+          <a class="btn primary" href="#featured">Featured Research</a>
           <a class="btn secondary" href="#awards">View Awards</a>
+          <a class="btn secondary" href="cv.pdf" download>Download CV</a>
         </div>
         <div class="chips">
           <span class="chip">🏛️ Ewha Womans University</span>
@@ -939,6 +1217,41 @@
             <div class="info-card reveal"><div class="icon">🏗️</div><h4>Domain</h4><p>Construction Management, BIM, Safety, Automation, Digital Transformation</p></div>
             <div class="info-card reveal"><div class="icon">🎯</div><h4>Goal</h4><p>건설산업의 실무 문제를 데이터 기반으로 해석하고 해결 가능한 연구로 확장</p></div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="featured">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><span class="kicker">03 Featured Research</span><h2>BIM-context-aware RAG for safety decision support</h2></div>
+        </div>
+        <div class="feature-layout">
+          <article class="feature-card reveal">
+            <div class="feature-number">01</div>
+            <h3>Evidence-grounded safety knowledge activation</h3>
+            <p>
+              비정형 사고 내러티브를 AI/NLP로 구조화하고, BIM에서 추출한 물리적 맥락과 연결하여 현재 작업 조건에 맞는 안전 지식을 검색·생성하는 연구입니다.
+            </p>
+            <div class="feature-pipeline">
+              <span>Accident Narratives</span>
+              <i>→</i>
+              <span>Risk-chain Structuring</span>
+              <i>→</i>
+              <span>BIM Context</span>
+              <i>→</i>
+              <span>RAG Output</span>
+            </div>
+          </article>
+          <aside class="feature-visual reveal">
+            <div class="feature-axis axis-x"></div>
+            <div class="feature-axis axis-y"></div>
+            <div class="feature-node f-ai">AI</div>
+            <div class="feature-node f-bim">BIM</div>
+            <div class="feature-node f-rag">RAG</div>
+            <div class="feature-node f-dfs">DfS</div>
+            <div class="feature-core">Context<br>Evidence</div>
+          </aside>
         </div>
       </div>
     </section>
@@ -1004,9 +1317,51 @@
       </div>
     </section>
 
+    <section id="keywords">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><span class="kicker">05 Research Map</span><h2>Keyword constellation</h2></div>
+        </div>
+        <div class="keyword-map reveal">
+          <div class="keyword-core">Research<br>Identity</div>
+          <div class="keyword k1">AI</div>
+          <div class="keyword k2">BIM</div>
+          <div class="keyword k3">RAG</div>
+          <div class="keyword k4">NLP</div>
+          <div class="keyword k5">Safety</div>
+          <div class="keyword k6">Automation</div>
+          <div class="keyword k7">DfS</div>
+          <div class="keyword k8">Data</div>
+          <svg class="keyword-lines" viewBox="0 0 1000 420" preserveAspectRatio="none" aria-hidden="true">
+            <line x1="500" y1="210" x2="210" y2="70" />
+            <line x1="500" y1="210" x2="500" y2="42" />
+            <line x1="500" y1="210" x2="790" y2="70" />
+            <line x1="500" y1="210" x2="850" y2="210" />
+            <line x1="500" y1="210" x2="745" y2="350" />
+            <line x1="500" y1="210" x2="500" y2="378" />
+            <line x1="500" y1="210" x2="255" y2="350" />
+            <line x1="500" y1="210" x2="150" y2="210" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><span class="kicker">06 Publications & Activities</span><h2>Selected academic record</h2></div>
+        </div>
+        <div class="activity-grid">
+          <article class="activity-card reveal"><span>2025</span><h3>대한건축학회 추계학술발표대회</h3><p>우수논문상 수상</p></article>
+          <article class="activity-card reveal"><span>2026</span><h3>대한건축학회 우수졸업논문전</h3><p>장려상 수상</p></article>
+          <article class="activity-card reveal"><span>Current</span><h3>ESCO Research Portfolio</h3><p>AI, BIM, RAG, NLP, Automation 중심 연구 수행</p></article>
+        </div>
+      </div>
+    </section>
+
     <section id="awards">
       <div class="wrap">
-        <div class="section-head reveal"><div><span class="kicker">05 Awards</span><h2>Academic achievements as readable axes</h2></div></div>
+        <div class="section-head reveal"><div><span class="kicker">07 Awards</span><h2>Academic achievements as readable axes</h2></div></div>
         <div class="awards">
           <article class="award-card reveal"><div class="year">2025</div><div><h3>대한건축학회 추계학술발표대회 우수논문상</h3><p>디지털 건설관리 및 AI 기반 연구성과의 학술적 가능성을 인정받은 성과입니다.</p></div></article>
           <article class="award-card reveal"><div class="year">2026</div><div><h3>대한건축학회 우수졸업논문전 장려상</h3><p>학부 연구에서 확장된 연구 역량과 주제의 발전 가능성을 보여주는 성과입니다.</p></div></article>
@@ -1016,7 +1371,7 @@
 
     <section id="education">
       <div class="wrap">
-        <div class="section-head reveal"><div><span class="kicker">06 Education</span><h2>Education timeline</h2></div></div>
+        <div class="section-head reveal"><div><span class="kicker">08 Education</span><h2>Education timeline</h2></div></div>
         <div class="timeline">
           <div class="time-row reveal"><div class="time-label">Current</div><div class="time-card"><h3>이화여자대학교 대학원</h3><p>건축도시시스템공학과 석사과정 · ESCO 소속 연구원</p></div></div>
           <div class="time-row reveal"><div class="time-label">Research</div><div class="time-card"><h3>Construction Management & AI Integration</h3><p>건설관리, BIM, AI, RAG, NLP, 자동화 기술을 결합한 연구 수행</p></div></div>
@@ -1027,7 +1382,7 @@
 
     <section id="certificates">
       <div class="wrap">
-        <div class="section-head reveal"><div><span class="kicker">07 Certificates</span><h2>Certificates in progress</h2></div></div>
+        <div class="section-head reveal"><div><span class="kicker">09 Certificates</span><h2>Certificates in progress</h2></div></div>
         <div class="certs">
           <article class="cert-card reveal"><div class="cert-icon">📜</div><h3>건축기사</h3><p>건축공학 및 시공관리 전문성 강화를 위한 자격 취득 예정.</p><span class="status">Planned</span></article>
           <article class="cert-card reveal"><div class="cert-icon">🦺</div><h3>건설안전기사</h3><p>건설현장 안전관리 및 위험요인 분석 역량 강화를 위한 자격 취득 예정.</p><span class="status">Planned</span></article>
@@ -1039,7 +1394,7 @@
     <section id="contact">
       <div class="wrap">
         <div class="contact-card reveal">
-          <div><span class="kicker">08 Contact</span><h2>Let’s build intelligent construction research.</h2></div>
+          <div><span class="kicker">10 Contact</span><h2>Let’s build intelligent construction research.</h2><div class="contact-buttons"><a href="cv.pdf" download>Download CV</a><a href="mailto:your-email@example.com">Email</a><a href="#research">Research</a></div></div>
           <div class="contact-list"><div class="contact-item">📍 Seoul, Republic of Korea</div><div class="contact-item">🏫 Ewha Womans University</div><div class="contact-item">🔬 ESCO Researcher</div><div class="contact-item">✉️ your-email@example.com</div></div>
         </div>
       </div>
