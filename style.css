@@ -1,228 +1,325 @@
-# 🏗️ Implementation & Modification Process
+# 🌀 Implementation & Modification Process
 
-> **프로젝트**: Haein Yun 개인 홈페이지
-> **작업 기준**: ESCO 소속 연구원 포트폴리오형 홈페이지
-> **기술스택**: HTML5, CSS3, Vanilla JavaScript, Google Fonts
-> **구성 방식**: `index.html` 단일 파일 기반 구조
-> **디자인 방향**: 밝은 색상 기반의 전문적·연구자형 포트폴리오 UI
-
----
-
-## 📋 목차
-
-1. [Phase 1: 기존 홈페이지 구조 검토](#phase-1-기존-홈페이지-구조-검토)
-2. [Phase 2: 개인 정보 및 연구자 정체성 재정의](#phase-2-개인-정보-및-연구자-정체성-재정의)
-3. [Phase 3: 밝은 톤 디자인 시스템 재구성](#phase-3-밝은-톤-디자인-시스템-재구성)
-4. [Phase 4: 주요 섹션 재설계](#phase-4-주요-섹션-재설계)
-5. [Phase 5: 인터랙션 및 기능 추가](#phase-5-인터랙션-및-기능-추가)
-6. [최종 파일 구조](#최종-파일-구조)
-7. [디자인 시스템](#디자인-시스템)
-8. [상세 코드 설명](#상세-코드-설명)
-9. [변경 이력 요약](#변경-이력-요약)
+> **Project**: Haein Yun Personal Homepage
+> **Visual Direction**: Optical Art / Pattern / Illusion
+> **Design Keywords**: 착시 · 기하학 · 불가능한 구조 · 논리 · 미스터리
+> **Technical Stack**: HTML5, CSS3, Vanilla JavaScript, Google Fonts
+> **Output Type**: 1-page portfolio-style website with controlled optical visual identity
 
 ---
 
-## Phase 1: 기존 홈페이지 구조 검토
+## 0. Design Premise
 
-### 1.1 기존 코드의 특징
+본 홈페이지는 ESCO 소속 연구원인 Haein Yun의 연구자 정체성을 소개하는 개인 포트폴리오 웹페이지이다.
+기존의 밝은 연구자형 홈페이지 구조를 유지하되, 시각적 방향성을 **Optical Art / Pattern / Illusion** 스타일로 재정의한다.
 
-기존 홈페이지는 개인 연구자 포트폴리오 형태로 구성되어 있었으며, 다음과 같은 기본 구조를 가지고 있었다.
-
-* Fixed Navigation
-* Hero Section
-* About Me
-* Education
-* Research & Projects
-* Upcoming Milestones
-* Footer
-
-기존 코드는 이화여자대학교 건축도시시스템공학과 석사과정, 건설관리연구실, LLM 기반 계약 리스크 분석, 건설 자동화 등을 중심으로 구성되어 있었다.
-
-### 1.2 수정 필요사항
-
-사용자의 최신 요청에 따라 기존 홈페이지는 다음 방향으로 수정할 필요가 있었다.
-
-| 구분      | 기존 구성                  | 수정 방향                        |
-| ------- | ---------------------- | ---------------------------- |
-| 소속 표현   | 건설관리연구실(CML) 중심        | ESCO 소속 연구원 중심               |
-| 연구자 정체성 | LLM 기반 계약 리스크 분석 중심    | AI 활용 역량과 건설관리 연구를 함께 강조     |
-| 디자인 톤   | 어두운 톤 또는 웜톤 기반         | 밝은 색상 기반의 전문적 포트폴리오          |
-| 수상 이력   | 별도 강조 부족               | 2025·2026 대한건축학회 수상 이력 명시    |
-| 자격증     | Upcoming Milestones 중심 | 취득 예정 자격증 섹션으로 분리            |
-| 기능      | 기본 애니메이션 중심            | 탭, 필터, 카운터, 다크모드 등 다양한 기능 추가 |
+핵심은 착시적 패턴을 과도하게 사용하여 화면을 복잡하게 만드는 것이 아니라, **건설관리·AI·BIM·RAG 연구의 구조적 사고**를 기하학적이고 절제된 방식으로 시각화하는 것이다.
+따라서 화면은 명료하고 차분해야 하며, 패턴은 주제를 압도하지 않고 연구자의 논리성과 기술적 정체성을 보조해야 한다.
 
 ---
 
-## Phase 2: 개인 정보 및 연구자 정체성 재정의
+## 1. Visual Style Concept
 
-### 2.1 반영된 개인 정보
+### 1.1 Core Mood
 
-최신 홈페이지에는 다음 정보가 반영되었다.
+| Design Element | Direction                                                 |
+| -------------- | --------------------------------------------------------- |
+| 전체 인상          | 밝고 차분하지만 기억에 남는 연구자형 포트폴리오                                |
+| 시각 언어          | Optical pattern, impossible geometry, controlled illusion |
+| 주요 이미지         | 펜로즈 삼각형, 불가능한 계단, 2D/3D 혼동 그리드                            |
+| 표현 강도          | 강한 아트워크가 아니라 절제된 보조 시각 요소                                 |
+| 정보 우선순위        | 텍스트, 수치, 연구 내용이 항상 패턴보다 먼저 읽히도록 구성                        |
 
-* 이름: 윤해인 / Haein Yun
-* 소속: ESCO 소속 연구원
-* 전공: 건축도시시스템공학
-* 연구 방향: 건설관리, BIM, AI, RAG, NLP, 자동화, 데이터 기반 의사결정
-* 역량: 다양한 AI 도구 활용 가능
-* 주요 수상:
+### 1.2 Design Principle
 
-  * 2025년 대한건축학회 추계학술발표대회 우수논문상
-  * 2026년 대한건축학회 우수졸업논문전 장려상
-* 자격증:
+> **Illusion as Structure, not Decoration.**
+> 착시는 장식이 아니라 연구 구조를 설명하는 보조 장치로 사용한다.
 
-  * 건축기사 취득 예정
-  * 건설안전기사 취득 예정
+이 홈페이지에서 Optical Art는 다음 의미를 가진다.
 
-### 2.2 핵심 브랜딩 문구
-
-홈페이지의 전체적인 정체성은 다음 문구를 중심으로 구성되었다.
-
-> **AI와 건설관리를 연결하는 연구자**
-
-Hero Section에서는 다음과 같은 연구자 이미지를 강조하였다.
-
-> ESCO 소속 연구원으로서 건설관리, BIM, RAG, NLP, 자동화, 데이터 기반 의사결정을 연결하는 연구를 수행합니다.
-
-### 2.3 과장 방지를 위한 표현 방식
-
-자격증은 아직 취득 전이므로 “보유”가 아니라 “취득 예정” 또는 “Planned”로 표기하였다.
-AI 역량 또한 절대적 숙련도를 의미하기보다, 연구 과정에서 활용 가능한 주요 기술 영역을 보여주는 방식으로 구성하였다.
+* AI와 건설관리 사이의 복합적 연결 구조
+* BIM, RAG, NLP, Automation이 교차하는 연구 체계
+* 2차원 웹 화면 안에서 3차원 연구 구조를 암시하는 시각적 장치
+* 불가능해 보이는 문제를 논리적으로 구조화하는 연구 태도
 
 ---
 
-## Phase 3: 밝은 톤 디자인 시스템 재구성
+## 2. Color System
 
-### 3.1 디자인 방향
-
-사용자가 “화면은 밝은 색이었으면 좋겠다”고 요청했기 때문에 전체 디자인은 다음 방향으로 재구성하였다.
-
-* 흰색과 연한 블루 계열을 중심으로 한 밝은 배경
-* 연구자 포트폴리오에 적합한 차분한 네이비 텍스트
-* AI·기술 이미지를 표현할 수 있는 블루, 스카이, 퍼플 포인트 컬러
-* 카드형 레이아웃과 부드러운 그림자를 활용한 현대적 UI
-* 필요 시 다크모드로 전환 가능한 선택 기능 제공
-
-### 3.2 주요 CSS 변수
+### 2.1 Final Color Palette
 
 ```css
 :root {
-  --bg: #f8fbff;
-  --bg-soft: #eef6ff;
-  --card: rgba(255, 255, 255, 0.82);
-  --card-solid: #ffffff;
-  --text: #1f2937;
-  --muted: #64748b;
-  --line: #dbeafe;
-  --navy: #1e3a8a;
-  --blue: #2563eb;
-  --sky: #38bdf8;
-  --teal: #0f766e;
-  --purple: #7c3aed;
-  --amber: #d97706;
-  --rose: #e11d48;
-  --green: #16a34a;
+  --bg: #F0F8FF;          /* Alice Blue */
+  --bg-white: #FFFFFF;    /* Clean White */
+  --text: #000000;        /* Main Black */
+  --muted: #4B5563;       /* Calm Gray */
+  --line: #D9E6F2;        /* Light Structural Line */
+  --royal: #4169E1;       /* Royal Blue Accent */
+  --crimson: #DC143C;     /* Crimson Point Accent */
+  --soft-blue: #E7F0FF;   /* Pale Blue Panel */
+  --shadow: rgba(0, 0, 0, 0.08);
 }
 ```
 
-### 3.3 컬러 시스템 의미
+### 2.2 Color Usage Rule
 
-| 색상        | 용도         | 의미                   |
-| --------- | ---------- | -------------------- |
-| `#f8fbff` | 전체 배경      | 밝고 깨끗한 연구자 포트폴리오 이미지 |
-| `#1e3a8a` | 제목, 핵심 텍스트 | 전문성, 신뢰성, 학술성        |
-| `#2563eb` | 주요 버튼, 강조선 | AI·데이터 기반 기술 이미지     |
-| `#38bdf8` | 보조 포인트     | 밝고 동적인 디지털 감각        |
-| `#7c3aed` | AI/기술 강조   | 지능형 기술과 실험적 연구 이미지   |
-| `#d97706` | 수상/자격증 강조  | 성과, 계획, 마일스톤         |
+| Color     | Usage             | Rule                      |
+| --------- | ----------------- | ------------------------- |
+| `#F0F8FF` | 전체 배경             | 밝고 정돈된 연구자형 분위기 형성        |
+| `#FFFFFF` | 카드·본문 영역          | 정보 가독성을 확보하는 주 배경         |
+| `#000000` | 제목·핵심 텍스트         | Optical Art 특유의 명확한 대비 유지 |
+| `#4169E1` | 버튼, 링크, 핵심 구조선    | 주요 강조 색상                  |
+| `#DC143C` | 수상, 현재 위치, 핵심 포인트 | 원 포인트로만 제한 사용             |
+| `#D9E6F2` | 경계선, 그리드          | 패턴과 정보 영역을 구분             |
 
-### 3.4 다크모드 대응
+### 2.3 Color Balance
 
-기본 화면은 밝은 색상이지만, 사용자가 직접 다크모드로 전환할 수 있도록 `body.dark` 클래스를 추가하였다.
-
-```css
-body.dark {
-  --bg: #0f172a;
-  --bg-soft: #111827;
-  --card: rgba(15, 23, 42, 0.76);
-  --text: #e5e7eb;
-  --muted: #aab7cc;
-  --line: rgba(148, 163, 184, 0.22);
-  --navy: #bfdbfe;
-}
-```
+Crimson은 강한 색상이므로 전체 화면에서 5% 이하로만 사용한다.
+Royal Blue는 주요 액센트로 사용하되, 버튼·섹션 번호·핵심 라인 정도에 제한한다.
+블랙은 Optical Art의 대비감을 살리지만, 본문 가독성을 위해 과도한 굵기보다는 명확한 크기와 여백으로 조절한다.
 
 ---
 
-## Phase 4: 주요 섹션 재설계
+## 3. Typography System
 
-### 4.1 Navigation
+### 3.1 Font Direction
 
-고정형 상단 네비게이션을 유지하되, 새로운 섹션 구성에 맞게 메뉴를 수정하였다.
+| Text Type | Direction                     |
+| --------- | ----------------------------- |
+| Title     | 단순하고 모던한 Sans-serif, 굵고 크게 배치 |
+| Body      | 읽기 쉬운 본문 서체, 충분한 행간 확보        |
+| Number    | 정보의 축으로 읽히도록 별도 스타일 처리        |
+| Label     | 작은 크기라도 대비가 명확하도록 구성          |
 
-```html
-<ul class="nav-links" id="navLinks">
-  <li><a href="#about">About</a></li>
-  <li><a href="#skills">AI Skills</a></li>
-  <li><a href="#research">Research</a></li>
-  <li><a href="#awards">Awards</a></li>
-  <li><a href="#certificates">Certificates</a></li>
-  <li><a href="#contact">Contact</a></li>
-</ul>
+### 3.2 Suggested Font Stack
+
+```css
+body {
+  font-family: "Inter", "Noto Sans KR", sans-serif;
+}
+
+.mono,
+.stat-number,
+.phase-number {
+  font-family: "JetBrains Mono", monospace;
+}
 ```
 
-### 4.2 Hero Section
+### 3.3 Typography Rule
 
-Hero Section은 홈페이지의 첫인상을 결정하는 영역으로, ESCO 연구원 정체성과 AI 활용 역량을 동시에 보여주도록 구성하였다.
+* 제목은 패턴에 묻히지 않도록 크게 배치한다.
+* 본문은 장식적 효과 없이 읽기 쉬운 형태를 유지한다.
+* 숫자는 단순 장식이 아니라 정보의 기준축으로 보이게 한다.
+* 굵은 글씨는 핵심 문장과 수치에만 제한적으로 사용한다.
 
-**주요 구성 요소**:
+---
 
-* `HY.ESCO` 로고
-* ESCO Researcher 배지
-* 이름: Haein Yun / 윤해인
-* 타이핑 애니메이션
-* 연구 정체성 설명 문장
-* Research, Awards 섹션으로 이동하는 버튼
-* 소속·역량 태그
-* 프로필 카드 및 카운터 애니메이션
+## 4. Layout Grid
 
-### 4.3 About Section
+### 4.1 Structural Grid Concept
 
-About Section은 단순 자기소개가 아니라 연구자 정체성을 구체적으로 설명하는 영역으로 재구성하였다.
+홈페이지 전체는 **2D 화면 안에서 3D 구조를 암시하는 비대칭 그리드**를 사용한다.
+단, 여러 페이지 썸네일이나 컨택트시트처럼 보이지 않도록 카드 수와 간격을 조절한다.
 
-**반영 내용**:
+### 4.2 Layout Rule
+
+| Area         | Layout Direction            |
+| ------------ | --------------------------- |
+| Hero         | 좌측 텍스트, 우측 불가능한 도형 또는 구조 패널 |
+| About        | 넓은 설명 카드 + 작은 정보 카드 3~4개    |
+| AI Skills    | 좌측 핵심 수치, 우측 탭형 설명          |
+| Research     | 2열 또는 3열 카드, 필터 기능 유지       |
+| Awards       | 두 개의 수상 이력을 큰 카드로 배치        |
+| Certificates | Planned 상태를 명확히 보이는 단정한 카드  |
+| Contact      | 하단에 단순한 정보 패널로 정리           |
+
+### 4.3 Whitespace Rule
+
+여백은 단순한 빈칸이 아니라, Optical Pattern의 시각적 긴장을 조절하는 장치로 사용한다.
+
+* 패턴 주변에는 충분한 여백을 둔다.
+* 텍스트 박스 내부 여백은 넓게 유지한다.
+* 카드 간격은 균일하되, 일부 섹션에서 비대칭 배치를 사용해 지나치게 기계적인 인상을 피한다.
+
+---
+
+## 5. Illustration & Pattern System
+
+### 5.1 Motif
+
+사용 가능한 시각 모티프는 다음과 같다.
+
+* Penrose Triangle
+* Impossible Staircase
+* Isometric Grid
+* Repeated Line Pattern
+* Rotating Square Illusion
+* 2D/3D Mixed Frame
+
+### 5.2 Use Restriction
+
+Optical Art 스타일은 시각적 존재감이 강하므로 다음 원칙을 적용한다.
+
+| Rule        | Description                     |
+| ----------- | ------------------------------- |
+| 보조 요소로만 사용  | 패턴은 본문보다 먼저 보이면 안 된다            |
+| 단색 또는 2색 중심 | 블랙, 로얄블루, 연한 블루 중심              |
+| 애니메이션은 느리게  | 빠른 움직임은 발표자료처럼 보이지 않음           |
+| 상징성 과잉 금지   | 기업 자료에 부적절한 문양, 강한 정치·종교적 상징 배제 |
+
+### 5.3 Hero Visual
+
+Hero 우측에는 기존의 일반 프로필 패널 대신 다음 구조를 배치한다.
+
+```text
+┌──────────────────────────────┐
+│      Impossible Logic Frame   │
+│                              │
+│       △ Penrose Triangle      │
+│      /_\  + Isometric Grid    │
+│                              │
+│  AI · BIM · RAG · Automation  │
+└──────────────────────────────┘
+```
+
+이 비주얼은 연구자의 주제를 직접 설명하지 않고, “복잡한 구조를 논리적으로 해석하는 연구자”라는 인상을 조용히 전달한다.
+
+---
+
+## 6. Content Architecture
+
+### 6.1 Homepage Sections
+
+최종 홈페이지는 다음 흐름으로 구성한다.
+
+```text
+01 Title / Identity
+02 Overview / About
+03 AI Capability
+04 Research Structure
+05 Awards
+06 Certificates in Progress
+07 Contact
+```
+
+### 6.2 Information Hierarchy
+
+| Priority | Content                            |
+| -------- | ---------------------------------- |
+| 1        | Haein Yun / 윤해인, ESCO Researcher   |
+| 2        | AI-enabled Construction Management |
+| 3        | BIM, RAG, NLP, Automation 연구 역량    |
+| 4        | 주요 연구 프로젝트                         |
+| 5        | 대한건축학회 수상 이력                       |
+| 6        | 자격증 취득 예정 및 향후 확장 가능성              |
+
+---
+
+## 7. Section-by-Section Implementation
+
+## 7.1 Title Slide-like Hero Section
+
+Hero Section은 타이틀 슬라이드처럼 구성한다.
+
+### Layout
+
+* 상단: 작은 보조 정보 `ESCO Researcher · AI-enabled Construction Management`
+* 좌측: 이름, 핵심 문장, CTA 버튼
+* 우측: 펜로즈 삼각형 또는 불가능한 계단 기반의 상징 비주얼
+* 배경: Alice Blue 또는 White
+* 패턴: 매우 낮은 불투명도의 등각 그리드
+
+### Content
+
+```text
+Haein Yun
+윤해인
+
+AI-enabled Construction Management Researcher
+
+ESCO 소속 연구원으로서 건설관리, BIM, RAG, NLP, 자동화,
+데이터 기반 의사결정을 연결하는 연구를 수행합니다.
+```
+
+### Implementation Note
+
+기존 Hero의 파티클 배경은 Optical Art 방향에 맞게 **isometric line grid** 또는 **slow rotating geometry**로 변경한다.
+
+---
+
+## 7.2 Overview / About Section
+
+개요 슬라이드처럼 왼쪽에는 큰 핵심 헤드라인, 오른쪽에는 요약 설명을 배치한다.
+
+### Headline
+
+```text
+AI와 건설관리를 연결하는 연구자
+```
+
+### Summary
 
 * ESCO 소속 연구원
-* 건설관리와 AI 융합 연구
-* BIM, RAG, NLP, 자동화, 데이터 기반 의사결정
-* 다양한 AI 도구를 연구 생산성 향상에 활용
-* 실무 적용 가능성이 높은 디지털 건설관리 연구 지향
+* 건축도시시스템공학 기반 건설관리 연구
+* 다양한 AI 도구를 연구·분석·시각화·문서화 과정에 활용
+* BIM, RAG, NLP, Automation을 연결한 디지털 건설관리 연구 지향
 
-### 4.4 AI Skills Section
+### Visual Treatment
 
-기존 홈페이지에는 없던 신규 기능 중심 섹션이다.
-사용자가 “다양한 AI를 다룰 줄 안다”고 밝힌 내용을 시각적으로 보여주기 위해 추가하였다.
+왼쪽 헤드라인 뒤에는 얇은 반복선 패턴을 배치하되, 텍스트 가독성을 방해하지 않도록 `opacity: 0.06` 이하로 제한한다.
 
-**구성 요소**:
+---
 
-1. 기술 숙련도 바
-2. AI 활용 영역별 탭
-3. 탭 선택 시 설명과 키워드 변경
+## 7.3 AI Capability Section
 
-**탭 구성**:
+데이터 정리 슬라이드처럼 주요 수치와 기능을 질서 있게 정리한다.
 
-| 탭             | 설명                              |
-| ------------- | ------------------------------- |
-| Research      | 문헌 검토, 연구 질문 구조화, 결과 해석         |
-| Writing       | 논문, 연구계획서, 리뷰 대응, 번역            |
-| Visualization | 도식화, 인포그래픽, UI Mockup           |
-| Automation    | RPA 로직, 데이터 정리, 코드 보조, 워크플로우 설계 |
+### Main Blocks
 
-### 4.5 Research Section
+| Block        | Content                                        |
+| ------------ | ---------------------------------------------- |
+| Key Number   | `6 AI/Tech Fields`                             |
+| Skill Bars   | AI Writing, LLM/RAG, NLP, BIM/Data, Automation |
+| Tabs         | Research, Writing, Visualization, Automation   |
+| Support Text | AI 활용은 단순 보조가 아니라 연구 생산성 향상 도구임을 설명            |
 
-Research Section은 카드형 포트폴리오로 구성하였다.
-각 프로젝트는 필터 기능을 통해 AI, BIM, Safety, Automation 영역으로 구분된다.
+### Design Rule
 
-**프로젝트 카드 목록**:
+* 막대그래프는 로얄블루 한 가지 색상 중심
+* 가장 중요한 수치만 Crimson으로 강조 가능
+* 배경에는 작은 등각 격자를 사용하되 차트 영역은 깨끗하게 유지
+
+---
+
+## 7.4 Research Structure Section
+
+흐름 또는 구조 정리 슬라이드처럼 구성한다.
+
+### Research Flow
+
+```text
+Unstructured Data
+      ↓
+AI / NLP Structuring
+      ↓
+BIM Context Mapping
+      ↓
+RAG-based Retrieval
+      ↓
+Decision Support
+```
+
+### Project Cards
+
+기존 프로젝트 필터 기능은 유지하되, 카드 디자인은 다음처럼 수정한다.
+
+* 카드 상단에 작은 기하학 아이콘
+* 카드 하단에 얇은 구조선
+* 카드 호버 시 2D 사각형이 살짝 3D 프레임처럼 보이도록 `transform` 적용
+* 필터 버튼은 블랙 라인 + 로얄블루 활성 상태
+
+### Included Projects
 
 1. BIM-context-aware RAG for Construction Safety
 2. Risk-chain Structuring from Accident Narratives
@@ -231,134 +328,60 @@ Research Section은 카드형 포트폴리오로 구성하였다.
 5. AI-assisted Research Writing & Review
 6. Interactive Web Documentation
 
-### 4.6 Awards Section
+---
 
-수상 이력은 별도 섹션으로 분리하여 학술적 성과를 강조하였다.
+## 7.5 Awards Section
 
-| 연도   | 수상                    | 설명                                |
-| ---- | --------------------- | --------------------------------- |
-| 2025 | 대한건축학회 추계학술발표대회 우수논문상 | 건설관리 및 디지털 기술 기반 연구성과의 학술적 가능성 인정 |
-| 2026 | 대한건축학회 우수졸업논문전 장려상    | 학부 연구에서 확장된 연구 역량과 주제 발전 가능성 확인   |
+비교표 슬라이드처럼 두 수상 이력을 나란히 배치한다.
 
-### 4.7 Education Section
+| Year | Award                 | Meaning                   |
+| ---- | --------------------- | ------------------------- |
+| 2025 | 대한건축학회 추계학술발표대회 우수논문상 | 디지털 건설관리 연구성과의 학술적 가능성 인정 |
+| 2026 | 대한건축학회 우수졸업논문전 장려상    | 연구 주제의 발전 가능성과 학업 성과 확인   |
 
-기존 Education Section은 유지하되, 석사과정 및 ESCO 소속 연구원이라는 현재 상태가 잘 드러나도록 간결한 타임라인으로 재구성하였다.
+### Visual Rule
 
-**타임라인 항목**:
-
-* Current: 이화여자대학교 대학원, 건축도시시스템공학과 석사과정, ESCO 소속 연구원
-* Research: Construction Management & AI Integration
-* Future: Applied Digital Construction Research
-
-### 4.8 Certificates Section
-
-자격증은 아직 취득 전이므로 “Certificates in Progress” 섹션으로 구성하였다.
-
-**카드 구성**:
-
-* 건축기사 — Planned
-* 건설안전기사 — Planned
-* AI & Digital Tools — Developing
-
-이를 통해 자격증을 과장하지 않으면서도 전문성 확장 계획을 보여줄 수 있도록 하였다.
-
-### 4.9 Contact Section
-
-Contact Section은 실제 이메일이나 링크가 확정되지 않은 상태를 고려해, 수정 가능한 placeholder 형태로 구성하였다.
-
-```html
-<div class="contact-item">✉️ your-email@example.com</div>
-```
-
-추후 실제 이메일, GitHub, LinkedIn, Google Scholar, 연구실 홈페이지 링크 등으로 교체 가능하다.
+* 수상 아이콘은 과도한 금색 트로피보다 단정한 원형 배지 사용
+* 2025, 2026 숫자를 정보의 축으로 크게 배치
+* Crimson은 수상 배지의 작은 점 또는 라인에만 사용
 
 ---
 
-## Phase 5: 인터랙션 및 기능 추가
+## 7.6 Certificates Section
 
-### 5.1 스크롤 진행 바
+자격증은 아직 취득 전이므로 “보유”가 아닌 “취득 예정”으로 명확히 표기한다.
 
-페이지 최상단에 현재 스크롤 위치를 보여주는 진행 바를 추가하였다.
+### Cards
+
+| Certificate        | Status     |
+| ------------------ | ---------- |
+| 건축기사               | Planned    |
+| 건설안전기사             | Planned    |
+| AI & Digital Tools | Developing |
+
+### Design Rule
+
+* Planned 상태는 로얄블루 라벨 사용
+* Certified가 아닌 항목은 절대 완료형으로 보이지 않도록 표현
+* 추후 취득 시 `Planned` → `Certified`로 교체 가능
+
+---
+
+## 8. Interaction Design
+
+### 8.1 Scroll Progress Bar
+
+스크롤 위치는 상단의 얇은 로얄블루 선으로 표시한다.
+Crimson은 사용하지 않는다.
 
 ```javascript
-const scrollTop = window.scrollY;
-const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+const progress = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
 progressBar.style.width = `${progress}%`;
 ```
 
-### 5.2 Navbar Scroll Effect
+### 8.2 Typing Animation
 
-스크롤이 일정 수준 이상 내려가면 네비게이션에 그림자와 더 선명한 배경을 부여하였다.
-
-```javascript
-navbar.classList.toggle('scrolled', scrollTop > 18);
-```
-
-### 5.3 Mobile Navigation
-
-모바일 화면에서는 메뉴가 햄버거 버튼으로 접히도록 구성하였다.
-
-```javascript
-navToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
-});
-```
-
-### 5.4 다크모드 토글
-
-밝은 화면을 기본으로 하되, 사용자가 버튼을 눌러 다크모드로 전환할 수 있도록 하였다.
-
-```javascript
-modeToggle.addEventListener('click', () => {
-  document.body.classList.toggle('dark');
-  modeToggle.textContent = document.body.classList.contains('dark') ? '🌙' : '☀️';
-});
-```
-
-### 5.5 Active Navigation Highlight
-
-현재 화면에 보이는 섹션에 따라 네비게이션 메뉴가 자동으로 활성화되도록 하였다.
-
-```javascript
-const linkObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const id = entry.target.getAttribute('id');
-      menuLinks.forEach(link => {
-        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-      });
-    }
-  });
-}, { threshold: 0.48 });
-```
-
-### 5.6 Scroll Reveal Animation
-
-카드와 섹션이 화면에 진입할 때 부드럽게 나타나는 애니메이션을 추가하였다.
-
-```javascript
-const revealObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.16 });
-```
-
-### 5.7 Hero Typing Animation
-
-Hero Section에서 AI 활용 영역이 순환되며 타이핑되는 효과를 추가하였다.
-
-**순환 키워드**:
-
-* Generative AI
-* LLM-based Research
-* BIM Data Workflows
-* RAG Systems
-* NLP for Safety Narratives
-* Research Automation
+Hero Section의 타이핑 문구는 Optical Art의 “반복” 감각과 연결된다.
 
 ```javascript
 const typeWords = [
@@ -371,231 +394,203 @@ const typeWords = [
 ];
 ```
 
-### 5.8 Counter Animation
+### 8.3 Pattern Animation
 
-Hero 우측 프로필 카드에는 주요 성과를 숫자로 보여주는 카운터 애니메이션을 추가하였다.
+기존 particle animation은 다음 방향으로 수정한다.
 
-**표시 항목**:
+| Before        | After                      |
+| ------------- | -------------------------- |
+| 움직이는 파티클과 연결선 | 느리게 이동하는 등각 그리드            |
+| 디지털 네트워크 이미지  | Optical Art / 2D-3D 혼동 이미지 |
+| 다소 기술적인 배경    | 발표자료형 구조적 패턴               |
 
-* Major Awards: 2
-* AI/Tech Fields: 6
-* KIA Award: 2025
-* Thesis Award: 2026
+### 8.4 Project Filter
 
-### 5.9 Skill Bar Animation
+필터 기능은 유지한다.
+다만 필터 UI는 pill button보다 **thin-outline geometric button**에 가깝게 수정한다.
 
-AI 및 기술 활용 역량을 막대 그래프로 시각화하였다.
+```css
+.filter-btn {
+  border: 1px solid #000;
+  background: #fff;
+  color: #000;
+}
 
-```html
-<div class="tool-row" data-score="92">
-  <b>AI Writing</b>
-  <div class="bar"><span></span></div>
-  <small>92%</small>
-</div>
+.filter-btn.active {
+  background: #4169E1;
+  color: #fff;
+  border-color: #4169E1;
+}
 ```
 
-IntersectionObserver를 사용하여 해당 영역이 화면에 들어왔을 때 막대가 채워지도록 구현하였다.
+### 8.5 Hover Interaction
 
-### 5.10 AI Skills Tab
+카드 호버는 강한 확대 효과보다 미묘한 시점 변화로 처리한다.
 
-AI 활용 영역을 탭으로 구분하여, 사용자가 클릭하면 설명과 키워드가 바뀌도록 구성하였다.
-
-```javascript
-const tabData = {
-  'research-ai': {
-    title: 'Research AI Workflow',
-    desc: '문헌 검토, 연구 질문 구조화, 데이터 라벨링 기준 정리, 실험 결과 해석 등 연구 전 과정에서 AI를 활용합니다.',
-    chips: ['🔎 Literature Review', '🧩 Research Framing', '📊 Result Interpretation', '🧾 Evidence Structuring']
-  }
-};
+```css
+.project-card:hover {
+  transform: translateY(-6px) rotateX(1deg) rotateY(-1deg);
+}
 ```
-
-### 5.11 Project Filter
-
-Research Section의 프로젝트 카드를 카테고리별로 필터링할 수 있도록 구현하였다.
-
-```javascript
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const filter = btn.dataset.filter;
-    document.querySelectorAll('.project-card').forEach(card => {
-      const show = filter === 'all' || card.dataset.category.includes(filter);
-      card.style.display = show ? 'block' : 'none';
-    });
-  });
-});
-```
-
-### 5.12 Hero Canvas Particle Background
-
-Hero Section에는 파티클과 라인이 연결되는 가벼운 배경 애니메이션을 추가하였다.
-
-**동작 원리**:
-
-1. 화면 크기에 따라 파티클 배열 생성
-2. 각 파티클은 작은 속도로 이동
-3. 가까운 파티클끼리는 선으로 연결
-4. 다크모드 여부에 따라 선과 점의 색상 변경
-5. `requestAnimationFrame`으로 반복 렌더링
 
 ---
 
-## 최종 파일 구조
+## 9. Data Visualization Rule
 
-단일 HTML 파일로 구성할 경우 다음 구조를 사용한다.
+홈페이지 내부의 수치와 기능 설명은 발표자료처럼 빠르게 읽혀야 한다.
+
+### 9.1 숫자 표현
+
+| Number | Meaning                        |
+| ------ | ------------------------------ |
+| 2      | Major Awards                   |
+| 6      | AI/Tech Fields                 |
+| 2025   | KIA Excellent Paper Award      |
+| 2026   | KIA Undergraduate Thesis Award |
+
+### 9.2 Visualization Rule
+
+* 수치는 카드 상단 또는 좌측에 크게 배치한다.
+* 설명문은 수치 아래에 짧게 붙인다.
+* 차트와 라벨의 관계가 즉시 읽히도록 한다.
+* 착시 패턴은 차트 배경에 넣지 않는다.
+
+---
+
+## 10. CSS Implementation Direction
+
+### 10.1 Optical Background Pattern
+
+```css
+.optical-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(30deg, rgba(0,0,0,0.06) 1px, transparent 1px),
+    linear-gradient(150deg, rgba(65,105,225,0.08) 1px, transparent 1px);
+  background-size: 36px 36px;
+  opacity: 0.45;
+  pointer-events: none;
+}
+```
+
+### 10.2 Penrose-like Frame
+
+```css
+.impossible-frame {
+  position: relative;
+  border: 2px solid #000;
+  background: #fff;
+  box-shadow: 12px 12px 0 #4169E1;
+}
+
+.impossible-frame::after {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 1px solid #000;
+  transform: skew(-8deg) rotate(1deg);
+}
+```
+
+### 10.3 Crimson Point Accent
+
+```css
+.point-accent {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #DC143C;
+}
+```
+
+Crimson은 버튼 전체 배경이나 큰 면적으로 사용하지 않는다.
+
+---
+
+## 11. JavaScript Implementation Direction
+
+### 11.1 Slow Isometric Canvas
+
+기존 파티클 배경은 Optical Art 방향에 맞게 다음 방식으로 수정한다.
+
+```javascript
+function drawIsometricGrid(ctx, width, height, offset) {
+  ctx.clearRect(0, 0, width, height);
+  ctx.strokeStyle = 'rgba(0, 0, 0, 0.06)';
+  ctx.lineWidth = 1;
+
+  const gap = 36;
+  for (let x = -width; x < width * 2; x += gap) {
+    ctx.beginPath();
+    ctx.moveTo(x + offset, 0);
+    ctx.lineTo(x + height + offset, height);
+    ctx.stroke();
+  }
+
+  ctx.strokeStyle = 'rgba(65, 105, 225, 0.08)';
+  for (let x = -width; x < width * 2; x += gap) {
+    ctx.beginPath();
+    ctx.moveTo(x - offset, height);
+    ctx.lineTo(x + height - offset, 0);
+    ctx.stroke();
+  }
+}
+```
+
+### 11.2 Animation Speed
+
+Optical Art 배경은 눈에 띄게 움직이면 피로감을 줄 수 있으므로 매우 느리게 움직인다.
+
+```javascript
+let offset = 0;
+function animate() {
+  offset = (offset + 0.08) % 36;
+  drawIsometricGrid(ctx, canvas.width, canvas.height, offset);
+  requestAnimationFrame(animate);
+}
+```
+
+---
+
+## 12. Final Page Structure
 
 ```text
 haein_homepage/
 └── index.html
 ```
 
-CSS와 JavaScript를 분리하고 싶을 경우 다음 구조로 확장할 수 있다.
+단일 파일 구조를 유지한다.
 
 ```text
-haein_homepage/
-├── index.html
-├── style.css
-└── script.js
+index.html
+├── HTML Structure
+├── CSS Variables
+├── Optical Pattern Styles
+├── Section Layouts
+├── Responsive Design
+└── JavaScript Interactions
 ```
-
-현재 제공된 코드는 복사와 실행 편의성을 위해 `index.html` 하나에 HTML, CSS, JavaScript가 모두 포함된 구조이다.
 
 ---
 
-## 디자인 시스템
+## 13. Final Implementation Summary
 
-### 최종 컬러 팔레트
-
-```text
-Background
-  #ffffff   Main White
-  #f8fbff   Soft Page Background
-  #eef6ff   Light Blue Section Background
-
-Primary
-  #1e3a8a   Navy Title
-  #2563eb   Blue Accent
-  #38bdf8   Sky Accent
-
-Secondary
-  #0f766e   Teal
-  #7c3aed   Purple
-  #d97706   Amber
-
-Text
-  #1f2937   Main Text
-  #64748b   Muted Text
-  #dbeafe   Border Line
-```
-
-### 타이포그래피
-
-| 용도    | 폰트             |
-| ----- | -------------- |
-| 영문/UI | Inter          |
-| 한글 본문 | Noto Sans KR   |
-| 코드/숫자 | JetBrains Mono |
-
-### UI 구성 원칙
-
-| 원칙           | 적용 방식                              |
-| ------------ | ---------------------------------- |
-| 밝고 전문적인 이미지  | 화이트·라이트블루 배경 사용                    |
-| 연구자 포트폴리오 느낌 | 카드형 섹션, 타임라인, 수상 섹션 구성             |
-| AI 활용 역량 강조  | AI Skills 탭과 기술 바 추가               |
-| 과장 방지        | 자격증은 Planned, AI 역량은 활용 영역 중심으로 표현 |
-| 사용성 강화       | 스크롤바, 필터, 탭, 다크모드, Top 버튼 추가       |
+| Phase | Modification                                 | Result              |
+| ----- | -------------------------------------------- | ------------------- |
+| 1     | 기존 연구자 포트폴리오 구조 유지                           | 정보 구조의 안정성 확보       |
+| 2     | ESCO, AI 역량, 수상 이력, 자격증 예정 반영                | 개인 정보와 연구자 정체성 강화   |
+| 3     | Optical Art / Pattern / Illusion 스타일 적용      | 차별화된 시각적 인상 형성      |
+| 4     | 밝은 배경과 블랙 텍스트 중심으로 재정의                       | 발표자료처럼 명료한 가독성 확보   |
+| 5     | Penrose, isometric grid, impossible frame 도입 | 착시적 개성을 절제된 방식으로 표현 |
+| 6     | 탭, 필터, 카운터, 타이핑 기능 유지                        | 기능성과 시각적 완성도 동시 확보  |
 
 ---
 
-## 상세 코드 설명
+## 14. Future Editable Items
 
-### 1. 단일 파일 구조
-
-이번 버전은 별도의 `style.css`, `script.js` 없이 하나의 `index.html`만으로 실행 가능하도록 구성하였다.
-
-```html
-<style>
-  /* CSS 전체 포함 */
-</style>
-
-<script>
-  /* JavaScript 전체 포함 */
-</script>
-```
-
-이 방식은 개인 홈페이지를 빠르게 테스트하거나 GitHub Pages에 간단히 배포할 때 유리하다.
-
-### 2. Glass Card UI
-
-각 섹션의 카드에는 반투명 배경, 경계선, 그림자, blur 효과를 적용하였다.
-
-```css
-.glass-card {
-  border: 1px solid rgba(219, 234, 254, 0.9);
-  border-radius: var(--radius-xl);
-  background: var(--card);
-  box-shadow: var(--shadow-soft);
-  backdrop-filter: blur(18px);
-}
-```
-
-### 3. 반응형 디자인
-
-`980px`, `760px` 기준으로 레이아웃을 조정하였다.
-
-```css
-@media (max-width: 980px) {
-  .hero-wrap,
-  .about-grid,
-  .skill-dashboard,
-  .contact-card {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 760px) {
-  .nav-links {
-    position: fixed;
-    top: 72px;
-    display: none;
-    flex-direction: column;
-  }
-}
-```
-
-### 4. 필터형 연구 카드
-
-각 연구 카드에는 `data-category` 속성을 부여하였다.
-
-```html
-<article class="project-card glass-card reveal" data-category="ai bim safety">
-```
-
-사용자가 필터 버튼을 클릭하면 해당 카테고리를 포함하는 카드만 표시된다.
-
-### 5. 탭형 AI 역량 설명
-
-탭 데이터는 JavaScript 객체로 관리하였다.
-추후 탭을 추가하고 싶으면 `tabData` 객체에 항목을 추가하면 된다.
-
----
-
-## 변경 이력 요약
-
-| Phase   | 작업 내용         | 반영 결과                                                                   |
-| ------- | ------------- | ----------------------------------------------------------------------- |
-| Phase 1 | 기존 홈페이지 구조 검토 | 기존 다크/웜톤 중심 설명을 최신 구조에 맞게 재정리                                           |
-| Phase 2 | 개인 정보 업데이트    | ESCO, AI 역량, 수상 이력, 자격증 예정 반영                                           |
-| Phase 3 | 디자인 시스템 재구성   | 밝은 배경, 블루 계열 포인트, 카드형 UI 적용                                             |
-| Phase 4 | 섹션 재설계        | About, AI Skills, Research, Awards, Education, Certificates, Contact 구성 |
-| Phase 5 | 기능 추가         | 다크모드, 탭, 필터, 카운터, 타이핑, 파티클, 스크롤 애니메이션 구현                                |
-
----
-
-## 추후 수정 가능 항목
-
-다음 항목은 실제 정보가 확정되면 쉽게 교체할 수 있다.
+추후 실제 정보가 확정되면 다음 항목을 수정할 수 있다.
 
 1. 이메일 주소
 2. GitHub 링크
@@ -603,11 +598,23 @@ Text
 4. LinkedIn 링크
 5. 연구실 홈페이지 링크
 6. 실제 프로필 사진
-7. 자격증 취득 후 상태 변경: `Planned` → `Certified`
-8. 수상 논문 제목 추가
-9. 대표 논문 또는 학회 발표 리스트 추가
+7. 수상 논문 제목
+8. 대표 논문 리스트
+9. 자격증 취득 후 상태 변경: `Planned` → `Certified`
 10. 프로젝트별 상세 페이지 연결
 
 ---
 
-*이 문서는 ESCO 소속 연구원 포트폴리오형 개인 홈페이지의 구현 및 수정 과정을 기록한 최신 버전이다.*
+## 15. Final Tone
+
+이 홈페이지의 최종 톤은 다음과 같다.
+
+> 밝고 명료한 화면 위에, 불가능한 기하학과 절제된 패턴이 조용히 놓인다.
+> 사용자는 먼저 연구자의 정보와 성과를 읽고, 그 다음에야 화면 깊숙한 곳의 착시적 질서를 발견하게 된다.
+
+즉, 스타일은 주제를 앞지르지 않는다.
+Optical Art는 홈페이지의 장식이 아니라, **복잡한 연구 문제를 논리적으로 구조화하는 연구자의 태도**를 시각적으로 드러내는 장치이다.
+
+---
+
+*This document records the updated implementation direction for the Haein Yun personal homepage, redesigned with a controlled Optical Art / Pattern / Illusion visual system.*
