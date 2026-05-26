@@ -1098,7 +1098,7 @@
 
     .directions-card {
       display: grid;
-      grid-template-columns: .92fr 1.08fr;
+      grid-template-columns: .78fr 1.22fr;
       gap: 24px;
       align-items: stretch;
       border: 3px solid var(--black);
@@ -1141,25 +1141,40 @@
       margin-bottom: 22px;
     }
 
-    .directions-main h3 {
+    .directions-main h3,
+    .directions-title {
       max-width: 100%;
-      font-size: clamp(1.34rem, 2.05vw, 1.95rem);
-      line-height: 1.18;
-      letter-spacing: -.045em;
+      font-size: clamp(1.26rem, 1.65vw, 1.74rem);
+      line-height: 1.22;
+      letter-spacing: -.04em;
       margin-bottom: 12px;
       word-break: keep-all;
-      overflow-wrap: normal;
     }
 
-    @media (min-width: 761px) {
-      .directions-main h3 {
-        white-space: nowrap;
-      }
+    .directions-title span {
+      display: block;
+    }
+
+    .directions-title strong {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 6px;
+      padding: 2px 8px 3px;
+      border: 3px solid var(--black);
+      background: var(--crimson);
+      color: var(--white);
+      box-shadow: 4px 4px 0 var(--black);
+      font-family: "JetBrains Mono", monospace;
+      font-size: .82em;
+      letter-spacing: -.02em;
+      vertical-align: middle;
+      white-space: nowrap;
     }
 
     .directions-main p {
       color: var(--gray);
-      font-size: .94rem;
+      font-size: .88rem;
       font-weight: 700;
       line-height: 1.65;
       margin-bottom: 22px;
@@ -1177,8 +1192,8 @@
       border: 3px solid var(--black);
       background: var(--white);
       box-shadow: 5px 5px 0 var(--black);
-      padding: 10px 13px;
-      font-size: .9rem;
+      padding: 9px 12px;
+      font-size: .84rem;
       font-weight: 900;
       transition: .18s ease;
     }
@@ -1559,7 +1574,7 @@
         <div class="directions-card reveal">
           <div class="directions-main">
             <div class="directions-no">503</div>
-            <h3>이화여자대학교 아산공학관 503호</h3>
+            <h3 class="directions-title"><span>이화여자대학교</span><span>아산공학관 <strong>503호</strong></span></h3>
             <p>건축도시시스템공학과 · ESCO 연구실</p>
             <div class="directions-actions">
               <a href="https://maps.app.goo.gl/uByt69vVQEC92SZF8" target="_blank" rel="noopener noreferrer">Open Google Maps</a>
