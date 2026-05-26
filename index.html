@@ -704,6 +704,120 @@
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
     .reveal.show { opacity: 1; transform: translateY(0); }
 
+    .orbit-diagram {
+      position: relative;
+      width: min(390px, 100%);
+      height: 305px;
+      animation: orbitFloat 6s ease-in-out infinite;
+    }
+
+    @keyframes orbitFloat {
+      0%,100% { transform: translateY(0) rotate(-.4deg); }
+      50% { transform: translateY(-9px) rotate(.4deg); }
+    }
+
+    .orbit-diagram::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 238px;
+      height: 238px;
+      transform: translate(-50%, -50%) rotate(45deg);
+      border: 3px solid var(--black);
+      background:
+        repeating-linear-gradient(90deg, rgba(0,0,0,.06) 0 2px, transparent 2px 12px),
+        var(--white);
+      box-shadow: 10px 10px 0 rgba(65,105,225,.28);
+      opacity: .96;
+    }
+
+    .orbit-diagram::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 172px;
+      height: 172px;
+      transform: translate(-50%, -50%) rotate(45deg);
+      border: 3px solid var(--black);
+      background: rgba(240,248,255,.72);
+      z-index: 1;
+    }
+
+    .orbit-line {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: 2;
+      background: var(--black);
+      transform-origin: center;
+    }
+
+    .line-v { width: 3px; height: 236px; transform: translate(-50%, -50%); }
+    .line-h { width: 236px; height: 3px; transform: translate(-50%, -50%); }
+    .line-d1 { width: 260px; height: 3px; transform: translate(-50%, -50%) rotate(45deg); background: var(--royal); }
+    .line-d2 { width: 260px; height: 3px; transform: translate(-50%, -50%) rotate(-45deg); background: var(--royal); }
+
+    .orbit-core {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: 5;
+      width: 96px;
+      height: 96px;
+      transform: translate(-50%, -50%);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      border: 3px solid var(--black);
+      border-radius: 50%;
+      background: var(--white);
+      box-shadow: 6px 6px 0 var(--royal);
+      font-family: "JetBrains Mono", monospace;
+      line-height: 1.15;
+    }
+
+    .orbit-core strong { display: block; font-size: .78rem; }
+    .orbit-core span { display: block; font-size: .72rem; color: var(--gray); font-weight: 900; }
+
+    .orbit-node {
+      position: absolute;
+      z-index: 4;
+      width: 124px;
+      min-height: 66px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      border: 3px solid var(--black);
+      background: var(--white);
+      box-shadow: 6px 6px 0 var(--black);
+      padding: 9px;
+      font-family: "JetBrains Mono", monospace;
+      line-height: 1.18;
+    }
+
+    .orbit-node b { display: block; font-size: .82rem; }
+    .orbit-node span { display: block; margin-top: 3px; font-size: .68rem; font-weight: 900; color: var(--gray); }
+
+    .node-ai { left: 50%; top: 0; transform: translateX(-50%); background: var(--royal); color: var(--white); }
+    .node-ai span { color: rgba(255,255,255,.88); }
+    .node-bim { left: 0; top: 50%; transform: translateY(-50%); }
+    .node-rag { right: 0; top: 50%; transform: translateY(-50%); }
+    .node-decision { left: 50%; bottom: 0; transform: translateX(-50%); }
+
+    .node-decision::after {
+      content: "";
+      position: absolute;
+      right: -10px;
+      top: -10px;
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      border: 3px solid var(--black);
+      background: var(--crimson);
+    }
+
     @media (max-width: 1040px) {
       .hero-grid, .about-layout, .skills-layout, .section-head, .contact-card { grid-template-columns: 1fr; }
       .poster { transform: none; min-height: 560px; }
@@ -781,20 +895,20 @@
 
       <aside class="poster reveal">
         <div class="poster-top">
-          <span class="poster-title">Impossible Logic Frame</span>
+          <span class="poster-title">Evidence Logic Frame</span>
           <span class="poster-number">01</span>
         </div>
         <div class="impossible-stage">
-          <div class="logic-diagram" aria-label="AI, BIM, RAG, and decision support logic diagram">
-            <div class="logic-node ai">AI / NLP</div>
-            <div class="logic-node bim">BIM<br>Context</div>
-            <div class="logic-node rag">RAG<br>Retrieval</div>
-            <div class="logic-node decision">Decision<br>Support</div>
-            <span class="logic-arrow a1">↙</span>
-            <span class="logic-arrow a2">↘</span>
-            <span class="logic-arrow a3">↘</span>
-            <span class="logic-arrow a4">↙</span>
-            <div class="logic-center">Evidence<br>Loop</div>
+          <div class="orbit-diagram" aria-label="AI, BIM, RAG, and decision support diagram">
+            <div class="orbit-core"><strong>Evidence</strong><span>Loop</span></div>
+            <div class="orbit-node node-ai"><b>AI / NLP</b><span>Structuring</span></div>
+            <div class="orbit-node node-bim"><b>BIM</b><span>Context</span></div>
+            <div class="orbit-node node-rag"><b>RAG</b><span>Retrieval</span></div>
+            <div class="orbit-node node-decision"><b>Decision</b><span>Support</span></div>
+            <div class="orbit-line line-v"></div>
+            <div class="orbit-line line-h"></div>
+            <div class="orbit-line line-d1"></div>
+            <div class="orbit-line line-d2"></div>
           </div>
         </div>
         <div class="poster-bottom">
