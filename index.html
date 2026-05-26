@@ -1096,8 +1096,153 @@
       transform: translate(-3px, -3px);
     }
 
+    .directions-card {
+      display: grid;
+      grid-template-columns: .92fr 1.08fr;
+      gap: 24px;
+      align-items: stretch;
+      border: 3px solid var(--black);
+      background: var(--white);
+      box-shadow: var(--shadow);
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .directions-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 22% 35%, rgba(220,20,60,.08), transparent 15rem),
+        repeating-linear-gradient(135deg, rgba(65,105,225,.075) 0 2px, transparent 2px 18px);
+      opacity: .8;
+      pointer-events: none;
+    }
+
+    .directions-main,
+    .directions-visual {
+      position: relative;
+      z-index: 2;
+    }
+
+    .directions-no {
+      width: 88px;
+      height: 88px;
+      display: grid;
+      place-items: center;
+      border: 3px solid var(--black);
+      background: var(--crimson);
+      color: var(--white);
+      box-shadow: 7px 7px 0 var(--black);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: 22px;
+    }
+
+    .directions-main h3 {
+      font-size: clamp(1.7rem, 3vw, 2.55rem);
+      line-height: 1.08;
+      letter-spacing: -.07em;
+      margin-bottom: 12px;
+    }
+
+    .directions-main p {
+      color: var(--gray);
+      font-weight: 700;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .directions-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .directions-actions a {
+      display: inline-flex;
+      border: 3px solid var(--black);
+      background: var(--white);
+      box-shadow: 5px 5px 0 var(--black);
+      padding: 11px 14px;
+      font-weight: 900;
+      transition: .18s ease;
+    }
+
+    .directions-actions a:first-child {
+      background: var(--royal);
+      color: var(--white);
+    }
+
+    .directions-actions a:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 8px 8px 0 var(--black);
+    }
+
+    .directions-visual {
+      min-height: 310px;
+      border: 3px solid var(--black);
+      background: var(--blue-soft);
+      box-shadow: 8px 8px 0 rgba(0,0,0,.88);
+      padding: 20px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+
+    .directions-visual::before {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      background:
+        linear-gradient(30deg, transparent 48%, rgba(0,0,0,.12) 49%, rgba(0,0,0,.12) 51%, transparent 52%),
+        linear-gradient(150deg, transparent 48%, rgba(65,105,225,.22) 49%, rgba(65,105,225,.22) 51%, transparent 52%);
+      background-size: 34px 34px;
+      animation: gridMove 34s linear infinite;
+      opacity: .45;
+    }
+
+    .floor-grid {
+      position: relative;
+      z-index: 2;
+      width: min(420px, 100%);
+      height: 230px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 1fr 72px;
+      gap: 10px;
+      transform: perspective(900px) rotateX(8deg) rotateY(-8deg);
+    }
+
+    .room,
+    .corridor {
+      display: grid;
+      place-items: center;
+      border: 3px solid var(--black);
+      background: var(--white);
+      box-shadow: 5px 5px 0 var(--black);
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 900;
+    }
+
+    .active-room {
+      background: var(--crimson);
+      color: var(--white);
+      transform: translate(-4px, -6px);
+      box-shadow: 9px 9px 0 var(--black);
+    }
+
+    .corridor {
+      grid-column: 1 / -1;
+      background: var(--royal);
+      color: var(--white);
+      letter-spacing: -.03em;
+    }
+
     @media (max-width: 1040px) {
-      .hero-grid, .about-layout, .skills-layout, .section-head, .contact-card, .feature-layout { grid-template-columns: 1fr; }
+      .hero-grid, .about-layout, .skills-layout, .section-head, .contact-card, .feature-layout, .directions-card { grid-template-columns: 1fr; }
       .poster { transform: none; min-height: 560px; }
       .flow { grid-template-columns: 1fr; }
       .flow-step:not(:last-child)::after { content: "↓"; right: 50%; top: auto; bottom: -23px; transform: translateX(50%); }
@@ -1141,6 +1286,7 @@
       <li><a href="#skills">AI Skills</a></li>
       <li><a href="#research">Research</a></li>
       <li><a href="#publications">Activities</a></li>
+      <li><a href="#directions">Directions</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <button class="menu-btn" id="menuBtn">Menu</button>
@@ -1391,11 +1537,37 @@
       </div>
     </section>
 
+    <section id="directions">
+      <div class="wrap">
+        <div class="section-head reveal"><div><span class="kicker">10 Directions</span><h2>How to find the lab</h2></div></div>
+        <div class="directions-card reveal">
+          <div class="directions-main">
+            <div class="directions-no">503</div>
+            <h3>이화여자대학교 아산공학관 503호</h3>
+            <p>건축도시시스템공학과 · ESCO 연구실</p>
+            <div class="directions-actions">
+              <a href="https://maps.app.goo.gl/uByt69vVQEC92SZF8" target="_blank" rel="noopener noreferrer">Open Google Maps</a>
+              <a href="#contact">Contact</a>
+            </div>
+          </div>
+          <div class="directions-visual" aria-hidden="true">
+            <div class="floor-grid">
+              <span class="room room-a">501</span>
+              <span class="room room-b">502</span>
+              <span class="room room-c active-room">503</span>
+              <span class="room room-d">504</span>
+              <span class="corridor">Asan Engineering Building</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="contact">
       <div class="wrap">
         <div class="contact-card reveal">
-          <div><span class="kicker">10 Contact</span><h2>Let’s build intelligent construction research.</h2><div class="contact-buttons"><a href="cv.pdf" download>Download CV</a><a href="mailto:your-email@example.com">Email</a><a href="#research">Research</a></div></div>
-          <div class="contact-list"><div class="contact-item">📍 Seoul, Republic of Korea</div><div class="contact-item">🏫 Ewha Womans University</div><div class="contact-item">🔬 ESCO Researcher</div><div class="contact-item">✉️ your-email@example.com</div></div>
+          <div><span class="kicker">11 Contact</span><h2>Let’s build intelligent construction research.</h2><div class="contact-buttons"><a href="cv.pdf" download>Download CV</a><a href="mailto:your-email@example.com">Email</a><a href="#research">Research</a></div></div>
+          <div class="contact-list"><div class="contact-item">📍 이화여자대학교 아산공학관 503호</div><div class="contact-item">🏫 건축도시시스템공학과</div><div class="contact-item">🔬 ESCO Researcher</div><div class="contact-item">✉️ your-email@example.com</div></div>
         </div>
       </div>
     </section>
