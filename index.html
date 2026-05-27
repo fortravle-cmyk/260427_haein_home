@@ -3,77 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Haein Yun | ESCO Research Portfolio</title>
-  <meta name="description" content="윤해인 개인 홈페이지 - ESCO 소속 연구원, AI, BIM, RAG, NLP, 건설관리 연구 포트폴리오" />
+  <meta
+    name="description"
+    content="윤해인 개인 홈페이지 - ESCO 소속 연구원, AI, BIM, RAG, NLP, 건설관리 연구 포트폴리오"
+  />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@700&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <div class="progress" id="progress"></div>
 
-  <div class="mini-world" aria-hidden="true">
-    <div class="scene-sky"></div>
-    <div class="tilt-blur tilt-blur-top"></div>
-    <div class="tilt-blur tilt-blur-bottom"></div>
-
-    <div class="ground-stage">
-      <div class="ground-grid"></div>
-
-      <div class="site-road road-vertical"></div>
-      <div class="site-road road-horizontal"></div>
-
-      <div class="site-pad site-center"></div>
-      <div class="site-pad site-left"></div>
-      <div class="site-pad site-right"></div>
-
-      <div class="mini-block left-block">
-        <div class="mini-building-real bld-a"></div>
-        <div class="mini-building-real bld-b"></div>
-        <div class="tree-real tr-1"></div>
-        <div class="tree-real tr-2"></div>
-      </div>
-
-      <div class="mini-block right-block">
-        <div class="mini-building-real bld-c"></div>
-        <div class="mini-building-real bld-d"></div>
-        <div class="tree-real tr-3"></div>
-        <div class="tree-real tr-4"></div>
-      </div>
-
-      <div class="construction-cluster">
-        <div class="crane-real">
-          <div class="crane-base"></div>
-          <div class="crane-arm"></div>
-          <div class="crane-wire"></div>
-          <div class="crane-hook"></div>
-        </div>
-
-        <div class="module-real mod-1"></div>
-        <div class="module-real mod-2"></div>
-        <div class="module-real mod-3"></div>
-
-        <div class="worker-real wr-1"></div>
-        <div class="worker-real wr-2"></div>
-        <div class="worker-real wr-3"></div>
-        <div class="worker-real wr-4"></div>
-
-        <div class="cone-real cone-1"></div>
-        <div class="cone-real cone-2"></div>
-        <div class="cone-real cone-3"></div>
-      </div>
-
-      <div class="truck-real truck-1"></div>
-      <div class="truck-real truck-2"></div>
-      <div class="truck-real truck-3"></div>
-    </div>
-  </div>
-
   <nav class="nav">
-    <a href="#hero" class="brand">
+    <a href="#hero" class="brand" aria-label="Go to home">
       <span class="brand-mark">HY</span>
       <span class="brand-text">Haein Yun</span>
     </a>
@@ -91,12 +42,23 @@
     <button class="menu-btn" id="menuBtn" type="button">Menu</button>
   </nav>
 
-  <header class="hero" id="hero">
-    <div class="wrap hero-grid">
+  <header class="hero image-hero" id="hero">
+    <div class="hero-shade"></div>
+    <div class="hero-blur hero-blur-top"></div>
+    <div class="hero-blur hero-blur-bottom"></div>
+
+    <div class="wrap hero-content">
       <section class="hero-copy reveal">
         <div class="label">ESCO Researcher · AI-enabled Construction Management</div>
-        <h1>Haein Yun <span>윤해인</span></h1>
-        <p class="subtitle">Researcher connecting construction management, AI, BIM, and automation.</p>
+
+        <h1>
+          Haein Yun
+          <span>윤해인</span>
+        </h1>
+
+        <p class="subtitle">
+          Researcher connecting construction management, AI, BIM, and automation.
+        </p>
 
         <div class="typing">
           <span>Focused on</span>
@@ -123,73 +85,29 @@
         </div>
       </section>
 
-      <aside class="hero-poster reveal">
-        <div class="poster-top">
+      <aside class="hero-summary reveal">
+        <div class="summary-head">
           <span>Miniature Construction Intelligence</span>
           <b>01</b>
         </div>
 
-        <div class="poster-visual">
-          <div class="poster-ground">
-            <div class="poster-grid"></div>
-            <div class="poster-road-main"></div>
-
-            <div class="poster-site">
-              <div class="poster-crane-real">
-                <div class="pcr-base"></div>
-                <div class="pcr-arm"></div>
-                <div class="pcr-wire"></div>
-                <div class="pcr-hook"></div>
-              </div>
-
-              <div class="poster-module-real pmr-1"></div>
-              <div class="poster-module-real pmr-2"></div>
-              <div class="poster-module-real pmr-3"></div>
-
-              <div class="poster-worker-real pwr-1"></div>
-              <div class="poster-worker-real pwr-2"></div>
-              <div class="poster-worker-real pwr-3"></div>
-            </div>
-
-            <div class="poster-mini-building pb-1"></div>
-            <div class="poster-mini-building pb-2"></div>
-            <div class="poster-mini-tree pt-1"></div>
-            <div class="poster-mini-tree pt-2"></div>
-
-            <div class="poster-chip chip-ai">AI</div>
-            <div class="poster-chip chip-bim">BIM</div>
-            <div class="poster-chip chip-rag">RAG</div>
+        <div class="summary-body">
+          <div class="summary-kpi">
+            <span>AI</span>
+            <strong>NLP · RAG</strong>
+            <p>Unstructured construction knowledge into usable research logic</p>
           </div>
 
-          <div class="poster-caption">
-            <h4>AI + BIM + RAG</h4>
-            <p>Evidence-based construction intelligence represented as a miniature modular site.</p>
-          </div>
-        </div>
-
-        <div class="poster-bottom">
-          <div class="logic">
-            <em>A</em>
-            <div>
-              <b>AI · NLP · RAG</b>
-              <small>Unstructured knowledge into usable research logic</small>
-            </div>
+          <div class="summary-kpi">
+            <span>BIM</span>
+            <strong>Data Context</strong>
+            <p>Physical construction context as structured evidence</p>
           </div>
 
-          <div class="logic">
-            <em>B</em>
-            <div>
-              <b>BIM · Data Context</b>
-              <small>Physical construction context as structured evidence</small>
-            </div>
-          </div>
-
-          <div class="logic">
-            <em>C</em>
-            <div>
-              <b>Decision Support</b>
-              <small>From pattern recognition to practical construction insight</small>
-            </div>
+          <div class="summary-kpi">
+            <span>Decision</span>
+            <strong>Support</strong>
+            <p>From pattern recognition to practical construction insight</p>
           </div>
         </div>
       </aside>
@@ -197,7 +115,9 @@
   </header>
 
   <main>
-    <section id="about">
+    <section id="about" class="section image-section">
+      <div class="section-bg-shade"></div>
+
       <div class="wrap">
         <div class="section-head reveal">
           <span class="kicker">02 Overview</span>
@@ -220,25 +140,25 @@
 
           <div class="info-grid">
             <div class="info-card reveal">
-              <div class="icon">🏫</div>
+              <span class="info-no">01</span>
               <h4>Affiliation</h4>
               <p>이화여자대학교 건축도시시스템공학과 및 ESCO 연구실 소속</p>
             </div>
 
             <div class="info-card reveal">
-              <div class="icon">🧠</div>
+              <span class="info-no">02</span>
               <h4>AI Capability</h4>
               <p>생성형 AI, LLM, RAG, NLP, 자동화 도구를 연구 과정에 통합적으로 활용</p>
             </div>
 
             <div class="info-card reveal">
-              <div class="icon">🏗️</div>
+              <span class="info-no">03</span>
               <h4>Domain</h4>
               <p>Construction Management, BIM, Safety, Automation, Digital Transformation</p>
             </div>
 
             <div class="info-card reveal">
-              <div class="icon">🎯</div>
+              <span class="info-no">04</span>
               <h4>Goal</h4>
               <p>건설산업의 실무 문제를 데이터 기반으로 해석하고 해결 가능한 연구로 확장</p>
             </div>
@@ -247,7 +167,7 @@
       </div>
     </section>
 
-    <section id="featured">
+    <section id="featured" class="section">
       <div class="wrap">
         <div class="section-head reveal">
           <span class="kicker">03 Featured Research</span>
@@ -274,20 +194,21 @@
             </div>
           </article>
 
-          <aside class="mini-diagram reveal">
-            <div class="diagram-core">Context<br>Evidence</div>
-            <div class="diagram-node d-ai">AI</div>
-            <div class="diagram-node d-bim">BIM</div>
-            <div class="diagram-node d-rag">RAG</div>
-            <div class="diagram-node d-dfs">DfS</div>
-            <div class="diagram-line x"></div>
-            <div class="diagram-line y"></div>
+          <aside class="visual-card reveal">
+            <div class="visual-card-bg"></div>
+            <div class="visual-card-text">
+              <span>Concept Scene</span>
+              <h3>AI + BIM + RAG</h3>
+              <p>
+                Miniature modular assembly scene representing evidence-based construction intelligence.
+              </p>
+            </div>
           </aside>
         </div>
       </div>
     </section>
 
-    <section id="skills">
+    <section id="skills" class="section">
       <div class="wrap">
         <div class="section-head reveal">
           <span class="kicker">04 AI Capability</span>
@@ -301,11 +222,35 @@
             <p>다양한 AI 도구를 연구 생산성 향상과 디지털 건설관리 문제 해결에 활용합니다.</p>
 
             <div class="bars" id="bars">
-              <div class="bar-row" data-score="92"><b>AI Writing</b><span class="track"><span class="fill"></span></span><em>92</em></div>
-              <div class="bar-row" data-score="88"><b>LLM/RAG</b><span class="track"><span class="fill"></span></span><em>88</em></div>
-              <div class="bar-row" data-score="84"><b>NLP</b><span class="track"><span class="fill"></span></span><em>84</em></div>
-              <div class="bar-row" data-score="82"><b>BIM/Data</b><span class="track"><span class="fill"></span></span><em>82</em></div>
-              <div class="bar-row" data-score="78"><b>Automation</b><span class="track"><span class="fill"></span></span><em>78</em></div>
+              <div class="bar-row" data-score="92">
+                <b>AI Writing</b>
+                <span class="track"><span class="fill"></span></span>
+                <em>92</em>
+              </div>
+
+              <div class="bar-row" data-score="88">
+                <b>LLM/RAG</b>
+                <span class="track"><span class="fill"></span></span>
+                <em>88</em>
+              </div>
+
+              <div class="bar-row" data-score="84">
+                <b>NLP</b>
+                <span class="track"><span class="fill"></span></span>
+                <em>84</em>
+              </div>
+
+              <div class="bar-row" data-score="82">
+                <b>BIM/Data</b>
+                <span class="track"><span class="fill"></span></span>
+                <em>82</em>
+              </div>
+
+              <div class="bar-row" data-score="78">
+                <b>Automation</b>
+                <span class="track"><span class="fill"></span></span>
+                <em>78</em>
+              </div>
             </div>
           </article>
 
@@ -318,7 +263,9 @@
             </div>
 
             <h3 id="tabTitle">Research AI Workflow</h3>
-            <p id="tabDesc">문헌 검토, 연구 질문 구조화, 데이터 라벨링 기준 정리, 실험 결과 해석 등 연구 전 과정에서 AI를 활용합니다.</p>
+            <p id="tabDesc">
+              문헌 검토, 연구 질문 구조화, 데이터 라벨링 기준 정리, 실험 결과 해석 등 연구 전 과정에서 AI를 활용합니다.
+            </p>
 
             <div class="chip-grid" id="tabGrid">
               <div class="skill-chip">Literature Review</div>
@@ -331,7 +278,7 @@
       </div>
     </section>
 
-    <section id="research">
+    <section id="research" class="section">
       <div class="wrap">
         <div class="section-head reveal">
           <span class="kicker">05 Research Structure</span>
@@ -356,7 +303,7 @@
 
         <div class="projects">
           <article class="project-card reveal" data-category="ai bim safety">
-            <div class="project-icon">🧠</div>
+            <div class="project-icon">AI</div>
             <h3>BIM-context-aware RAG for Construction Safety</h3>
             <p>비정형 사고 데이터와 BIM 맥락 정보를 연결하여 DfS 및 안전관리 의사결정을 지원하는 RAG 기반 프레임워크 연구.</p>
             <div class="mini-tags"><span>RAG</span><span>BIM</span><span>Safety</span></div>
@@ -364,7 +311,7 @@
           </article>
 
           <article class="project-card reveal" data-category="ai safety">
-            <div class="project-icon">🔗</div>
+            <div class="project-icon">KG</div>
             <h3>Risk-chain Structuring from Accident Narratives</h3>
             <p>사고 내러티브에서 Work, Hazard, Accident, Injury 구조를 추출하고 지식그래프 기반으로 정리하는 연구.</p>
             <div class="mini-tags"><span>NLP</span><span>Graph</span><span>OSHA</span></div>
@@ -372,7 +319,7 @@
           </article>
 
           <article class="project-card reveal" data-category="automation safety">
-            <div class="project-icon">🤖</div>
+            <div class="project-icon">RPA</div>
             <h3>Construction Safety Documentation Automation</h3>
             <p>건설현장 안전문서의 반복 입력과 행정 부담을 줄이기 위한 RPA 및 데이터 허브 기반 자동화 체계 설계.</p>
             <div class="mini-tags"><span>RPA</span><span>Data Hub</span><span>Workflow</span></div>
@@ -380,7 +327,7 @@
           </article>
 
           <article class="project-card reveal" data-category="bim automation">
-            <div class="project-icon">🏢</div>
+            <div class="project-icon">BIM</div>
             <h3>BIM-based Design and Construction Automation</h3>
             <p>파라메트릭 모델과 설계 규칙을 활용하여 외벽 패널 설계, 물량 산출, 상세 자동화를 지원하는 연구.</p>
             <div class="mini-tags"><span>BIM</span><span>Parametric</span><span>Dynamo</span></div>
@@ -388,7 +335,7 @@
           </article>
 
           <article class="project-card reveal" data-category="ai automation">
-            <div class="project-icon">📄</div>
+            <div class="project-icon">DOC</div>
             <h3>AI-assisted Research Writing & Review</h3>
             <p>논문 작성, 리뷰 대응, 연구계획서 구성, 발표자료 기획 과정에서 AI 기반 검토와 구조화를 수행.</p>
             <div class="mini-tags"><span>Writing</span><span>Review</span><span>Prompting</span></div>
@@ -396,7 +343,7 @@
           </article>
 
           <article class="project-card reveal" data-category="automation">
-            <div class="project-icon">💻</div>
+            <div class="project-icon">WEB</div>
             <h3>Interactive Web Documentation</h3>
             <p>연구 로직, 계산식, 실험 절차를 HTML, Markdown, MkDocs 기반의 탐색 가능한 문서로 구현.</p>
             <div class="mini-tags"><span>HTML</span><span>Docs</span><span>UX</span></div>
@@ -406,7 +353,9 @@
       </div>
     </section>
 
-    <section id="awards">
+    <section id="awards" class="section image-band">
+      <div class="image-band-shade"></div>
+
       <div class="wrap">
         <div class="section-head reveal">
           <span class="kicker">06 Awards</span>
@@ -435,7 +384,7 @@
       </div>
     </section>
 
-    <section id="directions">
+    <section id="directions" class="section">
       <div class="wrap">
         <div class="section-head reveal">
           <span class="kicker">07 Directions</span>
@@ -445,7 +394,10 @@
         <div class="directions-card reveal">
           <div class="directions-main">
             <div class="directions-no">503</div>
-            <h3><span>이화여자대학교</span><span>아산공학관 <strong>503호</strong></span></h3>
+            <h3>
+              <span>이화여자대학교</span>
+              <span>아산공학관 <strong>503호</strong></span>
+            </h3>
             <p>건축도시시스템공학과 · ESCO 연구실</p>
 
             <div class="directions-actions">
@@ -465,7 +417,7 @@
       </div>
     </section>
 
-    <section id="contact">
+    <section id="contact" class="section contact-section">
       <div class="wrap">
         <div class="contact-card reveal">
           <div>
@@ -516,7 +468,9 @@
     window.addEventListener('scroll', setProgress);
     setProgress();
 
-    topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    topBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 
     menuBtn.addEventListener('click', () => {
       navLinks.classList.toggle('open');
@@ -555,7 +509,9 @@
       'Research Automation'
     ];
 
-    let wi = 0, ci = 0, del = false;
+    let wi = 0;
+    let ci = 0;
+    let del = false;
 
     function typeLoop() {
       const w = words[wi];
@@ -581,10 +537,12 @@
     const barObserver = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (!e.isIntersecting) return;
+
         document.querySelectorAll('.bar-row').forEach(row => {
           const fill = row.querySelector('.fill');
           fill.style.width = `${row.dataset.score || 0}%`;
         });
+
         barObserver.disconnect();
       });
     }, { threshold: 0.2 });
@@ -623,7 +581,9 @@
         const data = tabData[btn.dataset.tab];
         document.getElementById('tabTitle').textContent = data[0];
         document.getElementById('tabDesc').textContent = data[1];
-        document.getElementById('tabGrid').innerHTML = data[2].map(x => `<div class="skill-chip">${x}</div>`).join('');
+        document.getElementById('tabGrid').innerHTML = data[2]
+          .map(x => `<div class="skill-chip">${x}</div>`)
+          .join('');
       });
     });
 
@@ -633,21 +593,30 @@
         btn.classList.add('active');
 
         const f = btn.dataset.filter;
+
         document.querySelectorAll('.project-card').forEach(card => {
-          card.style.display = f === 'all' || card.dataset.category.includes(f) ? 'block' : 'none';
+          card.style.display = f === 'all' || card.dataset.category.includes(f)
+            ? 'block'
+            : 'none';
         });
       });
     });
 
     function animateBuild(card) {
       const progress = card.querySelector('.build-progress-bar span');
-      progress.style.width = '0%';
-      requestAnimationFrame(() => {
-        progress.style.width = '100%';
-      });
+
+      if (progress) {
+        progress.style.width = '0%';
+        requestAnimationFrame(() => {
+          progress.style.width = '100%';
+        });
+      }
 
       card.classList.add('project-built');
-      setTimeout(() => card.classList.remove('project-built'), 1300);
+
+      setTimeout(() => {
+        card.classList.remove('project-built');
+      }, 1300);
     }
 
     document.querySelectorAll('.project-card').forEach(card => {
