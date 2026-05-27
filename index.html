@@ -3,1111 +3,83 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Haein Yun | Research Portfolio</title>
-  <meta name="description" content="윤해인 개인 CV 홈페이지 - ESCO 소속 연구원, AI, BIM, RAG, NLP, 건설관리 연구 포트폴리오" />
+  <title>Haein Yun | ESCO Research Portfolio</title>
+  <meta name="description" content="윤해인 개인 홈페이지 - ESCO 소속 연구원, AI, BIM, RAG, NLP, 건설관리 연구 포트폴리오" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Special+Elite&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
-
-  <style>
-    /* =====================================================
-       ROOT VARIABLES — Vintage / Sepia / City Pop
-    ===================================================== */
-    :root {
-      --tan:        #D2B48C;
-      --tan-light:  #E8D5B7;
-      --tan-dark:   #B8976A;
-      --sepia:      #C4A882;
-      --brown-dark: #3E2723;
-      --brown-mid:  #5D4037;
-      --saddle:     #8B4513;
-      --sienna:     #A0522D;
-      --cream:      #F5EDDC;
-      --parchment:  #EDE0C4;
-      --rust:       #8B3A1A;
-      --olive:      #6B5E3A;
-      --ink:        #2C1810;
-      --muted:      rgba(62,39,35,.62);
-      --line:       rgba(62,39,35,.22);
-      --panel:      rgba(245,237,220,.72);
-      --shadow:     0 8px 32px rgba(62,39,35,.18);
-      --toy-shadow: 0 4px 0 rgba(62,39,35,.18);
-      --radius-xl:  20px;
-      --radius-lg:  14px;
-      --radius-md:  10px;
-      --blur:       blur(14px);
-    }
-
-    /* =====================================================
-       RESET
-    ===================================================== */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    a { color: inherit; text-decoration: none; }
-    button { font-family: inherit; cursor: pointer; }
-    ::selection { background: var(--saddle); color: var(--cream); }
-
-    /* =====================================================
-       BODY — Sepia textured background
-    ===================================================== */
-    body {
-      font-family: "Libre Baskerville", "Noto Sans KR", serif;
-      background-color: var(--tan);
-      color: var(--brown-dark);
-      overflow-x: hidden;
-      cursor: crosshair;
-      position: relative;
-    }
-
-    /* Halftone grain overlay */
-    body::before {
-      content: "";
-      position: fixed; inset: 0; pointer-events: none; z-index: 0;
-      background-image:
-        radial-gradient(circle, rgba(62,39,35,.08) 1px, transparent 1px),
-        radial-gradient(circle, rgba(62,39,35,.05) 1px, transparent 1px);
-      background-size: 18px 18px, 9px 9px;
-      background-position: 0 0, 4px 4px;
-    }
-
-    /* Aged paper vignette */
-    body::after {
-      content: "";
-      position: fixed; inset: 0; pointer-events: none; z-index: 0;
-      background: radial-gradient(ellipse at center,
-        transparent 40%,
-        rgba(62,39,35,.14) 75%,
-        rgba(62,39,35,.32) 100%);
-    }
-
-    /* =====================================================
-       TYPOGRAPHY
-    ===================================================== */
-    h1, h2, h3, .display {
-      font-family: "UnifrakturMaguntia", serif;
-      font-weight: 400;
-      color: var(--brown-dark);
-      letter-spacing: .01em;
-    }
-    .serif-head {
-      font-family: "Special Elite", serif;
-    }
-    .mono {
-      font-family: "JetBrains Mono", monospace;
-    }
-
-    /* =====================================================
-       PROGRESS BAR
-    ===================================================== */
-    .progress {
-      position: fixed; top: 0; left: 0; width: 0%; height: 4px;
-      background: linear-gradient(90deg, var(--saddle), var(--sienna));
-      z-index: 9999; border-radius: 0 999px 999px 0;
-      transition: width .1s linear;
-    }
-
-    /* =====================================================
-       CUSTOM CURSOR
-    ===================================================== */
-    .cursor-ring, .cursor-dot {
-      position: fixed; pointer-events: none; z-index: 9998;
-      left: 50%; top: 50%;
-      transform: translate(-50%, -50%);
-    }
-    .cursor-ring {
-      width: 44px; height: 44px;
-      border: 1.5px solid var(--saddle);
-      border-radius: 50%; opacity: .55;
-      transition: width .18s, height .18s, opacity .18s;
-    }
-    .cursor-dot {
-      width: 5px; height: 5px; border-radius: 50%;
-      background: var(--saddle);
-    }
-    body.cursor-active .cursor-ring {
-      width: 66px; height: 66px; opacity: .85;
-    }
-
-    /* =====================================================
-       VINTAGE BACKGROUND SCENE (Fixed)
-    ===================================================== */
-    .vintage-world {
-      position: fixed; inset: 0; pointer-events: none; z-index: -1; overflow: hidden;
-    }
-
-    /* Horizontal ruled lines — typewriter paper */
-    .ruled-lines {
-      position: absolute; inset: 0;
-      background: repeating-linear-gradient(
-        180deg,
-        transparent,
-        transparent 38px,
-        rgba(62,39,35,.07) 38px,
-        rgba(62,39,35,.07) 39px
-      );
-    }
-
-    /* Decorative corner ornaments */
-    .corner {
-      position: absolute; width: 80px; height: 80px;
-      opacity: .22;
-    }
-    .corner svg { width: 100%; height: 100%; }
-    .corner-tl { top: 20px; left: 20px; }
-    .corner-tr { top: 20px; right: 20px; transform: scaleX(-1); }
-    .corner-bl { bottom: 20px; left: 20px; transform: scaleY(-1); }
-    .corner-br { bottom: 20px; right: 20px; transform: scale(-1,-1); }
-
-    /* Floating antique items */
-    .antique-clock {
-      position: absolute; right: 5vw; top: 8vh;
-      font-size: 5rem; opacity: .12;
-      animation: clockSway 8s ease-in-out infinite;
-      filter: sepia(1);
-      user-select: none;
-    }
-    @keyframes clockSway {
-      0%, 100% { transform: rotate(-3deg); }
-      50%       { transform: rotate(3deg); }
-    }
-
-    .antique-typewriter {
-      position: absolute; left: 4vw; bottom: 12vh;
-      font-size: 4.5rem; opacity: .10;
-      animation: typeFloat 10s ease-in-out infinite;
-      filter: sepia(1);
-      user-select: none;
-    }
-    @keyframes typeFloat {
-      0%, 100% { transform: translateY(0); }
-      50%       { transform: translateY(-10px); }
-    }
-
-    .antique-trunk {
-      position: absolute; right: 6vw; bottom: 10vh;
-      font-size: 3.8rem; opacity: .10;
-      animation: trunkFloat 12s ease-in-out infinite;
-      filter: sepia(1);
-      user-select: none;
-    }
-    @keyframes trunkFloat {
-      0%, 100% { transform: translateY(0) rotate(-2deg); }
-      50%       { transform: translateY(-8px) rotate(2deg); }
-    }
-
-    /* Horizontal divider lines */
-    .h-rule {
-      position: absolute; left: 5%; right: 5%; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(62,39,35,.25), transparent);
-    }
-    .hr-1 { top: 38%; }
-    .hr-2 { top: 62%; }
-
-    /* Faded text watermarks */
-    .watermark {
-      position: absolute; font-family: "UnifrakturMaguntia", serif;
-      color: rgba(62,39,35,.06); font-size: 9rem; line-height: 1;
-      user-select: none; pointer-events: none; white-space: nowrap;
-    }
-    .wm-1 { top: 15%; left: -2%; transform: rotate(-8deg); }
-    .wm-2 { bottom: 20%; right: -2%; transform: rotate(6deg); }
-
-    /* Falling dust motes */
-    .mote {
-      position: absolute; border-radius: 50%;
-      background: rgba(139,69,19,.25);
-      animation: moteFall linear infinite;
-    }
-
-    /* =====================================================
-       NAVIGATION — Aged newspaper header style
-    ===================================================== */
-    .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      background: rgba(232,213,183,.92); backdrop-filter: var(--blur);
-      border-bottom: 2px solid var(--line);
-      padding: 0 24px;
-    }
-    .nav-inner {
-      max-width: 1200px; margin: 0 auto;
-      display: grid; grid-template-columns: auto 1fr auto;
-      gap: 16px; align-items: stretch; min-height: 56px;
-    }
-    .brand {
-      display: flex; align-items: center; gap: 10px;
-      font-family: "UnifrakturMaguntia", serif; font-size: 1.4rem;
-      color: var(--brown-dark); border-right: 1px solid var(--line); padding-right: 16px;
-    }
-    .brand-mark {
-      width: 34px; height: 34px; display: grid; place-items: center;
-      border: 2px solid var(--saddle); border-radius: 4px;
-      font-family: "Special Elite", serif; font-size: .78rem; font-weight: 400;
-      color: var(--saddle); letter-spacing: .05em;
-    }
-    .nav-links {
-      list-style: none; display: flex; justify-content: center;
-      align-items: center; gap: 2px; flex-wrap: wrap;
-    }
-    .nav-links a {
-      display: block; padding: 5px 10px; border-radius: 4px;
-      font-family: "Special Elite", serif; font-size: .76rem;
-      color: var(--brown-mid); transition: .12s ease;
-      letter-spacing: .04em;
-    }
-    .nav-links a:hover, .nav-links a.active {
-      background: var(--saddle); color: var(--cream);
-    }
-    .nav-note {
-      display: flex; align-items: center;
-      font-family: "JetBrains Mono", monospace; font-size: .62rem;
-      color: var(--muted); border-left: 1px solid var(--line); padding-left: 14px;
-    }
-    .menu-btn {
-      display: none; border: 1px solid var(--saddle); border-radius: 5px;
-      background: transparent; color: var(--saddle);
-      padding: 5px 10px; font-family: "Special Elite", serif;
-      font-size: .76rem; letter-spacing: .04em;
-    }
-
-    /* =====================================================
-       WRAP
-    ===================================================== */
-    .wrap { width: min(1200px, calc(100% - 32px)); margin: 0 auto; position: relative; z-index: 1; }
-
-    /* =====================================================
-       HERO
-    ===================================================== */
-    .hero {
-      min-height: 100vh; padding: 90px 0 56px;
-      display: grid; align-items: center;
-      position: relative;
-    }
-    .hero::after {
-      content: "";
-      position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
-      background: linear-gradient(90deg, transparent, var(--saddle), transparent);
-    }
-    .hero-grid {
-      display: grid; grid-template-columns: 1.15fr .85fr;
-      gap: 48px; align-items: center;
-    }
-    .hero-copy { display: flex; flex-direction: column; }
-
-    /* Edition label */
-    .edition-label {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-family: "Special Elite", serif; font-size: .72rem;
-      color: var(--sienna); letter-spacing: .1em; text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-    .edition-dot {
-      width: 6px; height: 6px; border-radius: 50%; background: var(--saddle);
-      animation: dotBlink 2s step-end infinite;
-    }
-    @keyframes dotBlink { 0%, 100% { opacity: 1; } 50% { opacity: .2; } }
-
-    .hero-headline {
-      font-family: "UnifrakturMaguntia", serif;
-      font-size: clamp(3rem, 7vw, 6rem);
-      line-height: .92; color: var(--brown-dark); margin-bottom: 10px;
-    }
-    .hero-sub-ko {
-      display: block; margin-top: 8px;
-      font-family: "Noto Sans KR", sans-serif; font-weight: 700;
-      font-size: clamp(1.4rem, 3.5vw, 2.6rem);
-      color: var(--sienna);
-    }
-
-    .hero-rule {
-      width: 100%; height: 1px; margin: 16px 0;
-      background: linear-gradient(90deg, var(--saddle), var(--tan-dark), transparent);
-    }
-
-    .subtitle {
-      font-family: "Special Elite", serif;
-      font-size: clamp(.9rem, 1.5vw, 1.1rem);
-      color: var(--brown-mid); line-height: 1.55; margin-bottom: 14px;
-      letter-spacing: .02em;
-    }
-    .typing-row {
-      display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
-      font-family: "Special Elite", serif; font-size: .88rem;
-      color: var(--brown-mid); margin-bottom: 18px;
-    }
-    .typing-row span:last-child {
-      color: var(--saddle); font-family: "JetBrains Mono", monospace;
-      border-bottom: 2px solid rgba(139,69,19,.35); min-width: 220px;
-    }
-    .desc {
-      font-size: .88rem; line-height: 1.82; color: var(--muted);
-      margin-bottom: 24px; max-width: 620px;
-    }
-    .desc strong { color: var(--brown-dark); font-weight: 700; }
-
-    /* ===== BUTTONS — Stamp / wax seal style ===== */
-    .actions { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 9px 16px; border-radius: 5px;
-      font-family: "Special Elite", serif; font-size: .78rem;
-      letter-spacing: .06em; text-transform: uppercase;
-      transition: all .14s ease;
-      box-shadow: var(--toy-shadow); border: 1.5px solid var(--saddle);
-    }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 0 rgba(62,39,35,.2); }
-    .btn:active { transform: translateY(2px); box-shadow: 0 1px 0 rgba(62,39,35,.2); }
-    .btn-primary { background: var(--saddle); color: var(--cream); }
-    .btn-secondary { background: transparent; color: var(--saddle); }
-
-    .chips { display: flex; flex-wrap: wrap; gap: 6px; }
-    .chip {
-      border: 1px solid var(--line); background: rgba(245,237,220,.7);
-      padding: 4px 9px; border-radius: 4px;
-      font-family: "Special Elite", serif; font-size: .70rem;
-      color: var(--brown-mid); letter-spacing: .03em;
-    }
-
-    /* ===== RIGHT PANEL — vintage telegram card ===== */
-    .poster {
-      position: relative; border-radius: var(--radius-lg);
-      background: var(--parchment);
-      border: 1.5px solid var(--tan-dark);
-      box-shadow: var(--shadow), inset 0 0 40px rgba(139,69,19,.06);
-      display: grid; grid-template-rows: auto 1fr auto;
-      overflow: hidden;
-      transform: perspective(900px) rotateY(-2deg) rotateX(1deg);
-      transition: .4s ease;
-    }
-    .poster::before {
-      content: "";
-      position: absolute; inset: 0;
-      background-image:
-        radial-gradient(circle, rgba(62,39,35,.06) 1px, transparent 1px);
-      background-size: 12px 12px;
-      pointer-events: none; z-index: 0;
-    }
-    .poster:hover { transform: perspective(900px) rotateY(0) rotateX(0) translateY(-4px); }
-    .poster-top {
-      padding: 14px 18px; display: flex; justify-content: space-between; align-items: center;
-      border-bottom: 1px solid var(--line); position: relative; z-index: 1;
-    }
-    .poster-title {
-      font-family: "Special Elite", serif; font-size: .68rem; letter-spacing: .1em;
-      text-transform: uppercase; color: var(--sienna);
-    }
-    .poster-no {
-      width: 28px; height: 28px; display: grid; place-items: center;
-      border: 1.5px solid var(--saddle); border-radius: 4px;
-      font-family: "JetBrains Mono", monospace; font-size: .72rem; font-weight: 700;
-      color: var(--saddle);
-    }
-    .impossible-stage {
-      display: grid; place-items: center; min-height: 240px; padding: 16px; position: relative; z-index: 1;
-    }
-
-    /* Orbit diagram — vintage compass style */
-    .orbit-diagram {
-      position: relative; width: min(320px, 100%); height: 240px;
-      animation: compassFloat 6s ease-in-out infinite;
-    }
-    @keyframes compassFloat {
-      0%, 100% { transform: translateY(0) rotate(-.4deg); }
-      50%       { transform: translateY(-6px) rotate(.4deg); }
-    }
-    .orbit-diagram::before {
-      content: "";
-      position: absolute; left: 50%; top: 50%;
-      width: 174px; height: 174px;
-      transform: translate(-50%,-50%) rotate(45deg);
-      border: 1px solid rgba(139,69,19,.35); border-radius: 16px;
-    }
-    .orbit-line {
-      position: absolute; left: 50%; top: 50%; transform-origin: center;
-      background: rgba(139,69,19,.28); z-index: 1;
-    }
-    .line-v { width: 1px; height: 174px; transform: translate(-50%,-50%); }
-    .line-h { width: 174px; height: 1px; transform: translate(-50%,-50%); }
-    .line-d1 { width: 182px; height: 1px; transform: translate(-50%,-50%) rotate(45deg); background: rgba(139,69,19,.15); }
-    .line-d2 { width: 182px; height: 1px; transform: translate(-50%,-50%) rotate(-45deg); background: rgba(139,69,19,.15); }
-    .orbit-core {
-      position: absolute; left: 50%; top: 50%; z-index: 5;
-      width: 76px; height: 76px; transform: translate(-50%,-50%);
-      display: grid; place-items: center; text-align: center;
-      border-radius: 50%; background: var(--saddle); color: var(--cream);
-      box-shadow: 0 3px 10px rgba(62,39,35,.2);
-      font-family: "Special Elite", serif; line-height: 1.2;
-    }
-    .orbit-core strong { display: block; font-size: .72rem; }
-    .orbit-core span { display: block; font-size: .58rem; opacity: .82; }
-    .orbit-node {
-      position: absolute; z-index: 4; width: 88px; min-height: 44px;
-      display: grid; place-items: center; text-align: center;
-      border-radius: 8px; background: var(--parchment); color: var(--brown-dark);
-      box-shadow: 0 3px 0 rgba(62,39,35,.14); border: 1px solid var(--tan-dark);
-      padding: 5px; font-family: "Special Elite", serif; line-height: 1.2;
-    }
-    .orbit-node b { display: block; font-size: .7rem; font-weight: 400; }
-    .orbit-node span { display: block; font-size: .58rem; color: var(--muted); }
-    .node-ai { left: 50%; top: -10px; transform: translateX(-50%); background: var(--saddle); color: var(--cream); border: 0; }
-    .node-ai span { color: rgba(245,237,220,.8); }
-    .node-bim { left: -12px; top: 50%; transform: translateY(-50%); }
-    .node-rag { right: -12px; top: 50%; transform: translateY(-50%); }
-    .node-decision { left: 50%; bottom: -10px; transform: translateX(-50%); }
-
-    .poster-bottom {
-      padding: 14px 18px; display: grid; gap: 6px;
-      border-top: 1px solid var(--line); position: relative; z-index: 1;
-    }
-    .logic {
-      display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start;
-      padding: 7px 10px; border-radius: 6px; background: rgba(139,69,19,.07);
-      border: 1px solid rgba(139,69,19,.12);
-    }
-    .logic em {
-      width: 20px; height: 20px; display: grid; place-items: center;
-      border-radius: 4px; background: var(--saddle); color: var(--cream);
-      font-family: "Special Elite", serif; font-style: normal; font-size: .68rem;
-    }
-    .logic b { display: block; font-size: .76rem; font-weight: 700; color: var(--brown-dark); }
-    .logic small { display: block; color: var(--muted); font-size: .64rem; line-height: 1.4; }
-
-    /* =====================================================
-       SECTION COMMONS
-    ===================================================== */
-    section { padding: 52px 0; position: relative; z-index: 1; }
-    section::before {
-      content: "";
-      position: absolute; left: 0; right: 0; top: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, var(--tan-dark), transparent);
-    }
-
-    .section-head {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
-      align-items: end; margin-bottom: 26px;
-    }
-    .kicker {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-family: "Special Elite", serif; font-size: .68rem;
-      letter-spacing: .12em; text-transform: uppercase;
-      color: var(--sienna); margin-bottom: 8px;
-    }
-    .kicker::before {
-      content: ""; width: 14px; height: 5px;
-      display: inline-block; border-radius: 1px; background: var(--saddle);
-    }
-    h2 {
-      font-family: "UnifrakturMaguntia", serif;
-      font-size: clamp(1.5rem, 3vw, 2.4rem); line-height: 1.05; color: var(--brown-dark);
-    }
-
-    /* =====================================================
-       PANEL BASE
-    ===================================================== */
-    .panel, .skill-card, .tab-card, .project-card, .award-card,
-    .time-card, .cert-card, .contact-card, .keyword-map,
-    .activity-card, .directions-card {
-      border-radius: var(--radius-lg);
-      background: var(--panel); border: 1px solid var(--tan-dark);
-      box-shadow: var(--shadow);
-      position: relative; overflow: hidden;
-    }
-    /* Halftone texture on every panel */
-    .panel::before, .skill-card::before, .tab-card::before,
-    .project-card::before, .award-card::before, .time-card::before,
-    .cert-card::before, .activity-card::before {
-      content: "";
-      position: absolute; inset: 0; pointer-events: none;
-      background-image: radial-gradient(circle, rgba(62,39,35,.04) 1px, transparent 1px);
-      background-size: 10px 10px;
-    }
-
-    .panel { padding: 22px; }
-    .panel h3, .skill-card h3, .tab-card h3,
-    .project-card h3, .award-card h3, .cert-card h3 {
-      font-family: "Special Elite", serif; font-size: 1.12rem;
-      font-weight: 400; color: var(--brown-dark); margin-bottom: 10px; letter-spacing: .02em;
-    }
-    .panel p { color: var(--muted); line-height: 1.72; font-size: .87rem; margin-bottom: 10px; }
-    .panel strong { color: var(--brown-dark); font-weight: 700; }
-
-    /* =====================================================
-       ABOUT
-    ===================================================== */
-    .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .info-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
-    .info-card {
-      border-radius: var(--radius-md); padding: 14px;
-      background: rgba(245,237,220,.8); border: 1px solid var(--tan-dark);
-      transition: all .15s ease; position: relative;
-    }
-    .info-card:hover { transform: translateY(-2px); background: var(--cream); }
-    .info-icon {
-      width: 32px; height: 32px; display: grid; place-items: center;
-      border: 1px solid var(--tan-dark); border-radius: 4px;
-      font-size: .95rem; margin-bottom: 10px; background: rgba(139,69,19,.08);
-    }
-    .info-card h4 { font-family: "Special Elite", serif; font-size: .84rem; margin-bottom: 4px; color: var(--brown-dark); }
-    .info-card p { color: var(--muted); font-size: .74rem; line-height: 1.45; }
-
-    /* stat row */
-    .stat-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
-    .stat-pill {
-      display: flex; align-items: center; gap: 8px; padding: 7px 13px;
-      border-radius: 30px; background: rgba(245,237,220,.8); border: 1px solid var(--tan-dark);
-      font-family: "Special Elite", serif; font-size: .72rem; color: var(--brown-mid); letter-spacing: .04em;
-    }
-    .stat-num { color: var(--saddle); font-family: "UnifrakturMaguntia", serif; font-size: 1.1rem; }
-
-    /* =====================================================
-       FEATURED
-    ===================================================== */
-    .feature-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .feature-card { padding: 24px; display: flex; flex-direction: column; justify-content: center; position: relative; }
-    .feature-no {
-      display: inline-flex; align-items: center; justify-content: center;
-      width: 34px; height: 20px; border-radius: 3px;
-      background: var(--saddle); color: var(--cream);
-      font-family: "JetBrains Mono", monospace; font-size: .7rem; font-weight: 700;
-      margin-bottom: 14px;
-    }
-    .feature-card p { color: var(--muted); font-size: .87rem; line-height: 1.65; margin-bottom: 18px; }
-    .feature-pipeline {
-      display: flex; flex-wrap: wrap; gap: 5px; align-items: center;
-      font-family: "Special Elite", serif; font-size: .66rem; letter-spacing: .04em;
-    }
-    .feature-pipeline span {
-      background: rgba(139,69,19,.10); padding: 4px 8px;
-      border-radius: 4px; border: 1px solid rgba(139,69,19,.18);
-      color: var(--brown-dark);
-    }
-    .feature-pipeline i { color: var(--saddle); font-style: normal; }
-
-    .feature-visual {
-      position: relative; min-height: 260px; display: grid; place-items: center;
-      background: rgba(139,69,19,.04); border-radius: var(--radius-lg);
-      border: 1px solid var(--tan-dark); overflow: hidden;
-    }
-    .feature-visual::before {
-      content: "";
-      position: absolute; inset: 0;
-      background-image: radial-gradient(circle, rgba(62,39,35,.05) 1px, transparent 1px);
-      background-size: 12px 12px;
-    }
-    .fv-axis { position: absolute; left: 50%; top: 50%; background: rgba(139,69,19,.22); transform-origin: center; z-index: 1; }
-    .fv-axis-x { width: 78%; height: 1px; transform: translate(-50%,-50%); }
-    .fv-axis-y { width: 1px; height: 78%; transform: translate(-50%,-50%); }
-    .fv-core {
-      position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
-      width: 70px; height: 70px; border-radius: 50%;
-      background: var(--saddle); color: var(--cream);
-      display: grid; place-items: center; text-align: center;
-      font-family: "Special Elite", serif; font-size: .64rem; line-height: 1.25;
-      z-index: 3; box-shadow: 0 3px 10px rgba(62,39,35,.2);
-    }
-    .fv-node {
-      position: absolute; z-index: 2; width: 52px; height: 28px;
-      display: grid; place-items: center; border-radius: 4px;
-      background: var(--parchment); color: var(--brown-dark);
-      font-family: "Special Elite", serif; font-size: .66rem; letter-spacing: .02em;
-      box-shadow: 0 2px 0 rgba(62,39,35,.12); border: 1px solid var(--tan-dark);
-    }
-    .fv-ai  { left: 50%; top: 22px; transform: translateX(-50%); background: var(--saddle); color: var(--cream); border: 0; }
-    .fv-bim { left: 20px; top: 50%; transform: translateY(-50%); }
-    .fv-rag { right: 20px; top: 50%; transform: translateY(-50%); }
-    .fv-dfs { left: 50%; bottom: 22px; transform: translateX(-50%); }
-
-    /* =====================================================
-       SKILLS
-    ===================================================== */
-    .skills-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .skill-card, .tab-card { padding: 22px; }
-    .big-num {
-      font-family: "UnifrakturMaguntia", serif;
-      font-size: 3.2rem; line-height: 1; color: var(--saddle); margin-bottom: 4px;
-    }
-    .skill-card p, .tab-card p { color: var(--muted); font-size: .84rem; line-height: 1.55; margin-bottom: 14px; }
-    .bars { display: grid; gap: 9px; }
-    .bar-row {
-      display: grid; grid-template-columns: 82px 1fr 26px; align-items: center; gap: 8px;
-      font-family: "Special Elite", serif; font-size: .68rem; color: var(--brown-mid);
-    }
-    .track {
-      height: 8px; border-radius: 999px;
-      background: rgba(139,69,19,.15); overflow: hidden;
-      border: 1px solid rgba(139,69,19,.12);
-    }
-    .fill {
-      display: block; width: 0; height: 100%; border-radius: 999px;
-      background: linear-gradient(90deg, var(--saddle), var(--sienna));
-      background-image: repeating-linear-gradient(45deg, rgba(255,255,255,.12) 0 3px, transparent 3px 6px);
-      transition: width 1.3s cubic-bezier(.16,1,.3,1);
-    }
-
-    /* Tabs */
-    .tabs, .filters { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 14px; }
-    .tab, .filter {
-      border: 1px solid var(--tan-dark); border-radius: 4px;
-      background: transparent; padding: 6px 10px;
-      font-family: "Special Elite", serif; font-size: .70rem;
-      letter-spacing: .04em; color: var(--brown-mid); transition: .12s;
-    }
-    .tab:hover, .filter:hover { background: rgba(139,69,19,.10); }
-    .tab.active, .filter.active {
-      background: var(--saddle); color: var(--cream); border-color: var(--saddle);
-    }
-    .chip-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 8px; }
-    .skill-chip {
-      border-radius: 5px; background: rgba(139,69,19,.08); padding: 8px;
-      font-family: "Special Elite", serif; font-size: .72rem;
-      text-align: center; border: 1px solid rgba(139,69,19,.14); color: var(--brown-mid);
-    }
-
-    /* =====================================================
-       FLOW
-    ===================================================== */
-    .flow-panel {
-      border-radius: var(--radius-lg); background: var(--panel);
-      border: 1px solid var(--tan-dark); box-shadow: var(--shadow);
-      padding: 14px; margin-bottom: 20px;
-    }
-    .flow { display: grid; grid-template-columns: repeat(5,1fr); gap: 6px; }
-    .flow-step {
-      min-height: 70px; border-radius: 8px;
-      background: rgba(139,69,19,.07); border: 1px solid rgba(139,69,19,.14);
-      padding: 8px; display: flex; flex-direction: column; justify-content: space-between; position: relative;
-    }
-    .flow-step:not(:last-child)::after {
-      content: "›"; position: absolute; right: -10px; top: 26%;
-      font-size: 1.3rem; color: var(--saddle); opacity: .55;
-    }
-    .flow-step span {
-      font-family: "JetBrains Mono", monospace; color: var(--saddle);
-      font-weight: 700; font-size: .66rem;
-    }
-    .flow-step b {
-      font-family: "Special Elite", serif; font-size: .72rem;
-      line-height: 1.28; font-weight: 400; color: var(--brown-dark);
-    }
-
-    /* =====================================================
-       PROJECTS
-    ===================================================== */
-    .projects { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
-    .project-card { padding: 18px; transition: all .18s; cursor: pointer; }
-    .project-card:hover { transform: translateY(-3px); background: var(--cream); }
-    .proj-icon {
-      width: 36px; height: 36px; display: grid; place-items: center;
-      border-radius: 5px; background: var(--saddle); color: var(--cream);
-      font-size: 1rem; margin-bottom: 12px;
-      box-shadow: 0 3px 0 rgba(62,39,35,.16);
-    }
-    .project-card p { color: var(--muted); line-height: 1.5; font-size: .80rem; margin-bottom: 12px; }
-    .mini-tags { display: flex; flex-wrap: wrap; gap: 4px; }
-    .mini {
-      border-radius: 3px; background: rgba(139,69,19,.12); padding: 2px 5px;
-      font-family: "JetBrains Mono", monospace; font-size: .60rem; font-weight: 700;
-      color: var(--saddle);
-    }
-    .proj-badge {
-      position: absolute; top: 12px; right: 12px;
-      width: 22px; height: 22px; border-radius: 50%;
-      border: 1px solid var(--tan-dark); display: grid; place-items: center;
-      font-size: .7rem; background: rgba(245,237,220,.9); cursor: help;
-    }
-    .proj-badge::after {
-      content: attr(data-tip);
-      position: absolute; right: 28px; top: -2px;
-      background: var(--brown-dark); color: var(--cream);
-      padding: 4px 8px; border-radius: 4px;
-      font-family: "Special Elite", serif; font-size: .58rem; white-space: nowrap;
-      opacity: 0; pointer-events: none; transition: opacity .15s;
-    }
-    .proj-badge:hover::after { opacity: 1; }
-
-    /* =====================================================
-       KEYWORD MAP
-    ===================================================== */
-    .keyword-map {
-      position: relative; min-height: 300px; overflow: hidden;
-      background: rgba(139,69,19,.04);
-    }
-    .keyword-lines { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; }
-    .keyword-lines line { stroke: rgba(139,69,19,.28); stroke-width: 1.5; stroke-dasharray: 5; }
-    .keyword-core, .keyword {
-      position: absolute; z-index: 2; display: grid; place-items: center; text-align: center;
-      border-radius: 8px; background: var(--parchment); color: var(--brown-dark);
-      box-shadow: var(--toy-shadow); font-family: "Special Elite", serif;
-      font-size: .72rem; border: 1px solid var(--tan-dark);
-    }
-    .keyword-core {
-      left: 50%; top: 50%; transform: translate(-50%,-50%);
-      width: 106px; height: 60px;
-      background: var(--saddle); color: var(--cream); border: 0;
-      box-shadow: 0 4px 0 rgba(62,39,35,.18); line-height: 1.25;
-    }
-    .keyword { width: 80px; height: 36px; font-size: .68rem; }
-    .k1 { left: 12%; top: 14%; }
-    .k2 { left: 50%; top: 9%; transform: translateX(-50%); }
-    .k3 { right: 12%; top: 14%; }
-    .k4 { right: 6%; top: 50%; transform: translateY(-50%); }
-    .k5 { right: 16%; bottom: 14%; }
-    .k6 { left: 50%; bottom: 9%; transform: translateX(-50%); }
-    .k7 { left: 16%; bottom: 14%; }
-    .k8 { left: 6%; top: 50%; transform: translateY(-50%); }
-
-    /* =====================================================
-       ACTIVITIES
-    ===================================================== */
-    .activity-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
-    .activity-card { padding: 18px; transition: .15s; }
-    .activity-card:hover { transform: translateY(-2px); background: var(--cream); }
-    .activity-card span {
-      display: inline-flex; background: rgba(139,69,19,.10); padding: 3px 8px;
-      border-radius: 4px; font-family: "JetBrains Mono", monospace; font-weight: 700;
-      font-size: .68rem; margin-bottom: 12px; border: 1px solid rgba(139,69,19,.16);
-      color: var(--saddle);
-    }
-    .activity-card h3 { font-family: "Special Elite", serif; font-size: 1rem; margin-bottom: 4px; color: var(--brown-dark); }
-    .activity-card p { color: var(--muted); font-size: .80rem; }
-
-    /* =====================================================
-       AWARDS
-    ===================================================== */
-    .awards { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; }
-    .award-card { display: grid; grid-template-columns: 80px 1fr; gap: 16px; padding: 18px; }
-    .year {
-      font-family: "UnifrakturMaguntia", serif; font-size: 1.3rem;
-      border-radius: 8px; background: rgba(139,69,19,.12);
-      display: grid; place-items: center; padding: 8px 2px; text-align: center;
-      height: fit-content; box-shadow: 0 3px 0 rgba(62,39,35,.10);
-      border: 1px solid rgba(139,69,19,.18); color: var(--saddle);
-    }
-    .award-card p { color: var(--muted); font-size: .82rem; line-height: 1.5; margin-top: 4px; }
-
-    /* =====================================================
-       TIMELINE
-    ===================================================== */
-    .timeline { display: grid; gap: 10px; }
-    .time-row { display: grid; grid-template-columns: 108px 1fr; gap: 14px; }
-    .time-label {
-      border-radius: var(--radius-md); background: rgba(139,69,19,.10);
-      display: grid; place-items: center;
-      font-family: "Special Elite", serif; font-size: .76rem;
-      box-shadow: 0 3px 0 rgba(62,39,35,.07); border: 1px solid var(--tan-dark);
-      color: var(--saddle); letter-spacing: .04em;
-    }
-    .time-card { padding: 14px 18px; }
-    .time-card p { color: var(--muted); font-size: .82rem; margin-top: 2px; }
-
-    /* =====================================================
-       CERTS
-    ===================================================== */
-    .certs { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
-    .cert-card { padding: 18px; text-align: center; display: flex; flex-direction: column; align-items: center; }
-    .cert-icon {
-      width: 40px; height: 40px; display: grid; place-items: center;
-      border-radius: 5px; background: rgba(139,69,19,.10); font-size: 1.1rem;
-      margin-bottom: 10px; border: 1px solid var(--tan-dark);
-    }
-    .cert-card p { color: var(--muted); font-size: .78rem; line-height: 1.45; margin-bottom: 10px; }
-    .status {
-      display: inline-flex; gap: 5px; align-items: center; border-radius: 4px;
-      background: var(--parchment); color: var(--saddle); padding: 3px 7px;
-      font-family: "Special Elite", serif; font-size: .64rem;
-      box-shadow: 0 2px 0 rgba(62,39,35,.10); border: 1px solid var(--tan-dark);
-    }
-    .status::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--saddle); }
-
-    /* =====================================================
-       DIRECTIONS
-    ===================================================== */
-    .directions-card { display: grid; grid-template-columns: 1fr 1.1fr; gap: 20px; padding: 22px; align-items: center; }
-    .directions-no {
-      display: inline-flex; align-items: center; justify-content: center;
-      width: 52px; height: 30px; border-radius: 4px; background: var(--saddle); color: var(--cream);
-      font-family: "UnifrakturMaguntia", serif; font-size: 1.1rem; margin-bottom: 14px;
-      box-shadow: 0 3px 0 rgba(62,39,35,.14);
-    }
-    .directions-title { font-family: "Special Elite", serif; font-size: 1.18rem; line-height: 1.35; margin-bottom: 8px; color: var(--brown-dark); }
-    .directions-title strong {
-      display: inline-flex; padding: 1px 5px; border-radius: 3px;
-      background: var(--saddle); color: var(--cream);
-      font-size: .75em; margin-left: 4px; vertical-align: middle;
-    }
-    .directions-main p { color: var(--muted); font-size: .84rem; margin-bottom: 16px; }
-    .directions-actions { display: flex; flex-wrap: wrap; gap: 6px; }
-    .directions-actions a {
-      display: inline-flex; border-radius: 5px; padding: 7px 12px;
-      font-family: "Special Elite", serif; font-size: .74rem; letter-spacing: .04em;
-      border: 1px solid var(--saddle); background: transparent; color: var(--saddle); transition: .12s;
-    }
-    .directions-actions a:first-child { background: var(--saddle); color: var(--cream); }
-    .directions-actions a:hover { transform: translateY(-1px); }
-    .directions-visual {
-      min-height: 200px; border-radius: var(--radius-md);
-      background: rgba(139,69,19,.05); border: 1px solid var(--tan-dark);
-      display: grid; place-items: center; overflow: hidden;
-    }
-    .floor-grid {
-      position: relative; width: min(310px, 100%); height: 150px;
-      display: grid; grid-template-columns: repeat(4,1fr); grid-template-rows: 1fr 42px; gap: 7px;
-      transform: perspective(800px) rotateX(12deg) rotateY(-8deg);
-    }
-    .room, .corridor {
-      display: grid; place-items: center; border-radius: 6px;
-      background: var(--parchment); color: var(--brown-dark);
-      font-family: "Special Elite", serif; font-size: .68rem;
-      box-shadow: 0 3px 0 rgba(62,39,35,.10); border: 1px solid var(--tan-dark);
-    }
-    .active-room {
-      background: var(--saddle); color: var(--cream);
-      transform: translateY(-4px); box-shadow: 0 7px 0 rgba(62,39,35,.16); border: 0;
-    }
-    .corridor { grid-column: 1 / -1; background: var(--brown-mid); color: var(--cream); font-size: .64rem; border: 0; }
-
-    /* =====================================================
-       CONTACT
-    ===================================================== */
-    .contact-card { padding: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .contact-buttons { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
-    .contact-buttons a {
-      display: inline-flex; border-radius: 5px; padding: 8px 12px;
-      font-family: "Special Elite", serif; font-size: .76rem; letter-spacing: .04em;
-      border: 1px solid var(--saddle); color: var(--saddle); transition: .12s;
-    }
-    .contact-buttons a:hover { background: var(--saddle); color: var(--cream); }
-    .contact-list { display: grid; grid-template-columns: repeat(2,1fr); gap: 8px; }
-    .contact-item {
-      border-radius: 8px; background: rgba(139,69,19,.07);
-      border: 1px solid rgba(139,69,19,.14); padding: 10px;
-      font-family: "Special Elite", serif; font-size: .74rem; text-align: center; color: var(--brown-mid);
-    }
-
-    /* =====================================================
-       FIXED UI WIDGETS
-    ===================================================== */
-    .vintage-badge {
-      position: fixed; left: 20px; top: 76px;
-      padding: 10px 14px; border-radius: var(--radius-md);
-      background: rgba(232,213,183,.92); backdrop-filter: var(--blur);
-      border: 1px solid var(--tan-dark); box-shadow: var(--shadow);
-      font-family: "Special Elite", serif; font-size: .62rem;
-      color: var(--brown-mid); z-index: 500; text-align: center;
-      letter-spacing: .06em; text-transform: uppercase;
-      line-height: 1.6;
-    }
-    .vintage-badge-icon { font-size: 1.6rem; display: block; margin-bottom: 4px; filter: sepia(1); }
-
-    .edition-info {
-      position: fixed; right: 20px; top: 76px;
-      padding: 10px 14px; border-radius: var(--radius-md);
-      background: rgba(232,213,183,.92); backdrop-filter: var(--blur);
-      border: 1px solid var(--tan-dark); box-shadow: var(--shadow);
-      font-family: "JetBrains Mono", monospace; font-size: .58rem;
-      color: var(--muted); z-index: 500; text-align: right;
-      line-height: 1.7;
-    }
-
-    /* =====================================================
-       FOOTER
-    ===================================================== */
-    footer {
-      padding: 22px 0; position: relative; z-index: 1;
-      background: rgba(184,151,106,.35);
-      border-top: 1px solid var(--tan-dark);
-    }
-    .footer-inner {
-      display: flex; justify-content: space-between; align-items: center;
-      gap: 16px; flex-wrap: wrap;
-      font-family: "Special Elite", serif; font-size: .76rem;
-      color: var(--muted); letter-spacing: .04em;
-    }
-    .footer-mark {
-      font-family: "UnifrakturMaguntia", serif; font-size: 1.1rem; color: var(--saddle);
-    }
-
-    /* =====================================================
-       BACK TO TOP
-    ===================================================== */
-    .top {
-      position: fixed; right: 20px; bottom: 20px;
-      width: 42px; height: 42px; border-radius: 5px;
-      background: var(--saddle); color: var(--cream); border: none;
-      box-shadow: var(--toy-shadow); display: grid; place-items: center;
-      font-family: "Special Elite", serif; font-size: .9rem;
-      cursor: pointer; opacity: 0; pointer-events: none; transition: .2s; z-index: 999;
-    }
-    .top.show { opacity: 1; pointer-events: auto; }
-
-    /* =====================================================
-       REVEAL
-    ===================================================== */
-    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .65s cubic-bezier(.16,1,.3,1), transform .65s cubic-bezier(.16,1,.3,1); }
-    .reveal.show { opacity: 1; transform: translateY(0); }
-
-    /* =====================================================
-       SCROLLBAR
-    ===================================================== */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--tan-light); }
-    ::-webkit-scrollbar-thumb { background: var(--saddle); border-radius: 10px; opacity: .6; }
-
-    /* =====================================================
-       RESPONSIVE
-    ===================================================== */
-    @media (max-width: 1080px) {
-      .hero-grid, .about-layout, .skills-layout, .section-head,
-      .contact-card, .feature-layout, .directions-card { grid-template-columns: 1fr; }
-      .poster { transform: none; }
-      .flow { grid-template-columns: 1fr; gap: 6px; }
-      .flow-step:not(:last-child)::after { content: "↓"; right: 50%; top: auto; bottom: -16px; transform: translateX(50%); }
-      .projects, .certs, .activity-grid { grid-template-columns: repeat(2,1fr); }
-      .vintage-badge, .edition-info { display: none; }
-    }
-    @media (max-width: 760px) {
-      body { cursor: auto; }
-      .cursor-ring, .cursor-dot { display: none; }
-      .nav-inner { grid-template-columns: auto auto; }
-      .nav-note { display: none; }
-      .menu-btn { display: block; }
-      .nav-links {
-        display: none; position: absolute; left: 0; right: 0; top: calc(100% + 1px);
-        background: rgba(232,213,183,.98); border: 1px solid var(--tan-dark);
-        border-radius: 0 0 12px 12px; padding: 10px; flex-direction: column;
-      }
-      .nav-links.open { display: flex; }
-      .nav-links a { text-align: center; }
-      .hero { padding-top: 90px; }
-      section { padding: 38px 0; }
-      .info-grid, .chip-grid, .projects, .awards, .certs, .activity-grid, .contact-list { grid-template-columns: 1fr; }
-      .award-card, .time-row { grid-template-columns: 1fr; }
-      .time-label { min-height: 42px; }
-      .bar-row { grid-template-columns: 1fr; gap: 4px; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Rye&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="paper-grain"></div>
+  <div class="halftone-overlay"></div>
+  <div class="vintage-vignette"></div>
 
-  <!-- Progress bar -->
   <div class="progress" id="progress"></div>
+  <button class="top" id="top" type="button">↑</button>
 
-  <!-- Custom cursor -->
-  <div class="cursor-ring" id="cursorRing"></div>
-  <div class="cursor-dot" id="cursorDot"></div>
-
-  <!-- Vintage background world -->
-  <div class="vintage-world" aria-hidden="true">
-    <div class="ruled-lines"></div>
-
-    <!-- Corner ornaments -->
-    <div class="corner corner-tl">
-      <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 4 L4 36 M4 4 L36 4" stroke="#8B4513" stroke-width="2" stroke-linecap="round"/>
-        <path d="M4 4 L20 20" stroke="#8B4513" stroke-width="1" stroke-linecap="round" opacity=".5"/>
-        <circle cx="4" cy="4" r="3" fill="#8B4513" opacity=".8"/>
-        <path d="M14 4 Q14 14 4 14" stroke="#8B4513" stroke-width="1" fill="none" opacity=".4"/>
-      </svg>
+  <div class="floating-ornaments" aria-hidden="true">
+    <div class="sun-disc"></div>
+    <div class="old-clock">
+      <span class="clock-face"></span>
+      <span class="clock-hand hand1"></span>
+      <span class="clock-hand hand2"></span>
     </div>
-    <div class="corner corner-tr">
-      <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 4 L4 36 M4 4 L36 4" stroke="#8B4513" stroke-width="2" stroke-linecap="round"/>
-        <path d="M4 4 L20 20" stroke="#8B4513" stroke-width="1" stroke-linecap="round" opacity=".5"/>
-        <circle cx="4" cy="4" r="3" fill="#8B4513" opacity=".8"/>
-        <path d="M14 4 Q14 14 4 14" stroke="#8B4513" stroke-width="1" fill="none" opacity=".4"/>
-      </svg>
+    <div class="typewriter">
+      <span class="tw-paper"></span>
+      <span class="tw-body"></span>
+      <span class="tw-key k1"></span>
+      <span class="tw-key k2"></span>
+      <span class="tw-key k3"></span>
     </div>
-    <div class="corner corner-bl">
-      <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 4 L4 36 M4 4 L36 4" stroke="#8B4513" stroke-width="2" stroke-linecap="round"/>
-        <path d="M4 4 L20 20" stroke="#8B4513" stroke-width="1" stroke-linecap="round" opacity=".5"/>
-        <circle cx="4" cy="4" r="3" fill="#8B4513" opacity=".8"/>
-        <path d="M14 4 Q14 14 4 14" stroke="#8B4513" stroke-width="1" fill="none" opacity=".4"/>
-      </svg>
+    <div class="trunk">
+      <span class="trunk-lid"></span>
+      <span class="trunk-body"></span>
     </div>
-    <div class="corner corner-br">
-      <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 4 L4 36 M4 4 L36 4" stroke="#8B4513" stroke-width="2" stroke-linecap="round"/>
-        <path d="M4 4 L20 20" stroke="#8B4513" stroke-width="1" stroke-linecap="round" opacity=".5"/>
-        <circle cx="4" cy="4" r="3" fill="#8B4513" opacity=".8"/>
-        <path d="M14 4 Q14 14 4 14" stroke="#8B4513" stroke-width="1" fill="none" opacity=".4"/>
-      </svg>
-    </div>
-
-    <!-- Antique floating items -->
-    <div class="antique-clock" aria-hidden="true">🕰️</div>
-    <div class="antique-typewriter" aria-hidden="true">⌨️</div>
-    <div class="antique-trunk" aria-hidden="true">🧳</div>
-
-    <!-- Horizontal rules -->
-    <div class="h-rule hr-1"></div>
-    <div class="h-rule hr-2"></div>
-
-    <!-- Watermarks -->
-    <div class="watermark wm-1">Archive</div>
-    <div class="watermark wm-2">Memory</div>
-
-    <!-- Dust motes (JS will generate) -->
-    <div id="motesContainer"></div>
   </div>
 
-  <!-- Fixed widgets -->
-  <div class="vintage-badge" aria-label="Style badge">
-    <span class="vintage-badge-icon">📜</span>
-    Est. 2024<br>ESCO Lab<br>Archive
-  </div>
+  <nav class="nav">
+    <a href="#hero" class="brand">
+      <span class="brand-mark">HY</span>
+      <span class="brand-name">Haein Yun</span>
+    </a>
 
-  <div class="edition-info" aria-label="Edition info">
-    Vol. I · No. 1<br>
-    ESCO Garden<br>
-    Special Edition
-  </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#featured">Featured</a></li>
+      <li><a href="#skills">AI Skills</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#keywords">Map</a></li>
+      <li><a href="#publications">Activities</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#directions">Directions</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
 
-  <!-- Navigation -->
-  <nav class="nav" id="nav">
-    <div class="nav-inner">
-      <a href="#hero" class="brand">
-        <span class="brand-mark">HY</span>
-        Haein Yun
-      </a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#about">About</a></li>
-        <li><a href="#featured">Featured</a></li>
-        <li><a href="#skills">AI Skills</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#publications">Activities</a></li>
-        <li><a href="#directions">Directions</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button class="menu-btn" id="menuBtn">Menu</button>
-      <div class="nav-note">📜 Research Archive · ESCO</div>
-    </div>
+    <button class="menu-btn" id="menuBtn" type="button">Menu</button>
+    <div class="nav-note">ukiyo-e archive / city pop memory</div>
   </nav>
 
-  <!-- ===== HERO ===== -->
   <header class="hero" id="hero">
     <div class="wrap hero-grid">
       <div class="hero-copy reveal">
-        <div class="edition-label">
-          <span class="edition-dot"></span>
-          ESCO Researcher · AI-enabled Construction Management
-        </div>
-        <h1 class="hero-headline">
-          Haein Yun
-          <span class="hero-sub-ko">윤해인</span>
-        </h1>
-        <div class="hero-rule"></div>
-        <p class="subtitle">건설관리 도메인 지식과 인공지능 엔지니어링 자동화를 매핑하는 지식 정원</p>
-        <div class="typing-row"><span>Focused on</span><span id="typeWord"></span></div>
+        <div class="label"><span class="dot"></span> ESCO Researcher · AI-enabled Construction Management</div>
+        <h1>Haein Yun <span class="outline-ko">윤해인</span></h1>
+        <p class="subtitle">Researcher connecting construction management, AI, BIM, and automation.</p>
+        <div class="typing"><span>Focused on</span><span id="typeWord">Generative AI</span></div>
         <p class="desc">
-          ESCO 소속 연구원으로서 <strong>건설관리, BIM 데이터 가동, RAG 아키텍처 수립, NLP 마이닝</strong>을 연결하는
-          연구를 수행합니다. 다양한 AI 시스템을 단순 보조 툴이 아닌 논리 프레임워크의
-          의사결정 수단으로 융합하며 정밀 시각화하는 방향을 지향합니다.
+          ESCO 소속 연구원으로서 <strong>건설관리, BIM, RAG, NLP, 자동화, 데이터 기반 의사결정</strong>을 연결하는 연구를 수행합니다.
+          다양한 AI 도구를 연구·분석·문서화·시각화 과정에 활용하며, 복잡한 건설 문제를 논리적인 구조로 정리하는 것을 지향합니다.
         </p>
+
         <div class="actions">
-          <a class="btn btn-primary" href="#featured">핵심 연구 블록</a>
-          <a class="btn btn-secondary" href="#awards">성과 지표</a>
-          <a class="btn btn-secondary" href="Haein_Yun_CV.pdf" target="_blank" rel="noopener noreferrer">View CV</a>
+          <a class="btn primary" href="#featured">Featured Research</a>
+          <a class="btn secondary" href="#awards">View Awards</a>
+          <a class="btn secondary" href="Haein_Yun_CV.pdf" target="_blank" rel="noopener noreferrer">View CV</a>
+          <button class="btn primary" type="button" id="buildAllBtn">Build All</button>
         </div>
+
         <div class="chips">
           <span class="chip">🏛️ Ewha Womans University</span>
           <span class="chip">🔬 ESCO Lab</span>
@@ -1118,116 +90,122 @@
 
       <aside class="poster reveal">
         <div class="poster-top">
-          <span class="poster-title">Evidence Logic Frame</span>
-          <span class="poster-no">01</span>
+          <span class="poster-title">Research Memory Frame</span>
+          <span class="poster-number">01</span>
         </div>
+
         <div class="impossible-stage">
-          <div class="orbit-diagram" aria-label="AI, BIM, RAG, Decision support diagram">
-            <div class="orbit-core"><strong>Evidence</strong><span>Loop</span></div>
-            <div class="orbit-node node-ai"><b>AI / NLP</b><span>Structuring</span></div>
-            <div class="orbit-node node-bim"><b>BIM</b><span>Context</span></div>
-            <div class="orbit-node node-rag"><b>RAG</b><span>Retrieval</span></div>
-            <div class="orbit-node node-decision"><b>Decision</b><span>Support</span></div>
-            <div class="orbit-line line-v"></div>
-            <div class="orbit-line line-h"></div>
-            <div class="orbit-line line-d1"></div>
-            <div class="orbit-line line-d2"></div>
+          <div class="poster-diagram">
+            <div class="poster-core">Evidence<br>Logic</div>
+            <div class="poster-node n1">AI / NLP</div>
+            <div class="poster-node n2">BIM Context</div>
+            <div class="poster-node n3">RAG</div>
+            <div class="poster-node n4">Decision</div>
+            <div class="poster-line l1"></div>
+            <div class="poster-line l2"></div>
+            <div class="poster-line l3"></div>
+            <div class="poster-line l4"></div>
           </div>
         </div>
+
         <div class="poster-bottom">
-          <div class="logic"><em>A</em><div><b>AI · NLP · RAG</b><small>비정형 설계/안전 지식을 정형화된 논리 모델로 연산</small></div></div>
-          <div class="logic"><em>B</em><div><b>BIM · Data Context</b><small>물리적 시공 컨텍스트와 디지털 문서 정보 동기화</small></div></div>
-          <div class="logic"><em>C</em><div><b>Decision Support</b><small>현장 위험 예방 및 의사결정을 경량 지원하는 자동화 파이프라인</small></div></div>
+          <div class="logic"><em>A</em><div><b>AI · NLP · RAG</b><small>Unstructured knowledge into usable research logic</small></div></div>
+          <div class="logic"><em>B</em><div><b>BIM · Data Context</b><small>Physical construction context as structured evidence</small></div></div>
+          <div class="logic"><em>C</em><div><b>Decision Support</b><small>From pattern recognition to practical construction insight</small></div></div>
         </div>
       </aside>
     </div>
   </header>
 
   <main>
-    <!-- ABOUT -->
     <section id="about">
       <div class="wrap">
         <div class="section-head reveal">
-          <div><span class="kicker">02 Overview</span><h2>AI와 건설관리를<br>연결하는 연구자</h2></div>
-          <div class="stat-row">
-            <div class="stat-pill"><span class="stat-num">6+</span> AI Fields</div>
-            <div class="stat-pill"><span class="stat-num">2</span> Awards</div>
-            <div class="stat-pill"><span class="stat-num">∞</span> Curiosity</div>
+          <div>
+            <span class="kicker">02 Overview</span>
+            <h2>AI와 건설관리를 연결하는 연구자</h2>
           </div>
         </div>
+
         <div class="about-layout">
           <article class="panel reveal">
             <h3>Profile Summary</h3>
             <p>현재 ESCO 소속 연구원으로 활동하며, 건설관리 분야의 연구 문제를 <strong>AI 기반 분석, BIM 데이터 활용, 자동화 시스템 설계, 지식 구조화</strong> 관점에서 다루고 있습니다.</p>
-            <p>다양한 AI 도구를 단순 보조 수단이 아니라 연구 생산성을 높이는 분석·작성·검토·시각화 도구로 활용할 수 있으며, 건설 산업의 문서화, 안전관리, 설계 의사결정, 프로젝트 관리 프로세스를 개선하는 데 관심이 있습니다.</p>
+            <p>다양한 AI 도구를 단순 보조 수단이 아니라 연구 생산성을 높이는 분석·작성·검토·시각화 도구로 활용할 수 있으며, 이를 바탕으로 건설 산업의 문서화, 안전관리, 설계 의사결정, 프로젝트 관리 프로세스를 개선하는 데 관심이 있습니다.</p>
             <p>앞으로는 건설관리 전공지식과 AI 활용 역량을 결합하여, 실무 적용 가능성이 높은 연구성과와 디지털 기반 의사결정 지원 체계를 구축하고자 합니다.</p>
           </article>
+
           <div class="info-grid">
-            <div class="info-card reveal"><div class="info-icon">🏫</div><h4>Affiliation</h4><p>이화여자대학교 건축도시시스템공학과 및 ESCO 연구실 소속</p></div>
-            <div class="info-card reveal"><div class="info-icon">🧠</div><h4>AI Capability</h4><p>생성형 AI, LLM, RAG, NLP, 자동화 도구를 연구 과정에 통합적으로 활용</p></div>
-            <div class="info-card reveal"><div class="info-icon">🏗️</div><h4>Domain</h4><p>Construction Management, BIM, Safety, Automation, Digital Transformation</p></div>
-            <div class="info-card reveal"><div class="info-icon">🎯</div><h4>Goal</h4><p>건설산업의 실무 문제를 데이터 기반으로 해석하고 해결 가능한 연구로 확장</p></div>
+            <div class="info-card reveal"><div class="icon">🏫</div><h4>Affiliation</h4><p>이화여자대학교 건축도시시스템공학과 및 ESCO 연구실 소속</p></div>
+            <div class="info-card reveal"><div class="icon">🧠</div><h4>AI Capability</h4><p>생성형 AI, LLM, RAG, NLP, 자동화 도구를 연구 과정에 통합적으로 활용</p></div>
+            <div class="info-card reveal"><div class="icon">🏗️</div><h4>Domain</h4><p>Construction Management, BIM, Safety, Automation, Digital Transformation</p></div>
+            <div class="info-card reveal"><div class="icon">🎯</div><h4>Goal</h4><p>건설산업의 실무 문제를 데이터 기반으로 해석하고 해결 가능한 연구로 확장</p></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FEATURED -->
     <section id="featured">
       <div class="wrap">
         <div class="section-head reveal">
-          <div><span class="kicker">03 Featured Research</span><h2>BIM-context-aware RAG<br>for safety decision support</h2></div>
+          <div>
+            <span class="kicker">03 Featured Research</span>
+            <h2>BIM-context-aware RAG for safety decision support</h2>
+          </div>
         </div>
+
         <div class="feature-layout">
-          <article class="feature-card panel reveal">
-            <div class="feature-no">01</div>
+          <article class="panel feature-card reveal">
+            <div class="feature-number">01</div>
             <h3>Evidence-grounded safety knowledge activation</h3>
             <p>비정형 사고 내러티브를 AI/NLP로 구조화하고, BIM에서 추출한 물리적 맥락과 연결하여 현재 작업 조건에 맞는 안전 지식을 검색·생성하는 연구입니다.</p>
             <div class="feature-pipeline">
-              <span>Accident Narratives</span><i>→</i>
-              <span>Risk-chain Structuring</span><i>→</i>
-              <span>BIM Context</span><i>→</i>
-              <span>RAG Output</span>
+              <span>Accident Narratives</span><i>→</i><span>Risk-chain Structuring</span><i>→</i><span>BIM Context</span><i>→</i><span>RAG Output</span>
             </div>
           </article>
+
           <aside class="feature-visual reveal">
-            <div class="fv-axis fv-axis-x"></div>
-            <div class="fv-axis fv-axis-y"></div>
-            <div class="fv-node fv-ai">AI</div>
-            <div class="fv-node fv-bim">BIM</div>
-            <div class="fv-node fv-rag">RAG</div>
-            <div class="fv-node fv-dfs">DfS</div>
-            <div class="fv-core">Context<br>Evidence</div>
+            <div class="feature-core">Context<br>Evidence</div>
+            <div class="feature-axis axis-x"></div>
+            <div class="feature-axis axis-y"></div>
+            <div class="feature-node f-ai">AI</div>
+            <div class="feature-node f-bim">BIM</div>
+            <div class="feature-node f-rag">RAG</div>
+            <div class="feature-node f-dfs">DfS</div>
           </aside>
         </div>
       </div>
     </section>
 
-    <!-- SKILLS -->
     <section id="skills">
       <div class="wrap">
         <div class="section-head reveal">
-          <div><span class="kicker">04 AI Capability</span><h2>Patterned thinking<br>for AI workflows</h2></div>
+          <div>
+            <span class="kicker">04 AI Capability</span>
+            <h2>Patterned thinking for AI workflows</h2>
+          </div>
         </div>
+
         <div class="skills-layout">
           <article class="skill-card reveal">
-            <div class="big-num">6</div>
+            <div class="big-six">6</div>
             <h3>AI / Tech Fields</h3>
             <p>다양한 AI 도구를 연구 생산성 향상과 디지털 건설관리 문제 해결에 활용합니다.</p>
             <div class="bars" id="bars">
               <div class="bar-row" data-score="92"><b>AI Writing</b><span class="track"><span class="fill"></span></span><em>92</em></div>
-              <div class="bar-row" data-score="88"><b>LLM / RAG</b><span class="track"><span class="fill"></span></span><em>88</em></div>
+              <div class="bar-row" data-score="88"><b>LLM/RAG</b><span class="track"><span class="fill"></span></span><em>88</em></div>
               <div class="bar-row" data-score="84"><b>NLP</b><span class="track"><span class="fill"></span></span><em>84</em></div>
-              <div class="bar-row" data-score="82"><b>BIM / Data</b><span class="track"><span class="fill"></span></span><em>82</em></div>
+              <div class="bar-row" data-score="82"><b>BIM/Data</b><span class="track"><span class="fill"></span></span><em>82</em></div>
               <div class="bar-row" data-score="78"><b>Automation</b><span class="track"><span class="fill"></span></span><em>78</em></div>
             </div>
           </article>
+
           <article class="tab-card reveal">
             <div class="tabs">
-              <button class="tab active" data-tab="research">Research</button>
-              <button class="tab" data-tab="writing">Writing</button>
-              <button class="tab" data-tab="visual">Visualization</button>
-              <button class="tab" data-tab="auto">Automation</button>
+              <button class="tab active" type="button" data-tab="research">Research</button>
+              <button class="tab" type="button" data-tab="writing">Writing</button>
+              <button class="tab" type="button" data-tab="visual">Visualization</button>
+              <button class="tab" type="button" data-tab="auto">Automation</button>
             </div>
             <h3 id="tabTitle">Research AI Workflow</h3>
             <p id="tabDesc">문헌 검토, 연구 질문 구조화, 데이터 라벨링 기준 정리, 실험 결과 해석 등 연구 전 과정에서 AI를 활용합니다.</p>
@@ -1242,82 +220,104 @@
       </div>
     </section>
 
-    <!-- RESEARCH -->
     <section id="research">
       <div class="wrap">
         <div class="section-head reveal">
-          <div><span class="kicker">05 Research Structure</span><h2>From unstructured data<br>to decision support</h2></div>
-        </div>
-        <div class="flow-panel reveal">
-          <div class="flow">
-            <div class="flow-step"><span>01</span><b>Unstructured Data</b></div>
-            <div class="flow-step"><span>02</span><b>AI / NLP Structuring</b></div>
-            <div class="flow-step"><span>03</span><b>BIM Context Mapping</b></div>
-            <div class="flow-step"><span>04</span><b>RAG-based Retrieval</b></div>
-            <div class="flow-step"><span>05</span><b>Decision Support</b></div>
+          <div>
+            <span class="kicker">05 Research Structure</span>
+            <h2>From unstructured data to decision support</h2>
           </div>
         </div>
-        <div class="filters reveal">
-          <button class="filter active" data-filter="all">All Blocks</button>
-          <button class="filter" data-filter="ai">AI System</button>
-          <button class="filter" data-filter="bim">BIM Tech</button>
-          <button class="filter" data-filter="safety">Safety Lab</button>
-          <button class="filter" data-filter="automation">Automation</button>
+
+        <div class="flow reveal">
+          <div class="flow-step"><span>01</span><b>Unstructured Data</b></div>
+          <div class="flow-step"><span>02</span><b>AI / NLP Structuring</b></div>
+          <div class="flow-step"><span>03</span><b>BIM Context Mapping</b></div>
+          <div class="flow-step"><span>04</span><b>RAG-based Retrieval</b></div>
+          <div class="flow-step"><span>05</span><b>Decision Support</b></div>
         </div>
+
+        <div class="filters reveal">
+          <button class="filter active" type="button" data-filter="all">All</button>
+          <button class="filter" type="button" data-filter="ai">AI</button>
+          <button class="filter" type="button" data-filter="bim">BIM</button>
+          <button class="filter" type="button" data-filter="safety">Safety</button>
+          <button class="filter" type="button" data-filter="automation">Automation</button>
+        </div>
+
         <div class="projects">
           <article class="project-card reveal" data-category="ai bim safety">
-            <div class="proj-badge" data-tip="AI + BIM + Safety">📌</div>
-            <div class="proj-icon">🧠</div>
+            <div class="project-icon">🧠</div>
             <h3>BIM-context-aware RAG for Construction Safety</h3>
             <p>비정형 사고 데이터와 BIM 맥락 정보를 연결하여 DfS 및 안전관리 의사결정을 지원하는 RAG 기반 프레임워크 연구.</p>
             <div class="mini-tags"><span class="mini">RAG</span><span class="mini">BIM</span><span class="mini">Safety</span></div>
+            <div class="build-progress-bar"><span></span></div>
           </article>
+
           <article class="project-card reveal" data-category="ai safety">
-            <div class="proj-badge" data-tip="AI + Safety">📌</div>
-            <div class="proj-icon">🔗</div>
+            <div class="project-icon">🔗</div>
             <h3>Risk-chain Structuring from Accident Narratives</h3>
             <p>사고 내러티브에서 Work, Hazard, Accident, Injury 구조를 추출하고 지식그래프 기반으로 정리하는 연구.</p>
             <div class="mini-tags"><span class="mini">NLP</span><span class="mini">Graph</span><span class="mini">OSHA</span></div>
+            <div class="build-progress-bar"><span></span></div>
           </article>
+
           <article class="project-card reveal" data-category="automation safety">
-            <div class="proj-badge" data-tip="Automation + Safety">📌</div>
-            <div class="proj-icon">🤖</div>
+            <div class="project-icon">🤖</div>
             <h3>Construction Safety Documentation Automation</h3>
             <p>건설현장 안전문서의 반복 입력과 행정 부담을 줄이기 위한 RPA 및 데이터 허브 기반 자동화 체계 설계.</p>
             <div class="mini-tags"><span class="mini">RPA</span><span class="mini">Data Hub</span><span class="mini">Workflow</span></div>
+            <div class="build-progress-bar"><span></span></div>
           </article>
+
           <article class="project-card reveal" data-category="bim automation">
-            <div class="proj-badge" data-tip="BIM + Automation">📌</div>
-            <div class="proj-icon">🏢</div>
+            <div class="project-icon">🏢</div>
             <h3>BIM-based Design and Construction Automation</h3>
             <p>파라메트릭 모델과 설계 규칙을 활용하여 외벽 패널 설계, 물량 산출, 상세 자동화를 지원하는 연구.</p>
             <div class="mini-tags"><span class="mini">BIM</span><span class="mini">Parametric</span><span class="mini">Dynamo</span></div>
+            <div class="build-progress-bar"><span></span></div>
           </article>
+
           <article class="project-card reveal" data-category="ai automation">
-            <div class="proj-badge" data-tip="AI + Automation">📌</div>
-            <div class="proj-icon">📄</div>
-            <h3>AI-assisted Research Writing &amp; Review</h3>
+            <div class="project-icon">📄</div>
+            <h3>AI-assisted Research Writing & Review</h3>
             <p>논문 작성, 리뷰 대응, 연구계획서 구성, 발표자료 기획 과정에서 AI 기반 검토와 구조화를 수행.</p>
             <div class="mini-tags"><span class="mini">Writing</span><span class="mini">Review</span><span class="mini">Prompting</span></div>
+            <div class="build-progress-bar"><span></span></div>
           </article>
+
           <article class="project-card reveal" data-category="automation">
-            <div class="proj-badge" data-tip="Automation">📌</div>
-            <div class="proj-icon">💻</div>
+            <div class="project-icon">💻</div>
             <h3>Interactive Web Documentation</h3>
             <p>연구 로직, 계산식, 실험 절차를 HTML, Markdown, MkDocs 기반의 탐색 가능한 문서로 구현.</p>
             <div class="mini-tags"><span class="mini">HTML</span><span class="mini">Docs</span><span class="mini">UX</span></div>
+            <div class="build-progress-bar"><span></span></div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- KEYWORDS -->
     <section id="keywords">
       <div class="wrap">
         <div class="section-head reveal">
-          <div><span class="kicker">06 Research Map</span><h2>Keyword constellation</h2></div>
+          <div>
+            <span class="kicker">06 Research Map</span>
+            <h2>Keyword constellation</h2>
+          </div>
         </div>
+
         <div class="keyword-map reveal">
+          <svg class="keyword-lines" viewBox="0 0 1000 420" preserveAspectRatio="none" aria-hidden="true">
+            <line x1="500" y1="210" x2="210" y2="70" />
+            <line x1="500" y1="210" x2="500" y2="42" />
+            <line x1="500" y1="210" x2="790" y2="70" />
+            <line x1="500" y1="210" x2="850" y2="210" />
+            <line x1="500" y1="210" x2="745" y2="350" />
+            <line x1="500" y1="210" x2="500" y2="378" />
+            <line x1="500" y1="210" x2="255" y2="350" />
+            <line x1="500" y1="210" x2="150" y2="210" />
+          </svg>
+
           <div class="keyword-core">Research<br>Identity</div>
           <div class="keyword k1">AI</div>
           <div class="keyword k2">BIM</div>
@@ -1327,26 +327,19 @@
           <div class="keyword k6">Automation</div>
           <div class="keyword k7">DfS</div>
           <div class="keyword k8">Data</div>
-          <svg class="keyword-lines" viewBox="0 0 1000 300" preserveAspectRatio="none" aria-hidden="true">
-            <line x1="500" y1="150" x2="162" y2="42"/>
-            <line x1="500" y1="150" x2="500" y2="27"/>
-            <line x1="500" y1="150" x2="838" y2="42"/>
-            <line x1="500" y1="150" x2="940" y2="150"/>
-            <line x1="500" y1="150" x2="800" y2="258"/>
-            <line x1="500" y1="150" x2="500" y2="273"/>
-            <line x1="500" y1="150" x2="200" y2="258"/>
-            <line x1="500" y1="150" x2="60"  y2="150"/>
-          </svg>
         </div>
       </div>
     </section>
 
-    <!-- PUBLICATIONS -->
     <section id="publications">
       <div class="wrap">
         <div class="section-head reveal">
-          <div><span class="kicker">07 Publications &amp; Activities</span><h2>Selected academic record</h2></div>
+          <div>
+            <span class="kicker">07 Publications & Activities</span>
+            <h2>Selected academic record</h2>
+          </div>
         </div>
+
         <div class="activity-grid">
           <article class="activity-card reveal"><span>2025</span><h3>대한건축학회 추계학술발표대회</h3><p>우수논문상 수상</p></article>
           <article class="activity-card reveal"><span>2026</span><h3>대한건축학회 우수졸업논문전</h3><p>장려상 수상</p></article>
@@ -1355,85 +348,46 @@
       </div>
     </section>
 
-    <!-- AWARDS -->
     <section id="awards">
       <div class="wrap">
-        <div class="section-head reveal"><div><span class="kicker">08 Awards</span><h2>Academic achievements</h2></div></div>
-        <div class="awards">
-          <article class="award-card reveal">
-            <div class="year">2025</div>
-            <div><h3>대한건축학회 추계학술발표대회 우수논문상</h3><p>디지털 건설관리 및 AI 기반 연구성과의 학술적 가능성을 인정받은 성과입니다.</p></div>
-          </article>
-          <article class="award-card reveal">
-            <div class="year">2026</div>
-            <div><h3>대한건축학회 우수졸업논문전 장려상</h3><p>학부 연구에서 확장된 연구 역량과 주제의 발전 가능성을 보여주는 성과입니다.</p></div>
-          </article>
+        <div class="section-head reveal">
+          <div>
+            <span class="kicker">08 Awards</span>
+            <h2>Academic achievements</h2>
+          </div>
+        </div>
+
+        <div class="activity-grid">
+          <article class="activity-card reveal"><span>2025</span><h3>대한건축학회 추계학술발표대회 우수논문상</h3><p>디지털 건설관리 및 AI 기반 연구성과의 학술적 가능성을 인정받은 성과입니다.</p></article>
+          <article class="activity-card reveal"><span>2026</span><h3>대한건축학회 우수졸업논문전 장려상</h3><p>학부 연구에서 확장된 연구 역량과 주제의 발전 가능성을 보여주는 성과입니다.</p></article>
+          <article class="activity-card reveal"><span>Plan</span><h3>Certificates in progress</h3><p>건축기사, 건설안전기사 등 실무 기반 전문성을 확장할 예정입니다.</p></article>
         </div>
       </div>
     </section>
 
-    <!-- EDUCATION -->
-    <section id="education">
-      <div class="wrap">
-        <div class="section-head reveal"><div><span class="kicker">09 Education</span><h2>Education timeline</h2></div></div>
-        <div class="timeline">
-          <div class="time-row reveal">
-            <div class="time-label">Current</div>
-            <div class="time-card"><h3>이화여자대학교 대학원</h3><p>건축도시시스템공학과 석사과정 · ESCO 소속 연구원</p></div>
-          </div>
-          <div class="time-row reveal">
-            <div class="time-label">Research</div>
-            <div class="time-card"><h3>Construction Management &amp; AI Integration</h3><p>건설관리, BIM, AI, RAG, NLP, 자동화 기술을 결합한 연구 수행</p></div>
-          </div>
-          <div class="time-row reveal">
-            <div class="time-label">Future</div>
-            <div class="time-card"><h3>Applied Digital Construction Research</h3><p>실무 적용성이 높은 데이터 기반 건설관리 시스템 및 의사결정 지원 체계 구축 목표</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CERTIFICATES -->
-    <section id="certificates">
-      <div class="wrap">
-        <div class="section-head reveal"><div><span class="kicker">10 Certificates</span><h2>Certificates in progress</h2></div></div>
-        <div class="certs">
-          <article class="cert-card reveal">
-            <div class="cert-icon">📜</div>
-            <h3>건축기사</h3>
-            <p>건축공학 및 시공관리 전문성 강화를 위한 자격 취득 예정.</p>
-            <span class="status">Planned</span>
-          </article>
-          <article class="cert-card reveal">
-            <div class="cert-icon">🦺</div>
-            <h3>건설안전기사</h3>
-            <p>건설현장 안전관리 및 위험요인 분석 역량 강화를 위한 자격 취득 예정.</p>
-            <span class="status">Planned</span>
-          </article>
-          <article class="cert-card reveal">
-            <div class="cert-icon">💡</div>
-            <h3>AI &amp; Digital Tools</h3>
-            <p>연구 자동화, 데이터 분석, 문서화, 시각화 관련 실무형 역량 지속 확장.</p>
-            <span class="status">Developing</span>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- DIRECTIONS -->
     <section id="directions">
       <div class="wrap">
-        <div class="section-head reveal"><div><span class="kicker">11 Directions</span><h2>How to find the lab</h2></div></div>
+        <div class="section-head reveal">
+          <div>
+            <span class="kicker">09 Directions</span>
+            <h2>How to find the lab</h2>
+          </div>
+        </div>
+
         <div class="directions-card reveal">
           <div class="directions-main">
             <div class="directions-no">503</div>
-            <h3 class="directions-title">이화여자대학교<br>아산공학관 <strong>503호</strong></h3>
+            <h3 class="directions-title">
+              <span>이화여자대학교</span>
+              <span>아산공학관 <strong>503호</strong></span>
+            </h3>
             <p>건축도시시스템공학과 · ESCO 연구실</p>
             <div class="directions-actions">
-              <a href="https://maps.google.com/?q=Ewha+Asan+Engineering" target="_blank" rel="noopener noreferrer">Open Google Maps</a>
+              <a href="https://maps.app.goo.gl/uByt69vVQEC92SZF8" target="_blank" rel="noopener noreferrer">Open Google Maps</a>
               <a href="#contact">Contact</a>
             </div>
           </div>
+
           <div class="directions-visual" aria-hidden="true">
             <div class="floor-grid">
               <span class="room">501</span>
@@ -1447,19 +401,19 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact">
       <div class="wrap">
         <div class="contact-card reveal">
           <div>
-            <span class="kicker">12 Contact</span>
-            <h2>Let's build intelligent<br>construction research.</h2>
+            <span class="kicker">10 Contact</span>
+            <h2>Let’s build intelligent construction research.</h2>
             <div class="contact-buttons">
-              <a href="cv.pdf" download>View CV</a>
+              <a href="Haein_Yun_CV.pdf" target="_blank" rel="noopener noreferrer">View CV</a>
               <a href="mailto:godls114747@ewha.ac.kr">Email</a>
               <a href="#research">Research</a>
             </div>
           </div>
+
           <div class="contact-list">
             <div class="contact-item">📍 이화여자대학교 아산공학관 503호</div>
             <div class="contact-item">🏫 건축도시시스템공학과</div>
@@ -1473,217 +427,172 @@
 
   <footer>
     <div class="wrap footer-inner">
-      <span class="footer-mark">Haein Yun</span>
-      <p>© 2026 · ESCO Garden · AI-enabled Construction Management Research</p>
-      <p>📜 Research Archive · Special Edition</p>
+      <p>© 2026 Haein Yun. Ukiyo-e memory styled research portfolio.</p>
+      <p>HY · ESCO Portfolio</p>
     </div>
   </footer>
 
-  <button class="top" id="top" title="맨 위로">↑</button>
-
   <script>
-    /* ===== DOM refs ===== */
-    const root     = document.documentElement;
     const progress = document.getElementById('progress');
-    const topBtn   = document.getElementById('top');
+    const topBtn = document.getElementById('top');
     const navLinks = document.getElementById('navLinks');
-    const menuBtn  = document.getElementById('menuBtn');
-    const ringEl   = document.getElementById('cursorRing');
-    const dotEl    = document.getElementById('cursorDot');
+    const menuBtn = document.getElementById('menuBtn');
+    const typeWord = document.getElementById('typeWord');
 
-    /* ===== Custom cursor tracking ===== */
-    let cx = window.innerWidth / 2;
-    let cy = window.innerHeight / 2;
-    let rx = cx, ry = cy;
-
-    window.addEventListener('mousemove', (e) => {
-      cx = e.clientX; cy = e.clientY;
-      dotEl.style.left  = cx + 'px';
-      dotEl.style.top   = cy + 'px';
-    });
-
-    /* Smooth ring follow */
-    (function animRing() {
-      rx += (cx - rx) * .12;
-      ry += (cy - ry) * .12;
-      ringEl.style.left = rx + 'px';
-      ringEl.style.top  = ry + 'px';
-      requestAnimationFrame(animRing);
-    })();
-
-    document.querySelectorAll('a, button, .project-card, .info-card, .cert-card, .poster, .keyword, .activity-card, .award-card').forEach(el => {
-      el.addEventListener('mouseenter', () => document.body.classList.add('cursor-active'));
-      el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-active'));
-    });
-
-    /* ===== Mobile menu ===== */
-    menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
-    document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
-
-    /* ===== Scroll events ===== */
-    window.addEventListener('scroll', () => {
+    function setProgress() {
       const h = document.documentElement.scrollHeight - window.innerHeight;
-      progress.style.width = `${h > 0 ? (window.scrollY / h) * 100 : 0}%`;
-      topBtn.classList.toggle('show', window.scrollY > 500);
-    });
-    topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      const pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+      if (progress) progress.style.width = pct + '%';
+      if (topBtn) topBtn.classList.toggle('show', window.scrollY > 400);
+    }
+    window.addEventListener('scroll', setProgress);
+    setProgress();
 
-    /* ===== Active nav highlight ===== */
-    const sectionObs = new IntersectionObserver(entries => {
+    if (topBtn) {
+      topBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    if (menuBtn && navLinks) {
+      menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+    }
+
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.addEventListener('click', () => navLinks?.classList.remove('open'));
+    });
+
+    const sectionObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          document.querySelectorAll('.nav-links a').forEach(a =>
-            a.classList.toggle('active', a.getAttribute('href') === `#${entry.target.id}`)
-          );
+          document.querySelectorAll('.nav-links a').forEach(a => {
+            a.classList.toggle('active', a.getAttribute('href') === `#${entry.target.id}`);
+          });
         }
       });
-    }, { threshold: .28 });
-    document.querySelectorAll('header[id], section[id]').forEach(s => sectionObs.observe(s));
+    }, { threshold: 0.35 });
 
-    /* ===== Reveal on scroll ===== */
-    const revealObs = new IntersectionObserver(entries =>
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); }),
-      { threshold: .07 }
-    );
-    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+    document.querySelectorAll('header[id], section[id]').forEach(s => sectionObserver.observe(s));
 
-    /* ===== Typing effect ===== */
-    const words  = [
-      'Generative AI Integration',
-      'LLM-based Research Platforms',
-      'BIM Data Mapping System',
-      'RAG Engineering Processes',
-      'NLP for Accident Narratives',
-      'Research Logic Automation'
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    const words = [
+      'Generative AI',
+      'LLM-based Research',
+      'BIM Data Workflows',
+      'RAG Systems',
+      'NLP for Safety Narratives',
+      'Research Automation'
     ];
-    const target = document.getElementById('typeWord');
     let wi = 0, ci = 0, del = false;
-    function type() {
-      const w = words[wi];
-      target.textContent = del ? w.slice(0, ci - 1) : w.slice(0, ci + 1);
-      ci += del ? -1 : 1;
-      if (!del && ci === w.length) { del = true; setTimeout(type, 1100); return; }
-      if (del && ci === 0) { del = false; wi = (wi + 1) % words.length; }
-      setTimeout(type, del ? 24 : 56);
-    }
-    type();
 
-    /* ===== Skill bars ===== */
-    const barObs = new IntersectionObserver(entries => {
+    function typeLoop() {
+      if (!typeWord) return;
+      const w = words[wi];
+      typeWord.textContent = del ? w.slice(0, ci - 1) : w.slice(0, ci + 1);
+      ci += del ? -1 : 1;
+
+      if (!del && ci === w.length) {
+        del = true;
+        setTimeout(typeLoop, 1000);
+        return;
+      }
+      if (del && ci === 0) {
+        del = false;
+        wi = (wi + 1) % words.length;
+      }
+      setTimeout(typeLoop, del ? 35 : 60);
+    }
+    typeLoop();
+
+    const barObserver = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (!e.isIntersecting) return;
-        document.querySelectorAll('.bar-row').forEach(row =>
-          row.querySelector('.fill').style.width = `${row.dataset.score}%`
-        );
-        barObs.disconnect();
+        document.querySelectorAll('.bar-row').forEach(row => {
+          const fill = row.querySelector('.fill');
+          if (fill) fill.style.width = `${row.dataset.score || 0}%`;
+        });
+        barObserver.disconnect();
       });
-    }, { threshold: .2 });
-    barObs.observe(document.getElementById('bars'));
+    }, { threshold: 0.2 });
+    const bars = document.getElementById('bars');
+    if (bars) barObserver.observe(bars);
 
-    /* ===== Tab switcher ===== */
     const tabData = {
-      research: ['Research AI Workflow',
+      research: [
+        'Research AI Workflow',
         '문헌 검토, 연구 질문 구조화, 데이터 라벨링 기준 정리, 실험 결과 해석 등 연구 전 과정에서 AI를 활용합니다.',
-        ['🔎 Literature Review','🧩 Research Framing','📊 Result Interpretation','🧾 Evidence Structuring']],
-      writing: ['AI-assisted Academic Writing',
+        ['🔎 Literature Review', '🧩 Research Framing', '📊 Result Interpretation', '🧾 Evidence Structuring']
+      ],
+      writing: [
+        'AI-assisted Academic Writing',
         '논문, 연구계획서, 학회 발표문, 리뷰 대응문을 작성할 때 논리 구조와 표현 정확도를 검토합니다.',
-        ['✍️ Manuscript Drafting','🪄 Wording Refinement','✅ Logical Review','🌐 KR/EN Translation']],
-      visual: ['Visual & Interface Prototyping',
+        ['✍️ Manuscript Drafting', '🪄 Wording Refinement', '✅ Logical Review', '🌐 KR/EN Translation']
+      ],
+      visual: [
+        'Visual & Interface Prototyping',
         '연구 프레임워크, 시스템 구조, 데이터 흐름, 발표용 도식화를 시각적으로 구현하는 데 AI를 활용합니다.',
-        ['🎨 Diagram Design','📌 Infographics','🖥️ UI Mockup','🧭 Storyline']],
-      auto: ['Automation-oriented AI Use',
+        ['🎨 Diagram Design', '📌 Infographics', '🖥️ UI Mockup', '🧭 Storyline']
+      ],
+      auto: [
+        'Automation-oriented AI Use',
         '반복 문서 작업, 데이터 정리, 코드 초안 작성, 워크플로우 설계를 자동화 관점에서 수행합니다.',
-        ['🤖 RPA Logic','📁 Data Cleaning','💻 Code Assistance','⚙️ Workflow Design']]
+        ['🤖 RPA Logic', '📁 Data Cleaning', '💻 Code Assistance', '⚙️ Workflow Design']
+      ]
     };
 
-    document.querySelectorAll('.tab').forEach(btn => btn.addEventListener('click', () => {
-      document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const [title, desc, chips] = tabData[btn.dataset.tab];
-      document.getElementById('tabTitle').textContent = title;
-      document.getElementById('tabDesc').textContent  = desc;
-      document.getElementById('tabGrid').innerHTML    = chips.map(x => `<div class="skill-chip">${x}</div>`).join('');
-    }));
-
-    /* ===== Project filter ===== */
-    document.querySelectorAll('.filter').forEach(btn => btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const f = btn.dataset.filter;
-      document.querySelectorAll('.project-card').forEach(card => {
-        card.style.display = (f === 'all' || card.dataset.category.includes(f)) ? '' : 'none';
-      });
-    }));
-
-    /* ===== Keyword float animation ===== */
-    document.querySelectorAll('.keyword').forEach((kw, i) => {
-      kw.style.animation = `compassFloat ${3.5 + i * .35}s ease-in-out infinite`;
-      kw.style.animationDelay = `${i * -.45}s`;
-    });
-
-    /* ===== Click ripple on project cards ===== */
-    const ks = document.createElement('style');
-    ks.textContent = `@keyframes rippleVtg { to { transform:scale(2.8); opacity:0; } }`;
-    document.head.appendChild(ks);
-
-    document.querySelectorAll('.project-card').forEach(card => {
-      card.addEventListener('click', function(e) {
-        const ripple = document.createElement('span');
-        const rect   = card.getBoundingClientRect();
-        const size   = Math.max(card.clientWidth, card.clientHeight);
-        ripple.style.cssText = `
-          position:absolute; left:${e.clientX - rect.left - size/2}px; top:${e.clientY - rect.top - size/2}px;
-          width:${size}px; height:${size}px; border-radius:50%;
-          background:rgba(139,69,19,.12); transform:scale(0);
-          animation:rippleVtg .6s ease-out forwards; pointer-events:none; z-index:10;
-        `;
-        card.appendChild(ripple);
-        setTimeout(() => ripple.remove(), 650);
+    document.querySelectorAll('.tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const data = tabData[btn.dataset.tab];
+        if (!data) return;
+        document.getElementById('tabTitle').textContent = data[0];
+        document.getElementById('tabDesc').textContent = data[1];
+        document.getElementById('tabGrid').innerHTML = data[2].map(x => `<div class="skill-chip">${x}</div>`).join('');
       });
     });
 
-    /* ===== Dust motes generator ===== */
-    const motesContainer = document.getElementById('motesContainer');
-    for (let i = 0; i < 18; i++) {
-      const mote = document.createElement('div');
-      const size = Math.random() * 4 + 2;
-      const left = Math.random() * 100;
-      const dur  = Math.random() * 20 + 15;
-      const del  = Math.random() * -30;
-      mote.className = 'mote';
-      mote.style.cssText = `
-        width:${size}px; height:${size}px;
-        left:${left}vw; top:-${size}px;
-        opacity:${Math.random() * .3 + .1};
-        animation-duration:${dur}s; animation-delay:${del}s;
-      `;
-      /* Dynamic keyframe per mote */
-      const endX = (Math.random() - .5) * 200;
-      const id   = `mote${i}`;
-      const mks  = document.createElement('style');
-      mks.textContent = `
-        @keyframes ${id} {
-          0%   { transform: translate(0, 0) rotate(0deg); opacity: ${Math.random() * .3 + .1}; }
-          100% { transform: translate(${endX}px, 100vh) rotate(${Math.random()*360}deg); opacity: 0; }
-        }
-      `;
-      document.head.appendChild(mks);
-      mote.style.animationName = id;
-      motesContainer.appendChild(mote);
+    document.querySelectorAll('.filter').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.dataset.filter;
+        document.querySelectorAll('.project-card').forEach(card => {
+          card.style.display = f === 'all' || card.dataset.category.includes(f) ? 'block' : 'none';
+        });
+      });
+    });
+
+    function animateBuild(card) {
+      const progress = card.querySelector('.build-progress-bar span');
+      card.classList.add('building-active');
+      if (progress) {
+        progress.style.width = '0%';
+        requestAnimationFrame(() => { progress.style.width = '100%'; });
+      }
+      setTimeout(() => {
+        card.classList.add('project-built');
+        card.classList.remove('building-active');
+      }, 1200);
     }
 
-    /* ===== Poster antique clock tick easter egg ===== */
-    const clock = document.querySelector('.antique-clock');
-    if (clock) {
-      clock.style.cursor = 'pointer';
-      clock.addEventListener('click', () => {
-        clock.style.filter = 'sepia(1) brightness(1.4)';
-        clock.style.transform = 'scale(1.2) rotate(15deg)';
-        clock.style.transition = 'all .3s ease';
-        setTimeout(() => {
-          clock.style.filter = 'sepia(1)';
-          clock.style.transform = '';
-        }, 800);
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('click', () => animateBuild(card));
+    });
+
+    const buildAllBtn = document.getElementById('buildAllBtn');
+    if (buildAllBtn) {
+      buildAllBtn.addEventListener('click', () => {
+        document.querySelectorAll('.project-card').forEach((card, i) => {
+          setTimeout(() => animateBuild(card), i * 220);
+        });
       });
     }
   </script>
