@@ -16,38 +16,60 @@
   <div class="progress" id="progress"></div>
 
   <div class="mini-world" aria-hidden="true">
-    <div class="sky-glow"></div>
-    <div class="tilt-plane"></div>
-    <div class="road road-main"></div>
-    <div class="road road-cross"></div>
+    <div class="scene-sky"></div>
+    <div class="tilt-blur tilt-blur-top"></div>
+    <div class="tilt-blur tilt-blur-bottom"></div>
 
-    <div class="mini-crane">
-      <div class="crane-tower"></div>
-      <div class="crane-jib"></div>
-      <div class="crane-cable"></div>
-      <div class="crane-hook"></div>
+    <div class="ground-stage">
+      <div class="ground-grid"></div>
+
+      <div class="site-road road-vertical"></div>
+      <div class="site-road road-horizontal"></div>
+
+      <div class="site-pad site-center"></div>
+      <div class="site-pad site-left"></div>
+      <div class="site-pad site-right"></div>
+
+      <div class="mini-block left-block">
+        <div class="mini-building-real bld-a"></div>
+        <div class="mini-building-real bld-b"></div>
+        <div class="tree-real tr-1"></div>
+        <div class="tree-real tr-2"></div>
+      </div>
+
+      <div class="mini-block right-block">
+        <div class="mini-building-real bld-c"></div>
+        <div class="mini-building-real bld-d"></div>
+        <div class="tree-real tr-3"></div>
+        <div class="tree-real tr-4"></div>
+      </div>
+
+      <div class="construction-cluster">
+        <div class="crane-real">
+          <div class="crane-base"></div>
+          <div class="crane-arm"></div>
+          <div class="crane-wire"></div>
+          <div class="crane-hook"></div>
+        </div>
+
+        <div class="module-real mod-1"></div>
+        <div class="module-real mod-2"></div>
+        <div class="module-real mod-3"></div>
+
+        <div class="worker-real wr-1"></div>
+        <div class="worker-real wr-2"></div>
+        <div class="worker-real wr-3"></div>
+        <div class="worker-real wr-4"></div>
+
+        <div class="cone-real cone-1"></div>
+        <div class="cone-real cone-2"></div>
+        <div class="cone-real cone-3"></div>
+      </div>
+
+      <div class="truck-real truck-1"></div>
+      <div class="truck-real truck-2"></div>
+      <div class="truck-real truck-3"></div>
     </div>
-
-    <div class="module-stack">
-      <div class="module-box mbox-1"></div>
-      <div class="module-box mbox-2"></div>
-      <div class="module-box mbox-3"></div>
-    </div>
-
-    <div class="mini-building mini-building-left"></div>
-    <div class="mini-building mini-building-right"></div>
-
-    <div class="mini-truck truck-a"></div>
-    <div class="mini-truck truck-b"></div>
-    <div class="mini-truck truck-c"></div>
-
-    <div class="worker wkr-1"><span></span></div>
-    <div class="worker wkr-2"><span></span></div>
-    <div class="worker wkr-3"><span></span></div>
-
-    <div class="tree tree-1"></div>
-    <div class="tree tree-2"></div>
-    <div class="tree tree-3"></div>
   </div>
 
   <nav class="nav">
@@ -108,21 +130,67 @@
         </div>
 
         <div class="poster-visual">
-          <div class="poster-road"></div>
-          <div class="poster-module pm-1"></div>
-          <div class="poster-module pm-2"></div>
-          <div class="poster-crane"></div>
-          <div class="poster-worker pw-1"></div>
-          <div class="poster-worker pw-2"></div>
-          <div class="poster-label lab-ai">AI</div>
-          <div class="poster-label lab-bim">BIM</div>
-          <div class="poster-label lab-rag">RAG</div>
+          <div class="poster-ground">
+            <div class="poster-grid"></div>
+            <div class="poster-road-main"></div>
+
+            <div class="poster-site">
+              <div class="poster-crane-real">
+                <div class="pcr-base"></div>
+                <div class="pcr-arm"></div>
+                <div class="pcr-wire"></div>
+                <div class="pcr-hook"></div>
+              </div>
+
+              <div class="poster-module-real pmr-1"></div>
+              <div class="poster-module-real pmr-2"></div>
+              <div class="poster-module-real pmr-3"></div>
+
+              <div class="poster-worker-real pwr-1"></div>
+              <div class="poster-worker-real pwr-2"></div>
+              <div class="poster-worker-real pwr-3"></div>
+            </div>
+
+            <div class="poster-mini-building pb-1"></div>
+            <div class="poster-mini-building pb-2"></div>
+            <div class="poster-mini-tree pt-1"></div>
+            <div class="poster-mini-tree pt-2"></div>
+
+            <div class="poster-chip chip-ai">AI</div>
+            <div class="poster-chip chip-bim">BIM</div>
+            <div class="poster-chip chip-rag">RAG</div>
+          </div>
+
+          <div class="poster-caption">
+            <h4>AI + BIM + RAG</h4>
+            <p>Evidence-based construction intelligence represented as a miniature modular site.</p>
+          </div>
         </div>
 
         <div class="poster-bottom">
-          <div class="logic"><em>A</em><div><b>AI · NLP · RAG</b><small>Unstructured knowledge into usable research logic</small></div></div>
-          <div class="logic"><em>B</em><div><b>BIM · Data Context</b><small>Physical construction context as structured evidence</small></div></div>
-          <div class="logic"><em>C</em><div><b>Decision Support</b><small>From pattern recognition to practical construction insight</small></div></div>
+          <div class="logic">
+            <em>A</em>
+            <div>
+              <b>AI · NLP · RAG</b>
+              <small>Unstructured knowledge into usable research logic</small>
+            </div>
+          </div>
+
+          <div class="logic">
+            <em>B</em>
+            <div>
+              <b>BIM · Data Context</b>
+              <small>Physical construction context as structured evidence</small>
+            </div>
+          </div>
+
+          <div class="logic">
+            <em>C</em>
+            <div>
+              <b>Decision Support</b>
+              <small>From pattern recognition to practical construction insight</small>
+            </div>
+          </div>
         </div>
       </aside>
     </div>
@@ -139,15 +207,41 @@
         <div class="about-layout">
           <article class="panel reveal">
             <h3>Profile Summary</h3>
-            <p>현재 ESCO 소속 연구원으로 활동하며, 건설관리 분야의 연구 문제를 <strong>AI 기반 분석, BIM 데이터 활용, 자동화 시스템 설계, 지식 구조화</strong> 관점에서 다루고 있습니다.</p>
-            <p>다양한 AI 도구를 단순 보조 수단이 아니라 연구 생산성을 높이는 분석·작성·검토·시각화 도구로 활용할 수 있으며, 이를 바탕으로 건설 산업의 문서화, 안전관리, 설계 의사결정, 프로젝트 관리 프로세스를 개선하는 데 관심이 있습니다.</p>
+            <p>
+              현재 ESCO 소속 연구원으로 활동하며, 건설관리 분야의 연구 문제를
+              <strong>AI 기반 분석, BIM 데이터 활용, 자동화 시스템 설계, 지식 구조화</strong>
+              관점에서 다루고 있습니다.
+            </p>
+            <p>
+              다양한 AI 도구를 단순 보조 수단이 아니라 연구 생산성을 높이는 분석·작성·검토·시각화 도구로 활용할 수 있으며,
+              이를 바탕으로 건설 산업의 문서화, 안전관리, 설계 의사결정, 프로젝트 관리 프로세스를 개선하는 데 관심이 있습니다.
+            </p>
           </article>
 
           <div class="info-grid">
-            <div class="info-card reveal"><div class="icon">🏫</div><h4>Affiliation</h4><p>이화여자대학교 건축도시시스템공학과 및 ESCO 연구실 소속</p></div>
-            <div class="info-card reveal"><div class="icon">🧠</div><h4>AI Capability</h4><p>생성형 AI, LLM, RAG, NLP, 자동화 도구를 연구 과정에 통합적으로 활용</p></div>
-            <div class="info-card reveal"><div class="icon">🏗️</div><h4>Domain</h4><p>Construction Management, BIM, Safety, Automation, Digital Transformation</p></div>
-            <div class="info-card reveal"><div class="icon">🎯</div><h4>Goal</h4><p>건설산업의 실무 문제를 데이터 기반으로 해석하고 해결 가능한 연구로 확장</p></div>
+            <div class="info-card reveal">
+              <div class="icon">🏫</div>
+              <h4>Affiliation</h4>
+              <p>이화여자대학교 건축도시시스템공학과 및 ESCO 연구실 소속</p>
+            </div>
+
+            <div class="info-card reveal">
+              <div class="icon">🧠</div>
+              <h4>AI Capability</h4>
+              <p>생성형 AI, LLM, RAG, NLP, 자동화 도구를 연구 과정에 통합적으로 활용</p>
+            </div>
+
+            <div class="info-card reveal">
+              <div class="icon">🏗️</div>
+              <h4>Domain</h4>
+              <p>Construction Management, BIM, Safety, Automation, Digital Transformation</p>
+            </div>
+
+            <div class="info-card reveal">
+              <div class="icon">🎯</div>
+              <h4>Goal</h4>
+              <p>건설산업의 실무 문제를 데이터 기반으로 해석하고 해결 가능한 연구로 확장</p>
+            </div>
           </div>
         </div>
       </div>
@@ -164,7 +258,10 @@
           <article class="panel feature-card reveal">
             <div class="feature-number">01</div>
             <h3>Evidence-grounded safety knowledge activation</h3>
-            <p>비정형 사고 내러티브를 AI/NLP로 구조화하고, BIM에서 추출한 물리적 맥락과 연결하여 현재 작업 조건에 맞는 안전 지식을 검색·생성하는 연구입니다.</p>
+            <p>
+              비정형 사고 내러티브를 AI/NLP로 구조화하고, BIM에서 추출한 물리적 맥락과 연결하여
+              현재 작업 조건에 맞는 안전 지식을 검색·생성하는 연구입니다.
+            </p>
 
             <div class="pipeline">
               <span>Accident Narratives</span>
@@ -317,9 +414,23 @@
         </div>
 
         <div class="activity-grid">
-          <article class="activity-card reveal"><span>2025</span><h3>대한건축학회 추계학술발표대회 우수논문상</h3><p>디지털 건설관리 및 AI 기반 연구성과의 학술적 가능성을 인정받은 성과입니다.</p></article>
-          <article class="activity-card reveal"><span>2026</span><h3>대한건축학회 우수졸업논문전 장려상</h3><p>학부 연구에서 확장된 연구 역량과 주제의 발전 가능성을 보여주는 성과입니다.</p></article>
-          <article class="activity-card reveal"><span>Plan</span><h3>Certificates in progress</h3><p>건축기사, 건설안전기사 등 실무 기반 전문성을 확장할 예정입니다.</p></article>
+          <article class="activity-card reveal">
+            <span>2025</span>
+            <h3>대한건축학회 추계학술발표대회 우수논문상</h3>
+            <p>디지털 건설관리 및 AI 기반 연구성과의 학술적 가능성을 인정받은 성과입니다.</p>
+          </article>
+
+          <article class="activity-card reveal">
+            <span>2026</span>
+            <h3>대한건축학회 우수졸업논문전 장려상</h3>
+            <p>학부 연구에서 확장된 연구 역량과 주제의 발전 가능성을 보여주는 성과입니다.</p>
+          </article>
+
+          <article class="activity-card reveal">
+            <span>Plan</span>
+            <h3>Certificates in progress</h3>
+            <p>건축기사, 건설안전기사 등 실무 기반 전문성을 확장할 예정입니다.</p>
+          </article>
         </div>
       </div>
     </section>
