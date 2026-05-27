@@ -3,58 +3,1263 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Haein Yun | Intelligent Construction Research Portfolio</title>
-  <meta name="description" content="윤해인 연구 포트폴리오 - AI, BIM, RAG, NLP 기반 건설관리 미니어처 가든" />
+  <title>Haein Yun | Miniature CV</title>
+  <meta name="description" content="윤해인 개인 CV 홈페이지 - ESCO 소속 연구원, AI, BIM, RAG, NLP, 건설관리 연구 포트폴리오" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@700&family=Inter:wght@400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@700&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@300;400;500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===== ROOT VARIABLES ===== */
+    :root {
+      --sky-top: #c9edff;
+      --sky-mid: #7ecfff;
+      --grass-hi: #a8f0b0;
+      --grass-lo: #4ecb6e;
+      --white: #ffffff;
+      --ink: #121926;
+      --royal: #2563eb;
+      --crimson: #ef4444;
+      --gray: #4b5563;
+      --yellow: #facc15;
+      --purple: #9333ea;
+      --green: #16a34a;
+      --orange: #ea580c;
+      --blue: #2563eb;
+      --panel: rgba(255,255,255,0.22);
+      --line: rgba(255,255,255,0.45);
+      --shadow: 0 20px 48px rgba(15,23,42,0.14);
+      --toy-shadow: 0 5px 0 rgba(0,0,0,0.12);
+      --radius-xl: 24px;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --blur: blur(20px);
+      --mx: 50%;
+      --my: 50%;
+      --muted: rgba(255,255,255,0.72);
+    }
+
+    /* ===== RESET ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; }
+    ::selection { background: var(--royal); color: #fff; }
+
+    /* ===== BODY & BACKGROUND ===== */
+    body {
+      font-family: "Inter", "Noto Sans KR", sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+      cursor: crosshair;
+      background: linear-gradient(180deg,
+        var(--sky-top) 0%,
+        var(--sky-mid) 38%,
+        var(--grass-hi) 38%,
+        var(--grass-lo) 100%);
+      background-attachment: fixed;
+    }
+
+    /* tilt-shift vignette overlay */
+    body::before {
+      content: "";
+      position: fixed; inset: 0; pointer-events: none; z-index: -6;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.18) 0%, transparent 20%, transparent 80%, rgba(0,0,0,.10) 100%),
+        radial-gradient(ellipse at 50% 40%, transparent 30%, rgba(255,255,255,.10) 65%, rgba(255,255,255,.28) 100%);
+    }
+
+    /* ===== TYPOGRAPHY ===== */
+    h1, h2, h3, .cute-title {
+      font-family: "Gaegu", "Noto Sans KR", sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    /* ===== PROGRESS BAR ===== */
+    .progress {
+      position: fixed; top: 0; left: 0; width: 0%; height: 5px;
+      background: linear-gradient(90deg, var(--royal), var(--yellow));
+      z-index: 9999; border-radius: 0 999px 999px 0;
+      transition: width .1s linear;
+    }
+
+    /* ===== CUSTOM CURSOR ===== */
+    .cursor-ring, .cursor-dot {
+      position: fixed;
+      left: var(--mx); top: var(--my);
+      transform: translate(-50%, -50%);
+      pointer-events: none; z-index: 9998;
+    }
+    .cursor-ring {
+      width: 48px; height: 48px;
+      border: 2px dashed rgba(255,255,255,.65);
+      border-radius: 50%; opacity: .65;
+      transition: width .18s, height .18s, border-color .18s, opacity .18s;
+    }
+    .cursor-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--yellow);
+      box-shadow: 0 0 8px var(--yellow);
+    }
+    body.cursor-active .cursor-ring {
+      width: 72px; height: 72px;
+      border-style: solid; border-color: var(--yellow); opacity: .85;
+    }
+
+    /* ===== OPTICAL CANVAS ===== */
+    #opCanvas {
+      position: fixed; inset: 0; width: 100%; height: 100%;
+      pointer-events: none; z-index: -3; opacity: .50;
+    }
+    .bg-optical {
+      position: fixed; inset: 0; pointer-events: none; z-index: -4;
+      background: radial-gradient(circle at var(--mx) var(--my), rgba(255,255,255,.15), transparent 12rem);
+    }
+
+    /* ===== MINI WORLD (Fixed background scene) ===== */
+    .mini-world {
+      position: fixed; inset: 0; pointer-events: none; z-index: -5; overflow: hidden;
+    }
+
+    /* Sun */
+    .sun {
+      position: absolute; right: 7vw; top: 5vh;
+      width: 72px; height: 72px; border-radius: 50%;
+      background: var(--yellow);
+      box-shadow: 0 0 40px rgba(250,204,21,.55), 0 0 80px rgba(250,204,21,.2);
+      animation: sunPulse 4s ease-in-out infinite;
+    }
+    @keyframes sunPulse {
+      0%, 100% { box-shadow: 0 0 40px rgba(250,204,21,.55), 0 0 80px rgba(250,204,21,.2); }
+      50% { box-shadow: 0 0 55px rgba(250,204,21,.75), 0 0 110px rgba(250,204,21,.3); }
+    }
+
+    /* Clouds */
+    .cloud {
+      position: absolute; height: 36px; border-radius: 999px;
+      background: rgba(255,255,255,.80);
+      animation: cloudDrift 60s ease-in-out infinite;
+    }
+    .cloud::before, .cloud::after {
+      content: ""; position: absolute; border-radius: 50%;
+      background: rgba(255,255,255,.90);
+    }
+    .cloud::before { width: 48px; height: 48px; left: 14px; top: -20px; }
+    .cloud::after  { width: 36px; height: 36px; right: 18px; top: -14px; }
+    .c1 { left: 4vw;  top: 8vh;  width: 130px; animation-delay: -5s;  animation-duration: 55s; }
+    .c2 { left: 55vw; top: 13vh; width: 100px; transform: scale(.72); animation-delay: -22s; animation-duration: 68s; }
+    .c3 { left: 30vw; top: 5vh;  width: 80px;  transform: scale(.55); animation-delay: -38s; animation-duration: 80s; }
+    @keyframes cloudDrift { 0%, 100% { translate: -20px 0; } 50% { translate: 40px 0; } }
+
+    /* Tilted ground plane */
+    .tilt-plane {
+      position: absolute; left: 50%; bottom: -200px;
+      width: min(1500px, 130vw); height: 480px;
+      transform: translateX(-50%) perspective(1000px) rotateX(62deg) rotateZ(-1deg);
+      border-radius: 90px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.07) 1px, transparent 1px),
+        linear-gradient(0deg,  rgba(255,255,255,.07) 1px, transparent 1px),
+        #4ecb6e;
+      background-size: 46px 46px;
+      box-shadow: 0 -8px 30px rgba(16,74,38,.18) inset;
+    }
+
+    /* Road */
+    .road {
+      position: absolute; left: 50%; bottom: -100px;
+      width: 200px; height: 520px;
+      transform: translateX(-50%) perspective(800px) rotateX(62deg);
+      background: #4a566a; border-radius: 38px 38px 0 0;
+      box-shadow: 0 12px 28px rgba(0,0,0,.18);
+    }
+    .road::before {
+      content: ""; position: absolute; left: 50%; top: 16px;
+      width: 4px; height: 420px;
+      transform: translateX(-50%);
+      background: repeating-linear-gradient(180deg, #fff 0 18px, transparent 18px 38px);
+      opacity: .55;
+    }
+
+    /* Static toy buildings */
+    .toy-building {
+      position: absolute; bottom: 120px;
+      width: 50px; height: 70px;
+      border-radius: 10px 10px 4px 4px;
+      background: linear-gradient(180deg, #fff 0%, #ecfdf5 100%);
+      box-shadow: 0 8px 0 rgba(0,0,0,.10);
+    }
+    .toy-building::before {
+      content: ""; position: absolute; left: 8px; top: 10px;
+      width: 34px; height: 20px;
+      display: grid;
+      background:
+        linear-gradient(transparent 45%, rgba(135,200,255,.4) 45%),
+        repeating-linear-gradient(90deg, rgba(0,0,0,.06) 0 1px, transparent 1px 12px);
+      border-radius: 2px;
+    }
+    .b1 { left: 12vw; transform: scale(.78); }
+    .b2 { right: 14vw; bottom: 145px; transform: scale(1.0); }
+
+    /* ===== ANIMATED CONSTRUCTION SCENE ===== */
+    /* Crane */
+    .mini-crane {
+      position: absolute; left: 22vw; bottom: 142px;
+      width: 100px; height: 120px;
+      transform-origin: bottom center;
+    }
+    .crane-base {
+      position: absolute; bottom: 0; left: 38px;
+      width: 10px; height: 14px;
+      background: #f97316; border-radius: 2px 2px 0 0;
+    }
+    .crane-tower {
+      position: absolute; bottom: 14px; left: 40px;
+      width: 6px; height: 110px;
+      background: linear-gradient(180deg, #f97316, #fb923c);
+      border-radius: 2px;
+    }
+    .crane-jib {
+      position: absolute; top: 8px; left: 0; right: -8px;
+      height: 5px;
+      background: #ea580c; border-radius: 2px;
+      transform-origin: 43px center;
+      animation: craneSwing 14s ease-in-out infinite;
+    }
+    .crane-counterweight {
+      position: absolute; top: 6px; left: -12px;
+      width: 12px; height: 8px;
+      background: #94a3b8; border-radius: 2px;
+    }
+    .crane-line {
+      position: absolute; top: 13px; right: 10px;
+      width: 1.5px;
+      background: rgba(226,232,240,.9);
+      animation: hoistLine 5s ease-in-out infinite;
+      height: 30px;
+    }
+    .crane-hook {
+      position: absolute; top: 43px; right: 7px;
+      width: 8px; height: 8px;
+      background: #475569; border-radius: 50%;
+      animation: hoistHook 5s ease-in-out infinite;
+    }
+    .crane-load {
+      position: absolute; top: 51px; right: 4px;
+      width: 14px; height: 10px;
+      background: var(--yellow); border-radius: 2px;
+      animation: hoistLoad 5s ease-in-out infinite;
+    }
+    @keyframes craneSwing {
+      0%, 100% { transform: rotate(-18deg); }
+      50%       { transform: rotate(22deg); }
+    }
+    @keyframes hoistLine {
+      0%, 100% { height: 20px; }
+      50%       { height: 40px; }
+    }
+    @keyframes hoistHook {
+      0%, 100% { top: 33px; }
+      50%       { top: 53px; }
+    }
+    @keyframes hoistLoad {
+      0%, 100% { top: 41px; }
+      50%       { top: 61px; }
+    }
+
+    /* Under-construction building */
+    .build-site {
+      position: absolute; right: 25vw; bottom: 118px;
+      width: 58px;
+    }
+    .build-floors {
+      width: 100%; display: flex; flex-direction: column-reverse; gap: 2px;
+    }
+    .floor {
+      height: 14px; border-radius: 3px;
+      background: linear-gradient(180deg, #fff, #f0fdf4);
+      border: 1px solid rgba(0,0,0,.06);
+      animation: floorPop .4s ease both;
+    }
+    .floor:nth-child(1) { animation-delay: 0s;   background: #fef9c3; }
+    .floor:nth-child(2) { animation-delay: .8s;  }
+    .floor:nth-child(3) { animation-delay: 1.6s; }
+    .floor:nth-child(4) { animation-delay: 2.4s; }
+    @keyframes floorPop {
+      from { transform: scaleY(0); opacity: 0; }
+      to   { transform: scaleY(1); opacity: 1; }
+    }
+    .scaffold {
+      position: absolute; top: -30px; left: -6px; right: -6px; bottom: 0;
+      border: 1.5px dashed rgba(250,204,21,.65);
+      border-radius: 4px; pointer-events: none;
+    }
+    .scaffold::before {
+      content: "🚧"; position: absolute; top: -14px; left: 50%;
+      transform: translateX(-50%); font-size: 10px;
+    }
+
+    /* Mini workers */
+    .mini-workers {
+      position: absolute; bottom: 126px; left: 47vw;
+      display: flex; gap: 18px;
+    }
+    .worker-fig {
+      display: flex; flex-direction: column; align-items: center; gap: 0;
+    }
+    .w-helmet {
+      width: 9px; height: 5px; border-radius: 999px 999px 0 0;
+      margin-bottom: -1px;
+    }
+    .w-body {
+      width: 7px; height: 10px; border-radius: 2px 2px 0 0;
+      background: #3f4858;
+    }
+    .w-legs {
+      width: 7px; height: 5px;
+      background: #1e293b; border-radius: 0 0 2px 2px;
+    }
+    .wk-a { animation: bobA 3.2s ease-in-out infinite; }
+    .wk-b { animation: bobB 4.1s ease-in-out infinite; }
+    .wk-c { animation: bobA 2.8s ease-in-out infinite; animation-delay: -.9s; }
+    @keyframes bobA {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-3px); }
+    }
+    @keyframes bobB {
+      0%, 100% { transform: translateX(0); }
+      50%       { transform: translateX(5px); }
+    }
+
+    /* Mini truck */
+    .mini-truck-wrap {
+      position: absolute; bottom: 110px; left: 0;
+      animation: truckRoute 20s linear infinite;
+      width: 42px;
+    }
+    .truck-body {
+      display: flex; align-items: flex-end; gap: 2px;
+    }
+    .truck-bed {
+      width: 26px; height: 9px;
+      background: var(--yellow); border-radius: 2px 0 0 2px;
+    }
+    .truck-cab {
+      width: 14px; height: 13px;
+      background: #3b82f6; border-radius: 2px 2px 0 0;
+    }
+    .truck-wheels {
+      display: flex; justify-content: space-between; padding: 0 3px;
+    }
+    .tw {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #1e293b; margin-top: -2px;
+      animation: wheelSpin 1s linear infinite;
+    }
+    @keyframes wheelSpin { to { transform: rotate(360deg); } }
+    @keyframes truckRoute {
+      0%   { left: -60px; bottom: 76px; transform: scale(.55); opacity: 0; }
+      8%   { opacity: 1; }
+      45%  { left: 42%; bottom: 108px; transform: scale(.85); }
+      55%  { left: 50%; bottom: 112px; transform: scale(.90); }
+      92%  { opacity: 1; }
+      100% { left: 108%; bottom: 140px; transform: scale(1.1); opacity: 0; }
+    }
+
+    /* Excavator */
+    .mini-excavator {
+      position: absolute; bottom: 118px; left: 38vw;
+      animation: excaMove 22s ease-in-out infinite;
+    }
+    .exca-body {
+      width: 28px; height: 14px;
+      background: #facc15; border-radius: 4px 4px 2px 2px;
+      position: relative;
+    }
+    .exca-cabin {
+      position: absolute; top: -8px; right: 2px;
+      width: 12px; height: 10px;
+      background: #f59e0b; border-radius: 2px;
+    }
+    .exca-arm {
+      position: absolute; top: 2px; left: -16px;
+      width: 18px; height: 4px;
+      background: #475569; border-radius: 2px;
+      transform-origin: right center;
+      animation: armDig 2.5s ease-in-out infinite;
+    }
+    .exca-arm::after {
+      content: ""; position: absolute; left: -8px; top: 2px;
+      width: 10px; height: 6px;
+      background: #64748b; border-radius: 0 0 3px 3px;
+      transform-origin: top right;
+      animation: bucketDig 2.5s ease-in-out infinite;
+    }
+    .exca-track {
+      width: 28px; height: 6px;
+      background: #374151; border-radius: 3px; margin-top: 1px;
+    }
+    @keyframes excaMove {
+      0%, 100% { left: 38vw; }
+      50%       { left: 42vw; }
+    }
+    @keyframes armDig {
+      0%, 100% { transform: rotate(-20deg); }
+      50%       { transform: rotate(20deg); }
+    }
+    @keyframes bucketDig {
+      0%, 100% { transform: rotate(0deg); }
+      50%       { transform: rotate(-40deg); }
+    }
+
+    /* Dust particles from construction */
+    .dust-particles {
+      position: absolute; left: 36vw; bottom: 132px;
+      pointer-events: none;
+    }
+    .dust {
+      position: absolute; border-radius: 50%;
+      background: rgba(255,255,255,.55);
+      animation: dustRise 3s ease-out infinite;
+    }
+    .d1 { width: 6px; height: 6px; left: 0;   animation-delay: 0s;    animation-duration: 2.8s; }
+    .d2 { width: 4px; height: 4px; left: 12px; animation-delay: .6s;   animation-duration: 3.2s; }
+    .d3 { width: 5px; height: 5px; left: -8px; animation-delay: 1.2s;  animation-duration: 2.5s; }
+    @keyframes dustRise {
+      0%   { transform: translate(0,0) scale(1); opacity: .6; }
+      100% { transform: translate(var(--dx,4px), -30px) scale(0); opacity: 0; }
+    }
+    .d1 { --dx: 6px; }
+    .d2 { --dx: -4px; }
+    .d3 { --dx: 10px; }
+
+    /* Construction signs */
+    .sign {
+      position: absolute; bottom: 100px;
+      font-size: 10px; font-weight: 900;
+      font-family: "JetBrains Mono", monospace;
+      background: var(--yellow); color: var(--ink);
+      padding: 2px 5px; border-radius: 3px;
+      box-shadow: 0 2px 0 rgba(0,0,0,.15);
+      white-space: nowrap;
+    }
+    .sign::after {
+      content: ""; position: absolute; left: 50%; bottom: -6px;
+      transform: translateX(-50%);
+      width: 2px; height: 6px; background: #475569;
+    }
+    .sign-1 { left: 20vw; }
+    .sign-2 { right: 22vw; animation: signBlink 2s step-end infinite; }
+    @keyframes signBlink {
+      0%, 100% { opacity: 1; } 50% { opacity: .4; }
+    }
+
+    /* Trees */
+    .mini-tree {
+      position: absolute; bottom: 118px;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .tree-top {
+      width: 18px; height: 22px; border-radius: 50% 50% 40% 40%;
+      background: #22c55e; box-shadow: 0 2px 0 rgba(0,0,0,.1);
+      animation: treeSway 6s ease-in-out infinite;
+    }
+    .tree-trunk {
+      width: 5px; height: 8px;
+      background: #78350f; border-radius: 0 0 2px 2px;
+    }
+    @keyframes treeSway {
+      0%, 100% { transform: rotate(-2deg); }
+      50%       { transform: rotate(2deg); }
+    }
+    .tr1 { left: 8vw; transform: scale(.7); }
+    .tr2 { left: 10vw; transform: scale(.9); animation-delay: -.8s; }
+    .tr3 { right: 9vw; transform: scale(.8); }
+    .tr4 { right: 11vw; transform: scale(.65); animation-delay: -1.2s; }
+
+    /* ===== NAVIGATION ===== */
+    .nav {
+      position: fixed; top: 14px; left: 50%; transform: translateX(-50%);
+      width: min(1200px, calc(100% - 24px)); z-index: 1000;
+      display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: center;
+      padding: 8px 14px 8px 18px;
+      border: 1px solid var(--line); border-radius: var(--radius-lg);
+      background: rgba(255,255,255,.26); backdrop-filter: var(--blur);
+      box-shadow: var(--shadow);
+    }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 900; }
+    .brand-mark {
+      width: 36px; height: 36px; display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--royal), var(--purple));
+      color: #fff; border-radius: 10px;
+      box-shadow: 0 4px 0 rgba(0,0,0,.12);
+      font-family: "JetBrains Mono", monospace; font-size: .8rem;
+    }
+    .nav-links { list-style: none; display: flex; justify-content: center; gap: 4px; flex-wrap: wrap; }
+    .nav-links a {
+      display: block; padding: 6px 10px; border-radius: 8px;
+      font-size: .8rem; font-weight: 800; transition: .12s ease;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      background: #fff; color: var(--ink); box-shadow: 0 3px 0 rgba(0,0,0,.10);
+    }
+    .nav-note {
+      font-family: "JetBrains Mono", monospace; font-size: .68rem;
+      font-weight: 700; opacity: .85; white-space: nowrap;
+    }
+    .menu-btn {
+      display: none; border-radius: 9px;
+      background: #fff; color: var(--ink); padding: 6px 12px;
+      font-weight: 800; font-size: .78rem; box-shadow: 0 3px 0 rgba(0,0,0,.1);
+      border: none;
+    }
+
+    /* ===== WRAP ===== */
+    .wrap { width: min(1200px, calc(100% - 32px)); margin: 0 auto; }
+
+    /* ===== HERO ===== */
+    .hero { min-height: 92vh; padding: 112px 0 56px; display: grid; align-items: center; }
+    .hero-grid {
+      display: grid; grid-template-columns: 1.12fr .88fr;
+      gap: 40px; align-items: center;
+    }
+    .hero-copy { display: flex; flex-direction: column; justify-content: center; }
+
+    .label {
+      width: fit-content; display: inline-flex; align-items: center; gap: 8px;
+      margin-bottom: 18px; padding: 5px 11px;
+      border: 1px solid var(--line); border-radius: 30px;
+      background: rgba(255,255,255,.15);
+      font-family: "JetBrains Mono", monospace; font-size: .72rem; font-weight: 700;
+    }
+    .dot {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--green);
+      box-shadow: 0 0 7px var(--green);
+      animation: dotPulse 2s ease-in-out infinite;
+    }
+    @keyframes dotPulse {
+      0%, 100% { opacity: 1; } 50% { opacity: .4; }
+    }
+
+    h1 { font-size: clamp(3rem, 7vw, 6rem); line-height: .90; font-weight: 900; margin-bottom: 14px; }
+    .outline-ko {
+      display: block; margin-top: 8px;
+      font-size: clamp(1.6rem, 3.8vw, 3rem);
+      color: #fff; text-shadow: 0 4px 16px rgba(0,0,0,.12);
+    }
+
+    .subtitle {
+      max-width: 580px; font-size: clamp(.95rem, 1.6vw, 1.22rem);
+      line-height: 1.45; font-weight: 700; margin-bottom: 12px; color: var(--muted);
+    }
+    .typing {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+      font-weight: 800; font-size: .96rem; margin-bottom: 20px;
+    }
+    .typing span:last-child {
+      color: var(--yellow); font-family: "JetBrains Mono", monospace;
+      border-bottom: 3px solid rgba(250,204,21,.32); min-width: 240px;
+    }
+    .desc {
+      max-width: 620px; color: var(--muted);
+      font-size: .93rem; line-height: 1.78; font-weight: 500; margin-bottom: 24px;
+    }
+    .desc strong { color: #fff; font-weight: 700; }
+
+    /* ===== BUTTONS ===== */
+    .actions { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 10px 16px; border-radius: 11px;
+      font-weight: 800; font-size: .84rem;
+      transition: all .12s cubic-bezier(.16,1,.3,1);
+      box-shadow: var(--toy-shadow); border: 1px solid var(--line);
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 7px 0 rgba(0,0,0,.14); }
+    .btn:active { transform: translateY(3px); box-shadow: 0 1px 0 rgba(0,0,0,.14); }
+    .primary { background: linear-gradient(135deg, var(--blue), #3b82f6); color: #fff; border: 0; }
+    .secondary { background: #fff; color: var(--ink); }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .chip {
+      border: 1px solid rgba(255,255,255,.28); background: rgba(255,255,255,.15);
+      padding: 5px 9px; border-radius: 9px; font-size: .76rem; font-weight: 700;
+    }
+
+    /* ===== POSTER CARD ===== */
+    .poster {
+      min-height: 460px; position: relative; border-radius: var(--radius-xl);
+      background: var(--panel); border: 1px solid var(--line);
+      backdrop-filter: var(--blur); box-shadow: var(--shadow);
+      display: grid; grid-template-rows: auto 1fr auto;
+      transform: perspective(1000px) rotateY(-3deg) rotateX(1deg);
+      transition: .4s cubic-bezier(.16,1,.3,1);
+    }
+    .poster:hover { transform: perspective(1000px) rotateY(0) rotateX(0) translateY(-5px); }
+    .poster-top, .poster-bottom { padding: 14px 18px; }
+    .poster-top {
+      display: flex; justify-content: space-between; align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,.18);
+    }
+    .poster-title { font-family: "JetBrains Mono", monospace; font-size: .68rem; font-weight: 700; text-transform: uppercase; }
+    .poster-number {
+      width: 30px; height: 30px; display: grid; place-items: center;
+      border-radius: 8px; background: var(--crimson); color: #fff;
+      box-shadow: 0 3px 0 rgba(0,0,0,.14);
+      font-family: "JetBrains Mono", monospace; font-weight: 700; font-size: .76rem;
+    }
+    .impossible-stage { display: grid; place-items: center; min-height: 250px; padding: 16px; }
+
+    /* Orbit diagram */
+    .orbit-diagram {
+      position: relative; width: min(330px, 100%); height: 240px;
+      animation: orbitFloat 5s ease-in-out infinite;
+    }
+    @keyframes orbitFloat {
+      0%, 100% { transform: translateY(0) rotate(-.5deg); }
+      50%       { transform: translateY(-8px) rotate(.5deg); }
+    }
+    .orbit-diagram::before {
+      content: ""; position: absolute; left: 50%; top: 50%;
+      width: 178px; height: 178px;
+      transform: translate(-50%,-50%) rotate(45deg);
+      border: 1px solid var(--line); border-radius: 20px;
+      background: rgba(255,255,255,.07);
+    }
+    .orbit-line {
+      position: absolute; left: 50%; top: 50%; z-index: 1;
+      background: rgba(255,255,255,.28); transform-origin: center;
+    }
+    .line-v { width: 1px; height: 178px; transform: translate(-50%,-50%); }
+    .line-h { width: 178px; height: 1px; transform: translate(-50%,-50%); }
+    .line-d1 { width: 188px; height: 1px; transform: translate(-50%,-50%) rotate(45deg); background: rgba(255,255,255,.16); }
+    .line-d2 { width: 188px; height: 1px; transform: translate(-50%,-50%) rotate(-45deg); background: rgba(255,255,255,.16); }
+    .orbit-core {
+      position: absolute; left: 50%; top: 50%; z-index: 5;
+      width: 78px; height: 78px; transform: translate(-50%,-50%);
+      display: grid; place-items: center; text-align: center;
+      border-radius: 50%; background: #fff; color: var(--ink);
+      box-shadow: 0 4px 14px rgba(0,0,0,.10);
+      font-family: "JetBrains Mono", monospace; line-height: 1.1;
+    }
+    .orbit-core strong { display: block; font-size: .76rem; font-weight: 700; }
+    .orbit-core span { display: block; font-size: .63rem; color: var(--gray); font-weight: 700; }
+    .orbit-node {
+      position: absolute; z-index: 4; width: 94px; min-height: 48px;
+      display: grid; place-items: center; text-align: center;
+      border-radius: 10px; background: #fff; color: var(--ink);
+      box-shadow: var(--toy-shadow); border: 1px solid rgba(255,255,255,.45);
+      padding: 5px; font-family: "JetBrains Mono", monospace; line-height: 1.15;
+    }
+    .orbit-node b { display: block; font-size: .74rem; font-weight: 700; }
+    .orbit-node span { display: block; font-size: .60rem; color: var(--gray); font-weight: 700; }
+    .node-ai { left: 50%; top: -10px; transform: translateX(-50%); background: linear-gradient(135deg,var(--blue),#3b82f6); color: #fff; border: 0; }
+    .node-ai span { color: rgba(255,255,255,.82); }
+    .node-bim { left: -14px; top: 50%; transform: translateY(-50%); }
+    .node-rag { right: -14px; top: 50%; transform: translateY(-50%); }
+    .node-decision { left: 50%; bottom: -10px; transform: translateX(-50%); }
+    .node-decision::after {
+      content: ""; position: absolute; right: -4px; top: -4px;
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--crimson); box-shadow: 0 0 6px var(--crimson);
+    }
+    .poster-bottom { display: grid; gap: 6px; border-top: 1px solid rgba(255,255,255,.18); }
+    .logic {
+      display: grid; grid-template-columns: 24px 1fr; gap: 10px; align-items: center;
+      border-radius: 10px; background: rgba(255,255,255,.12); padding: 6px 12px;
+      border: 1px solid rgba(255,255,255,.10);
+    }
+    .logic em {
+      width: 20px; height: 20px; display: grid; place-items: center;
+      border-radius: 5px; background: var(--blue); color: #fff;
+      font-family: "JetBrains Mono", monospace; font-style: normal; font-weight: 700; font-size: .68rem;
+    }
+    .logic b { display: block; font-size: .78rem; font-weight: 700; }
+    .logic small { display: block; color: var(--muted); font-size: .66rem; }
+
+    /* ===== SECTIONS ===== */
+    section { padding: 50px 0; }
+    .section-head {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+      align-items: end; margin-bottom: 24px;
+    }
+    .kicker {
+      display: inline-flex; gap: 6px; align-items: center;
+      font-family: "JetBrains Mono", monospace; font-size: .70rem;
+      font-weight: 700; text-transform: uppercase; margin-bottom: 6px;
+    }
+    .kicker::before {
+      content: ""; width: 16px; height: 7px; display: inline-block;
+      border-radius: 2px; background: var(--blue);
+    }
+    h2 { font-size: clamp(1.5rem, 3.2vw, 2.5rem); line-height: 1.05; color: #fff; }
+
+    /* Panel base */
+    .panel, .skill-card, .tab-card, .project-card, .award-card,
+    .time-card, .cert-card, .contact-card, .keyword-map,
+    .activity-card, .directions-card {
+      border-radius: var(--radius-xl);
+      background: var(--panel); border: 1px solid var(--line);
+      backdrop-filter: var(--blur); box-shadow: var(--shadow);
+    }
+    .panel { padding: 22px; }
+    .panel h3, .skill-card h3, .tab-card h3,
+    .project-card h3, .award-card h3, .cert-card h3, .directions-main h3 {
+      font-size: 1.18rem; font-weight: 700; margin-bottom: 10px;
+    }
+    .panel p { color: var(--muted); line-height: 1.68; font-size: .87rem; margin-bottom: 10px; }
+    .panel strong { color: #fff; }
+
+    /* About layout */
+    .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .info-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+    .info-card {
+      border-radius: var(--radius-lg); padding: 14px;
+      background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.18);
+      transition: all .15s ease;
+    }
+    .info-card:hover { transform: translateY(-3px); background: rgba(255,255,255,.22); }
+    .icon {
+      width: 34px; height: 34px; display: grid; place-items: center;
+      border-radius: 8px; background: rgba(255,255,255,.22);
+      margin-bottom: 10px; font-size: 1rem;
+    }
+    .info-card h4 { font-size: .86rem; margin-bottom: 4px; font-weight: 700; }
+    .info-card p { color: var(--muted); font-size: .76rem; line-height: 1.42; }
+
+    /* Featured */
+    .feature-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .feature-card { padding: 24px; display: flex; flex-direction: column; justify-content: center; }
+    .feature-number {
+      width: 36px; height: 22px; display: grid; place-items: center;
+      border-radius: 6px; background: var(--crimson);
+      font-family: "JetBrains Mono", monospace; font-size: .73rem; font-weight: 700;
+      margin-bottom: 14px;
+    }
+    .feature-card p { color: var(--muted); font-size: .88rem; line-height: 1.62; margin-bottom: 18px; }
+    .feature-pipeline {
+      display: flex; flex-wrap: wrap; gap: 5px; align-items: center;
+      font-family: "JetBrains Mono", monospace; font-size: .68rem; font-weight: 700;
+    }
+    .feature-pipeline span {
+      background: rgba(255,255,255,.14); padding: 4px 8px;
+      border-radius: 6px; border: 1px solid rgba(255,255,255,.10);
+    }
+    .feature-pipeline i { color: var(--yellow); font-style: normal; }
+    .feature-visual {
+      position: relative; min-height: 280px; display: grid; place-items: center;
+      background: rgba(255,255,255,.04); border-radius: var(--radius-xl); overflow: hidden;
+    }
+    .feature-axis { position: absolute; left: 50%; top: 50%; background: rgba(255,255,255,.22); transform-origin: center; z-index: 1; }
+    .axis-x { width: 80%; height: 1px; transform: translate(-50%,-50%); }
+    .axis-y { width: 1px; height: 80%; transform: translate(-50%,-50%); }
+    .feature-core {
+      position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
+      width: 72px; height: 72px; border-radius: 50%; background: #fff; color: var(--ink);
+      display: grid; place-items: center; text-align: center;
+      font-size: .66rem; font-family: "JetBrains Mono", monospace; font-weight: 700; line-height: 1.2;
+      z-index: 3; box-shadow: 0 4px 10px rgba(0,0,0,.10);
+    }
+    .feature-node {
+      position: absolute; z-index: 2; width: 56px; height: 32px;
+      display: grid; place-items: center; border-radius: 6px;
+      background: #fff; color: var(--ink);
+      font-family: "JetBrains Mono", monospace; font-size: .68rem; font-weight: 700;
+      box-shadow: var(--toy-shadow);
+    }
+    .f-ai { left: 50%; top: 24px; transform: translateX(-50%); background: var(--royal); color: #fff; box-shadow: 0 3px 0 rgba(0,0,0,.14); }
+    .f-bim { left: 24px; top: 50%; transform: translateY(-50%); }
+    .f-rag { right: 24px; top: 50%; transform: translateY(-50%); }
+    .f-dfs { left: 50%; bottom: 24px; transform: translateX(-50%); }
+
+    /* Skills */
+    .skills-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .skill-card, .tab-card { padding: 22px; }
+    .big-six { font-family: "JetBrains Mono", monospace; font-size: 3rem; font-weight: 700; line-height: 1; color: var(--yellow); }
+    .skill-card p, .tab-card p { color: var(--muted); font-size: .84rem; line-height: 1.52; margin-bottom: 14px; }
+    .bars { display: grid; gap: 8px; }
+    .bar-row {
+      display: grid; grid-template-columns: 82px 1fr 24px; align-items: center; gap: 8px;
+      font-family: "JetBrains Mono", monospace; font-size: .70rem; font-weight: 700;
+    }
+    .track { height: 10px; border-radius: 999px; background: rgba(255,255,255,.22); overflow: hidden; border: 1px solid rgba(255,255,255,.05); }
+    .fill {
+      display: block; width: 0; height: 100%; border-radius: 999px;
+      background: var(--blue);
+      background-image: repeating-linear-gradient(45deg, rgba(255,255,255,.12) 0 3px, transparent 3px 6px);
+      transition: width 1.3s cubic-bezier(.16,1,.3,1);
+    }
+
+    /* Tabs */
+    .tabs, .filters { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 14px; }
+    .tab, .filter {
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 8px; background: rgba(255,255,255,.14);
+      padding: 7px 11px; font-weight: 800; font-size: .74rem; color: #fff; transition: .12s;
+    }
+    .tab:hover, .filter:hover { background: rgba(255,255,255,.24); }
+    .tab.active, .filter.active { background: #fff; color: var(--ink); box-shadow: 0 3px 0 rgba(0,0,0,.14); }
+    .chip-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 8px; }
+    .skill-chip {
+      border-radius: 8px; background: rgba(255,255,255,.12); padding: 8px;
+      font-size: .76rem; font-weight: 700; text-align: center;
+      border: 1px solid rgba(255,255,255,.06);
+    }
+
+    /* Flow */
+    .flow-panel { border-radius: var(--radius-xl); background: var(--panel); border: 1px solid var(--line); backdrop-filter: var(--blur); box-shadow: var(--shadow); padding: 12px; margin-bottom: 20px; }
+    .flow { display: grid; grid-template-columns: repeat(5,1fr); gap: 6px; }
+    .flow-step {
+      min-height: 74px; border-radius: 12px;
+      background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.10);
+      padding: 8px; display: flex; flex-direction: column;
+      justify-content: space-between; position: relative;
+    }
+    .flow-step:not(:last-child)::after {
+      content: "›"; position: absolute; right: -10px; top: 28%;
+      font-size: 1.4rem; font-weight: 300; opacity: .5;
+    }
+    .flow-step span { font-family: "JetBrains Mono", monospace; color: var(--yellow); font-weight: 700; font-size: .70rem; }
+    .flow-step b { font-size: .74rem; line-height: 1.28; font-weight: 700; }
+
+    /* Projects */
+    .projects { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+    .project-card { padding: 18px; transition: all .18s; }
+    .project-card:hover { transform: translateY(-3px); background: rgba(255,255,255,.26); }
+    .project-icon {
+      width: 38px; height: 38px; display: grid; place-items: center;
+      border-radius: 9px; background: var(--blue); color: #fff; font-size: 1.1rem;
+      margin-bottom: 12px; box-shadow: 0 3px 0 rgba(0,0,0,.12);
+    }
+    .project-card p { color: var(--muted); line-height: 1.47; font-size: .80rem; margin-bottom: 12px; }
+    .mini-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+    .mini {
+      border-radius: 5px; background: rgba(255,255,255,.16); padding: 2px 5px;
+      font-family: "JetBrains Mono", monospace; font-size: .63rem; font-weight: 700;
+    }
+
+    /* Keyword map */
+    .keyword-map { position: relative; min-height: 320px; overflow: hidden; background: rgba(255,255,255,.04); }
+    .keyword-lines { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; }
+    .keyword-lines line { stroke: rgba(255,255,255,.32); stroke-width: 1.5; stroke-dasharray: 4; }
+    .keyword-core, .keyword {
+      position: absolute; z-index: 2; display: grid; place-items: center; text-align: center;
+      border-radius: 10px; background: #fff; color: var(--ink);
+      box-shadow: var(--toy-shadow);
+      font-family: "JetBrains Mono", monospace; font-weight: 700; font-size: .76rem;
+      border: 1px solid rgba(255,255,255,.42);
+    }
+    .keyword-core {
+      left: 50%; top: 50%; transform: translate(-50%,-50%);
+      width: 110px; height: 64px;
+      background: linear-gradient(135deg, var(--blue), var(--purple)); color: #fff; border: 0;
+      box-shadow: 0 4px 0 rgba(0,0,0,.14); line-height: 1.2;
+    }
+    .keyword { width: 84px; height: 38px; font-size: .70rem; padding: 2px; }
+    .k1 { left: 12%; top: 15%; }
+    .k2 { left: 50%; top: 10%; transform: translateX(-50%); }
+    .k3 { right: 12%; top: 15%; }
+    .k4 { right: 6%; top: 50%; transform: translateY(-50%); }
+    .k5 { right: 16%; bottom: 15%; }
+    .k6 { left: 50%; bottom: 10%; transform: translateX(-50%); }
+    .k7 { left: 16%; bottom: 15%; }
+    .k8 { left: 6%; top: 50%; transform: translateY(-50%); }
+
+    /* Activities */
+    .activity-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+    .activity-card { padding: 18px; transition: .15s; }
+    .activity-card:hover { transform: translateY(-3px); background: rgba(255,255,255,.26); }
+    .activity-card span {
+      display: inline-flex; background: rgba(255,255,255,.16); padding: 3px 8px;
+      border-radius: 6px; font-family: "JetBrains Mono", monospace; font-weight: 700;
+      font-size: .70rem; margin-bottom: 12px; border: 1px solid rgba(255,255,255,.10);
+    }
+    .activity-card h3 { font-size: 1.02rem; margin-bottom: 4px; }
+    .activity-card p { color: var(--muted); font-size: .82rem; font-weight: 500; }
+
+    /* Awards */
+    .awards { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; }
+    .award-card { display: grid; grid-template-columns: 84px 1fr; gap: 16px; padding: 18px; }
+    .year {
+      font-family: "JetBrains Mono", monospace; font-size: 1.3rem; font-weight: 700;
+      border-radius: 10px; background: rgba(255,255,255,.18);
+      display: grid; place-items: center; padding: 8px 2px; text-align: center;
+      height: fit-content; box-shadow: 0 3px 0 rgba(0,0,0,.10); border: 1px solid rgba(255,255,255,.16);
+    }
+    .award-card p { color: var(--muted); font-size: .82rem; line-height: 1.47; margin-top: 4px; }
+
+    /* Timeline */
+    .timeline { display: grid; gap: 10px; }
+    .time-row { display: grid; grid-template-columns: 110px 1fr; gap: 14px; }
+    .time-label {
+      border-radius: var(--radius-lg); background: rgba(255,255,255,.24);
+      display: grid; place-items: center;
+      font-family: "JetBrains Mono", monospace; font-weight: 700; font-size: .82rem;
+      box-shadow: 0 4px 0 rgba(0,0,0,.07); border: 1px solid var(--line);
+    }
+    .time-card { padding: 14px 18px; }
+    .time-card p { color: var(--muted); font-size: .83rem; margin-top: 2px; }
+
+    /* Certs */
+    .certs { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+    .cert-card { padding: 18px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+    .cert-icon {
+      width: 42px; height: 42px; display: grid; place-items: center;
+      border-radius: 10px; background: rgba(255,255,255,.18); font-size: 1.15rem; margin-bottom: 10px;
+    }
+    .cert-card p { color: var(--muted); font-size: .80rem; line-height: 1.42; margin-bottom: 10px; }
+    .status {
+      display: inline-flex; gap: 5px; align-items: center;
+      border-radius: 6px; background: #fff; color: var(--ink);
+      padding: 3px 7px; font-family: "JetBrains Mono", monospace; font-size: .66rem; font-weight: 700;
+      box-shadow: 0 3px 0 rgba(0,0,0,.10);
+    }
+    .status::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--crimson); }
+
+    /* Directions */
+    .directions-card { display: grid; grid-template-columns: 1fr 1.15fr; gap: 20px; padding: 22px; align-items: center; }
+    .directions-no {
+      width: 54px; height: 32px; display: grid; place-items: center;
+      border-radius: 6px; background: var(--crimson);
+      font-family: "JetBrains Mono", monospace; font-size: 1.1rem; font-weight: 700;
+      margin-bottom: 14px; box-shadow: 0 3px 0 rgba(0,0,0,.12);
+    }
+    .directions-title { font-size: 1.22rem; font-weight: 700; line-height: 1.32; margin-bottom: 8px; }
+    .directions-title strong {
+      display: inline-flex; padding: 1px 5px; border-radius: 4px;
+      background: #fff; color: var(--ink);
+      font-family: "JetBrains Mono", monospace; font-size: .74em;
+      margin-left: 4px; vertical-align: middle; box-shadow: 0 2px 0 rgba(0,0,0,.10);
+    }
+    .directions-main p { color: var(--muted); font-size: .84rem; margin-bottom: 16px; }
+    .directions-actions { display: flex; flex-wrap: wrap; gap: 6px; }
+    .directions-actions a {
+      display: inline-flex; border-radius: 8px; padding: 8px 12px;
+      font-size: .78rem; font-weight: 800;
+      border: 1px solid var(--line); background: rgba(255,255,255,.15); transition: .12s;
+    }
+    .directions-actions a:first-child { background: var(--royal); color: #fff; border: 0; box-shadow: 0 3px 0 rgba(0,0,0,.12); }
+    .directions-actions a:hover { transform: translateY(-1px); }
+    .directions-visual {
+      min-height: 220px; border-radius: var(--radius-lg);
+      background: rgba(255,255,255,.06); border: 1px solid var(--line);
+      display: grid; place-items: center; overflow: hidden;
+    }
+    .floor-grid {
+      position: relative; width: min(330px,100%); height: 160px;
+      display: grid; grid-template-columns: repeat(4,1fr); grid-template-rows: 1fr 44px; gap: 8px;
+      transform: perspective(800px) rotateX(12deg) rotateY(-8deg);
+    }
+    .room, .corridor {
+      display: grid; place-items: center; border-radius: 8px;
+      background: #fff; color: var(--ink);
+      font-family: "JetBrains Mono", monospace; font-size: .73rem; font-weight: 700;
+      box-shadow: 0 4px 0 rgba(0,0,0,.10); border: 1px solid rgba(255,255,255,.42);
+    }
+    .active-room {
+      background: linear-gradient(135deg, var(--crimson), #ff4d6d); color: #fff;
+      transform: translateY(-4px); box-shadow: 0 8px 0 rgba(0,0,0,.15); border: 0;
+    }
+    .corridor { grid-column: 1 / -1; background: var(--royal); color: #fff; font-size: .70rem; border: 0; }
+
+    /* Contact */
+    .contact-card { padding: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .contact-buttons { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+    .contact-buttons a {
+      display: inline-flex; border-radius: 8px; background: rgba(255,255,255,.16);
+      padding: 8px 12px; font-size: .80rem; font-weight: 800;
+      border: 1px solid var(--line); transition: .12s;
+    }
+    .contact-buttons a:hover { background: #fff; color: var(--ink); }
+    .contact-list { display: grid; grid-template-columns: repeat(2,1fr); gap: 8px; }
+    .contact-item {
+      border-radius: 10px; background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.16);
+      padding: 10px; font-size: .78rem; font-weight: 700; text-align: center;
+    }
+
+    /* ===== EXTRA INTERACTIVE WIDGETS ===== */
+
+    /* Mini weather widget */
+    .weather-widget {
+      position: fixed; right: 20px; top: 80px;
+      width: 120px; padding: 10px 12px;
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,.24); backdrop-filter: var(--blur);
+      border: 1px solid var(--line); box-shadow: var(--shadow);
+      font-family: "JetBrains Mono", monospace;
+      z-index: 500; text-align: center;
+    }
+    .weather-icon { font-size: 1.8rem; }
+    .weather-label { font-size: .6rem; font-weight: 700; margin-top: 4px; opacity: .8; }
+
+    /* Mini map legend */
+    .map-legend {
+      position: fixed; left: 20px; bottom: 80px;
+      padding: 10px 14px;
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,.22); backdrop-filter: var(--blur);
+      border: 1px solid var(--line); box-shadow: var(--shadow);
+      font-family: "JetBrains Mono", monospace; font-size: .62rem; font-weight: 700;
+      z-index: 500;
+      display: flex; flex-direction: column; gap: 5px;
+    }
+    .legend-title { font-size: .7rem; font-weight: 700; margin-bottom: 2px; opacity: .9; }
+    .legend-row { display: flex; align-items: center; gap: 6px; }
+    .legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    /* Scale indicator */
+    .scale-bar {
+      position: fixed; left: 20px; top: 80px;
+      padding: 8px 12px;
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,.22); backdrop-filter: var(--blur);
+      border: 1px solid var(--line); box-shadow: var(--shadow);
+      font-family: "JetBrains Mono", monospace; font-size: .62rem; font-weight: 700;
+      z-index: 500;
+    }
+    .scale-ruler {
+      display: flex; align-items: center; gap: 4px; margin-top: 4px;
+    }
+    .scale-line {
+      width: 48px; height: 3px;
+      background: linear-gradient(90deg, var(--yellow) 0%, var(--yellow) 50%, #fff 50%);
+      border-radius: 999px; border: 1px solid rgba(255,255,255,.4);
+    }
+
+    /* Tooltip on hover for project cards */
+    .project-card { position: relative; }
+    .project-badge {
+      position: absolute; top: 12px; right: 12px;
+      width: 24px; height: 24px; border-radius: 50%;
+      background: rgba(255,255,255,.2); border: 1px solid rgba(255,255,255,.3);
+      display: grid; place-items: center; font-size: .75rem;
+      cursor: help;
+    }
+    .project-badge::after {
+      content: attr(data-tip);
+      position: absolute; right: 30px; top: -2px;
+      background: rgba(18,25,38,.9); color: #fff;
+      padding: 4px 8px; border-radius: 6px;
+      font-size: .62rem; font-weight: 700; white-space: nowrap;
+      opacity: 0; pointer-events: none;
+      transition: opacity .15s;
+    }
+    .project-badge:hover::after { opacity: 1; }
+
+    /* Section mini-stat callouts */
+    .stat-row {
+      display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;
+    }
+    .stat-pill {
+      display: flex; align-items: center; gap: 8px; padding: 8px 14px;
+      border-radius: 30px; background: rgba(255,255,255,.18);
+      border: 1px solid var(--line); backdrop-filter: var(--blur);
+      font-family: "JetBrains Mono", monospace; font-size: .74rem; font-weight: 700;
+    }
+    .stat-num { color: var(--yellow); font-size: 1rem; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      padding: 24px 0;
+      background: rgba(16,24,40,.16); border-top: 1px solid rgba(255,255,255,.16);
+      backdrop-filter: var(--blur);
+    }
+    .footer-inner {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px; flex-wrap: wrap; font-weight: 700; font-size: .82rem;
+    }
+    .footer-note { font-family: "JetBrains Mono", monospace; font-size: .66rem; opacity: .72; }
+
+    /* ===== BACK TO TOP ===== */
+    .top {
+      position: fixed; right: 20px; bottom: 20px;
+      width: 44px; height: 44px; border-radius: 11px;
+      background: #fff; color: var(--ink); border: none;
+      box-shadow: var(--toy-shadow); display: grid; place-items: center;
+      font-weight: 900; cursor: pointer; opacity: 0; pointer-events: none;
+      transition: .2s ease; z-index: 999;
+    }
+    .top.show { opacity: 1; pointer-events: auto; }
+
+    /* ===== REVEAL ===== */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .62s cubic-bezier(.16,1,.3,1), transform .62s cubic-bezier(.16,1,.3,1); }
+    .reveal.show { opacity: 1; transform: translateY(0); }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,.38); border-radius: 10px; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1080px) {
+      .hero-grid, .about-layout, .skills-layout, .section-head,
+      .contact-card, .feature-layout, .directions-card { grid-template-columns: 1fr; }
+      .poster { transform: none; min-height: 420px; }
+      .flow { grid-template-columns: 1fr; gap: 6px; }
+      .flow-step:not(:last-child)::after { content: "↓"; right: 50%; top: auto; bottom: -16px; transform: translateX(50%); }
+      .projects, .certs, .activity-grid { grid-template-columns: repeat(2,1fr); }
+      .weather-widget, .scale-bar, .map-legend { display: none; }
+    }
+    @media (max-width: 760px) {
+      body { cursor: auto; }
+      .cursor-ring, .cursor-dot { display: none; }
+      .nav { grid-template-columns: auto auto; }
+      .nav-note { display: none; }
+      .menu-btn { display: block; }
+      .nav-links {
+        display: none; position: absolute; left: 0; right: 0; top: calc(100% + 8px);
+        background: rgba(16,23,38,.96); border: 1px solid rgba(255,255,255,.2);
+        border-radius: 14px; padding: 10px; flex-direction: column;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { text-align: center; }
+      .hero { padding-top: 100px; }
+      .typing span:last-child { min-width: unset; }
+      section { padding: 38px 0; }
+      .info-grid, .chip-grid, .projects, .awards, .certs, .activity-grid, .contact-list { grid-template-columns: 1fr; }
+      .award-card, .time-row { grid-template-columns: 1fr; }
+      .time-label { min-height: 44px; }
+      .bar-row { grid-template-columns: 1fr; gap: 4px; }
+      .poster { min-height: 400px; }
+    }
+  </style>
 </head>
 <body>
+
+  <!-- Progress bar -->
   <div class="progress" id="progress"></div>
+
+  <!-- Custom cursor -->
   <div class="cursor-ring"></div>
   <div class="cursor-dot"></div>
-  
+
+  <!-- Fixed mini-world background -->
   <div class="mini-world" aria-hidden="true">
     <div class="sun"></div>
     <div class="cloud c1"></div>
     <div class="cloud c2"></div>
+    <div class="cloud c3"></div>
     <div class="tilt-plane"></div>
     <div class="road"></div>
-    
-    <div class="construction-zone">
-      <div class="mini-crane crane-1" id="bgCrane">
-        <div class="crane-tower"></div>
-        <div class="crane-jib"></div>
+    <div class="toy-building b1"></div>
+    <div class="toy-building b2"></div>
+
+    <!-- Trees -->
+    <div class="mini-tree tr1"><div class="tree-top"></div><div class="tree-trunk"></div></div>
+    <div class="mini-tree tr2"><div class="tree-top" style="background:#1faa45"></div><div class="tree-trunk"></div></div>
+    <div class="mini-tree tr3"><div class="tree-top" style="background:#16a34a"></div><div class="tree-trunk"></div></div>
+    <div class="mini-tree tr4"><div class="tree-top"></div><div class="tree-trunk"></div></div>
+
+    <!-- Animated construction scene -->
+    <!-- Crane -->
+    <div class="mini-crane">
+      <div class="crane-tower"></div>
+      <div class="crane-base"></div>
+      <div class="crane-jib">
+        <div class="crane-counterweight"></div>
         <div class="crane-line"></div>
         <div class="crane-hook"></div>
-      </div>
-      
-      <div class="scaffolding-building" id="scaffoldingBuilding">
-        <div class="building-skeleton"></div>
-        <div class="laser-beam"></div>
-      </div>
-
-      <div class="mini-truck">
-        <div class="truck-cab"></div>
-        <div class="truck-bed"></div>
-        <div class="truck-wheel w1"></div>
-        <div class="truck-wheel w2"></div>
-      </div>
-
-      <div class="mini-workers">
-        <div class="worker wk1"><div class="helmet"></div></div>
-        <div class="worker wk2"><div class="helmet"></div></div>
-        <div class="worker wk3"><div class="helmet"></div></div>
+        <div class="crane-load"></div>
       </div>
     </div>
+
+    <!-- Under-construction building with scaffold -->
+    <div class="build-site">
+      <div class="scaffold"></div>
+      <div class="build-floors">
+        <div class="floor"></div>
+        <div class="floor"></div>
+        <div class="floor"></div>
+        <div class="floor"></div>
+      </div>
+    </div>
+
+    <!-- Workers -->
+    <div class="mini-workers">
+      <div class="worker-fig wk-a">
+        <div class="w-helmet" style="background:#f97316"></div>
+        <div class="w-body"></div>
+        <div class="w-legs"></div>
+      </div>
+      <div class="worker-fig wk-b">
+        <div class="w-helmet" style="background:#facc15"></div>
+        <div class="w-body" style="background:#1d4ed8"></div>
+        <div class="w-legs"></div>
+      </div>
+      <div class="worker-fig wk-c">
+        <div class="w-helmet" style="background:#ef4444"></div>
+        <div class="w-body" style="background:#15803d"></div>
+        <div class="w-legs"></div>
+      </div>
+    </div>
+
+    <!-- Moving truck -->
+    <div class="mini-truck-wrap">
+      <div class="truck-body">
+        <div class="truck-bed"></div>
+        <div class="truck-cab"></div>
+      </div>
+      <div class="truck-wheels">
+        <div class="tw"></div>
+        <div class="tw"></div>
+        <div class="tw"></div>
+      </div>
+    </div>
+
+    <!-- Excavator -->
+    <div class="mini-excavator">
+      <div class="exca-body">
+        <div class="exca-cabin"></div>
+        <div class="exca-arm"></div>
+      </div>
+      <div class="exca-track"></div>
+    </div>
+
+    <!-- Dust -->
+    <div class="dust-particles">
+      <div class="dust d1"></div>
+      <div class="dust d2"></div>
+      <div class="dust d3"></div>
+    </div>
+
+    <!-- Signs -->
+    <div class="sign sign-1">🚧 UNDER CONSTRUCTION</div>
+    <div class="sign sign-2">⚠️ HARD HAT AREA</div>
   </div>
-  
+
   <div class="bg-optical"></div>
   <canvas id="opCanvas"></canvas>
 
+  <!-- Fixed UI widgets -->
+  <div class="weather-widget" aria-label="Weather: Sunny">
+    <div class="weather-icon">☀️</div>
+    <div class="weather-label">MINIATURE<br>GARDEN</div>
+  </div>
+
+  <div class="scale-bar" aria-label="Scale indicator">
+    <div style="font-size:.62rem;opacity:.8;">SCALE 1:87</div>
+    <div class="scale-ruler">
+      <div class="scale-line"></div>
+      <span style="font-size:.55rem">50m</span>
+    </div>
+  </div>
+
+  <div class="map-legend" aria-label="Legend">
+    <div class="legend-title">LEGEND</div>
+    <div class="legend-row"><div class="legend-dot" style="background:#facc15"></div>Crane</div>
+    <div class="legend-row"><div class="legend-dot" style="background:#3b82f6"></div>Truck</div>
+    <div class="legend-row"><div class="legend-dot" style="background:#f97316"></div>Workers</div>
+    <div class="legend-row"><div class="legend-dot" style="background:#22c55e"></div>Trees</div>
+  </div>
+
+  <!-- Navigation -->
   <nav class="nav" id="nav">
-    <a href="#hero" class="brand"><span class="brand-mark">HY</span><span class="cute-title" style="font-size: 1.25rem;">Haein Yun</span></a>
+    <a href="#hero" class="brand">
+      <span class="brand-mark">HY</span>
+      <span class="cute-title" style="font-size:1.22rem;">Haein Yun</span>
+    </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
       <li><a href="#featured">Featured</a></li>
@@ -65,9 +1270,10 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
     <button class="menu-btn" id="menuBtn">Menu</button>
-    <div class="nav-note">Construction Control Panel</div>
+    <div class="nav-note">🏗️ ESCO Garden</div>
   </nav>
 
+  <!-- ===== HERO ===== -->
   <header class="hero" id="hero">
     <div class="wrap hero-grid">
       <div class="hero-copy reveal">
@@ -76,8 +1282,9 @@
         <p class="subtitle">건설관리 도메인 지식과 인공지능 엔지니어링 자동화를 매핑하는 지식 정원</p>
         <div class="typing"><span>Focused on</span><span id="typeWord"></span></div>
         <p class="desc">
-          ESCO 소속 연구원으로서 <strong>건설관리, BIM 데이터 가동, RAG 아키텍처 수립, NLP 마이닝</strong>을 연결하는 연구를 수행합니다.
-          오른쪽 연구 블록을 클릭하여 미니어처 가든의 크레인을 가동하고 연구 인프라를 직접 조립해 보세요.
+          ESCO 소속 연구원으로서 <strong>건설관리, BIM 데이터 가동, RAG 아키텍처 수립, NLP 마이닝</strong>을 연결하는
+          연구를 수행합니다. 다양한 AI 시스템을 단순 보조 툴이 아닌 논리 프레임워크의
+          의사결정 수단으로 융합하며 정밀 시각화하는 방향을 지향합니다.
         </p>
         <div class="actions">
           <a class="btn primary" href="#featured">핵심 연구 블록</a>
@@ -87,7 +1294,8 @@
         <div class="chips">
           <span class="chip">🏛️ Ewha Womans University</span>
           <span class="chip">🔬 ESCO Lab</span>
-          <span class="chip">🏗️ CM & AI Integration</span>
+          <span class="chip">🤖 Multi-AI User</span>
+          <span class="chip">🏗️ Construction Management</span>
         </div>
       </div>
 
@@ -110,19 +1318,25 @@
           </div>
         </div>
         <div class="poster-bottom">
-          <div class="logic"><em>A</em><div><b>AI · NLP · RAG</b><small>비정형 지식을 가든의 정형화된 모델로 조립 연산</small></div></div>
-          <div class="logic"><em>B</em><div><b>BIM · Data Context</b><small>물리적 현장 컨텍스트와 디지털 정보의 레이아웃 매핑</small></div></div>
-          <div class="logic"><em>C</em><div><b>Decision Support</b><small>의사결정을 지원하는 마이크로 자동화 파이프라인</small></div></div>
+          <div class="logic"><em>A</em><div><b>AI · NLP · RAG</b><small>비정형 설계/안전 지식을 정형화된 논리 모델로 연산</small></div></div>
+          <div class="logic"><em>B</em><div><b>BIM · Data Context</b><small>물리적 시공 컨텍스트와 디지털 문서 정보 동기화</small></div></div>
+          <div class="logic"><em>C</em><div><b>Decision Support</b><small>현장 위험 예방 및 의사결정을 경량 지원하는 자동화 파이프라인</small></div></div>
         </div>
       </aside>
     </div>
   </header>
 
   <main>
+    <!-- ===== ABOUT ===== -->
     <section id="about">
       <div class="wrap">
         <div class="section-head reveal">
           <div><span class="kicker">02 Overview</span><h2>AI와 건설관리를 연결하는 연구자</h2></div>
+          <div class="stat-row">
+            <div class="stat-pill"><span class="stat-num">6+</span> AI Fields</div>
+            <div class="stat-pill"><span class="stat-num">2</span> Awards</div>
+            <div class="stat-pill"><span class="stat-num">∞</span> Curiosity</div>
+          </div>
         </div>
         <div class="about-layout">
           <article class="panel reveal">
@@ -141,6 +1355,7 @@
       </div>
     </section>
 
+    <!-- ===== FEATURED ===== -->
     <section id="featured">
       <div class="wrap">
         <div class="section-head reveal">
@@ -150,16 +1365,11 @@
           <article class="feature-card reveal">
             <div class="feature-number">01</div>
             <h3>Evidence-grounded safety knowledge activation</h3>
-            <p>
-              비정형 사고 내러티브를 AI/NLP로 구조화하고, BIM에서 추출한 물리적 맥락과 연결하여 현재 작업 조건에 맞는 안전 지식을 검색·생성하는 연구입니다.
-            </p>
+            <p>비정형 사고 내러티브를 AI/NLP로 구조화하고, BIM에서 추출한 물리적 맥락과 연결하여 현재 작업 조건에 맞는 안전 지식을 검색·생성하는 연구입니다.</p>
             <div class="feature-pipeline">
-              <span>Accident Narratives</span>
-              <i>→</i>
-              <span>Risk-chain Structuring</span>
-              <i>→</i>
-              <span>BIM Context</span>
-              <i>→</i>
+              <span>Accident Narratives</span><i>→</i>
+              <span>Risk-chain Structuring</span><i>→</i>
+              <span>BIM Context</span><i>→</i>
               <span>RAG Output</span>
             </div>
           </article>
@@ -176,10 +1386,11 @@
       </div>
     </section>
 
+    <!-- ===== SKILLS ===== -->
     <section id="skills">
       <div class="wrap">
         <div class="section-head reveal">
-          <div><span class="kicker">03 AI Capability</span><h2>Patterned thinking for AI workflows</h2></div>
+          <div><span class="kicker">04 AI Capability</span><h2>Patterned thinking for AI workflows</h2></div>
         </div>
         <div class="skills-layout">
           <article class="skill-card reveal">
@@ -188,9 +1399,9 @@
             <p>다양한 AI 도구를 연구 생산성 향상과 디지털 건설관리 문제 해결에 활용합니다.</p>
             <div class="bars" id="bars">
               <div class="bar-row" data-score="92"><b>AI Writing</b><span class="track"><span class="fill"></span></span><em>92</em></div>
-              <div class="bar-row" data-score="88"><b>LLM/RAG</b><span class="track"><span class="fill"></span></span><em>88</em></div>
+              <div class="bar-row" data-score="88"><b>LLM / RAG</b><span class="track"><span class="fill"></span></span><em>88</em></div>
               <div class="bar-row" data-score="84"><b>NLP</b><span class="track"><span class="fill"></span></span><em>84</em></div>
-              <div class="bar-row" data-score="82"><b>BIM/Data</b><span class="track"><span class="fill"></span></span><em>82</em></div>
+              <div class="bar-row" data-score="82"><b>BIM / Data</b><span class="track"><span class="fill"></span></span><em>82</em></div>
               <div class="bar-row" data-score="78"><b>Automation</b><span class="track"><span class="fill"></span></span><em>78</em></div>
             </div>
           </article>
@@ -204,80 +1415,90 @@
             <h3 id="tabTitle">Research AI Workflow</h3>
             <p id="tabDesc">문헌 검토, 연구 질문 구조화, 데이터 라벨링 기준 정리, 실험 결과 해석 등 연구 전 과정에서 AI를 활용합니다.</p>
             <div class="chip-grid" id="tabGrid">
-              <div class="skill-chip">🔎 Literature Review</div><div class="skill-chip">🧩 Research Framing</div><div class="skill-chip">📊 Result Interpretation</div><div class="skill-chip">🧾 Evidence Structuring</div>
+              <div class="skill-chip">🔎 Literature Review</div>
+              <div class="skill-chip">🧩 Research Framing</div>
+              <div class="skill-chip">📊 Result Interpretation</div>
+              <div class="skill-chip">🧾 Evidence Structuring</div>
             </div>
           </article>
         </div>
       </div>
     </section>
 
+    <!-- ===== RESEARCH ===== -->
     <section id="research">
       <div class="wrap">
         <div class="section-head reveal">
-          <div><span class="kicker">04 Research Structure</span><h2>From unstructured data to decision support</h2></div>
+          <div><span class="kicker">05 Research Structure</span><h2>From unstructured data to decision support</h2></div>
         </div>
-        <div class="flow reveal">
-          <div class="flow-step"><span>01</span><b>Unstructured Data</b></div>
-          <div class="flow-step"><span>02</span><b>AI / NLP Structuring</b></div>
-          <div class="flow-step"><span>03</span><b>BIM Context Mapping</b></div>
-          <div class="flow-step"><span>04</span><b>RAG-based Retrieval</b></div>
-          <div class="flow-step"><span>05</span><b>Decision Support</b></div>
+        <div class="flow-panel reveal">
+          <div class="flow">
+            <div class="flow-step"><span>01</span><b>Unstructured Data</b></div>
+            <div class="flow-step"><span>02</span><b>AI / NLP Structuring</b></div>
+            <div class="flow-step"><span>03</span><b>BIM Context Mapping</b></div>
+            <div class="flow-step"><span>04</span><b>RAG-based Retrieval</b></div>
+            <div class="flow-step"><span>05</span><b>Decision Support</b></div>
+          </div>
         </div>
         <div class="filters reveal">
-          <button class="filter active" data-filter="all">All Blocks</button><button class="filter" data-filter="ai">AI System</button><button class="filter" data-filter="bim">BIM Tech</button><button class="filter" data-filter="safety">Safety Lab</button><button class="filter" data-filter="automation">Automation</button>
+          <button class="filter active" data-filter="all">All Blocks</button>
+          <button class="filter" data-filter="ai">AI System</button>
+          <button class="filter" data-filter="bim">BIM Tech</button>
+          <button class="filter" data-filter="safety">Safety Lab</button>
+          <button class="filter" data-filter="automation">Automation</button>
         </div>
-        
         <div class="projects">
-          <article class="project-card reveal buildable-card" data-category="ai bim safety">
+          <article class="project-card reveal" data-category="ai bim safety">
+            <div class="project-badge" data-tip="AI + BIM + Safety">🏷️</div>
             <div class="project-icon">🧠</div>
             <h3>BIM-context-aware RAG for Construction Safety</h3>
-            <p>비정형 사고 데이터와 BIM 맥락 정보를 연결하여 DfS 및 의사결정을 지원하는 시스템 가동 연구.</p>
-            <div class="build-progress-bar"><span></span></div>
+            <p>비정형 사고 데이터와 BIM 맥락 정보를 연결하여 DfS 및 안전관리 의사결정을 지원하는 RAG 기반 프레임워크 연구.</p>
             <div class="mini-tags"><span class="mini">RAG</span><span class="mini">BIM</span><span class="mini">Safety</span></div>
           </article>
-          <article class="project-card reveal buildable-card" data-category="ai safety">
+          <article class="project-card reveal" data-category="ai safety">
+            <div class="project-badge" data-tip="AI + Safety">🏷️</div>
             <div class="project-icon">🔗</div>
             <h3>Risk-chain Structuring from Accident Narratives</h3>
-            <p>사고 내러티브에서 Hazard 인과 사슬 구조를 추출하고 지식그래프 구조물로 조립하는 연구.</p>
-            <div class="build-progress-bar"><span></span></div>
+            <p>사고 내러티브에서 Work, Hazard, Accident, Injury 구조를 추출하고 지식그래프 기반으로 정리하는 연구.</p>
             <div class="mini-tags"><span class="mini">NLP</span><span class="mini">Graph</span><span class="mini">OSHA</span></div>
           </article>
-          <article class="project-card reveal buildable-card" data-category="automation safety">
+          <article class="project-card reveal" data-category="automation safety">
+            <div class="project-badge" data-tip="Automation + Safety">🏷️</div>
             <div class="project-icon">🤖</div>
             <h3>Construction Safety Documentation Automation</h3>
-            <p>건설현장 안전문서 행정 부담을 저감하기 위한 RPA 프레임워크 및 자동화 가동 설계 체계.</p>
-            <div class="build-progress-bar"><span></span></div>
+            <p>건설현장 안전문서의 반복 입력과 행정 부담을 줄이기 위한 RPA 및 데이터 허브 기반 자동화 체계 설계.</p>
             <div class="mini-tags"><span class="mini">RPA</span><span class="mini">Data Hub</span><span class="mini">Workflow</span></div>
           </article>
-          <article class="project-card reveal buildable-card" data-category="bim automation">
+          <article class="project-card reveal" data-category="bim automation">
+            <div class="project-badge" data-tip="BIM + Automation">🏷️</div>
             <div class="project-icon">🏢</div>
             <h3>BIM-based Design and Construction Automation</h3>
-            <p>파라메트릭 모델과 규칙 기반 연산을 연계해 정밀 물량 산출 상세를 자동화하는 조립 연구.</p>
-            <div class="build-progress-bar"><span></span></div>
+            <p>파라메트릭 모델과 설계 규칙을 활용하여 외벽 패널 설계, 물량 산출, 상세 자동화를 지원하는 연구.</p>
             <div class="mini-tags"><span class="mini">BIM</span><span class="mini">Parametric</span><span class="mini">Dynamo</span></div>
           </article>
-          <article class="project-card reveal buildable-card" data-category="ai automation">
+          <article class="project-card reveal" data-category="ai automation">
+            <div class="project-badge" data-tip="AI + Automation">🏷️</div>
             <div class="project-icon">📄</div>
-            <h3>AI-assisted Research Writing & Review</h3>
-            <p>논문 구조 설계, 리뷰 매트릭스 대응 전 과정의 논리 구조 검토 프롬프트 아키텍처 수립.</p>
-            <div class="build-progress-bar"><span></span></div>
+            <h3>AI-assisted Research Writing &amp; Review</h3>
+            <p>논문 작성, 리뷰 대응, 연구계획서 구성, 발표자료 기획 과정에서 AI 기반 검토와 구조화를 수행.</p>
             <div class="mini-tags"><span class="mini">Writing</span><span class="mini">Review</span><span class="mini">Prompting</span></div>
           </article>
-          <article class="project-card reveal buildable-card" data-category="automation">
+          <article class="project-card reveal" data-category="automation">
+            <div class="project-badge" data-tip="Automation">🏷️</div>
             <div class="project-icon">💻</div>
             <h3>Interactive Web Documentation</h3>
-            <p>실험 절차와 지식 구조 매뉴얼의 연동을 최적화하기 위해 탐색 가능한 웹 문서 인터페이스 구현.</p>
-            <div class="build-progress-bar"><span></span></div>
+            <p>연구 로직, 계산식, 실험 절차를 HTML, Markdown, MkDocs 기반의 탐색 가능한 문서로 구현.</p>
             <div class="mini-tags"><span class="mini">HTML</span><span class="mini">Docs</span><span class="mini">UX</span></div>
           </article>
         </div>
       </div>
     </section>
 
+    <!-- ===== KEYWORDS ===== -->
     <section id="keywords">
       <div class="wrap">
         <div class="section-head reveal">
-          <div><span class="kicker">05 Research Map</span><h2>Keyword constellation</h2></div>
+          <div><span class="kicker">06 Research Map</span><h2>Keyword constellation</h2></div>
         </div>
         <div class="keyword-map reveal">
           <div class="keyword-core">Research<br>Identity</div>
@@ -290,51 +1511,121 @@
           <div class="keyword k7">DfS</div>
           <div class="keyword k8">Data</div>
           <svg class="keyword-lines" viewBox="0 0 1000 320" preserveAspectRatio="none" aria-hidden="true">
-            <line x1="500" y1="160" x2="162" y2="48" />
-            <line x1="500" y1="160" x2="500" y2="32" />
-            <line x1="500" y1="160" x2="838" y2="48" />
-            <line x1="500" y1="160" x2="940" y2="160" />
-            <line x1="500" y1="160" x2="800" y2="272" />
-            <line x1="500" y1="160" x2="500" y2="288" />
-            <line x1="500" y1="160" x2="200" y2="272" />
-            <line x1="500" y1="160" x2="60"  y2="160" />
+            <line x1="500" y1="160" x2="162" y2="48"/>
+            <line x1="500" y1="160" x2="500" y2="32"/>
+            <line x1="500" y1="160" x2="838" y2="48"/>
+            <line x1="500" y1="160" x2="940" y2="160"/>
+            <line x1="500" y1="160" x2="800" y2="272"/>
+            <line x1="500" y1="160" x2="500" y2="288"/>
+            <line x1="500" y1="160" x2="200" y2="272"/>
+            <line x1="500" y1="160" x2="60"  y2="160"/>
           </svg>
         </div>
       </div>
     </section>
 
+    <!-- ===== PUBLICATIONS / ACTIVITIES ===== -->
     <section id="publications">
       <div class="wrap">
         <div class="section-head reveal">
-          <div><span class="kicker">06 Publications & Activities</span><h2>Selected academic record</h2></div>
+          <div><span class="kicker">07 Publications &amp; Activities</span><h2>Selected academic record</h2></div>
         </div>
         <div class="activity-grid">
-          <article class="activity-card reveal"><span>2025</span><h3>대한건축학회 추계학술발표대회</h3><p>우수논문상 수상 마일스톤</p></article>
-          <article class="activity-card reveal"><span>2026</span><h3>대한건축학회 우수졸업논문전</h3><p>장려상 조립 달성</p></article>
-          <article class="activity-card reveal"><span>Current</span><h3>ESCO Research Portfolio</h3><p>AI, BIM, RAG, NLP 중심 융합 연구 프로젝트 이행</p></article>
+          <article class="activity-card reveal"><span>2025</span><h3>대한건축학회 추계학술발표대회</h3><p>우수논문상 수상</p></article>
+          <article class="activity-card reveal"><span>2026</span><h3>대한건축학회 우수졸업논문전</h3><p>장려상 수상</p></article>
+          <article class="activity-card reveal"><span>Current</span><h3>ESCO Research Portfolio</h3><p>AI, BIM, RAG, NLP, Automation 중심 연구 수행</p></article>
         </div>
       </div>
     </section>
 
+    <!-- ===== AWARDS ===== -->
+    <section id="awards">
+      <div class="wrap">
+        <div class="section-head reveal"><div><span class="kicker">08 Awards</span><h2>Academic achievements</h2></div></div>
+        <div class="awards">
+          <article class="award-card reveal">
+            <div class="year">2025</div>
+            <div><h3>대한건축학회 추계학술발표대회 우수논문상</h3><p>디지털 건설관리 및 AI 기반 연구성과의 학술적 가능성을 인정받은 성과입니다.</p></div>
+          </article>
+          <article class="award-card reveal">
+            <div class="year">2026</div>
+            <div><h3>대한건축학회 우수졸업논문전 장려상</h3><p>학부 연구에서 확장된 연구 역량과 주제의 발전 가능성을 보여주는 성과입니다.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EDUCATION ===== -->
+    <section id="education">
+      <div class="wrap">
+        <div class="section-head reveal"><div><span class="kicker">09 Education</span><h2>Education timeline</h2></div></div>
+        <div class="timeline">
+          <div class="time-row reveal">
+            <div class="time-label">Current</div>
+            <div class="time-card"><h3>이화여자대학교 대학원</h3><p>건축도시시스템공학과 석사과정 · ESCO 소속 연구원</p></div>
+          </div>
+          <div class="time-row reveal">
+            <div class="time-label">Research</div>
+            <div class="time-card"><h3>Construction Management &amp; AI Integration</h3><p>건설관리, BIM, AI, RAG, NLP, 자동화 기술을 결합한 연구 수행</p></div>
+          </div>
+          <div class="time-row reveal">
+            <div class="time-label">Future</div>
+            <div class="time-card"><h3>Applied Digital Construction Research</h3><p>실무 적용성이 높은 데이터 기반 건설관리 시스템 및 의사결정 지원 체계 구축 목표</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CERTIFICATES ===== -->
+    <section id="certificates">
+      <div class="wrap">
+        <div class="section-head reveal"><div><span class="kicker">10 Certificates</span><h2>Certificates in progress</h2></div></div>
+        <div class="certs">
+          <article class="cert-card reveal">
+            <div class="cert-icon">📜</div>
+            <h3>건축기사</h3>
+            <p>건축공학 및 시공관리 전문성 강화를 위한 자격 취득 예정.</p>
+            <span class="status">Planned</span>
+          </article>
+          <article class="cert-card reveal">
+            <div class="cert-icon">🦺</div>
+            <h3>건설안전기사</h3>
+            <p>건설현장 안전관리 및 위험요인 분석 역량 강화를 위한 자격 취득 예정.</p>
+            <span class="status">Planned</span>
+          </article>
+          <article class="cert-card reveal">
+            <div class="cert-icon">💡</div>
+            <h3>AI &amp; Digital Tools</h3>
+            <p>연구 자동화, 데이터 분석, 문서화, 시각화 관련 실무형 역량 지속 확장.</p>
+            <span class="status">Developing</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== DIRECTIONS ===== -->
     <section id="directions">
       <div class="wrap">
-        <div class="section-head reveal"><div><span class="kicker">07 Directions</span><h2>How to find the lab</h2></div></div>
+        <div class="section-head reveal"><div><span class="kicker">11 Directions</span><h2>How to find the lab</h2></div></div>
         <div class="directions-card reveal">
           <div class="directions-main">
             <div class="directions-no">503</div>
-            <h3 class="directions-title"><span>이화여자대학교</span><span>아산공학관 <strong>503호</strong></span></h3>
+            <h3 class="directions-title">
+              <span>이화여자대학교</span><br>
+              <span>아산공학관 <strong>503호</strong></span>
+            </h3>
             <p>건축도시시스템공학과 · ESCO 연구실</p>
             <div class="directions-actions">
-              <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer">Open Google Maps</a>
+              <a href="https://maps.google.com/?q=Ewha+Asan+Engineering" target="_blank" rel="noopener noreferrer">Open Google Maps</a>
               <a href="#contact">Contact</a>
             </div>
           </div>
           <div class="directions-visual" aria-hidden="true">
             <div class="floor-grid">
-              <span class="room room-a">501</span>
-              <span class="room room-b">502</span>
-              <span class="room room-c active-room">503</span>
-              <span class="room room-d">504</span>
+              <span class="room">501</span>
+              <span class="room">502</span>
+              <span class="room active-room">503</span>
+              <span class="room">504</span>
               <span class="corridor">Asan Engineering Building</span>
             </div>
           </div>
@@ -342,147 +1633,287 @@
       </div>
     </section>
 
+    <!-- ===== CONTACT ===== -->
     <section id="contact">
       <div class="wrap">
         <div class="contact-card reveal">
-          <div><span class="kicker">08 Contact</span><h2>Let’s build intelligent construction research.</h2><div class="contact-buttons"><a href="cv.pdf" download>View CV</a><a href="mailto:godls114747@ewha.ac.kr">Email</a><a href="#research">Research Hub</a></div></div>
-          <div class="contact-list"><div class="contact-item">📍 이화여자대학교 아산공학관 503호</div><div class="contact-item">🏫 건축도시시스템공학과</div><div class="contact-item">🔬 ESCO Researcher</div><div class="contact-item">✉️ godls114747@ewha.ac.kr</div></div>
+          <div>
+            <span class="kicker">12 Contact</span>
+            <h2>Let's build intelligent construction research.</h2>
+            <div class="contact-buttons">
+              <a href="cv.pdf" download>View CV</a>
+              <a href="mailto:godls114747@ewha.ac.kr">Email</a>
+              <a href="#research">Research</a>
+            </div>
+          </div>
+          <div class="contact-list">
+            <div class="contact-item">📍 이화여자대학교 아산공학관 503호</div>
+            <div class="contact-item">🏫 건축도시시스템공학과</div>
+            <div class="contact-item">🔬 ESCO Researcher</div>
+            <div class="contact-item">✉️ godls114747@ewha.ac.kr</div>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer><div class="wrap footer-inner"><p>© 2026 Haein Yun. Built with miniature automation engine framework.</p><p>ESCO Control Panel System</p></div></footer>
-  
-  <button class="top" id="top" title="최상단 이동">↑</button>
+  <footer>
+    <div class="wrap footer-inner">
+      <p>© 2026 Haein Yun · Miniature Garden for AI-enabled Construction Management</p>
+      <p class="footer-note">🏗️ ESCO Garden Framework · Scale 1:87</p>
+    </div>
+  </footer>
+
+  <button class="top" id="top" title="맨 위로">↑</button>
 
   <script>
+    /* ===== DOM refs ===== */
+    const root     = document.documentElement;
     const progress = document.getElementById('progress');
-    const topBtn = document.getElementById('top');
+    const topBtn   = document.getElementById('top');
     const navLinks = document.getElementById('navLinks');
-    const menuBtn = document.getElementById('menuBtn');
-    const root = document.documentElement;
-    const canvas = document.getElementById('opCanvas');
-    const ctx = canvas.getContext('2d');
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
-    let tick = 0;
+    const menuBtn  = document.getElementById('menuBtn');
+    const canvas   = document.getElementById('opCanvas');
+    const ctx      = canvas.getContext('2d');
 
-    function resizeCanvas(){
-      canvas.width = window.innerWidth * devicePixelRatio;
+    let mouseX = window.innerWidth  / 2;
+    let mouseY = window.innerHeight / 2;
+    let tick   = 0;
+
+    /* ===== Canvas resize ===== */
+    function resizeCanvas() {
+      canvas.width  = window.innerWidth  * devicePixelRatio;
       canvas.height = window.innerHeight * devicePixelRatio;
       ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
     }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
 
-    function drawOptical(){
+    /* ===== Optical grid animation ===== */
+    function drawOptical() {
       const w = window.innerWidth;
       const h = window.innerHeight;
-      ctx.clearRect(0,0,w,h);
+      ctx.clearRect(0, 0, w, h);
       tick += 0.01;
-      const spacing = 38;
-      const influence = 40;
+
+      const spacing  = 40;
+      const influence = 42;
+
       ctx.lineWidth = 1;
 
-      for(let y = -spacing; y < h + spacing; y += spacing){
+      for (let y = -spacing; y < h + spacing; y += spacing) {
         ctx.beginPath();
-        for(let x = -spacing; x < w + spacing; x += spacing){
-          const dx = x - mouseX; const dy = y - mouseY; const d = Math.sqrt(dx*dx + dy*dy);
-          const pull = Math.max(0, 1 - d / 240); const angle = Math.atan2(dy, dx);
-          const ox = Math.cos(angle + tick) * pull * influence;
-          const oy = Math.sin(angle + tick) * pull * influence;
-          if(x === -spacing) ctx.moveTo(x + ox, y + oy); else ctx.lineTo(x + ox, y + oy);
+        for (let x = -spacing; x < w + spacing; x += spacing) {
+          const dx   = x - mouseX;
+          const dy   = y - mouseY;
+          const d    = Math.sqrt(dx * dx + dy * dy);
+          const pull = Math.max(0, 1 - d / 240);
+          const ang  = Math.atan2(dy, dx);
+          const px   = x + Math.cos(ang + tick) * pull * influence;
+          const py   = y + Math.sin(ang + tick) * pull * influence;
+          x === -spacing ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
         }
-        ctx.strokeStyle = 'rgba(255,255,255,0.05)'; ctx.stroke();
+        ctx.strokeStyle = 'rgba(255,255,255,0.055)';
+        ctx.stroke();
       }
+
+      for (let x = -spacing; x < w + spacing; x += spacing) {
+        ctx.beginPath();
+        for (let y = -spacing; y < h + spacing; y += spacing) {
+          const dx   = x - mouseX;
+          const dy   = y - mouseY;
+          const d    = Math.sqrt(dx * dx + dy * dy);
+          const pull = Math.max(0, 1 - d / 220);
+          const ang  = Math.atan2(dy, dx);
+          const px   = x - Math.sin(ang - tick) * pull * 28;
+          const py   = y + Math.cos(ang - tick) * pull * 28;
+          y === -spacing ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+        }
+        ctx.strokeStyle = 'rgba(37,99,235,0.045)';
+        ctx.stroke();
+      }
+
       requestAnimationFrame(drawOptical);
     }
+    drawOptical();
 
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas(); drawOptical();
-
+    /* ===== Mouse tracking ===== */
     window.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX; mouseY = e.clientY;
+      mouseX = e.clientX;
+      mouseY = e.clientY;
       root.style.setProperty('--mx', `${e.clientX}px`);
       root.style.setProperty('--my', `${e.clientY}px`);
     });
 
-    document.querySelectorAll('a, button, .project-card, .info-card, .poster, .keyword, .activity-card').forEach(el => {
+    /* ===== Cursor active class ===== */
+    document.querySelectorAll('a, button, .project-card, .info-card, .cert-card, .poster, .keyword, .activity-card, .award-card').forEach(el => {
       el.addEventListener('mouseenter', () => document.body.classList.add('cursor-active'));
       el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-active'));
     });
 
+    /* ===== Mobile menu ===== */
     menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
     document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
 
+    /* ===== Scroll events ===== */
     window.addEventListener('scroll', () => {
       const h = document.documentElement.scrollHeight - window.innerHeight;
       progress.style.width = `${h > 0 ? (window.scrollY / h) * 100 : 0}%`;
       topBtn.classList.toggle('show', window.scrollY > 500);
     });
-    topBtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+    topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-    // 인터랙티브 빌드 공정 기능 스크립트 모듈
-    document.querySelectorAll('.buildable-card').forEach(card => {
-      card.addEventListener('click', () => {
-        if(card.classList.contains('building-active')) return;
-        
-        card.classList.add('building-active');
-        const crane = document.getElementById('bgCrane');
-        const scaffold = document.getElementById('scaffoldingBuilding');
-        
-        // 배경 미니어처 크레인 및 빌딩 액션 연동 가동
-        crane.classList.add('crane-working');
-        scaffold.classList.add('building-growing');
-        
-        const pBar = card.querySelector('.build-progress-bar span');
-        let width = 0;
-        const interval = setInterval(() => {
-          if(width >= 100) {
-            clearInterval(interval);
-            card.classList.remove('building-active');
-            card.classList.add('project-built');
-            crane.classList.remove('crane-working');
-            scaffold.classList.remove('building-growing');
-          } else {
-            width += 2; pBar.style.width = width + '%';
-          }
-        }, 30);
-      });
-    });
-
-    const sectionObserver = new IntersectionObserver(entries => {
+    /* ===== Active nav highlight ===== */
+    const sectionObs = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if(entry.isIntersecting){
-          document.querySelectorAll('.nav-links a').forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${entry.target.id}`));
+        if (entry.isIntersecting) {
+          document.querySelectorAll('.nav-links a').forEach(a =>
+            a.classList.toggle('active', a.getAttribute('href') === `#${entry.target.id}`)
+          );
         }
       });
-    }, {threshold:.3});
-    document.querySelectorAll('header[id], section[id]').forEach(s => sectionObserver.observe(s));
+    }, { threshold: .28 });
+    document.querySelectorAll('header[id], section[id]').forEach(s => sectionObs.observe(s));
 
-    const revealObserver = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('show'); }), {threshold:.08});
-    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    /* ===== Reveal on scroll ===== */
+    const revealObs = new IntersectionObserver(entries =>
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); }),
+      { threshold: .07 }
+    );
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-    const words = ['Generative AI Integration','Construction Safety Automation','BIM Data Mapping System','RAG Engineering Processes','NLP for Accident Narratives'];
+    /* ===== Typing effect ===== */
+    const words  = [
+      'Generative AI Integration',
+      'LLM-based Research Platforms',
+      'BIM Data Mapping System',
+      'RAG Engineering Processes',
+      'NLP for Accident Narratives',
+      'Research Logic Automation'
+    ];
     const target = document.getElementById('typeWord');
     let wi = 0, ci = 0, del = false;
-    function type(){
+
+    function type() {
       const w = words[wi];
       target.textContent = del ? w.slice(0, ci - 1) : w.slice(0, ci + 1);
       ci += del ? -1 : 1;
-      if(!del && ci === w.length){ del = true; setTimeout(type, 1100); return; }
-      if(del && ci === 0){ del = false; wi = (wi + 1) % words.length; }
-      setTimeout(type, del ? 25 : 55);
+      if (!del && ci === w.length) { del = true; setTimeout(type, 1100); return; }
+      if (del && ci === 0) { del = false; wi = (wi + 1) % words.length; }
+      setTimeout(type, del ? 24 : 54);
     }
     type();
 
-    const barObserver = new IntersectionObserver(entries => {
+    /* ===== Skill bars ===== */
+    const barObs = new IntersectionObserver(entries => {
       entries.forEach(e => {
-        if(!e.isIntersecting) return;
-        document.querySelectorAll('.bar-row').forEach(row => row.querySelector('.fill').style.width = `${row.dataset.score}%`);
-        barObserver.disconnect();
+        if (!e.isIntersecting) return;
+        document.querySelectorAll('.bar-row').forEach(row =>
+          row.querySelector('.fill').style.width = `${row.dataset.score}%`
+        );
+        barObs.disconnect();
       });
-    }, {threshold:.2});
-    barObserver.observe(document.getElementById('bars'));
+    }, { threshold: .2 });
+    barObs.observe(document.getElementById('bars'));
+
+    /* ===== Tab switcher ===== */
+    const tabData = {
+      research: [
+        'Research AI Workflow',
+        '문헌 검토, 연구 질문 구조화, 데이터 라벨링 기준 정리, 실험 결과 해석 등 연구 전 과정에서 AI를 활용합니다.',
+        ['🔎 Literature Review', '🧩 Research Framing', '📊 Result Interpretation', '🧾 Evidence Structuring']
+      ],
+      writing: [
+        'AI-assisted Academic Writing',
+        '논문, 연구계획서, 학회 발표문, 리뷰 대응문을 작성할 때 논리 구조와 표현 정확도를 검토합니다.',
+        ['✍️ Manuscript Drafting', '🪄 Wording Refinement', '✅ Logical Review', '🌐 KR/EN Translation']
+      ],
+      visual: [
+        'Visual & Interface Prototyping',
+        '연구 프레임워크, 시스템 구조, 데이터 흐름, 발표용 도식화를 시각적으로 구현하는 데 AI를 활용합니다.',
+        ['🎨 Diagram Design', '📌 Infographics', '🖥️ UI Mockup', '🧭 Storyline']
+      ],
+      auto: [
+        'Automation-oriented AI Use',
+        '반복 문서 작업, 데이터 정리, 코드 초안 작성, 워크플로우 설계를 자동화 관점에서 수행합니다.',
+        ['🤖 RPA Logic', '📁 Data Cleaning', '💻 Code Assistance', '⚙️ Workflow Design']
+      ]
+    };
+
+    document.querySelectorAll('.tab').forEach(btn => btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const [title, desc, chips] = tabData[btn.dataset.tab];
+      document.getElementById('tabTitle').textContent = title;
+      document.getElementById('tabDesc').textContent  = desc;
+      document.getElementById('tabGrid').innerHTML    = chips.map(x => `<div class="skill-chip">${x}</div>`).join('');
+    }));
+
+    /* ===== Project filter ===== */
+    document.querySelectorAll('.filter').forEach(btn => btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      document.querySelectorAll('.project-card').forEach(card => {
+        card.style.display = (f === 'all' || card.dataset.category.includes(f)) ? '' : 'none';
+      });
+    }));
+
+    /* ===== Keyword pulse animation ===== */
+    document.querySelectorAll('.keyword').forEach((kw, i) => {
+      kw.style.animation = `orbitFloat ${3 + i * .4}s ease-in-out infinite`;
+      kw.style.animationDelay = `${i * -.5}s`;
+    });
+
+    /* ===== Click ripple on project cards ===== */
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        const ripple = document.createElement('span');
+        const rect   = card.getBoundingClientRect();
+        const size   = Math.max(card.clientWidth, card.clientHeight);
+        ripple.style.cssText = `
+          position:absolute; left:${e.clientX - rect.left - size/2}px; top:${e.clientY - rect.top - size/2}px;
+          width:${size}px; height:${size}px; border-radius:50%;
+          background:rgba(255,255,255,.18); transform:scale(0);
+          animation:ripple .55s ease-out forwards; pointer-events:none; z-index:10;
+        `;
+        card.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 600);
+      });
+    });
+
+    /* Ripple keyframe */
+    const ks = document.createElement('style');
+    ks.textContent = `@keyframes ripple { to { transform:scale(2.5); opacity:0; } }`;
+    document.head.appendChild(ks);
+
+    /* ===== Construction scene interactivity ===== */
+    /* Click the crane to speed it up */
+    const crane = document.querySelector('.mini-crane');
+    if (crane) {
+      crane.style.cursor = 'pointer';
+      crane.addEventListener('click', () => {
+        crane.style.filter = 'brightness(1.3)';
+        const jib = crane.querySelector('.crane-jib');
+        if (jib) {
+          jib.style.animationDuration = '2s';
+          setTimeout(() => {
+            jib.style.animationDuration = '';
+            crane.style.filter = '';
+          }, 3000);
+        }
+      });
+    }
+
+    /* Click a worker to make them jump */
+    document.querySelectorAll('.worker-fig').forEach(w => {
+      w.style.cursor = 'pointer';
+      w.addEventListener('click', () => {
+        w.style.transition = 'transform .15s ease';
+        w.style.transform  = 'translateY(-12px)';
+        setTimeout(() => { w.style.transform = ''; }, 300);
+      });
+    });
   </script>
 </body>
 </html>
