@@ -73,7 +73,7 @@
         <div class="actions">
           <a class="btn primary" href="#featured">Featured Research</a>
           <a class="btn secondary" href="#awards">View Awards</a>
-          <a class="btn secondary" href="Haein_Youn_CV.pdf" target="_blank" rel="noopener noreferrer">View CV</a>
+          <a class="btn secondary" href="CV.pdf" target="_blank" rel="noopener noreferrer">View CV</a>
           <button class="btn primary" id="buildAllBtn" type="button">Build All</button>
         </div>
 
@@ -85,23 +85,58 @@
         </div>
       </section>
 
-     <aside class="hero-summary profile-summary reveal">
+    <aside class="hero-summary profile-summary reveal">
   <div class="summary-head">
     <span>Researcher Profile</span>
     <b>HY</b>
   </div>
 
-  <div class="profile-card">
-    <div class="profile-photo-wrap">
-      <img src="profile.jpg" alt="Haein Youn profile photo" class="profile-photo" />
-    </div>
+  <div class="profile-mini-card">
+    <a href="profile.jpg" target="_blank" rel="noopener noreferrer" class="profile-photo-link" aria-label="Open profile photo">
+      <span class="profile-photo-wrap">
+        <img
+          src="profile.jpg"
+          alt="Haein Youn profile photo"
+          class="profile-photo"
+          loading="eager"
+          decoding="async"
+          onerror="this.closest('.profile-photo-wrap').classList.add('no-photo'); this.remove();"
+        />
+      </span>
+    </a>
 
     <div class="profile-info">
       <span class="profile-label">ESCO Researcher</span>
       <h3>Haein Youn</h3>
       <p>건설관리, BIM, RAG, NLP, 자동화 기반 연구를 수행하는 ESCO 소속 연구원입니다.</p>
+
+      <div class="profile-links">
+        <a href="cv.pdf" target="_blank" rel="noopener noreferrer">View CV</a>
+        <a href="mailto:godls114747@ewha.ac.kr">Email</a>
+      </div>
     </div>
   </div>
+
+  <div class="summary-body">
+    <div class="summary-kpi">
+      <span>AI</span>
+      <strong>NLP · RAG</strong>
+      <p>Unstructured construction knowledge into usable research logic</p>
+    </div>
+
+    <div class="summary-kpi">
+      <span>BIM</span>
+      <strong>Data Context</strong>
+      <p>Physical construction context as structured evidence</p>
+    </div>
+
+    <div class="summary-kpi">
+      <span>Decision</span>
+      <strong>Support</strong>
+      <p>From pattern recognition to practical construction insight</p>
+    </div>
+  </div>
+</aside>
 
   <div class="summary-body">
     <div class="summary-kpi">
@@ -437,7 +472,7 @@
             <h2>Let’s build intelligent construction research.</h2>
 
             <div class="contact-buttons">
-              <a href="Haein_Youn_CV.pdf" target="_blank" rel="noopener noreferrer">View CV</a>
+              <a href="CV.pdf" target="_blank" rel="noopener noreferrer">View CV</a>
               <a href="mailto:godls114747@ewha.ac.kr">Email</a>
               <a href="#research">Research</a>
             </div>
