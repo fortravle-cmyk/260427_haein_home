@@ -141,3 +141,125 @@ footer { padding: 28px 0 36px; background: #0f172a; }
 .top.show { opacity: 1; pointer-events: auto; }
 @media (max-width: 1100px) { .hero-content, .about-layout, .feature-layout, .skills-layout, .directions-card, .contact-card { grid-template-columns: 1fr; } .projects, .activity-grid { grid-template-columns: repeat(2, 1fr); } .flow { grid-template-columns: 1fr; } }
 @media (max-width: 760px) { .nav { grid-template-columns: auto auto; } .menu-btn { display: block; justify-self: end; } .nav-links { display: none; position: absolute; left: 0; right: 0; top: calc(100% + 8px); flex-direction: column; padding: 10px; border-radius: 20px; background: rgba(15,23,42,.94); box-shadow: var(--shadow); } .nav-links.open { display: flex; } .hero { padding-top: 110px; } .hero-copy { padding: 24px; } .typing b { min-width: unset; } .info-grid, .projects, .activity-grid, .contact-list, .chip-grid { grid-template-columns: 1fr; } .bar-row { grid-template-columns: 1fr; } section, .section { padding: 52px 0; } }
+
+/* =========================
+   PROFILE PHOTO - MEDIUM SIZE
+========================= */
+
+.profile-summary {
+  max-width: 560px;
+  justify-self: end;
+  overflow: hidden;
+}
+
+.profile-card {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 16px;
+  align-items: center;
+  padding: 16px 18px;
+  border-bottom: 1px solid rgba(255,255,255,.28);
+}
+
+.profile-photo-box {
+  display: block;
+  width: 110px;
+  height: 138px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(255,255,255,.92);
+  border: 2px solid rgba(255,255,255,.78);
+  box-shadow: 0 8px 0 rgba(0,0,0,.14);
+}
+
+.profile-photo-box img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.profile-text {
+  color: #fff;
+  min-width: 0;
+}
+
+.profile-text span {
+  display: inline-flex;
+  width: fit-content;
+  margin-bottom: 7px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.18);
+  color: #fff;
+  font-family: "JetBrains Mono", monospace;
+  font-size: .66rem;
+  font-weight: 900;
+}
+
+.profile-text h3 {
+  margin-bottom: 6px;
+  color: #fff;
+  font-size: 1.28rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  text-shadow: 0 4px 16px rgba(0,0,0,.35);
+}
+
+.profile-text p {
+  margin-bottom: 10px;
+  color: rgba(255,255,255,.86);
+  font-size: .78rem;
+  line-height: 1.55;
+}
+
+.profile-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.profile-actions a {
+  display: inline-flex;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.22);
+  color: #fff;
+  font-size: .72rem;
+  font-weight: 850;
+}
+
+.profile-actions a:hover {
+  background: #fff;
+  color: #101828;
+}
+
+@media (max-width: 1100px) {
+  .profile-summary {
+    max-width: none;
+    justify-self: stretch;
+  }
+}
+
+@media (max-width: 760px) {
+  .profile-card {
+    grid-template-columns: 86px 1fr;
+    gap: 13px;
+    padding: 14px;
+  }
+
+  .profile-photo-box {
+    width: 86px;
+    height: 108px;
+    border-radius: 17px;
+  }
+
+  .profile-text h3 {
+    font-size: 1.08rem;
+  }
+
+  .profile-text p {
+    font-size: .72rem;
+  }
+}
