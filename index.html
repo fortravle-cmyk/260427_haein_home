@@ -1,680 +1,1290 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Haein Youn | ESCO Research Portfolio</title>
-  <meta
-    name="description"
-    content="윤해인 개인 홈페이지 - ESCO 소속 연구원, AI, BIM, RAG, NLP, 건설관리 연구 포트폴리오"
-  />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap"
-    rel="stylesheet"
-  />
-
-  <link rel="stylesheet" href="style.css" />
-</head>
-
-<body>
-  <div class="progress" id="progress"></div>
-
-  <nav class="nav">
-    <a href="#hero" class="brand" aria-label="Go to home">
-      <span class="brand-mark">HY</span>
-      <span class="brand-text">Haein Youn</span>
-    </a>
-
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#about">About</a></li>
-      <li><a href="#featured">Featured</a></li>
-      <li><a href="#skills">AI Skills</a></li>
-      <li><a href="#research">Research</a></li>
-      <li><a href="#awards">Awards</a></li>
-      <li><a href="#directions">Directions</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-
-    <button class="menu-btn" id="menuBtn" type="button">Menu</button>
-  </nav>
-
-  <header class="hero image-hero" id="hero">
-    <div class="hero-shade"></div>
-    <div class="hero-blur hero-blur-top"></div>
-    <div class="hero-blur hero-blur-bottom"></div>
-
-    <div class="wrap hero-content">
-      <section class="hero-copy reveal">
-        <div class="label">ESCO Researcher · AI-enabled Construction Management</div>
-
-        <h1>
-          Haein Youn
-          <span>윤해인</span>
-        </h1>
-
-        <p class="subtitle">
-          Researcher connecting construction management, AI, BIM, and automation.
-        </p>
-
-        <div class="typing">
-          <span>Focused on</span>
-          <b id="typeWord">Generative AI</b>
-        </div>
-
-        <p class="desc">
-          ESCO 소속 연구원으로서 <strong>건설관리, BIM, RAG, NLP, 자동화, 데이터 기반 의사결정</strong>을 연결하는 연구를 수행합니다.
-          다양한 AI 도구를 연구·분석·문서화·시각화 과정에 활용하며, 복잡한 건설 문제를 논리적인 구조로 정리하는 것을 지향합니다.
-        </p>
-
-        <div class="actions">
-          <a class="btn primary" href="#featured">Featured Research</a>
-          <a class="btn secondary" href="#awards">View Awards</a>
-          <a class="btn secondary" href="CV.pdf" target="_blank" rel="noopener noreferrer">View CV</a>
-          <button class="btn primary" id="buildAllBtn" type="button">Build All</button>
-        </div>
-
-        <div class="chips">
-          <span class="chip">Ewha Womans University</span>
-          <span class="chip">ESCO Lab</span>
-          <span class="chip">Multi-AI User</span>
-          <span class="chip">Construction Management</span>
-        </div>
-      </section>
-
-    <aside class="hero-summary profile-summary reveal">
-  <div class="summary-head">
-    <span>Researcher Profile</span>
-    <b>HY</b>
-  </div>
-
-  <div class="profile-mini-card">
-    <a href="profile.jpg" target="_blank" rel="noopener noreferrer" class="profile-photo-link" aria-label="Open profile photo">
-      <span class="profile-photo-wrap">
-        <img
-          src="profile.jpg"
-          alt="Haein Youn profile photo"
-          class="profile-photo"
-          loading="eager"
-          decoding="async"
-          onerror="this.closest('.profile-photo-wrap').classList.add('no-photo'); this.remove();"
-        />
-      </span>
-    </a>
-
-    <div class="profile-info">
-      <span class="profile-label">ESCO Researcher</span>
-      <h3>Haein Youn</h3>
-      <p>건설관리, BIM, RAG, NLP, 자동화 기반 연구를 수행하는 ESCO 소속 연구원입니다.</p>
-
-      <div class="profile-links">
-        <a href="cv.pdf" target="_blank" rel="noopener noreferrer">View CV</a>
-        <a href="mailto:godls114747@ewha.ac.kr">Email</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="summary-body">
-    <div class="summary-kpi">
-      <span>AI</span>
-      <strong>NLP · RAG</strong>
-      <p>Unstructured construction knowledge into usable research logic</p>
-    </div>
-
-    <div class="summary-kpi">
-      <span>BIM</span>
-      <strong>Data Context</strong>
-      <p>Physical construction context as structured evidence</p>
-    </div>
-
-    <div class="summary-kpi">
-      <span>Decision</span>
-      <strong>Support</strong>
-      <p>From pattern recognition to practical construction insight</p>
-    </div>
-  </div>
-</aside>
-
-  <div class="summary-body">
-    <div class="summary-kpi">
-      <span>AI</span>
-      <strong>NLP · RAG</strong>
-      <p>Unstructured construction knowledge into usable research logic</p>
-    </div>
-
-    <div class="summary-kpi">
-      <span>BIM</span>
-      <strong>Data Context</strong>
-      <p>Physical construction context as structured evidence</p>
-    </div>
-
-    <div class="summary-kpi">
-      <span>Decision</span>
-      <strong>Support</strong>
-      <p>From pattern recognition to practical construction insight</p>
-    </div>
-  </div>
-</aside>
-    </div>
-  </header>
-
-  <main>
-    <section id="about" class="section image-section">
-      <div class="section-bg-shade"></div>
-
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="kicker">02 Overview</span>
-          <h2>AI와 건설관리를 연결하는 연구자</h2>
-        </div>
-
-        <div class="about-layout">
-          <article class="panel reveal">
-            <h3>Profile Summary</h3>
-            <p>
-              현재 ESCO 소속 연구원으로 활동하며, 건설관리 분야의 연구 문제를
-              <strong>AI 기반 분석, BIM 데이터 활용, 자동화 시스템 설계, 지식 구조화</strong>
-              관점에서 다루고 있습니다.
-            </p>
-            <p>
-              다양한 AI 도구를 단순 보조 수단이 아니라 연구 생산성을 높이는 분석·작성·검토·시각화 도구로 활용할 수 있으며,
-              이를 바탕으로 건설 산업의 문서화, 안전관리, 설계 의사결정, 프로젝트 관리 프로세스를 개선하는 데 관심이 있습니다.
-            </p>
-          </article>
-
-          <div class="info-grid">
-            <div class="info-card reveal">
-              <span class="info-no">01</span>
-              <h4>Affiliation</h4>
-              <p>이화여자대학교 건축도시시스템공학과 및 ESCO 연구실 소속</p>
-            </div>
-
-            <div class="info-card reveal">
-              <span class="info-no">02</span>
-              <h4>AI Capability</h4>
-              <p>생성형 AI, LLM, RAG, NLP, 자동화 도구를 연구 과정에 통합적으로 활용</p>
-            </div>
-
-            <div class="info-card reveal">
-              <span class="info-no">03</span>
-              <h4>Domain</h4>
-              <p>Construction Management, BIM, Safety, Automation, Digital Transformation</p>
-            </div>
-
-            <div class="info-card reveal">
-              <span class="info-no">04</span>
-              <h4>Goal</h4>
-              <p>건설산업의 실무 문제를 데이터 기반으로 해석하고 해결 가능한 연구로 확장</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="featured" class="section">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="kicker">03 Featured Research</span>
-          <h2>BIM-context-aware RAG for safety decision support</h2>
-        </div>
-
-        <div class="feature-layout">
-          <article class="panel feature-card reveal">
-            <div class="feature-number">01</div>
-            <h3>Evidence-grounded safety knowledge activation</h3>
-            <p>
-              비정형 사고 내러티브를 AI/NLP로 구조화하고, BIM에서 추출한 물리적 맥락과 연결하여
-              현재 작업 조건에 맞는 안전 지식을 검색·생성하는 연구입니다.
-            </p>
-
-            <div class="pipeline">
-              <span>Accident Narratives</span>
-              <i>→</i>
-              <span>Risk-chain Structuring</span>
-              <i>→</i>
-              <span>BIM Context</span>
-              <i>→</i>
-              <span>RAG Output</span>
-            </div>
-          </article>
-
-          <aside class="visual-card reveal">
-            <div class="visual-card-bg"></div>
-            <div class="visual-card-text">
-              <span>Concept Scene</span>
-              <h3>AI + BIM + RAG</h3>
-              <p>
-                Miniature modular assembly scene representing evidence-based construction intelligence.
-              </p>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills" class="section">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="kicker">04 AI Capability</span>
-          <h2>Patterned thinking for AI workflows</h2>
-        </div>
-
-        <div class="skills-layout">
-          <article class="panel reveal">
-            <div class="big-number">6</div>
-            <h3>AI / Tech Fields</h3>
-            <p>다양한 AI 도구를 연구 생산성 향상과 디지털 건설관리 문제 해결에 활용합니다.</p>
-
-            <div class="bars" id="bars">
-              <div class="bar-row" data-score="92">
-                <b>AI Writing</b>
-                <span class="track"><span class="fill"></span></span>
-                <em>92</em>
-              </div>
-
-              <div class="bar-row" data-score="88">
-                <b>LLM/RAG</b>
-                <span class="track"><span class="fill"></span></span>
-                <em>88</em>
-              </div>
-
-              <div class="bar-row" data-score="84">
-                <b>NLP</b>
-                <span class="track"><span class="fill"></span></span>
-                <em>84</em>
-              </div>
-
-              <div class="bar-row" data-score="82">
-                <b>BIM/Data</b>
-                <span class="track"><span class="fill"></span></span>
-                <em>82</em>
-              </div>
-
-              <div class="bar-row" data-score="78">
-                <b>Automation</b>
-                <span class="track"><span class="fill"></span></span>
-                <em>78</em>
-              </div>
-            </div>
-          </article>
-
-          <article class="panel reveal">
-            <div class="tabs">
-              <button class="tab active" type="button" data-tab="research">Research</button>
-              <button class="tab" type="button" data-tab="writing">Writing</button>
-              <button class="tab" type="button" data-tab="visual">Visualization</button>
-              <button class="tab" type="button" data-tab="auto">Automation</button>
-            </div>
-
-            <h3 id="tabTitle">Research AI Workflow</h3>
-            <p id="tabDesc">
-              문헌 검토, 연구 질문 구조화, 데이터 라벨링 기준 정리, 실험 결과 해석 등 연구 전 과정에서 AI를 활용합니다.
-            </p>
-
-            <div class="chip-grid" id="tabGrid">
-              <div class="skill-chip">Literature Review</div>
-              <div class="skill-chip">Research Framing</div>
-              <div class="skill-chip">Result Interpretation</div>
-              <div class="skill-chip">Evidence Structuring</div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="research" class="section">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="kicker">05 Research Structure</span>
-          <h2>From unstructured data to decision support</h2>
-        </div>
-
-        <div class="flow reveal">
-          <div class="flow-step"><span>01</span><b>Unstructured Data</b></div>
-          <div class="flow-step"><span>02</span><b>AI / NLP Structuring</b></div>
-          <div class="flow-step"><span>03</span><b>BIM Context Mapping</b></div>
-          <div class="flow-step"><span>04</span><b>RAG-based Retrieval</b></div>
-          <div class="flow-step"><span>05</span><b>Decision Support</b></div>
-        </div>
-
-        <div class="filters reveal">
-          <button class="filter active" type="button" data-filter="all">All</button>
-          <button class="filter" type="button" data-filter="ai">AI</button>
-          <button class="filter" type="button" data-filter="bim">BIM</button>
-          <button class="filter" type="button" data-filter="safety">Safety</button>
-          <button class="filter" type="button" data-filter="automation">Automation</button>
-        </div>
-
-        <div class="projects">
-          <article class="project-card reveal" data-category="ai bim safety">
-            <div class="project-icon">AI</div>
-            <h3>BIM-context-aware RAG for Construction Safety</h3>
-            <p>비정형 사고 데이터와 BIM 맥락 정보를 연결하여 DfS 및 안전관리 의사결정을 지원하는 RAG 기반 프레임워크 연구.</p>
-            <div class="mini-tags"><span>RAG</span><span>BIM</span><span>Safety</span></div>
-            <div class="build-progress-bar"><span></span></div>
-          </article>
-
-          <article class="project-card reveal" data-category="ai safety">
-            <div class="project-icon">KG</div>
-            <h3>Risk-chain Structuring from Accident Narratives</h3>
-            <p>사고 내러티브에서 Work, Hazard, Accident, Injury 구조를 추출하고 지식그래프 기반으로 정리하는 연구.</p>
-            <div class="mini-tags"><span>NLP</span><span>Graph</span><span>OSHA</span></div>
-            <div class="build-progress-bar"><span></span></div>
-          </article>
-
-          <article class="project-card reveal" data-category="automation safety">
-            <div class="project-icon">RPA</div>
-            <h3>Construction Safety Documentation Automation</h3>
-            <p>건설현장 안전문서의 반복 입력과 행정 부담을 줄이기 위한 RPA 및 데이터 허브 기반 자동화 체계 설계.</p>
-            <div class="mini-tags"><span>RPA</span><span>Data Hub</span><span>Workflow</span></div>
-            <div class="build-progress-bar"><span></span></div>
-          </article>
-
-          <article class="project-card reveal" data-category="bim automation">
-            <div class="project-icon">BIM</div>
-            <h3>BIM-based Design and Construction Automation</h3>
-            <p>파라메트릭 모델과 설계 규칙을 활용하여 외벽 패널 설계, 물량 산출, 상세 자동화를 지원하는 연구.</p>
-            <div class="mini-tags"><span>BIM</span><span>Parametric</span><span>Dynamo</span></div>
-            <div class="build-progress-bar"><span></span></div>
-          </article>
-
-          <article class="project-card reveal" data-category="ai automation">
-            <div class="project-icon">DOC</div>
-            <h3>AI-assisted Research Writing & Review</h3>
-            <p>논문 작성, 리뷰 대응, 연구계획서 구성, 발표자료 기획 과정에서 AI 기반 검토와 구조화를 수행.</p>
-            <div class="mini-tags"><span>Writing</span><span>Review</span><span>Prompting</span></div>
-            <div class="build-progress-bar"><span></span></div>
-          </article>
-
-          <article class="project-card reveal" data-category="automation">
-            <div class="project-icon">WEB</div>
-            <h3>Interactive Web Documentation</h3>
-            <p>연구 로직, 계산식, 실험 절차를 HTML, Markdown, MkDocs 기반의 탐색 가능한 문서로 구현.</p>
-            <div class="mini-tags"><span>HTML</span><span>Docs</span><span>UX</span></div>
-            <div class="build-progress-bar"><span></span></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="awards" class="section image-band">
-      <div class="image-band-shade"></div>
-
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="kicker">06 Awards</span>
-          <h2>Academic achievements</h2>
-        </div>
-
-        <div class="activity-grid">
-          <article class="activity-card reveal">
-            <span>2025</span>
-            <h3>대한건축학회 추계학술발표대회 우수논문상</h3>
-            <p>디지털 건설관리 및 AI 기반 연구성과의 학술적 가능성을 인정받은 성과입니다.</p>
-          </article>
-
-          <article class="activity-card reveal">
-            <span>2026</span>
-            <h3>대한건축학회 우수졸업논문전 장려상</h3>
-            <p>학부 연구에서 확장된 연구 역량과 주제의 발전 가능성을 보여주는 성과입니다.</p>
-          </article>
-
-          <article class="activity-card reveal">
-            <span>Plan</span>
-            <h3>Certificates in progress</h3>
-            <p>건축기사, 건설안전기사 등 실무 기반 전문성을 확장할 예정입니다.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="directions" class="section">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="kicker">07 Directions</span>
-          <h2>How to find the lab</h2>
-        </div>
-
-        <div class="directions-card reveal">
-          <div class="directions-main">
-            <div class="directions-no">503</div>
-            <h3>
-              <span>이화여자대학교</span>
-              <span>아산공학관 <strong>503호</strong></span>
-            </h3>
-            <p>건축도시시스템공학과 · ESCO 연구실</p>
-
-            <div class="directions-actions">
-              <a href="https://maps.app.goo.gl/uByt69vVQEC92SZF8" target="_blank" rel="noopener noreferrer">Open Google Maps</a>
-              <a href="#contact">Contact</a>
-            </div>
-          </div>
-
-          <div class="floor-grid" aria-hidden="true">
-            <span class="room">501</span>
-            <span class="room">502</span>
-            <span class="room active-room">503</span>
-            <span class="room">504</span>
-            <span class="corridor">Asan Engineering Building</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section contact-section">
-      <div class="wrap">
-        <div class="contact-card reveal">
-          <div>
-            <span class="kicker">08 Contact</span>
-            <h2>Let’s build intelligent construction research.</h2>
-
-            <div class="contact-buttons">
-              <a href="CV.pdf" target="_blank" rel="noopener noreferrer">View CV</a>
-              <a href="mailto:godls114747@ewha.ac.kr">Email</a>
-              <a href="#research">Research</a>
-            </div>
-          </div>
-
-          <div class="contact-list">
-            <div class="contact-item">📍 이화여자대학교 아산공학관 503호</div>
-            <div class="contact-item">🏫 건축도시시스템공학과</div>
-            <div class="contact-item">🔬 ESCO Researcher</div>
-            <div class="contact-item">✉️ godls114747@ewha.ac.kr</div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap footer-inner">
-      <p>© Haein Youn. construction research portfolio.</p>
-      <p>HY · ESCO</p>
-    </div>
-  </footer>
-
-  <button class="top" id="top" type="button">↑</button>
-
-  <script>
-    const progress = document.getElementById('progress');
-    const topBtn = document.getElementById('top');
-    const navLinks = document.getElementById('navLinks');
-    const menuBtn = document.getElementById('menuBtn');
-    const typeWord = document.getElementById('typeWord');
-
-    function setProgress() {
-      const h = document.documentElement.scrollHeight - window.innerHeight;
-      const pct = h > 0 ? (window.scrollY / h) * 100 : 0;
-      progress.style.width = pct + '%';
-      topBtn.classList.toggle('show', window.scrollY > 500);
-    }
-
-    window.addEventListener('scroll', setProgress);
-    setProgress();
-
-    topBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    menuBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-    });
-
-    document.querySelectorAll('.nav-links a').forEach(a => {
-      a.addEventListener('click', () => navLinks.classList.remove('open'));
-    });
-
-    const revealObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('show');
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-    const sectionObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          document.querySelectorAll('.nav-links a').forEach(a => {
-            a.classList.toggle('active', a.getAttribute('href') === `#${entry.target.id}`);
-          });
-        }
-      });
-    }, { threshold: 0.35 });
-
-    document.querySelectorAll('header[id], section[id]').forEach(s => sectionObserver.observe(s));
-
-    const words = [
-      'Generative AI',
-      'LLM-based Research',
-      'BIM Data Workflows',
-      'RAG Systems',
-      'NLP for Safety Narratives',
-      'Research Automation'
-    ];
-
-    let wi = 0;
-    let ci = 0;
-    let del = false;
-
-    function typeLoop() {
-      const w = words[wi];
-      typeWord.textContent = del ? w.slice(0, ci - 1) : w.slice(0, ci + 1);
-      ci += del ? -1 : 1;
-
-      if (!del && ci === w.length) {
-        del = true;
-        setTimeout(typeLoop, 1000);
-        return;
-      }
-
-      if (del && ci === 0) {
-        del = false;
-        wi = (wi + 1) % words.length;
-      }
-
-      setTimeout(typeLoop, del ? 35 : 60);
-    }
-
-    typeLoop();
-
-    const barObserver = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (!e.isIntersecting) return;
-
-        document.querySelectorAll('.bar-row').forEach(row => {
-          const fill = row.querySelector('.fill');
-          fill.style.width = `${row.dataset.score || 0}%`;
-        });
-
-        barObserver.disconnect();
-      });
-    }, { threshold: 0.2 });
-
-    const bars = document.getElementById('bars');
-    if (bars) barObserver.observe(bars);
-
-    const tabData = {
-      research: [
-        'Research AI Workflow',
-        '문헌 검토, 연구 질문 구조화, 데이터 라벨링 기준 정리, 실험 결과 해석 등 연구 전 과정에서 AI를 활용합니다.',
-        ['Literature Review', 'Research Framing', 'Result Interpretation', 'Evidence Structuring']
-      ],
-      writing: [
-        'AI-assisted Academic Writing',
-        '논문, 연구계획서, 학회 발표문, 리뷰 대응문을 작성할 때 논리 구조와 표현 정확도를 검토합니다.',
-        ['Manuscript Drafting', 'Wording Refinement', 'Logical Review', 'KR/EN Translation']
-      ],
-      visual: [
-        'Visual & Interface Prototyping',
-        '연구 프레임워크, 시스템 구조, 데이터 흐름, 발표용 도식화를 시각적으로 구현하는 데 AI를 활용합니다.',
-        ['Diagram Design', 'Infographics', 'UI Mockup', 'Storyline']
-      ],
-      auto: [
-        'Automation-oriented AI Use',
-        '반복 문서 작업, 데이터 정리, 코드 초안 작성, 워크플로우 설계를 자동화 관점에서 수행합니다.',
-        ['RPA Logic', 'Data Cleaning', 'Code Assistance', 'Workflow Design']
-      ]
-    };
-
-    document.querySelectorAll('.tab').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        const data = tabData[btn.dataset.tab];
-        document.getElementById('tabTitle').textContent = data[0];
-        document.getElementById('tabDesc').textContent = data[1];
-        document.getElementById('tabGrid').innerHTML = data[2]
-          .map(x => `<div class="skill-chip">${x}</div>`)
-          .join('');
-      });
-    });
-
-    document.querySelectorAll('.filter').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        const f = btn.dataset.filter;
-
-        document.querySelectorAll('.project-card').forEach(card => {
-          card.style.display = f === 'all' || card.dataset.category.includes(f)
-            ? 'block'
-            : 'none';
-        });
-      });
-    });
-
-    function animateBuild(card) {
-      const progress = card.querySelector('.build-progress-bar span');
-
-      if (progress) {
-        progress.style.width = '0%';
-        requestAnimationFrame(() => {
-          progress.style.width = '100%';
-        });
-      }
-
-      card.classList.add('project-built');
-
-      setTimeout(() => {
-        card.classList.remove('project-built');
-      }, 1300);
-    }
-
-    document.querySelectorAll('.project-card').forEach(card => {
-      card.addEventListener('click', () => animateBuild(card));
-    });
-
-    document.getElementById('buildAllBtn').addEventListener('click', () => {
-      document.querySelectorAll('.project-card').forEach((card, i) => {
-        setTimeout(() => animateBuild(card), i * 220);
-      });
-    });
-  </script>
-</body>
-</html>
+:root {
+  --ink: #101828;
+  --muted: #667085;
+  --white: #ffffff;
+  --blue: #2563eb;
+  --blue2: #38bdf8;
+  --green: #22c55e;
+  --yellow: #facc15;
+  --orange: #f97316;
+  --red: #ef4444;
+
+  --glass: rgba(255, 255, 255, 0.18);
+  --glass-strong: rgba(255, 255, 255, 0.72);
+  --line: rgba(255, 255, 255, 0.32);
+  --shadow: 0 28px 80px rgba(15, 23, 42, 0.28);
+
+  --radius-xl: 30px;
+  --radius-lg: 22px;
+  --radius-md: 14px;
+  --wrap: min(1220px, calc(100% - 40px));
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Inter", "Noto Sans KR", sans-serif;
+  color: var(--white);
+  background: #0f172a;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  border: 0;
+  cursor: pointer;
+}
+
+.wrap {
+  width: var(--wrap);
+  margin: 0 auto;
+}
+
+/* progress */
+
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 6px;
+  z-index: 9999;
+  background: linear-gradient(90deg, var(--blue), var(--yellow), var(--green));
+  border-radius: 0 999px 999px 0;
+}
+
+/* nav */
+
+.nav {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: var(--wrap);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 16px;
+  align-items: center;
+  padding: 10px 14px 10px 18px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.26);
+  border: 1px solid rgba(255, 255, 255, 0.36);
+  backdrop-filter: blur(20px);
+  box-shadow: var(--shadow);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 900;
+}
+
+.brand-mark {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--blue), var(--blue2));
+  color: #fff;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.78rem;
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.16);
+}
+
+.brand-text {
+  color: #fff;
+  text-shadow: 0 3px 14px rgba(0, 0, 0, 0.45);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  display: block;
+  padding: 7px 11px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.92);
+  transition: 0.16s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background: #fff;
+  color: var(--ink);
+}
+
+.menu-btn {
+  display: none;
+  padding: 8px 12px;
+  border-radius: 14px;
+  background: #fff;
+  color: var(--ink);
+  font-weight: 900;
+}
+
+/* hero image */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  align-items: center;
+  padding: 120px 0 70px;
+  overflow: hidden;
+}
+
+.image-hero {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.68) 0%,
+      rgba(0, 0, 0, 0.46) 43%,
+      rgba(0, 0, 0, 0.12) 100%
+    ),
+    url("hero-bg.png") center / cover no-repeat;
+}
+
+.image-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 70% 20%, rgba(255, 255, 255, 0.2), transparent 22rem),
+    linear-gradient(to bottom, rgba(255,255,255,.2), transparent 18%, transparent 74%, rgba(255,255,255,.34));
+  z-index: 1;
+}
+
+.image-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at center, transparent 48%, rgba(255, 255, 255, 0.2) 100%);
+  z-index: 1;
+}
+
+.hero-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(15,23,42,.08), rgba(15,23,42,.18));
+}
+
+.hero-blur {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-blur-top {
+  top: 0;
+  height: 17%;
+  backdrop-filter: blur(7px);
+  background: linear-gradient(180deg, rgba(255,255,255,.42), transparent);
+}
+
+.hero-blur-bottom {
+  bottom: 0;
+  height: 19%;
+  backdrop-filter: blur(8px);
+  background: linear-gradient(0deg, rgba(255,255,255,.50), transparent);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: minmax(420px, 1.05fr) minmax(340px, 0.72fr);
+  gap: 22px;
+  align-items: center;
+}
+
+.hero-copy {
+  padding: 34px;
+  border-radius: var(--radius-xl);
+  background: rgba(15, 23, 42, 0.54);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  backdrop-filter: blur(16px);
+  box-shadow: var(--shadow);
+}
+
+.label {
+  display: inline-flex;
+  width: fit-content;
+  padding: 7px 12px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.74rem;
+  font-weight: 800;
+}
+
+h1 {
+  margin-bottom: 12px;
+  color: #fff;
+  font-size: clamp(3rem, 7vw, 5.8rem);
+  line-height: 0.9;
+  letter-spacing: -0.07em;
+  font-weight: 900;
+  text-shadow: 0 5px 22px rgba(0, 0, 0, 0.55);
+}
+
+h1 span {
+  display: block;
+  margin-top: 8px;
+  font-size: clamp(1.7rem, 3vw, 2.8rem);
+  letter-spacing: -0.05em;
+}
+
+.subtitle {
+  margin-bottom: 12px;
+  color: rgba(255,255,255,.92);
+  font-size: clamp(1rem, 1.8vw, 1.24rem);
+  font-weight: 850;
+  line-height: 1.45;
+  text-shadow: 0 4px 16px rgba(0,0,0,.45);
+}
+
+.typing {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 18px;
+  color: rgba(255,255,255,.88);
+  font-weight: 850;
+}
+
+.typing b {
+  min-width: 250px;
+  color: var(--yellow);
+  font-family: "JetBrains Mono", monospace;
+  border-bottom: 2px dashed rgba(250, 204, 21, 0.38);
+}
+
+.desc {
+  margin-bottom: 24px;
+  color: rgba(255,255,255,.88);
+  font-size: 0.95rem;
+  line-height: 1.78;
+}
+
+.desc strong {
+  color: #fff;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 16px;
+  border-radius: 14px;
+  font-size: 0.86rem;
+  font-weight: 900;
+  transition: 0.16s ease;
+  box-shadow: 0 7px 0 rgba(0,0,0,.16);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 9px 0 rgba(0,0,0,.17);
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, var(--blue), var(--blue2));
+  color: #fff;
+}
+
+.btn.secondary {
+  background: #fff;
+  color: var(--ink);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  display: inline-flex;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.16);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 750;
+}
+
+/* hero right summary */
+
+.hero-summary {
+  max-width: 520px;
+  justify-self: end;
+  border-radius: var(--radius-xl);
+  background: rgba(255,255,255,.28);
+  border: 1px solid rgba(255,255,255,.46);
+  backdrop-filter: blur(18px);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.summary-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 18px;
+  border-bottom: 1px solid rgba(255,255,255,.28);
+  color: #fff;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.78rem;
+  font-weight: 850;
+}
+
+.summary-head b {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--orange);
+  color: #fff;
+  box-shadow: 0 5px 0 rgba(0,0,0,.16);
+}
+
+.summary-body {
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+}
+
+.summary-kpi {
+  padding: 16px;
+  border-radius: 20px;
+  background: rgba(255,255,255,.82);
+  color: var(--ink);
+  box-shadow: 0 8px 0 rgba(0,0,0,.12);
+}
+
+.summary-kpi span {
+  display: inline-flex;
+  padding: 5px 9px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+  background: #e0f2fe;
+  color: var(--blue);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.summary-kpi strong {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 1.05rem;
+  font-weight: 900;
+}
+
+.summary-kpi p {
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+/* common section */
+
+.section {
+  position: relative;
+  padding: 74px 0;
+  background:
+    linear-gradient(180deg, #eaf6ff 0%, #dff1ea 100%);
+  color: var(--ink);
+}
+
+.section:nth-of-type(even) {
+  background:
+    linear-gradient(180deg, #dff1ea 0%, #eaf6ff 100%);
+}
+
+.image-section {
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.50), rgba(0,0,0,.36)),
+    url("section-bg.png") center / cover no-repeat;
+  color: #fff;
+}
+
+.image-section .wrap,
+.image-band .wrap {
+  position: relative;
+  z-index: 2;
+}
+
+.section-bg-shade,
+.image-band-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.50), rgba(0,0,0,.16)),
+    radial-gradient(ellipse at center, transparent 48%, rgba(255,255,255,.18));
+}
+
+.image-band {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.48), rgba(0,0,0,.42)),
+    url("section-bg.png") center / cover no-repeat;
+  color: #fff;
+}
+
+.section-head {
+  margin-bottom: 24px;
+}
+
+.kicker {
+  display: inline-flex;
+  width: fit-content;
+  padding: 6px 10px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+  background: rgba(15,23,42,.62);
+  color: #fff;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+h2 {
+  color: #fff;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1.06;
+  letter-spacing: -0.055em;
+  font-weight: 900;
+  text-shadow: 0 4px 18px rgba(0,0,0,.34);
+}
+
+.section:not(.image-section):not(.image-band) h2 {
+  color: var(--ink);
+  text-shadow: none;
+}
+
+/* cards */
+
+.panel,
+.info-card,
+.visual-card,
+.project-card,
+.activity-card,
+.directions-card,
+.contact-card {
+  background: rgba(255,255,255,.74);
+  border: 1px solid rgba(255,255,255,.68);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+  color: var(--ink);
+}
+
+.panel {
+  padding: 24px;
+  border-radius: var(--radius-xl);
+}
+
+.panel h3,
+.info-card h4,
+.project-card h3,
+.activity-card h3,
+.directions-main h3 {
+  color: var(--ink);
+}
+
+.panel p,
+.info-card p,
+.project-card p,
+.activity-card p,
+.directions-main p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.72;
+}
+
+/* about */
+
+.about-layout,
+.feature-layout,
+.skills-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.info-card {
+  padding: 18px;
+  border-radius: 22px;
+}
+
+.info-no {
+  display: inline-flex;
+  margin-bottom: 10px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: #e0f2fe;
+  color: var(--blue);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+/* featured */
+
+.feature-number,
+.directions-no {
+  width: 52px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 14px;
+  border-radius: 12px;
+  background: var(--orange);
+  color: #fff;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 900;
+  box-shadow: 0 6px 0 rgba(0,0,0,.13);
+}
+
+.pipeline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  margin-top: 14px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 850;
+}
+
+.pipeline span {
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: #eef6ff;
+}
+
+.pipeline i {
+  color: var(--orange);
+  font-style: normal;
+  font-weight: 900;
+}
+
+.visual-card {
+  position: relative;
+  min-height: 310px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.visual-card-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.34)),
+    url("hero-bg.png") center / cover no-repeat;
+}
+
+.visual-card-text {
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 22px;
+  padding: 18px;
+  border-radius: 22px;
+  background: rgba(15,23,42,.55);
+  color: #fff;
+  backdrop-filter: blur(10px);
+}
+
+.visual-card-text span {
+  display: inline-flex;
+  margin-bottom: 8px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.18);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  font-weight: 900;
+}
+
+.visual-card-text h3 {
+  margin-bottom: 6px;
+  color: #fff;
+  font-size: 1.35rem;
+}
+
+.visual-card-text p {
+  color: rgba(255,255,255,.88);
+  line-height: 1.6;
+  font-size: 0.86rem;
+}
+
+/* skills */
+
+.big-number {
+  color: var(--blue);
+  font-size: 3.8rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.bars {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.bar-row {
+  display: grid;
+  grid-template-columns: 92px 1fr 28px;
+  gap: 10px;
+  align-items: center;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.74rem;
+  font-weight: 850;
+}
+
+.track {
+  height: 10px;
+  border-radius: 999px;
+  background: #dbeafe;
+  overflow: hidden;
+}
+
+.fill {
+  display: block;
+  width: 0%;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--blue), var(--green));
+  transition: width 1.1s ease;
+}
+
+.tabs,
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.tab,
+.filter {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #eef6ff;
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.tab.active,
+.filter.active {
+  background: var(--blue);
+  color: #fff;
+}
+
+.chip-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.skill-chip {
+  padding: 10px 12px;
+  border-radius: 16px;
+  background: #eef6ff;
+  text-align: center;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+/* research */
+
+.flow {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.flow-step {
+  padding: 14px 12px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.78);
+  color: var(--ink);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.flow-step span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--blue);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.flow-step b {
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.project-card {
+  padding: 18px;
+  border-radius: 22px;
+  cursor: pointer;
+  transition: 0.18s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+}
+
+.project-icon {
+  width: 46px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  background: #e0f2fe;
+  color: var(--blue);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.project-card h3 {
+  margin-bottom: 8px;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.project-card p {
+  margin-bottom: 10px;
+}
+
+.mini-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.mini-tags span {
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #eef6ff;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.66rem;
+  font-weight: 900;
+}
+
+.build-progress-bar {
+  width: 100%;
+  height: 6px;
+  margin-top: 12px;
+  border-radius: 999px;
+  background: #dbeafe;
+  overflow: hidden;
+}
+
+.build-progress-bar span {
+  display: block;
+  width: 0%;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--blue), var(--yellow), var(--green));
+  transition: width 1s ease;
+}
+
+.project-built {
+  outline: 3px solid rgba(250, 204, 21, 0.65);
+}
+
+/* awards */
+
+.activity-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.activity-card {
+  padding: 18px;
+  border-radius: 22px;
+}
+
+.activity-card span {
+  display: inline-flex;
+  margin-bottom: 12px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: #eef6ff;
+  color: var(--blue);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.activity-card h3 {
+  margin-bottom: 8px;
+  font-size: 1rem;
+  line-height: 1.36;
+}
+
+/* directions */
+
+.directions-card {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 20px;
+  padding: 24px;
+  border-radius: var(--radius-xl);
+}
+
+.directions-main h3 span {
+  display: block;
+}
+
+.directions-main h3 strong {
+  display: inline-flex;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--orange);
+  color: #fff;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8em;
+}
+
+.directions-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.directions-actions a {
+  padding: 9px 12px;
+  border-radius: 14px;
+  background: #eef6ff;
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.directions-actions a:first-child {
+  background: var(--blue);
+  color: #fff;
+}
+
+.floor-grid {
+  min-height: 230px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr 52px;
+  gap: 10px;
+  padding: 18px;
+  border-radius: 22px;
+  background: #eef6ff;
+  transform: perspective(800px) rotateX(8deg) rotateY(-5deg);
+}
+
+.room,
+.corridor {
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: #fff;
+  color: var(--ink);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.78rem;
+  font-weight: 900;
+  box-shadow: 0 8px 0 rgba(0,0,0,.12);
+}
+
+.active-room {
+  background: var(--orange);
+  color: #fff;
+}
+
+.corridor {
+  grid-column: 1 / -1;
+  background: var(--blue);
+  color: #fff;
+}
+
+/* contact */
+
+.contact-section {
+  background:
+    linear-gradient(180deg, rgba(15,23,42,.72), rgba(15,23,42,.82)),
+    url("hero-bg.png") center / cover no-repeat;
+}
+
+.contact-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 24px;
+  border-radius: var(--radius-xl);
+}
+
+.contact-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.contact-buttons a {
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: #eef6ff;
+  color: var(--ink);
+  font-size: 0.84rem;
+  font-weight: 900;
+}
+
+.contact-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.contact-item {
+  padding: 12px;
+  border-radius: 16px;
+  background: #eef6ff;
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* reveal */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* footer */
+
+footer {
+  padding: 28px 0 36px;
+  background: #0f172a;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  color: #fff;
+  font-weight: 700;
+}
+
+/* top */
+
+.top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 999;
+  width: 46px;
+  height: 46px;
+  border-radius: 16px;
+  background: #fff;
+  color: var(--ink);
+  font-weight: 900;
+  box-shadow: 0 8px 0 rgba(0,0,0,.16);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.2s ease;
+}
+
+.top.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* responsive */
+
+@media (max-width: 1100px) {
+  .hero-content,
+  .about-layout,
+  .feature-layout,
+  .skills-layout,
+  .directions-card,
+  .contact-card {
+    grid-template-columns: 1fr;
+  }
+
+  .projects,
+  .activity-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .flow {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .nav {
+    grid-template-columns: auto auto;
+  }
+
+  .menu-btn {
+    display: block;
+    justify-self: end;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% + 8px);
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 20px;
+    background: rgba(15, 23, 42, 0.94);
+    box-shadow: var(--shadow);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .hero {
+    padding-top: 110px;
+  }
+
+  .hero-copy {
+    padding: 24px;
+  }
+
+  .typing b {
+    min-width: unset;
+  }
+
+  .info-grid,
+  .projects,
+  .activity-grid,
+  .contact-list,
+  .chip-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bar-row {
+    grid-template-columns: 1fr;
+  }
+
+  section,
+  .section {
+    padding: 52px 0;
+  }
+}
+
+/* =========================
+   FIXED COMPACT PROFILE CARD
+========================= */
+
+.profile-summary {
+  overflow: hidden;
+}
+
+.profile-id-card {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 14px;
+  align-items: center;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(255,255,255,.28);
+}
+
+.profile-avatar {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(255,255,255,.96), rgba(224,242,254,.92));
+  border: 2px solid rgba(255,255,255,.78);
+  box-shadow: 0 7px 0 rgba(0,0,0,.14);
+  flex-shrink: 0;
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center 16%;
+  transform: scale(1.02);
+}
+
+.profile-avatar.fallback::before {
+  content: "HY";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #2563eb;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.profile-info {
+  min-width: 0;
+  color: #fff;
+}
+
+.profile-label {
+  display: inline-flex;
+  width: fit-content;
+  margin-bottom: 6px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.18);
+  color: #fff;
+  font-family: "JetBrains Mono", monospace;
+  font-size: .64rem;
+  font-weight: 900;
+}
+
+.profile-info h3 {
+  margin-bottom: 4px;
+  color: #fff;
+  font-size: 1.12rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  text-shadow: 0 4px 16px rgba(0,0,0,.35);
+}
+
+.profile-info p {
+  color: rgba(255,255,255,.84);
+  font-size: .74rem;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.profile-links a {
+  display: inline-flex;
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.20);
+  color: #fff;
+  font-size: .68rem;
+  font-weight: 850;
+}
+
+.profile-links a:hover {
+  background: #fff;
+  color: #101828;
+}
+
+@media (max-width: 1100px) {
+  .hero-summary {
+    max-width: none;
+    justify-self: stretch;
+  }
+}
+
+@media (max-width: 760px) {
+  .profile-id-card {
+    grid-template-columns: 60px 1fr;
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .profile-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 17px;
+  }
+
+  .profile-info h3 {
+    font-size: 1rem;
+  }
+
+  .profile-info p {
+    font-size: .7rem;
+  }
+}
