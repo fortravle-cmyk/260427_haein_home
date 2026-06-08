@@ -1,645 +1,392 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<ul class="nav-links" id="navLinks">
+  <li><a href="#about">About</a></li>
+  <li><a href="#featured">Featured</a></li>
+  <li><a href="#skills">AI Skills</a></li>
+  <li><a href="#research">Research</a></li>
+  <li><a href="#awards">Awards</a></li>
+  <li><a href="#directions">Directions</a></li>
+  <li><a href="#contact">Contact</a></li>
+</ul>
 
-  <title>Haein Youn | ESCO Research Portfolio</title>
-  <meta
-    name="description"
-    content="윤해인 개인 홈페이지 - ESCO 소속 연구원, AI, BIM, RAG, NLP, 건설관리 연구 포트폴리오"
-  />
+<button class="menu-btn" id="menuBtn" type="button">Menu</button>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap"
-    rel="stylesheet"
-  />
+<div class="wrap hero-content">
+  <section class="hero-copy reveal">
+    <div class="label">ESCO Researcher · AI-enabled Construction Management</div>
 
-  <link rel="stylesheet" href="style.css" />
-</head>
+    <h1>
+      Haein Youn
+      <span>윤해인</span>
+    </h1>
 
-<body>
-  <div class="progress" id="progress"></div>
+    <p class="subtitle">
+      Researcher connecting construction management, AI, BIM, and automation.
+    </p>
 
-  <nav class="nav">
-    <a href="#hero" class="brand" aria-label="Go to home">
-      <span class="brand-mark">HY</span>
-      <span class="brand-text">Haein Youn</span>
-    </a>
+    <div class="typing">
+      <span>Focused on</span>
+      <b id="typeWord">Generative AI</b>
+    </div>
 
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#about">About</a></li>
-      <li><a href="#featured">Featured</a></li>
-      <li><a href="#skills">AI Skills</a></li>
-      <li><a href="#research">Research</a></li>
-      <li><a href="#awards">Awards</a></li>
-      <li><a href="#directions">Directions</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <p class="desc">
+      ESCO 소속 연구원으로서 <strong>건설관리, BIM, RAG, NLP, 자동화, 데이터 기반 의사결정</strong>을 연결하는 연구를 수행합니다.
+      다양한 AI 도구를 연구·분석·문서화·시각화 과정에 활용하며, 복잡한 건설 문제를 논리적인 구조로 정리하는 것을 지향합니다.
+    </p>
 
-    <button class="menu-btn" id="menuBtn" type="button">Menu</button>
-  </nav>
+    <div class="actions">
+      <a class="btn primary" href="#featured">Featured Research</a>
+      <a class="btn secondary" href="#awards">View Awards</a>
+      <a class="btn secondary" href="Haein_Youn_CV.pdf" target="_blank" rel="noopener noreferrer">View CV</a>
+      <button class="btn primary" id="buildAllBtn" type="button">Build All</button>
+    </div>
 
-  <header class="hero image-hero" id="hero">
-    <div class="hero-shade"></div>
-    <div class="hero-blur hero-blur-top"></div>
-    <div class="hero-blur hero-blur-bottom"></div>
+    <div class="chips">
+      <span class="chip">Ewha Womans University</span>
+      <span class="chip">ESCO Lab</span>
+      <span class="chip">Multi-AI User</span>
+      <span class="chip">Construction Management</span>
+    </div>
+  </section>
 
-    <div class="wrap hero-content">
-      <section class="hero-copy reveal">
-        <div class="label">ESCO Researcher · AI-enabled Construction Management</div>
+ <aside class="hero-summary profile-summary reveal">
 
-        <h1>
-          Haein Youn
-          <span>윤해인</span>
-        </h1>
+<div class="profile-info">
+  <span class="profile-label">ESCO Researcher</span>
+  <h3>Haein Youn</h3>
+  <p>건설관리, BIM, RAG, NLP, 자동화 기반 연구를 수행하는 ESCO 소속 연구원입니다.</p>
+</div>
 
-        <p class="subtitle">
-          Researcher connecting construction management, AI, BIM, and automation.
+<div class="summary-kpi">
+  <span>BIM</span>
+  <strong>Data Context</strong>
+  <p>Physical construction context as structured evidence</p>
+</div>
+
+<div class="summary-kpi">
+  <span>Decision</span>
+  <strong>Support</strong>
+  <p>From pattern recognition to practical construction insight</p>
+</div>
+
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">02 Overview</span>
+      <h2>AI와 건설관리를 연결하는 연구자</h2>
+    </div>
+
+    <div class="about-layout">
+      <article class="panel reveal">
+        <h3>Profile Summary</h3>
+        <p>
+          현재 ESCO 소속 연구원으로 활동하며, 건설관리 분야의 연구 문제를
+          <strong>AI 기반 분석, BIM 데이터 활용, 자동화 시스템 설계, 지식 구조화</strong>
+          관점에서 다루고 있습니다.
+        </p>
+        <p>
+          다양한 AI 도구를 단순 보조 수단이 아니라 연구 생산성을 높이는 분석·작성·검토·시각화 도구로 활용할 수 있으며,
+          이를 바탕으로 건설 산업의 문서화, 안전관리, 설계 의사결정, 프로젝트 관리 프로세스를 개선하는 데 관심이 있습니다.
+        </p>
+      </article>
+
+      <div class="info-grid">
+        <div class="info-card reveal">
+          <span class="info-no">01</span>
+          <h4>Affiliation</h4>
+          <p>이화여자대학교 건축도시시스템공학과 및 ESCO 연구실 소속</p>
+        </div>
+
+        <div class="info-card reveal">
+          <span class="info-no">02</span>
+          <h4>AI Capability</h4>
+          <p>생성형 AI, LLM, RAG, NLP, 자동화 도구를 연구 과정에 통합적으로 활용</p>
+        </div>
+
+        <div class="info-card reveal">
+          <span class="info-no">03</span>
+          <h4>Domain</h4>
+          <p>Construction Management, BIM, Safety, Automation, Digital Transformation</p>
+        </div>
+
+        <div class="info-card reveal">
+          <span class="info-no">04</span>
+          <h4>Goal</h4>
+          <p>건설산업의 실무 문제를 데이터 기반으로 해석하고 해결 가능한 연구로 확장</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="featured" class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">03 Featured Research</span>
+      <h2>BIM-context-aware RAG for safety decision support</h2>
+    </div>
+
+    <div class="feature-layout">
+      <article class="panel feature-card reveal">
+        <div class="feature-number">01</div>
+        <h3>Evidence-grounded safety knowledge activation</h3>
+        <p>
+          비정형 사고 내러티브를 AI/NLP로 구조화하고, BIM에서 추출한 물리적 맥락과 연결하여
+          현재 작업 조건에 맞는 안전 지식을 검색·생성하는 연구입니다.
         </p>
 
-        <div class="typing">
-          <span>Focused on</span>
-          <b id="typeWord">Generative AI</b>
+        <div class="pipeline">
+          <span>Accident Narratives</span>
+          <i>→</i>
+          <span>Risk-chain Structuring</span>
+          <i>→</i>
+          <span>BIM Context</span>
+          <i>→</i>
+          <span>RAG Output</span>
+        </div>
+      </article>
+
+      <aside class="visual-card reveal">
+        <div class="visual-card-bg"></div>
+        <div class="visual-card-text">
+          <span>Concept Scene</span>
+          <h3>AI + BIM + RAG</h3>
+          <p>
+            Miniature modular assembly scene representing evidence-based construction intelligence.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">04 AI Capability</span>
+      <h2>Patterned thinking for AI workflows</h2>
+    </div>
+
+    <div class="skills-layout">
+      <article class="panel reveal">
+        <div class="big-number">6</div>
+        <h3>AI / Tech Fields</h3>
+        <p>다양한 AI 도구를 연구 생산성 향상과 디지털 건설관리 문제 해결에 활용합니다.</p>
+
+        <div class="bars" id="bars">
+          <div class="bar-row" data-score="92">
+            <b>AI Writing</b>
+            <span class="track"><span class="fill"></span></span>
+            <em>92</em>
+          </div>
+
+          <div class="bar-row" data-score="88">
+            <b>LLM/RAG</b>
+            <span class="track"><span class="fill"></span></span>
+            <em>88</em>
+          </div>
+
+          <div class="bar-row" data-score="84">
+            <b>NLP</b>
+            <span class="track"><span class="fill"></span></span>
+            <em>84</em>
+          </div>
+
+          <div class="bar-row" data-score="82">
+            <b>BIM/Data</b>
+            <span class="track"><span class="fill"></span></span>
+            <em>82</em>
+          </div>
+
+          <div class="bar-row" data-score="78">
+            <b>Automation</b>
+            <span class="track"><span class="fill"></span></span>
+            <em>78</em>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel reveal">
+        <div class="tabs">
+          <button class="tab active" type="button" data-tab="research">Research</button>
+          <button class="tab" type="button" data-tab="writing">Writing</button>
+          <button class="tab" type="button" data-tab="visual">Visualization</button>
+          <button class="tab" type="button" data-tab="auto">Automation</button>
         </div>
 
-        <p class="desc">
-          ESCO 소속 연구원으로서 <strong>건설관리, BIM, RAG, NLP, 자동화, 데이터 기반 의사결정</strong>을 연결하는 연구를 수행합니다.
-          다양한 AI 도구를 연구·분석·문서화·시각화 과정에 활용하며, 복잡한 건설 문제를 논리적인 구조로 정리하는 것을 지향합니다.
+        <h3 id="tabTitle">Research AI Workflow</h3>
+        <p id="tabDesc">
+          문헌 검토, 연구 질문 구조화, 데이터 라벨링 기준 정리, 실험 결과 해석 등 연구 전 과정에서 AI를 활용합니다.
         </p>
 
-        <div class="actions">
-          <a class="btn primary" href="#featured">Featured Research</a>
-          <a class="btn secondary" href="#awards">View Awards</a>
-          <a class="btn secondary" href="Haein_Youn_CV.pdf" target="_blank" rel="noopener noreferrer">View CV</a>
-          <button class="btn primary" id="buildAllBtn" type="button">Build All</button>
+        <div class="chip-grid" id="tabGrid">
+          <div class="skill-chip">Literature Review</div>
+          <div class="skill-chip">Research Framing</div>
+          <div class="skill-chip">Result Interpretation</div>
+          <div class="skill-chip">Evidence Structuring</div>
         </div>
-
-        <div class="chips">
-          <span class="chip">Ewha Womans University</span>
-          <span class="chip">ESCO Lab</span>
-          <span class="chip">Multi-AI User</span>
-          <span class="chip">Construction Management</span>
-        </div>
-      </section>
-
-     <aside class="hero-summary profile-summary reveal">
-  <div class="summary-head">
-    <span>Researcher Profile</span>
-    <b>HY</b>
-  </div>
-
-  <div class="profile-card">
-    <div class="profile-photo-wrap">
-      <img src="profile.jpg" alt="Haein Youn profile photo" class="profile-photo" />
-    </div>
-
-    <div class="profile-info">
-      <span class="profile-label">ESCO Researcher</span>
-      <h3>Haein Youn</h3>
-      <p>건설관리, BIM, RAG, NLP, 자동화 기반 연구를 수행하는 ESCO 소속 연구원입니다.</p>
+      </article>
     </div>
   </div>
+</section>
 
-  <div class="summary-body">
-    <div class="summary-kpi">
-      <span>AI</span>
-      <strong>NLP · RAG</strong>
-      <p>Unstructured construction knowledge into usable research logic</p>
+<section id="research" class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">05 Research Structure</span>
+      <h2>From unstructured data to decision support</h2>
     </div>
 
-    <div class="summary-kpi">
-      <span>BIM</span>
-      <strong>Data Context</strong>
-      <p>Physical construction context as structured evidence</p>
+    <div class="flow reveal">
+      <div class="flow-step"><span>01</span><b>Unstructured Data</b></div>
+      <div class="flow-step"><span>02</span><b>AI / NLP Structuring</b></div>
+      <div class="flow-step"><span>03</span><b>BIM Context Mapping</b></div>
+      <div class="flow-step"><span>04</span><b>RAG-based Retrieval</b></div>
+      <div class="flow-step"><span>05</span><b>Decision Support</b></div>
     </div>
 
-    <div class="summary-kpi">
-      <span>Decision</span>
-      <strong>Support</strong>
-      <p>From pattern recognition to practical construction insight</p>
+    <div class="filters reveal">
+      <button class="filter active" type="button" data-filter="all">All</button>
+      <button class="filter" type="button" data-filter="ai">AI</button>
+      <button class="filter" type="button" data-filter="bim">BIM</button>
+      <button class="filter" type="button" data-filter="safety">Safety</button>
+      <button class="filter" type="button" data-filter="automation">Automation</button>
+    </div>
+
+    <div class="projects">
+      <article class="project-card reveal" data-category="ai bim safety">
+        <div class="project-icon">AI</div>
+        <h3>BIM-context-aware RAG for Construction Safety</h3>
+        <p>비정형 사고 데이터와 BIM 맥락 정보를 연결하여 DfS 및 안전관리 의사결정을 지원하는 RAG 기반 프레임워크 연구.</p>
+        <div class="mini-tags"><span>RAG</span><span>BIM</span><span>Safety</span></div>
+        <div class="build-progress-bar"><span></span></div>
+      </article>
+
+      <article class="project-card reveal" data-category="ai safety">
+        <div class="project-icon">KG</div>
+        <h3>Risk-chain Structuring from Accident Narratives</h3>
+        <p>사고 내러티브에서 Work, Hazard, Accident, Injury 구조를 추출하고 지식그래프 기반으로 정리하는 연구.</p>
+        <div class="mini-tags"><span>NLP</span><span>Graph</span><span>OSHA</span></div>
+        <div class="build-progress-bar"><span></span></div>
+      </article>
+
+      <article class="project-card reveal" data-category="automation safety">
+        <div class="project-icon">RPA</div>
+        <h3>Construction Safety Documentation Automation</h3>
+        <p>건설현장 안전문서의 반복 입력과 행정 부담을 줄이기 위한 RPA 및 데이터 허브 기반 자동화 체계 설계.</p>
+        <div class="mini-tags"><span>RPA</span><span>Data Hub</span><span>Workflow</span></div>
+        <div class="build-progress-bar"><span></span></div>
+      </article>
+
+      <article class="project-card reveal" data-category="bim automation">
+        <div class="project-icon">BIM</div>
+        <h3>BIM-based Design and Construction Automation</h3>
+        <p>파라메트릭 모델과 설계 규칙을 활용하여 외벽 패널 설계, 물량 산출, 상세 자동화를 지원하는 연구.</p>
+        <div class="mini-tags"><span>BIM</span><span>Parametric</span><span>Dynamo</span></div>
+        <div class="build-progress-bar"><span></span></div>
+      </article>
+
+      <article class="project-card reveal" data-category="ai automation">
+        <div class="project-icon">DOC</div>
+        <h3>AI-assisted Research Writing & Review</h3>
+        <p>논문 작성, 리뷰 대응, 연구계획서 구성, 발표자료 기획 과정에서 AI 기반 검토와 구조화를 수행.</p>
+        <div class="mini-tags"><span>Writing</span><span>Review</span><span>Prompting</span></div>
+        <div class="build-progress-bar"><span></span></div>
+      </article>
+
+      <article class="project-card reveal" data-category="automation">
+        <div class="project-icon">WEB</div>
+        <h3>Interactive Web Documentation</h3>
+        <p>연구 로직, 계산식, 실험 절차를 HTML, Markdown, MkDocs 기반의 탐색 가능한 문서로 구현.</p>
+        <div class="mini-tags"><span>HTML</span><span>Docs</span><span>UX</span></div>
+        <div class="build-progress-bar"><span></span></div>
+      </article>
     </div>
   </div>
-</aside>
+</section>
+
+<section id="awards" class="section image-band">
+  <div class="image-band-shade"></div>
+
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">06 Awards</span>
+      <h2>Academic achievements</h2>
     </div>
-  </header>
 
-  <main>
-    <section id="about" class="section image-section">
-      <div class="section-bg-shade"></div>
+    <div class="activity-grid">
+      <article class="activity-card reveal">
+        <span>2025</span>
+        <h3>대한건축학회 추계학술발표대회 우수논문상</h3>
+        <p>디지털 건설관리 및 AI 기반 연구성과의 학술적 가능성을 인정받은 성과입니다.</p>
+      </article>
 
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="kicker">02 Overview</span>
-          <h2>AI와 건설관리를 연결하는 연구자</h2>
-        </div>
+      <article class="activity-card reveal">
+        <span>2026</span>
+        <h3>대한건축학회 우수졸업논문전 장려상</h3>
+        <p>학부 연구에서 확장된 연구 역량과 주제의 발전 가능성을 보여주는 성과입니다.</p>
+      </article>
 
-        <div class="about-layout">
-          <article class="panel reveal">
-            <h3>Profile Summary</h3>
-            <p>
-              현재 ESCO 소속 연구원으로 활동하며, 건설관리 분야의 연구 문제를
-              <strong>AI 기반 분석, BIM 데이터 활용, 자동화 시스템 설계, 지식 구조화</strong>
-              관점에서 다루고 있습니다.
-            </p>
-            <p>
-              다양한 AI 도구를 단순 보조 수단이 아니라 연구 생산성을 높이는 분석·작성·검토·시각화 도구로 활용할 수 있으며,
-              이를 바탕으로 건설 산업의 문서화, 안전관리, 설계 의사결정, 프로젝트 관리 프로세스를 개선하는 데 관심이 있습니다.
-            </p>
-          </article>
-
-          <div class="info-grid">
-            <div class="info-card reveal">
-              <span class="info-no">01</span>
-              <h4>Affiliation</h4>
-              <p>이화여자대학교 건축도시시스템공학과 및 ESCO 연구실 소속</p>
-            </div>
-
-            <div class="info-card reveal">
-              <span class="info-no">02</span>
-              <h4>AI Capability</h4>
-              <p>생성형 AI, LLM, RAG, NLP, 자동화 도구를 연구 과정에 통합적으로 활용</p>
-            </div>
-
-            <div class="info-card reveal">
-              <span class="info-no">03</span>
-              <h4>Domain</h4>
-              <p>Construction Management, BIM, Safety, Automation, Digital Transformation</p>
-            </div>
-
-            <div class="info-card reveal">
-              <span class="info-no">04</span>
-              <h4>Goal</h4>
-              <p>건설산업의 실무 문제를 데이터 기반으로 해석하고 해결 가능한 연구로 확장</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="featured" class="section">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="kicker">03 Featured Research</span>
-          <h2>BIM-context-aware RAG for safety decision support</h2>
-        </div>
-
-        <div class="feature-layout">
-          <article class="panel feature-card reveal">
-            <div class="feature-number">01</div>
-            <h3>Evidence-grounded safety knowledge activation</h3>
-            <p>
-              비정형 사고 내러티브를 AI/NLP로 구조화하고, BIM에서 추출한 물리적 맥락과 연결하여
-              현재 작업 조건에 맞는 안전 지식을 검색·생성하는 연구입니다.
-            </p>
-
-            <div class="pipeline">
-              <span>Accident Narratives</span>
-              <i>→</i>
-              <span>Risk-chain Structuring</span>
-              <i>→</i>
-              <span>BIM Context</span>
-              <i>→</i>
-              <span>RAG Output</span>
-            </div>
-          </article>
-
-          <aside class="visual-card reveal">
-            <div class="visual-card-bg"></div>
-            <div class="visual-card-text">
-              <span>Concept Scene</span>
-              <h3>AI + BIM + RAG</h3>
-              <p>
-                Miniature modular assembly scene representing evidence-based construction intelligence.
-              </p>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills" class="section">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="kicker">04 AI Capability</span>
-          <h2>Patterned thinking for AI workflows</h2>
-        </div>
-
-        <div class="skills-layout">
-          <article class="panel reveal">
-            <div class="big-number">6</div>
-            <h3>AI / Tech Fields</h3>
-            <p>다양한 AI 도구를 연구 생산성 향상과 디지털 건설관리 문제 해결에 활용합니다.</p>
-
-            <div class="bars" id="bars">
-              <div class="bar-row" data-score="92">
-                <b>AI Writing</b>
-                <span class="track"><span class="fill"></span></span>
-                <em>92</em>
-              </div>
-
-              <div class="bar-row" data-score="88">
-                <b>LLM/RAG</b>
-                <span class="track"><span class="fill"></span></span>
-                <em>88</em>
-              </div>
-
-              <div class="bar-row" data-score="84">
-                <b>NLP</b>
-                <span class="track"><span class="fill"></span></span>
-                <em>84</em>
-              </div>
-
-              <div class="bar-row" data-score="82">
-                <b>BIM/Data</b>
-                <span class="track"><span class="fill"></span></span>
-                <em>82</em>
-              </div>
-
-              <div class="bar-row" data-score="78">
-                <b>Automation</b>
-                <span class="track"><span class="fill"></span></span>
-                <em>78</em>
-              </div>
-            </div>
-          </article>
-
-          <article class="panel reveal">
-            <div class="tabs">
-              <button class="tab active" type="button" data-tab="research">Research</button>
-              <button class="tab" type="button" data-tab="writing">Writing</button>
-              <button class="tab" type="button" data-tab="visual">Visualization</button>
-              <button class="tab" type="button" data-tab="auto">Automation</button>
-            </div>
-
-            <h3 id="tabTitle">Research AI Workflow</h3>
-            <p id="tabDesc">
-              문헌 검토, 연구 질문 구조화, 데이터 라벨링 기준 정리, 실험 결과 해석 등 연구 전 과정에서 AI를 활용합니다.
-            </p>
-
-            <div class="chip-grid" id="tabGrid">
-              <div class="skill-chip">Literature Review</div>
-              <div class="skill-chip">Research Framing</div>
-              <div class="skill-chip">Result Interpretation</div>
-              <div class="skill-chip">Evidence Structuring</div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="research" class="section">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="kicker">05 Research Structure</span>
-          <h2>From unstructured data to decision support</h2>
-        </div>
-
-        <div class="flow reveal">
-          <div class="flow-step"><span>01</span><b>Unstructured Data</b></div>
-          <div class="flow-step"><span>02</span><b>AI / NLP Structuring</b></div>
-          <div class="flow-step"><span>03</span><b>BIM Context Mapping</b></div>
-          <div class="flow-step"><span>04</span><b>RAG-based Retrieval</b></div>
-          <div class="flow-step"><span>05</span><b>Decision Support</b></div>
-        </div>
-
-        <div class="filters reveal">
-          <button class="filter active" type="button" data-filter="all">All</button>
-          <button class="filter" type="button" data-filter="ai">AI</button>
-          <button class="filter" type="button" data-filter="bim">BIM</button>
-          <button class="filter" type="button" data-filter="safety">Safety</button>
-          <button class="filter" type="button" data-filter="automation">Automation</button>
-        </div>
-
-        <div class="projects">
-          <article class="project-card reveal" data-category="ai bim safety">
-            <div class="project-icon">AI</div>
-            <h3>BIM-context-aware RAG for Construction Safety</h3>
-            <p>비정형 사고 데이터와 BIM 맥락 정보를 연결하여 DfS 및 안전관리 의사결정을 지원하는 RAG 기반 프레임워크 연구.</p>
-            <div class="mini-tags"><span>RAG</span><span>BIM</span><span>Safety</span></div>
-            <div class="build-progress-bar"><span></span></div>
-          </article>
-
-          <article class="project-card reveal" data-category="ai safety">
-            <div class="project-icon">KG</div>
-            <h3>Risk-chain Structuring from Accident Narratives</h3>
-            <p>사고 내러티브에서 Work, Hazard, Accident, Injury 구조를 추출하고 지식그래프 기반으로 정리하는 연구.</p>
-            <div class="mini-tags"><span>NLP</span><span>Graph</span><span>OSHA</span></div>
-            <div class="build-progress-bar"><span></span></div>
-          </article>
-
-          <article class="project-card reveal" data-category="automation safety">
-            <div class="project-icon">RPA</div>
-            <h3>Construction Safety Documentation Automation</h3>
-            <p>건설현장 안전문서의 반복 입력과 행정 부담을 줄이기 위한 RPA 및 데이터 허브 기반 자동화 체계 설계.</p>
-            <div class="mini-tags"><span>RPA</span><span>Data Hub</span><span>Workflow</span></div>
-            <div class="build-progress-bar"><span></span></div>
-          </article>
-
-          <article class="project-card reveal" data-category="bim automation">
-            <div class="project-icon">BIM</div>
-            <h3>BIM-based Design and Construction Automation</h3>
-            <p>파라메트릭 모델과 설계 규칙을 활용하여 외벽 패널 설계, 물량 산출, 상세 자동화를 지원하는 연구.</p>
-            <div class="mini-tags"><span>BIM</span><span>Parametric</span><span>Dynamo</span></div>
-            <div class="build-progress-bar"><span></span></div>
-          </article>
-
-          <article class="project-card reveal" data-category="ai automation">
-            <div class="project-icon">DOC</div>
-            <h3>AI-assisted Research Writing & Review</h3>
-            <p>논문 작성, 리뷰 대응, 연구계획서 구성, 발표자료 기획 과정에서 AI 기반 검토와 구조화를 수행.</p>
-            <div class="mini-tags"><span>Writing</span><span>Review</span><span>Prompting</span></div>
-            <div class="build-progress-bar"><span></span></div>
-          </article>
-
-          <article class="project-card reveal" data-category="automation">
-            <div class="project-icon">WEB</div>
-            <h3>Interactive Web Documentation</h3>
-            <p>연구 로직, 계산식, 실험 절차를 HTML, Markdown, MkDocs 기반의 탐색 가능한 문서로 구현.</p>
-            <div class="mini-tags"><span>HTML</span><span>Docs</span><span>UX</span></div>
-            <div class="build-progress-bar"><span></span></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="awards" class="section image-band">
-      <div class="image-band-shade"></div>
-
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="kicker">06 Awards</span>
-          <h2>Academic achievements</h2>
-        </div>
-
-        <div class="activity-grid">
-          <article class="activity-card reveal">
-            <span>2025</span>
-            <h3>대한건축학회 추계학술발표대회 우수논문상</h3>
-            <p>디지털 건설관리 및 AI 기반 연구성과의 학술적 가능성을 인정받은 성과입니다.</p>
-          </article>
-
-          <article class="activity-card reveal">
-            <span>2026</span>
-            <h3>대한건축학회 우수졸업논문전 장려상</h3>
-            <p>학부 연구에서 확장된 연구 역량과 주제의 발전 가능성을 보여주는 성과입니다.</p>
-          </article>
-
-          <article class="activity-card reveal">
-            <span>Plan</span>
-            <h3>Certificates in progress</h3>
-            <p>건축기사, 건설안전기사 등 실무 기반 전문성을 확장할 예정입니다.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="directions" class="section">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="kicker">07 Directions</span>
-          <h2>How to find the lab</h2>
-        </div>
-
-        <div class="directions-card reveal">
-          <div class="directions-main">
-            <div class="directions-no">503</div>
-            <h3>
-              <span>이화여자대학교</span>
-              <span>아산공학관 <strong>503호</strong></span>
-            </h3>
-            <p>건축도시시스템공학과 · ESCO 연구실</p>
-
-            <div class="directions-actions">
-              <a href="https://maps.app.goo.gl/uByt69vVQEC92SZF8" target="_blank" rel="noopener noreferrer">Open Google Maps</a>
-              <a href="#contact">Contact</a>
-            </div>
-          </div>
-
-          <div class="floor-grid" aria-hidden="true">
-            <span class="room">501</span>
-            <span class="room">502</span>
-            <span class="room active-room">503</span>
-            <span class="room">504</span>
-            <span class="corridor">Asan Engineering Building</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section contact-section">
-      <div class="wrap">
-        <div class="contact-card reveal">
-          <div>
-            <span class="kicker">08 Contact</span>
-            <h2>Let’s build intelligent construction research.</h2>
-
-            <div class="contact-buttons">
-              <a href="Haein_Youn_CV.pdf" target="_blank" rel="noopener noreferrer">View CV</a>
-              <a href="mailto:godls114747@ewha.ac.kr">Email</a>
-              <a href="#research">Research</a>
-            </div>
-          </div>
-
-          <div class="contact-list">
-            <div class="contact-item">📍 이화여자대학교 아산공학관 503호</div>
-            <div class="contact-item">🏫 건축도시시스템공학과</div>
-            <div class="contact-item">🔬 ESCO Researcher</div>
-            <div class="contact-item">✉️ godls114747@ewha.ac.kr</div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap footer-inner">
-      <p>© Haein Youn. construction research portfolio.</p>
-      <p>HY · ESCO</p>
+      <article class="activity-card reveal">
+        <span>Plan</span>
+        <h3>Certificates in progress</h3>
+        <p>건축기사, 건설안전기사 등 실무 기반 전문성을 확장할 예정입니다.</p>
+      </article>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <button class="top" id="top" type="button">↑</button>
+<section id="directions" class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">07 Directions</span>
+      <h2>How to find the lab</h2>
+    </div>
 
-  <script>
-    const progress = document.getElementById('progress');
-    const topBtn = document.getElementById('top');
-    const navLinks = document.getElementById('navLinks');
-    const menuBtn = document.getElementById('menuBtn');
-    const typeWord = document.getElementById('typeWord');
+    <div class="directions-card reveal">
+      <div class="directions-main">
+        <div class="directions-no">503</div>
+        <h3>
+          <span>이화여자대학교</span>
+          <span>아산공학관 <strong>503호</strong></span>
+        </h3>
+        <p>건축도시시스템공학과 · ESCO 연구실</p>
 
-    function setProgress() {
-      const h = document.documentElement.scrollHeight - window.innerHeight;
-      const pct = h > 0 ? (window.scrollY / h) * 100 : 0;
-      progress.style.width = pct + '%';
-      topBtn.classList.toggle('show', window.scrollY > 500);
-    }
+        <div class="directions-actions">
+          <a href="https://maps.app.goo.gl/uByt69vVQEC92SZF8" target="_blank" rel="noopener noreferrer">Open Google Maps</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
 
-    window.addEventListener('scroll', setProgress);
-    setProgress();
+      <div class="floor-grid" aria-hidden="true">
+        <span class="room">501</span>
+        <span class="room">502</span>
+        <span class="room active-room">503</span>
+        <span class="room">504</span>
+        <span class="corridor">Asan Engineering Building</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-    topBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+<section id="contact" class="section contact-section">
+  <div class="wrap">
+    <div class="contact-card reveal">
+      <div>
+        <span class="kicker">08 Contact</span>
+        <h2>Let’s build intelligent construction research.</h2>
 
-    menuBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-    });
+        <div class="contact-buttons">
+          <a href="Haein_Youn_CV.pdf" target="_blank" rel="noopener noreferrer">View CV</a>
+          <a href="mailto:godls114747@ewha.ac.kr">Email</a>
+          <a href="#research">Research</a>
+        </div>
+      </div>
 
-    document.querySelectorAll('.nav-links a').forEach(a => {
-      a.addEventListener('click', () => navLinks.classList.remove('open'));
-    });
-
-    const revealObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('show');
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-    const sectionObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          document.querySelectorAll('.nav-links a').forEach(a => {
-            a.classList.toggle('active', a.getAttribute('href') === `#${entry.target.id}`);
-          });
-        }
-      });
-    }, { threshold: 0.35 });
-
-    document.querySelectorAll('header[id], section[id]').forEach(s => sectionObserver.observe(s));
-
-    const words = [
-      'Generative AI',
-      'LLM-based Research',
-      'BIM Data Workflows',
-      'RAG Systems',
-      'NLP for Safety Narratives',
-      'Research Automation'
-    ];
-
-    let wi = 0;
-    let ci = 0;
-    let del = false;
-
-    function typeLoop() {
-      const w = words[wi];
-      typeWord.textContent = del ? w.slice(0, ci - 1) : w.slice(0, ci + 1);
-      ci += del ? -1 : 1;
-
-      if (!del && ci === w.length) {
-        del = true;
-        setTimeout(typeLoop, 1000);
-        return;
-      }
-
-      if (del && ci === 0) {
-        del = false;
-        wi = (wi + 1) % words.length;
-      }
-
-      setTimeout(typeLoop, del ? 35 : 60);
-    }
-
-    typeLoop();
-
-    const barObserver = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (!e.isIntersecting) return;
-
-        document.querySelectorAll('.bar-row').forEach(row => {
-          const fill = row.querySelector('.fill');
-          fill.style.width = `${row.dataset.score || 0}%`;
-        });
-
-        barObserver.disconnect();
-      });
-    }, { threshold: 0.2 });
-
-    const bars = document.getElementById('bars');
-    if (bars) barObserver.observe(bars);
-
-    const tabData = {
-      research: [
-        'Research AI Workflow',
-        '문헌 검토, 연구 질문 구조화, 데이터 라벨링 기준 정리, 실험 결과 해석 등 연구 전 과정에서 AI를 활용합니다.',
-        ['Literature Review', 'Research Framing', 'Result Interpretation', 'Evidence Structuring']
-      ],
-      writing: [
-        'AI-assisted Academic Writing',
-        '논문, 연구계획서, 학회 발표문, 리뷰 대응문을 작성할 때 논리 구조와 표현 정확도를 검토합니다.',
-        ['Manuscript Drafting', 'Wording Refinement', 'Logical Review', 'KR/EN Translation']
-      ],
-      visual: [
-        'Visual & Interface Prototyping',
-        '연구 프레임워크, 시스템 구조, 데이터 흐름, 발표용 도식화를 시각적으로 구현하는 데 AI를 활용합니다.',
-        ['Diagram Design', 'Infographics', 'UI Mockup', 'Storyline']
-      ],
-      auto: [
-        'Automation-oriented AI Use',
-        '반복 문서 작업, 데이터 정리, 코드 초안 작성, 워크플로우 설계를 자동화 관점에서 수행합니다.',
-        ['RPA Logic', 'Data Cleaning', 'Code Assistance', 'Workflow Design']
-      ]
-    };
-
-    document.querySelectorAll('.tab').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        const data = tabData[btn.dataset.tab];
-        document.getElementById('tabTitle').textContent = data[0];
-        document.getElementById('tabDesc').textContent = data[1];
-        document.getElementById('tabGrid').innerHTML = data[2]
-          .map(x => `<div class="skill-chip">${x}</div>`)
-          .join('');
-      });
-    });
-
-    document.querySelectorAll('.filter').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        const f = btn.dataset.filter;
-
-        document.querySelectorAll('.project-card').forEach(card => {
-          card.style.display = f === 'all' || card.dataset.category.includes(f)
-            ? 'block'
-            : 'none';
-        });
-      });
-    });
-
-    function animateBuild(card) {
-      const progress = card.querySelector('.build-progress-bar span');
-
-      if (progress) {
-        progress.style.width = '0%';
-        requestAnimationFrame(() => {
-          progress.style.width = '100%';
-        });
-      }
-
-      card.classList.add('project-built');
-
-      setTimeout(() => {
-        card.classList.remove('project-built');
-      }, 1300);
-    }
-
-    document.querySelectorAll('.project-card').forEach(card => {
-      card.addEventListener('click', () => animateBuild(card));
-    });
-
-    document.getElementById('buildAllBtn').addEventListener('click', () => {
-      document.querySelectorAll('.project-card').forEach((card, i) => {
-        setTimeout(() => animateBuild(card), i * 220);
-      });
-    });
-  </script>
-</body>
-</html>
+      <div class="contact-list">
+        <div class="contact-item">📍 이화여자대학교 아산공학관 503호</div>
+        <div class="contact-item">🏫 건축도시시스템공학과</div>
+        <div class="contact-item">🔬 ESCO Researcher</div>
+        <div class="contact-item">✉️ godls114747@ewha.ac.kr</div>
+      </div>
+    </div>
+  </div>
+</section>
